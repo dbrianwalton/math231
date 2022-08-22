@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_limits_intuition" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Intuition about Limits and Continuity</title>
+    <introduction>
+        <p>
+            When we graph a function defined piecewise,
+            the graph has different segments on different subsets of the domain.
+            Because the domains of functions we are interested in studying involve a continuum of values on the number line, the end-point plays an interesting role.
+            If the end-point of an interval subset of the restricted domain is <em>not</em> included, there are still infinitely many values in the interval that get infinitely close to the end-point that <em>are</em> in the domain.
+            We usually graph that restricted piece of the function with a curve and put an <em>open</em> point on the graph to illustrate that <em>that</em> value is not used, but the graph uses all values to the side that <em>approach</em> that point.
+            This is, in essence, the idea of a limit.
+            A function is <term>continuous</term> the graph to the left and the right of a point both approach the actual value of the function.
+        </p>
+        <p>
+            This section focuses on applying these ideas to calculate limits of piecewise functions, defined graphically or with piecewise formulas, and then using these limits to provide reasoning for whether the function is or is not continuous.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_lim_graph_intuition">
+        <title>Limit Intuition from Graphs</title>
+        <p>
+            When a graph is shown with a segment of the graph ending in a point, that point might be either open (hollow) or closed (filled in).
+            A closed end-point means that the point is <em>included</em> in the graph.
+            An open end-point means that the point is <em>not included</em> in the graph but that the adjacent segment of the graph <em>approaches</em> that point.
+        </p>
+        <figure xml:id="fig_demo_piecewise_graph">
+            <caption>Graph of a piecewise function that has both open and closed end-points to segments</caption>
+            <image xml:id="demo_piecewise_graph" width="50%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[ xmin=-4, xmax=4, ymin=-4, ymax=4, grid=both, minor tick num=1 ]
+\addplot [domain=-4:-1, very thick, blue] {2*x+4};
+\addplot [domain=-1:4, very thick, blue] {(x^2-1)/2};
+\addplot [only marks, blue, fill=blue] coordinates { (-1,0) };
+\addplot [only marks, thick, blue, fill=white] coordinates { (-1,2) };
+\end{axis}
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            In <xref ref="fig_demo_piecewise_graph" />, the graph of a function, which we will call <m>f</m>, has a break at <m>x=-1</m>.
+            There are two points indicated at this break.
+            The point at <m>(-1,2)</m> is open while the point at <m>(-1,0)</m> is closed.
+        </p>
+        <p>
+            The open point at <m>(-1,2)</m>is <em>not</em> associated with the value of the function at <m>x=-1</m>, but is instead associated with the segment of the graph with domain restriction <m>(-\infty,-1)</m>.
+            It means that the closer values <m>x \lt -1</m> are to <m>x=-1</m>, the closer the values of <m>f(x)</m> will be to the <m>y</m>-value of <m>y=2</m>.
+            We write a <term>limit</term> to represent this idea:
+            <me>\lim_{\substack{x \rightarrow -1 \\ x \lt -1}} f(x) = 2</me>.
+            Alternatively, below the <q>lim</q> operator, we usually just write <m>x \to -1^-</m>, where the superscript <c>-</c> indicates we are on the <em>left</em> of <m>x=-1</m>, to write
+            <me>\lim_{x \rightarrow -1^-} f(x) = 2</me>.
+        </p>
+        <p>
+            The <em>closed</em> point represents the actual value of the function, <m>f(-1)=0</m>.
+            The fact that the point is <em>also</em> connected to the graph segment to the right means that it can also be used as a limit.
+            The closer values <m>x \gt -1</m> are to <m>x=-1</m>, the closer the values of <m>f(x)</m> will be to the <m>y</m>-value of <m>y=0</m>.
+            That is, we have another limit:
+            <me>\lim_{\substack{x \rightarrow -1 \\ x \gt -1}} f(x) = 0</me>,
+            which could also be written with a superscript on the limit
+            <me>\lim_{x \rightarrow -1^+} f(x) = 0</me>.
+        </p>
+        <p>
+            In <xref ref="fig_demo_piecewise_graph" />, the limit on the left and the limit on the right had different values.
+            This happens whenever the segments lead to different points.
+            We say that the <term>two-sided limit</term> <m>\displaystyle \lim_{x \to -1} f(x)</m> does not exist.
+            This is two-sided because the limit does not specify <m>x \lt -1</m> or <m>x \gt -1</m>.
+            When segments on both sides of a point approach the same point, whether it is included or not, the two-sided limit would equal that common value.
+        </p>
+        <p>
+            Now, the phrasing that was used involving the idea of <q>closer</q> was not quite stated precisely.
+            It is not required that closer values of <m>x</m> cause the <m>y</m> values to be progressivly closer.
+            Rather, it is about being able to <em>guarantee</em> closeness.
+            A limit is really about <m>y</m>-values being guaranteed to be close to the value of the limit so long as the <m>x</m>-values are <em>close enough</em>.
+            Typically, smaller allowable errors for <m>y</m> will require smaller deviations for <m>x</m>.
+            However, it is typical to use a phrase like <q>the value of <m>f(x)</m> approaches <m>L</m> as <m>x</m> approaches <m>c</m></q> when stating a limit
+            <me>\lim_{x \to c} f(x) = L</me>.
+        </p>
+        <example xml:id="ex_limits_from_graph">
+            <title>Learning Objective L-1</title>
+            <statement>
+                <p>
+                    Given the graph of <m>g(x)</m> shown in <xref ref="fig_limit_graph_piecewise" />, determine each of the following values. If a value does not exist, explain why.
+                    <ol>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to -1^-} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to -1^+} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to -1} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle f(-1)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to 2^-} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to 2^+} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle \lim_{x \to 2} f(x)
+                        </m></p></li>
+                        <li><p><m>
+                            \displaystyle f(2)
+                        </m></p></li>
+                    </ol>
+                </p>
+                <figure xml:id="fig_limit_graph_piecewise">
+                    <caption>Graph of a function defined piecewise</caption>
+                    <image xml:id="limit_graph_piecewise" width="50%">
+                        <latex-image>
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=-4, xmax=4, ymin=-4, ymax=4, grid=both, minor tick num=1 ]
+                        \addplot [domain=-4:-1, very thick, blue] {-2*x-3};
+                        \addplot [domain=-1:2, very thick, blue] {x};
+                        \addplot [domain=2:4, very thick, blue] {(x-3)^2};
+                        \addplot [only marks, blue, fill=blue] coordinates { (-1,1) (2,2) };
+                        \addplot [only marks, very thick, blue, fill=white] coordinates { (-1,-1) (2,1) };
+                        \end{axis}
+                        \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    The first four values are associated with <m>x=-1</m> or <m>x \to -1</m>.
+                    Because there is a closed point at <m>(-1,1)</m>, this value is associated with the value of the function <em>at</em> the point <m>x=-1</m>.
+                    We have <m>f(-1) = 1</m>.
+                    The limits are based on the end-points of the segments to the left and right of <m>x=-1</m>.
+                    To the <em>left</em>, we follow the decreasing linear graph to its end-point, illustrated by the <em>open</em> end-point at <m>(-1,-1)</m>.
+                    The <m>y</m>-value of this point is the limit of the function using this left segment, and we write:
+                    <me>\lim_{x \to -1^-} f(x) = -1</me>.
+                    To the <em>right</em> of <m>x=-1</m>, the graph uses the <em>increasing</em> linear segment.
+                    Again, the end-point of this segment at <m>x=-1</m> is <m>(-1,-1)</m>,
+                    so that we know
+                    <me>\lim_{x \to -1^+} f(x) = -1</me>.
+                    Because both segments terminate at the same point, this will be the value of the two-sided limit
+                    <me>\lim_{x \to -1} f(x) = -1</me>.
+                </p>
+                <p>
+                    The second four values are associated with <m>x=2</m> or <m>x \to 2</m>.
+                    The closed point at <m>(2,2)</m> gives the <em>value</em> of the function.
+                    The end-points of the segments of the graph to the left and right of <m>x=2</m> give the <em>limits</em> of the function from the sides.
+                    We have
+                    <md>
+                        <mrow>f(2)=2</mrow>,
+                        <mrow>\lim_{x \to 2^-} f(x) = 2</mrow>,
+                        <mrow>\lim_{x \to 2^+} f(x) = 1</mrow>.
+                    </md>
+                    Because the left and right segments do not terminate at the same point, the <em>two-sided</em> limit <em>does not exist</em>.
+                    This is sometimes written in an abbreviated form
+                    <me>\lim_{x \to 2} f(x) \text{ d.n.e.}</me>.
+                    (Notice there is no equality here.)
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_lim_continuity">
+        <title>Continuity</title>
+        <p>
+            As mentioned in the introduction, <term>continuity</term> is a mathematical idea that on one hand captures the idea of connectedness.
+            However, it is more importantly about how the values of the function change near a point.
+        </p>
+        <p>
+            Suppose we want to know the value of a function <m>M</m> (for mystery) at a point <m>x=0</m>,
+            but the rule we have for evaluating the function has not <em>yet</em> been worked out for that particular value.
+            What might we try to do?
+            If the function is <em>nice</em>, we might try evaluating <m>M(0.1)</m> thinking that because <m>x=0.1</m> is close to <m>x=0</m>, then <m>M(0.1)</m> should be close to <m>M(0)</m>.
+            <em>That</em> is what continuity is about.
+        </p>
+        <p>
+            Now <m>x=0.1</m> might not be close enough to <m>x=0</m> to create a good approximation. Maybe <m>x=0.01</m> or <m>x=0.001</m> would be better.
+            Or maybe we need to go even closer before the approximation works out well.
+            It might be that none of <m>M(0.1)</m>, <m>M(0.01)</m> or <m>M(0.001)</m> are individually close enough (by our judgment) to the value of <m>M(0)</m>,
+            but we want to have assurances that if we just kept getting closer to <m>x=0</m>, we would <em>eventually</em> get good enough approximations.
+            This is where the need for a limit comes from.
+        </p>
+        <definition xml:id="defn_lim_continuity">
+            <title>Continuity at a Point</title>
+            <statement>
+                <p>
+                    Suppose <m>f</m> is a function. <q><m>f</m> is <term>continuous at a point</term> <m>x=a</m></q> means:
+                    <me>\lim_{x \to a} f(x) = f(a)</me>.
+                    Note that this requires <m>f(a)</m> is defined, the limit exists, and the limit and value of the function are the same.
+                </p>
+                <p>
+                    There are one-sided versions:
+                    <ol>
+                        <li><p>
+                            <m>f</m> is <term>left-continuous</term> at <m>x=a</m>:
+                            <me>\lim_{x \to a^-} f(x) = f(a)</me>.
+                        </p></li>
+                        <li><p>
+                            <m>f</m> is <term>right-continuous</term> at <m>x=a</m>:
+                            <me>\lim_{x \to a^+} f(x) = f(a)</me>.
+                        </p></li>
+                    </ol>
+                    A function that is continuous will be both left-continuous and right-continuous.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Notice how the natural idea of connectedness is related to continuity.
+            A piecewise function that is disconnected has a break or jump.
+            On one side or the other (or both), the value of the function won't agree with the limit because the segments of the graph don't both meet at the value of the function.
+        </p>
+        <p>
+            To <em>verify</em> that a function is continuous, we need to show that the defining statement (the equation) is <em>true</em>.
+            That is, we need to know <m>\displaystyle \lim_{x \to a} f(x)</m> and <m>f(a)</m> and show that they are the same value.
+            To verify that a function is <em>not</em> continuous, we need to show that the defining statement is <em>false</em>.
+            Either the limit or the value of the function fail to exist or they have different values.
+            This type of exercise is a practice in calculation <em>and</em> communication.
+        </p>
+        <example xml:id="fcn_lim_graph_continuity">
+            <title>Learning Objective L-2</title>
+            <statement>
+                <p>
+                    Consider the graph of the function from <xref ref="ex_limits_from_graph" /> shown again in <xref ref="fig_limit_graph_continuity" />.
+                    Determine whether the function is continuous at <m>x=-1</m>, <m>x=1</m>, and <m>x=2</m>, justifying your reasoning in terms of the definition of continuity.
+                </p>
+                <figure xml:id="fig_limit_graph_continuity">
+                    <caption>Graph of <m>f(x)</m></caption>
+                    <image source="../generated/latex-image/limit_graph_piecewise.svg" width="50%" />
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    Much of the computational work was done earlier in <xref ref="ex_limits_from_graph" />.
+                    We know:
+                    <md>
+                        <mrow>\lim_{x \to -1} f(x) = -1</mrow>
+                        <mrow>f(-1) = 1</mrow>.
+                    </md>
+                    Because <m>\displaystyle \lim_{x \to -1} f(x) \ne f(-1)</m>, we know that <m>f(x)</m> is <em>not</em> continuous at <m>x=-1</m>.
+                    We know:
+                    <md>
+                        <mrow>\lim_{x \to 2^-} f(x) = 2</mrow>
+                        <mrow>\lim_{x \to 2^+} f(x) = 1</mrow>
+                        <mrow>f(2) = 2</mrow>.
+                    </md>
+                    Because <m>\displaystyle \lim_{x \to 2^-} f(x) \ne \lim_{x \to 2^+} f(x)</m>, we know <m>\displaystyle \lim_{x \to 2} f(x)</m> does not exist and thus can not equal <m>f(2)</m>, so <m>f(x)</m> is not continuous at <m>x=2</m>.
+                    Note that <m>f(x)</m> <em>is</em> left-continuous at <m>x=2</m>.
+                </p>
+                <p>
+                    The previous example did not do any calculations for <m>x=1</m>.
+                    The graph shows it is smoothly connected here, in the middle of a continuous segment.
+                    That is, we can read from the graph <m>f(1)=1</m>, and because the graph is connected from the left and the right at this point, we also have
+                    <md>
+                        <mrow>\lim_{x \to 1^-} f(x) = 1</mrow>
+                        <mrow>\lim_{x \to 1^+} f(x) = 1</mrow>
+                    </md>
+                    so that <m>\displaystyle \lim_{x \to 1} f(x) = 1</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            The last calculation in the example, testing the continuity at <m>x=1</m>, feels like circular logic.
+            We wanted to show it is continuous and then used the idea that it was continuous to find the limits required to show continuity.
+            Ultimately, the circularity depends on how you think through it.
+            If you say, <q>The graph is obviously continuous, so all the values are the same</q>, then that <em>is</em> circular and bypasses some of the understanding.
+            If instead you say, <q>To find the limit from the left, I need to look at the segment <em>to the left of</em> <m>x=1</m> and see where it approaches as we go back to <m>x=1</m></q>, and it naturally goes back to <m>f(1)</m>, then you are thinking through the <em>idea</em> of a limit rather than just relying on broken vs unbroken graphs.
+        </p>
+        <p>
+            Ultimately, most limits that we evaluate will fall back to the idea of continuity.
+            That is, given a limit of interest, we find a <em>continuous function</em> that will have the same limit and evaluate that function at the point of interest.
+            This makes it feel like limits are just a complicated version of <em>plugging in the value</em>.
+            Try to keep in mind that a limit is about coming from the left or right and seeing what those values approach, and that continuity means this is the same as the value <em>at</em> the point.
+        </p>
+</subsection>
+</section>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_prereq_sign_analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Sign Analysis to Solve Inequalities</title>
+    <introduction>
+        <p>
+            When we want to find individual values where something precisely occurs, we solve equations.
+            This typically results in solution sets of isolated points.
+            On the other hand, we are often interested in where a quantity is in a <em>range</em> of possible values.
+            The mathematical question then becomes solving an <term>inequality</term>.
+            The solution set then typically becomes a set consisting of intervals and possibly additional isolated points.
+        </p>
+        <p>
+            Fortunately, the method of solving an equation can be used to solve inequalities.
+            Equations help us find boundaries of possible regions.
+            An inequality is solved by testing the regions one at a time.
+            This method is commonly called <term>sign analysis</term>.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_inequality_overview">
+        <p>
+            An inequality is a logical statement that includes the possibility that one quantity is greater than or less than another inequality.
+            This allows inequalities to answer questions about when a quantity is within a given range of values.
+        </p>
+        <p>
+            If an inequality has a variable that appears only once,
+            we can use the strategy of isolation to solve the inequality,
+            assuming that the inverse operations we apply are well-behaved.
+        </p>
+        <p>
+            What could go wrong?
+            The first thing to watch out for is that some operations change the ordering.
+            For example, you should have learned that multiplying by a negative number reverses order.
+            That is, if we start with <m>u \lt v</m> and multiply by -2, we have <m>-2u \gt -2v</m>.
+            Another example is a reciprocal of two numbers of the same sign.
+            If we start with <m>0 \lt u \lt v</m> (two positive numbers), then since <m>v</m> would be a larger denominator, <m>0 \lt \frac{1}{v} \lt \frac{1}{u}</m>.
+            Being the same sign is important.
+            If <m>u \lt 0 \lt v</m>, then <m>\frac{1}{u} \lt 0 \lt \frac{1}{v}</m> because the reciprocal does not change the sign, only the magnitude, of the number.
+        </p>
+        <example xml:id="ex_inequality_isolation">
+            <statement>
+                <p>
+                    Find the values <m>x</m> so that <m>y=3x-5</m> is between <m>y=4</m> and <m>y=5</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We start by translating the question into an inequality,
+                    <me>4 \lt 3x-5 \lt 5</me>.
+                    Technically, this is a compound inequality that <m>3x-5 \gt 4</m> <em>and</em> <m>3x-5 \lt 5</m>.
+                    Normally this would require solving the simpler inequalities individually and then finding the <em>intersection</em> (because <em>and</em> means intersect) of the solutions.
+                    <me>
+                        \begin{array}{c c}
+                        3x-5 \gt 4 &amp; 3x-5 \lt 5 \\
+                        3x \gt 4+5 &amp; 3x \lt 5+5 \\
+                        3x \gt 9 &amp; 3x \lt 10 \\
+                        x \gt 3 &amp; x \lt \frac{10}{3}
+                        \end{array}
+                    </me>
+                    The first inequality's solution set is <m>(3,\infty)</m>.
+                    The second inequality's solution set is <m>(-\infty, \frac{10}{3})</m>.
+                    The intersection of these sets is <m>(3, \frac{10}{3})</m>.
+                </p>
+                <p>
+                    For linear formulas, the method of isolation works on the compound inequality together because we only deal with addition and multiplication:
+                    <md>
+                        <mrow>4 \lt 3x-5 \lt 5</mrow>
+                        <mrow>4+5 \lt 3x \lt 5+5</mrow>
+                        <mrow>9 \lt 3x \lt 10</mrow>
+                        <mrow>\frac{1}{3}\cdot 9 \lt x \lt \frac{1}{3} \cdot 10</mrow>
+                        <mrow>3 \lt x \lt \frac{10}{3}</mrow>
+                    </md>
+                    This is a much easier way to get the interval.
+                </p>
+            </solution>
+        </example>
+        <p>
+            The geometric interpretation of solving the inequality of the previous example is helpful.
+            The equation <m>y=3x-5</m> defines a set of points (a line) in the plane.
+            Solving <m>4 \lt 3x-5 \lt 5</m> is finding the <m>x</m>-values of the points that are between <m>y=4</m> and <m>y=5</m>.
+        </p>
+        <figure xml:id="fig_graph_between_lines">
+            <caption>Graph of <m>y=3x-5</m> (dotted) highlighting those points (solid blue) between <m>y=4</m> and <m>y=5</m>.</caption>
+            <image xml:id="graph_between_lines" label="graph_between_lines" width="75%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-4.3, xmax=4.3, ymin=-8, ymax=8, xlabel=$x$, ylabel=$y$, grid=both]
+\addplot [domain=-4.3:4.3, dotted, samples=200, color=black, line width=1] {3*x-5};
+\addplot [domain=-4.3:4.3, dashed, samples=200, color=black, line width=1] {4};
+\addplot [domain=-4.3:4.3, dashed, samples=200, color=black, line width=1] {5};
+\addplot [domain=3:3.333, samples=100, color=blue, line width=2] {3*x-5};
+\end{axis}
+\end{tikzpicture}    
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            The boundaries of our solution set exactly correspond to where the graph <m>y=3x-5</m> intersects the threshold values <m>y=4</m> and <m>y=5</m>.
+            Finding the intersection points corresponds to solving equations <m>3x-5=4</m> and <m>3x-5=5</m>.
+            Once we know those points, we can just check each of the intervals using these end-points to find our solution set.
+            This is what motivates the strategy of sign analysis to solve inequalities.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_sign_analysis_polynomial">
+        <p>
+            The method of <term>sign analysis</term> uses equations to find end-points of test intervals and sign checking inside of intervals as an approach to solve inequalities.
+            The word <em>sign</em> is used because we will be reframing each inequality in terms of comparisons to zero (equal, positive, or negative).
+            By relating to zero, we can take advantage of factoring as a strategy for solving the equations <em>and</em> for testing signs.
+        </p>
+        <p>
+            Ultimately, the strategy of sign analysis is justified by the idea of continuity, a concept introduced in calculus later.
+            For our purposes, algebraic formulas that we encounter are continuous except where they are not defined due to division by zero.
+        </p>
+        <theorem xml:id="thm_sign_change">
+            <title>Sign Change Locations</title>
+            <statement>
+                <p>
+                    An expression involving a variable <m>x</m> can only change sign at a point where the expression equals zero or is not continuous.
+                    That is, if the expression has no zeros or discontinuities between <m>x=a</m> and <m>x=b</m>, then the sign of the expression can not change inside the interval <m>(a,b)</m>.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            This theorem allows us to find all of the points where an expression equals zero or is not continuous.
+            Using these points as end-points, we create test intervals that can only have one sign on the interval.
+            By choosing a single point from each interval, we can calculate the sign at that point and conclude the sign on the entire interval.
+            Once we know the signs for each interval and point, we can interpret the results to solve an inequality.
+        </p>
+        <p>
+            The simplest example to demonstrate this principle is for polynomials.
+            Our first step will be to rewrite the inequality of interest as a relation to zero.
+            Polynomials do not involve any division by the variable, so there will be no discontinuities.
+            Roots (zeros) can be determined by the factorization.
+            For polynomials of degree larger than 2, we will use a computer to help us factor.
+        </p>
+        <example xml:id="ex_sign_analysis_polynomial">
+            <title>Learning Objective P-6</title>
+            <statement>
+                <p>
+                    Solve the inequality <m>x^4-x^3-8x^2+2 \lt x^2-2x-6</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    A graph will give us intuition.
+                    If we graph <m>y=x^4-x^3-8x^2+2</m> and <m>y=5x^2-x-10</m>, 
+                    the solution we are looking for is the set of <m>x</m>-values where the first graph is <em>below</em> (less than) the second graph.
+                </p>
+                <figure xml:id="fig_polynomial_crossing">
+                    <caption>Graph of <m>y=x^4-x^3-8x^2+2</m> (solid blue) and <m>y=x^2-2x-6</m> (dashed orange), highlighting where the first graph is below the second.</caption>
+                    <image xml:id="polynomial_crossing" width="50%">
+                        <description>graph of two curves with region shaded where the first graph is below the second graph</description>
+                        <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-6.3, xmax=6.3, ymin=-30, ymax=100, xlabel=$x$, ylabel=$y$, grid=both]
+\fill [blue!10, opacity=0.6] (axis cs: -3,\pgfkeysvalueof{/pgfplots/ymin}) rectangle
+(axis cs:-1,\pgfkeysvalueof{/pgfplots/ymax});
+\fill [blue!10, opacity=0.6] (axis cs: 1,\pgfkeysvalueof{/pgfplots/ymin}) rectangle
+(axis cs:4,\pgfkeysvalueof{/pgfplots/ymax});
+\addplot [domain=-6.3:6.3, samples=200, color=blue, line width=2] {x^4-x^3-8*x^2+2};
+\addplot [domain=-6.3:6.3, samples=200, dashed, color=orange, line width=2] {5*x^2-x-10};
+\draw [dotted, line width=1, black] (axis cs: -3,\pgfkeysvalueof{/pgfplots/ymin}
+) -- (axis cs: -3,\pgfkeysvalueof{/pgfplots/ymax}
+);
+\draw [dotted, line width=1, black] (axis cs: -1,\pgfkeysvalueof{/pgfplots/ymin}
+) -- (axis cs: -1,\pgfkeysvalueof{/pgfplots/ymax}
+);
+\draw [dotted, line width=1, black] (axis cs: 1,\pgfkeysvalueof{/pgfplots/ymin}
+) -- (axis cs: 1,\pgfkeysvalueof{/pgfplots/ymax}
+);
+\draw [dotted, line width=1, black] (axis cs: 4,\pgfkeysvalueof{/pgfplots/ymin}
+) -- (axis cs: 4,\pgfkeysvalueof{/pgfplots/ymax}
+);
+\end{axis}
+\end{tikzpicture}    
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    To solve this question directly, we rewrite the inequality as a relation with zero:
+                    <md>
+                        <mrow>x^4-x^3-8x^2+2 \lt 5x^2-x-10</mrow>
+                        <mrow>x^4-x^3-8x^2+2 - 5x^2 + x + 10 \lt 0</mrow>
+                        <mrow>x^4-x^3-13x^2+ x + 12 \lt 0</mrow>
+                    </md>
+                </p>
+                <p>
+                    At this point we need to factor the polynomial.
+                    Because this is degree 4, we will use a computer to solve.
+                    One approach would be to go to <url href="https://wolframalpha.com" visual="wolframalpha.com">WolframAlpha</url> and type <c>factor x^4-x^3-9x^2+2x+8</c>.
+                    Another would be to use the free tool <url href="https://sagecell.sagemath.org" visual="sagecell.sagemath.org">SageMath</url>, as illustrated below.
+                </p>
+                <sage>
+                    <input>
+var('x')
+formula = x^4 - x^3 - 13*x^2 + x + 12
+show(formula.factor())
+                    </input>
+                    <output>
+                        (x+3)(x+1)(x-1)(x-4)
+                    </output>
+                </sage>
+                <p>
+                    On evaluation of the factoring, we can rewrite our question
+                    <me>(x+3)(x+1)(x-1)(x-4) \lt 0</me>.
+                    Because this is already factored, we can quickly note that the only roots (zeros) occur at four locations: <m>x=-3</m>, <m>x=-1</m>, <m>x=1</m>, and <m>x=4</m>.
+                    Polynomials have no discontinuities, so these are the only possible end-points.
+                    Using a number line broken at these points, we find <em>five</em> test intervals: <m>(-\infty,-3)</m>, <m>(-3,-1)</m>, <m>(-1,1)</m>, <m>(1,4)</m>, <m>(4,\infty)</m>.
+                </p>
+                <p>
+                    We will test each interval by choosing a single value and calculating the sign of the formula.
+                    Because the formula is factored, this can be quickly determined by keeping track of the signs of each factor and then counting the number of negative factors.
+                    An odd number of negative factors will result in a negative product.
+                    An even number of negative factors will result in a positive product.
+                </p>
+                <table xml:id="table_polynomial_sign_analysis">
+                    <title>Evaluation of signs on each test interval</title>
+                    <tabular>
+                        <row header="yes">
+                            <cell>Interval</cell>
+                            <cell>Point</cell>
+                            <cell>Formula</cell>
+                            <cell>Count Negative</cell>
+                            <cell>Sign</cell>
+                        </row>
+                        <row>
+                            <cell><m>(-\infty,-3)</m></cell>
+                            <cell>-4</cell>
+                            <cell><m>(-4+3)(-4+1)(-4-1)(-4-4)</m></cell>
+                            <cell>4</cell>
+                            <cell>positive</cell>
+                        </row>
+                        <row>
+                            <cell><m>(-3,-1)</m></cell>
+                            <cell>-2</cell>
+                            <cell><m>(-2+3)(-2+1)(-2-1)(-2-4)</m></cell>
+                            <cell>3</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell><m>(-1,1)</m></cell>
+                            <cell>0</cell>
+                            <cell><m>(0+3)(0+1)(0-1)(0-4)</m></cell>
+                            <cell>2</cell>
+                            <cell>positive</cell>
+                        </row>
+                        <row>
+                            <cell><m>(1,4)</m></cell>
+                            <cell>2</cell>
+                            <cell><m>(2+3)(2+1)(2-1)(2-4)</m></cell>
+                            <cell>1</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell><m>(4,\infty)</m></cell>
+                            <cell>5</cell>
+                            <cell><m>(5+3)(5+1)(5-1)(5-4)</m></cell>
+                            <cell>0</cell>
+                            <cell>positive</cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>
+                    The table shows our reasoning.
+                    It is usually adequate to summarize the results directly on a number line, creating a <term>sign analysis summary</term>.
+                    We create a number line and mark each of the possible end-points by solving the equation.
+                    Label the value of the variable below the line and why it was included above the line (either a root or discontinuity).
+                    Then for each resulting interval choose a test point (label below the interval) and write the sign of the formula above the line.
+                </p>
+                <figure xml:id="fig_polynomial_sign_analysis_summary">
+                    <caption>Sign analysis summary for <m>(x+3)(x+1)(x-1)(x-4)</m>.</caption>
+                    <image xml:id="polynomial_sign_analysis_summary" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1cm]
+\draw [&lt;-&gt;, line width=1] (-5.2,0) -- (6.2,0);
+\foreach \x in {-3,-1,1,4} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x} node [pos=1, above] {0};
+}
+\node [below] at (-4,-0.1) {-4};
+\node [above] at (-4,0.1) {$+$};
+
+\node [below] at (-2,-0.1) {-2};
+\node [above] at (-2,0.1) {$-$};
+
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$+$};
+
+\node [below] at (2,-0.1) {2};
+\node [above] at (2,0.1) {$-$};
+
+\node [below] at (5,-0.1) {5};
+\node [above] at (5,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    After we complete the sign analysis, we need to <em>interpret</em> our results.
+                    In this question, we were solving for where <m>x^4-x^3-13x^2+x+12</m> was <em>less than</em> zero, meaning it was <em>negative</em>.
+                    We select the set of all values on our number linear that created negative values for the formula.
+                    Our solution set is <m>(-3,-1) \cup (1,4)</m>.
+                </p>
+                <figure xml:id="fig_polynomial_sign_analysis_interpret">
+                    <caption>Sign analysis with identification of intervals resulting in <em>negative</em> values.</caption>
+                    <image xml:id="polynomial_sign_analysis_interpret" width="75%">
+                        <description>sign analysis summary with interpretation</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1cm]
+\draw [&lt;-&gt;, line width=1] (-5.2,0) -- (6.2,0);
+\foreach \x in {-3,-1,1,4} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x} node [pos=1, above] {0};
+}
+\node [below] at (-4,-0.1) {-4};
+\node [above] at (-4,0.1) {$+$};
+
+\node [below] at (-2,-0.1) {-2};
+\node [above] at (-2,0.1) {$-$};
+
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$+$};
+
+\node [below] at (2,-0.1) {2};
+\node [above] at (2,0.1) {$-$};
+
+\node [below] at (5,-0.1) {5};
+\node [above] at (5,0.1) {$+$};
+
+\draw [line width=2, blue] (-3,1) -- (-1,1);
+\draw [line width=2, blue] (1,1) -- (4,1);
+\foreach \x in {-3,-1,1,4} {
+  \draw[blue,fill=white,line width=2] (\x,1) circle (0.75ex);
+}
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        <p>
+            We should think of sign analysis and the interpretation as separate steps.
+            The previous example involved an inequality with strict inequality.
+            At the end-points, the value of the formula was equal to zero.
+            This is why they were not included in the intervals.
+            If the problem had involved an inequality <m>\le</m> (less than <em>or equal</em>), then each point we found that made the formula equal to zero would also have been included.
+            The sign analysis would be the same; only the interpretation would be different.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_sign_analysis_rational">
+        <p>
+            <term>Rational functions</term> are quotients of polynomials.
+            Because division by zero is undefined, discontinuities will happen at each point where the denominator has a value of zero.
+            We can do sign analysis for rational functions just like we do for polynomials, so long as we worry about both roots and discontinuities.
+        </p>
+        <example xml:id="ex_sign_analysis_rational">
+            <title>Learning Objective P-7</title>
+            <statement>
+                <p>
+                    Solve the inequality <m>\displaystyle \frac{x^4 - 3 x^2 + 2 x}{x^3 + 5 x^2 - 2 x - 10} \ge 0</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The inequality is already written as a relation with zero.
+                    We need to find where the numerator equals zero (root of formula) and where the denominator equals zero (discontinuity of formula).
+                    These can be found by factoring the two polynomials.
+                    As they are both have degrees greater than 2, we will rely on computer assistance.
+                </p>
+                <sage>
+                    <input>
+var('x')
+numer = x^4 - 3*x^2 +2*x
+show(numer.factor())
+denom = x^3+5*x^2-2*x-10
+show(denom.factor())
+                    </input>
+                    <output>
+(x + 2) * (x - 1)^2 * x
+(x^2 - 2) * (x + 5)
+                    </output>
+                </sage>
+                <p>
+                    We can now rewrite our inequality in factored form:
+                    <me>\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)} \ge 0</me>.
+                    The factors in the numerator result in zeros at <m>x=0</m>, <m>x=-2</m>, and <m>x=1</m>.
+                    Notice that one factor in the denominator <m>x^2-2</m> is still quadratic and will have two zeros.
+                    Using isolation, we find <m>x=\pm\sqrt{2}</m> and <m>x=-5</m> as the three discontinuities for our quotient.
+                </p>
+                <p>
+                    We put these six numbers on the number line and it creates seven test intervals.
+                    Note that we need to make a distinction between the roots (making the formula equal zero) and the discontinuities (making the formula undefined).
+                </p>
+                <figure xml:id="fig_rational_test_intervals">
+                    <caption>Test intervals for <m>\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}</m>.</caption>
+                    <image xml:id="rational_test_intervals" width="75%">
+                        <description>number line showing roots and discontinuities to be used for test intervals</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-6.2,0) -- (3.2,0);
+\foreach \x in {0,-2,1} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x} node [pos=1, above] {0};
+}
+\draw [line width=1] (-1.414,-0.1) -- (-1.414,0.1) node [pos=0, below] {$-\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (1.414,-0.1) -- (1.414,0.1) node [pos=0, below] {$\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (-5,-0.1) -- (-5,0.1) node [pos=0, below] {-5} node [pos=1, above] {und};
+\end{tikzpicture}         
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Looking at the number line and recognizing that <m>\sqrt{2} \approx 1.414</m>, we might choose test points with the set <m>\{-6, -3, -1.5, -1, 0.5, 1.2, 2\}</m>.
+                    Notice how some of our test points are forced to be non-integers.
+                    For each of these <m>x</m>-values, we look at the formula
+                    <me>\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}</me>
+                    and count how many factors will be negative.
+                    Note that <m>(x-1)^2</m> is technically two factors <m>(x-1)(x-1)</m>, and so overall will always positive except when <m>x=1</m>.
+                    The table below should help you verify your thinking.
+                </p>
+                <table xml:id="table_rational_sign_analysis">
+                    <title>Evaluation of signs on each test interval</title>
+                    <tabular>
+                        <row header="yes">
+                            <cell>Test Point</cell>
+                            <cell>Negative Factors</cell>
+                            <cell>Sign</cell>
+                        </row>
+                        <row>
+                            <cell>-6</cell>
+                            <cell>5</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell>-3</cell>
+                            <cell>4</cell>
+                            <cell>positive</cell>
+                        </row>
+                        <row>
+                            <cell>-1.5</cell>
+                            <cell>3</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell>-1</cell>
+                            <cell>4</cell>
+                            <cell>positive</cell>
+                        </row>
+                        <row>
+                            <cell>0.5</cell>
+                            <cell>3</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell>1.2</cell>
+                            <cell>1</cell>
+                            <cell>negative</cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell>0</cell>
+                            <cell>positive</cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>
+                    The sign analysis summary is given below,
+                    with the number line drawn out of proportion to make space for our notes.
+                </p>
+                <figure xml:id="fig_rational_sign_analysis">
+                    <caption>Sign analysis summary for <m>\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}</m>.</caption>
+                    <image xml:id="rational_sign_analysis" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-5.2,0) -- (3.7,0);
+\foreach \x/\xp in {0/0,-2/-2.5,1/1.5} {
+  \draw [line width=1] (\xp,-0.1) -- (\xp,0.1) node [pos=0, below] {\x} node [pos=1, above] {0};
+}
+\draw [line width=1] (-1.25,-0.1) -- (-1.25,0.1) node [pos=0, below] {$-\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (2.25,-0.1) -- (2.25,0.1) node [pos=0, below] {$\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (-4,-0.1) -- (-4,0.1) node [pos=0, below] {-5} node [pos=1, above] {und};
+
+\foreach \x/\xp/\s in {-6/-4.5/-,-3/-3/+, -1.5/-2/-, -1/-0.5/+, 0.5/0.75/-, 1.2/1.8/-, 2/3/+} {
+  \draw [line width=1] (\xp,0) -- (\xp,0.1) node [pos=1, above] {\s};
+  \draw [-&gt;, line width=1] (\xp,-0.5) -- (\xp,-0.1) node [pos=0, below] {\x};
+}
+\end{tikzpicture}          
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    We <em>interpret</em> the sign analysis to answer the question.
+                    We were looking for where the formula was <em>greater than</em> or <em>equal</em> to zero.
+                    Our solution set needs to include values that make the formula's value positive (intervals) or equal to zero (points).
+                </p>
+                <figure xml:id="fig_rational_sign_analysis_interpret">
+                    <caption>Sign analysis summary for <m>\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}</m>.</caption>
+                    <image xml:id="rational_sign_analysis_interpret" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-5.2,0) -- (3.7,0);
+\foreach \x/\xp in {0/0,-2/-2.5,1/1.5} {
+  \draw [line width=1] (\xp,-0.1) -- (\xp,0.1) node [pos=0, below] {\x} node [pos=1, above] {0};
+}
+\draw [line width=1] (-1.25,-0.1) -- (-1.25,0.1) node [pos=0, below] {$-\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (2.25,-0.1) -- (2.25,0.1) node [pos=0, below] {$\sqrt{2}$} node [pos=1, above] {und};
+\draw [line width=1] (-4,-0.1) -- (-4,0.1) node [pos=0, below] {-5} node [pos=1, above] {und};
+
+\foreach \x/\xp/\s in {-6/-4.5/-,-3/-3/+, -1.5/-2/-, -1/-0.5/+, 0.5/0.75/-, 1.2/1.8/-, 2/3/+} {
+  \draw [line width=1] (\xp,0) -- (\xp,0.1) node [pos=1, above] {\s};
+  \draw [->, line width=1] (\xp,-0.5) -- (\xp,-0.1) node [pos=0, below] {\x};
+}
+
+\draw [line width=2, blue] (-4,1) -- (-2.5,1);
+\draw [line width=2, blue] (-1.25,1) -- (0,1);
+\draw [-&gt;, line width=2, blue] (2.25,1) -- (3.7,1);
+\foreach \x in {-4,-1.25,2.25} {
+  \draw[blue,fill=white,line width=2] (\x,1) circle (0.75ex);
+}
+\foreach \x in {-2.5,0,1.5} {
+  \draw[blue,fill=blue] (\x,1) circle (0.75ex);
+}
+
+\end{tikzpicture}           
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Notice how only some of the end-points<mdash />those where the value equals zero<mdash />are included.
+                    One of these points is a singleton isolated from the intervals.
+                    The solution set is therefore <m>(-5,-2] \cup (-\sqrt{2},0] \cup \{1\} \cup (\sqrt{2},\infty)</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

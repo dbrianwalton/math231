@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_limits_reasoning" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Reasoning About Limits</title>
+    <introduction>
+        <p>
+            Recall that mathematics as a discipline seeks to understand patterns.
+            Mathematical definitions provide formal statements that codify the idea of a pattern, and deductive reasoning looks for consequences that are provable based on the attributes an object might possess.
+            A function having a limit is one such pattern; a function being continuous is another.
+            Mathematicians have created a definition for a function limit that captures the intuitive ideas about limits we have used relating to graphs and values being approximated from one side or the other.
+            Simple functions can be showed to have limits directly using the definition.
+            Theorems applying the definition of a limit to more complex formulas constructed from simpler formulas that have limits allow us to apply our ideas about continuity to these complex formulas.
+            Together, these theorems justify our ability to compute limits of functions without needing to verify the definition each time.
+        </p>
+        <definition xml:id="defn_limit">
+            <title>Limit of a Function</title>
+            <statement>
+                <p>
+                    Let <m>f</m> be a function, and <m>a</m> and <m>L</m> represent real numbers.
+                    <q>The limit of <m>f(x)</m> as <m>x \to a</m> is <m>L</m></q>, <m>\displaystyle \lim_{x \to a} f(x) = L</m>, means:
+                    For all <m>\epsilon \gt 0</m> (a required approximation tolerance for <m>y</m>), there exists <m>\delta \gt 0</m> (a corresponding acceptable variation for <m>x</m>) so that
+                    <me>|f(x)-L| \lt \epsilon \quad \text{whenever} \quad 0 \lt |x-a| \lt \delta </me>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Learning goals related to deductive reasoning about limits include:
+            <ul>
+                <li><p>Given a limit and a required tolerance <m>\epsilon</m>, find a value for <m>\delta</m> that will guarantee the function approximation stated in the limit definition.</p></li>
+                <li><p>Apply limit theorems to justify limit calculations on complex algebraic formulas in terms of elementary limits.</p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_lim_limit_definition">
+        <title>Understanding Limits</title>
+        <p>
+            The definition of a limit of a function attempts to formalize the idea that values to the left and the right of <m>x=a</m> result in values of <m>f(x)</m> that are close to <m>L</m> through the use of inequalities and two tolerance values, traditionally called epsilon <m>\epsilon</m> and delta <m>\delta</m>.
+            We want the meaning to be something like <q>if you can get close enough to <m>x=a</m>, then <m>f(x)</m> will be close to its limit <m>L</m></q>.
+        </p>
+        <p>
+            The value of epsilon <m>\epsilon</m> describes a tolerance (maximum acceptable error) between <m>f(x)</m> and <m>L</m>, while the value of delta <m>\delta</m> describes how close the value of <m>x</m> needs to be to <m>a</m> in order to guarantee we are within this tolerance.
+            The value of <m>\epsilon</m> is chosen first.
+            Given the value of <m>\epsilon</m>, the value of <m>\delta</m> is then chosen and typically depends on <m>\epsilon</m>.
+            The inequalities establish the connection between <m>\epsilon</m> and <m>\delta</m>.
+        </p>
+        <p>
+            How do we find the value of <m>\delta</m>?
+            <ul>
+                <li><p>
+                    Identify the value of the limit <m>L</m> and the given value <m>\epsilon \gt 0</m>.
+                </p></li>
+                <li><p>
+                    Calculate thresholds <m>y=L-\epsilon</m> and <m>y=L+\epsilon</m>. The inequality <m>|f(x)-L| \lt \epsilon</m> is equivalent to saying <m>L-\epsilon \lt f(x) \lt L+\epsilon</m>.
+                </p></li>
+                <li><p>
+                    Find the points where <m>f(x)</m> crosses the thresholds by solving equations.
+                    Graphically, this will be where <m>y=f(x)</m> intersects the threshold lines or where there are jumps in the graph.
+                </p></li>
+                <li><p>
+                    Identify an interval <m>(x_L,x_R)</m> surrounding <m>x=a</m> (not counting <em>at</em> <m>x=a</m>) that satisfies <m>|f(x)-L| \lt \epsilon</m>.
+                </p></li>
+                <li><p>
+                    Measure the distances from <m>x=a</m> to each end point:
+                    <md>
+                        <mrow> \delta_{-} = |x_L - a|</mrow>,
+                        <mrow> \delta_{+} = |x_R - a|</mrow>.
+                    </md>
+                    Choose <m>\delta = \min(x_L, x_R)</m>.
+                </p></li>
+                <li><p>
+                    For all <m>x</m> in <m>(a-\delta, a) \cup (a,a+\delta)</m>, we are guaranteed that <m>|f(x)-L| \lt \epsilon</m>.
+                </p></li>
+            </ul>
+        </p>
+        <p>
+            The process of finding the end points <m>x_L</m> and <m>x_R</m> will vary based on the particular formula, but otherwise this process is the same for every example.
+            When the limit exists, a value for <m>\delta</m> will <em>always</em> be found.
+            This is why the definition says that <m>\delta</m> exists <em>for every</em> <m>\epsilon \gt 0</m>.
+            So if there is a value of <m>\epsilon \gt 0</m> for which no <m>\delta</m> can be found, the value of <m>L</m> must not be a limit.
+        </p>
+        <example xml:id="ex_lim_bad_limit">
+            <statement>
+                <p>
+                    Consider <m>\displaystyle \lim_{x \to 0} \frac{3^x-1}{x}</m>.
+                    Clearly, this formula does not allow <m>x=0</m> (division).
+                    And it doesn't have any obvious simplifications that might cancel the <m>x</m> in the denominator because the numerator's formula is not algebraic.
+                    One strategy to <em>think</em> about such limits is to try values of <m>x</m> that get closer and closer to <m>x=0</m> and see if we can decide what value might be the limit.
+                </p>
+                <p>
+                    Define <m>\displaystyle f(x) = \frac{3^x-1}{x}</m> and look at the values for a sequence of values of <m>x</m>:
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>x</m></cell><cell><m>f(x)</m></cell>
+                        </row>
+                        <row><cell>0.1</cell><cell>1.16123</cell></row>
+                        <row><cell>0.01</cell><cell>1.10467</cell></row>
+                        <row><cell>0.001</cell><cell>1.09922</cell></row>
+                    </tabular>
+                    What might we predict based on this small sample of values?
+                    The values of <m>f(x)</m> are decreasing.
+                    We might want to assume that the limit goes to something nice that is below 1.099, and a graph might suggest trying <m>f(x) \to 1.09</m>.
+                </p>
+                <p>
+                    Let us now look at what the definition of a limit would require for us to say <m>\displaystyle \lim_{x \to 0} f(x) = 1.09</m>.
+                    For <em>any</em> value of <m>\epsilon \gt 0</m> that we are given, it must be possible to find <m>\delta \gt 0</m> so that whenever <m>0 \lt |x-0| \lt \delta</m>, it follows that <m>|f(x)-1.09| \lt \epsilon</m>.
+                </p>
+                <p>
+                    Visualize this in terms of a graph.
+                    We will plot <m>y=f(x)</m> and the two threshold lines <m>y=L-\epsilon</m> and <m>y=L+\epsilon</m>.
+                    We want to identify the set of <m>x</m>-values so that <m>L-\epsilon \lt f(x) \lt L+\epsilon</m>.
+                    This set needs to include an interval surrounding but excluding <m>x=0</m> (called a <em>punctured neighborhood</em>).
+                    Looking at <xref ref="fig_lim_thresholds_bad_limit" />, everything looks good when we use <m>\epsilon = 0.1</m> (left image).
+                    If we zoom in further and use <m>\epsilon = 0.01</m> (right image), the interval barely extends to the right of <m>x=0</m>.
+                    It is clear that if we choose a smaller value of <m>\epsilon</m>, the set of points between the thresholds will be entirely to the left of <m>x=0</m>.
+                    This is because the limit is not 1.09 but some value slightly greater.
+                </p>
+                <figure xml:id="fig_lim_thresholds_bad_limit">
+                    <caption>Illustration of proposed limit <m>L=1.09</m> and thresholds for <m>\epsilon=0.1</m> (left) and <m>\epsilon=0.01</m> (right)</caption>
+                    <sidebyside width="40%">
+                        <image xml:id="graph_lim_thresholds_bad_limit_a">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-1, xmax=1, ymin=0.6, ymax=1.4, grid=both]
+\addplot [blue, very thick, domain=-1:1, samples=50] {ln(3) + x/2*ln(3)^2 + x^2/6*ln(3)^3 + x^3/24*ln(3)^4 + x^4/120*ln(3)^5};
+\addplot [only marks, thick, blue, fill=white] coordinates {(0,1.0986)};
+\addplot [domain=-1:1, red, solid] {1.19};
+\addplot [domain=-1:1, red, solid] {0.99};
+\draw [dashed, red] (axis cs:-0.1929,0.6) -- (axis cs:-0.1929,1.4);
+\draw [dashed, red] (axis cs:0.1436,0.6) -- (axis cs:0.1436,1.4);
+\draw [very thick, red] (axis cs: -0.1929,0.65) -- (axis cs: 0.1436,0.65);
+\addplot [only marks, thick, red, fill=white] coordinates {(-0.1929,0.65) (0,.65) (.1436,.65)};
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                        <image xml:id="graph_lim_thresholds_bad_limit_b">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-0.1, xmax=0.1, ymin=1.05, ymax=1.15, grid=both,
+    x tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            fixed zerofill,
+            precision=2,
+        /tikz/.cd
+    }
+]
+\addplot [blue, very thick, domain=-1:1, samples=50] {ln(3) + x/2*ln(3)^2 + x^2/6*ln(3)^3 + x^3/24*ln(3)^4 + x^4/120*ln(3)^5};
+\addplot [only marks, thick, blue, fill=white] coordinates {(0,1.0986)};
+\addplot [domain=-1:1, red, solid] {1.1};
+\addplot [domain=-1:1, red, solid] {1.08};
+\draw [dashed, red] (axis cs:-0.0312, 0.6) -- (axis cs:-0.0312, 1.4);
+\draw [dashed, red] (axis cs:0.0023, 0.6) -- (axis cs:0.0023, 1.4);
+\draw [very thick, red] (axis cs: -0.0312, 1.055) -- (axis cs: 0.0023, 1.055);
+\addplot [only marks, thick, red, fill=white] coordinates {(-0.0312, 1.055) (0, 1.055) (.0023, 1.055)};
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </sidebyside>
+                </figure>
+                <p>
+                    The actual limit for this question is an irrational number whose decimal representation begins <m>L=1.098612\ldots</m>.
+                </p>
+            </statement>
+        </example>
+        <p>
+            A limit requires that <em>no matter how small</em> <m>\epsilon</m> is chosen, the set of values for <m>x</m> so that <m>|f(x)-L| \lt \epsilon</m> must extend slightly to the left of <m>x=a</m> and slightly to the right of <m>x=a</m>.
+            For many limits, a finite decimal representation will not be possible.
+            Once <m>\epsilon</m> is chosen to be smaller than the place value of the last digit chosen, the representation is likely to break down.
+            In that case, we would say we know an approximation to the limit within that value of <m>\epsilon</m>.
+        </p>
+        <p>
+            For our class, you are expected to be able to construct an appropriate graphical representation of the limit thresholds, find the set of <m>x</m>-values resulting in <m>|f(x)-L| \lt \epsilon</m>, and determine the value of <m>\delta</m> that would have been used in the definition for that choice of <m>\epsilon></m>.
+            The formulas appearing in assessment questions will allow you to solve for the end-points of the interval exactly.
+        </p>
+        <example xml:id="ex_lim_find_delta">
+            <title>Learning Objective L-8</title>
+            <statement>
+                <p>
+                    We know that <m>\lim_{x \to 4} \sqrt{x} = 2</m>.
+                </p>
+                <p>
+                    For <m>\epsilon = 0.1</m>, find <m>\delta</m> so that <m>|f(x)-L| \lt \epsilon</m> whenever <m>0 \lt |x-4| \lt \delta</m>, for the appropriate <m>f(x)</m> and <m>L</m> for this limit. Illustrate the role of <m>\epsilon</m> and <m>\delta</m> by including an appropriate graph.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The function <m>f(x)</m> will be the formula in the limit, so <m>f(x)=\sqrt{x}</m> for this problem.
+                    The proposed limit is <m>L=2</m>.
+                    Starting with a graph may be most helpful.
+                    <ul>
+                        <li><p>Graph <m>y=f(x)</m>.</p></li>
+                        <li><p>Graph <m>y=L-\epsilon=2-0.1=1.9</m> and <m>y=L+\epsilon=2+0.1=2.1</m>.</p></li>
+                        <li><p>Find where <m>f(x)</m> intersects or jumps the thresholds to the left and right of <m>x=4</m>.</p></li>
+                    </ul>
+                </p>
+                <figure xml:id="fig_lim_draw_thresholds">
+                    <caption>Graph of <m>y=\sqrt{x}</m> and thresholds at <m>y=1.9</m> and <m>y=2.1</m> that correspond to <m>\epsilon=0.1</m></caption>
+                    <image xml:id="graph_lim_draw_thresholds" width="50%">
+                        <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=0, xmax=5, ymin=0, ymax=3, grid=both,
+    x tick label style={
+        /pgf/number format/.cd,
+            fixed,
+        /tikz/.cd
+    }
+]
+\addplot [blue, very thick, domain=0:3, samples=50] ({x^2}, {x});
+\addplot [domain=0:5, red, solid] {2.1};
+\addplot [domain=0:5, red, solid] {1.9};
+\draw [dashed, red] (axis cs:3.61, 0) -- (axis cs:3.61, 3);
+\draw [dashed, red] (axis cs:4.41, 0) -- (axis cs:4.41, 3);
+\draw [very thick, red] (axis cs: 3.61, 0.25) -- (axis cs: 4.41, 0.25);
+\addplot [only marks, thick, red, fill=white] coordinates {(3.61, .25) (4.41, .25)};
+\end{axis}
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Our algebraic task is to find these points, so we will be solving the equations <m>\sqrt{x} = 1.9</m> and <m>\sqrt{x} = 2.1</m>.
+                    The first equation gives <m>x=1.9^2 = 3.61</m> and the second gives <m>x=2.1^2 = 4.41</m>.
+                    The inequality <m>|f(x)-2| \lt 0.1</m> therefore includes the interval <m>(3.61, 4.41)</m>, which does surround <m>x=4</m>.
+                </p>
+                <p>
+                    To find <m>\delta</m>, we want to see how big an interval we get that is <em>symmetric</em> around <m>x=4</m> and stays inside of this set.
+                    The left end point at <m>x=3.61</m> is a distance <m>|3.61-4| = 0.39</m> away from <m>x=4</m>.
+                    The right end point at <m>x=4.41</m> is a distance <m>|4.41-4| =0.41</m> away from <m>x=4</m>.
+                    Consequently, if we make our symmetric interval extend <m>\delta = 0.39</m> away from <m>x=4</m>, it will stay inside of both sides of the interval.
+                    If we instead chose <m>\delta = 0.41</m>, the interval will be inside the set on the right, but will go too far on the left.
+                </p>
+                <p>
+                    We always need to choose the smaller distance, which in this case will be <m>\delta = 0.39</m>.
+                    The symmetric interval is <m>(4-0.39,4+0.39) = (3.61,4.39)</m>.
+                    The value at <m>x=4</m> is not required to be in the set for the limit definition to be satisfied, but in this case because <m>\sqrt{x}</m> is defined at <m>x=4</m> and satisfies the inequality, it can be included.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_lim_limit_theorems">
+        <title>Limit Theorems</title>
+        <p>
+            For a typical question, relying on the definition of a limit to justify that the value of a limit is valid is much too complex.
+            Theorems provide a connection between calculating limits using various rules and justifying those limits in terms of the definition.
+            Limit theorems start by establishing certain elementary formulas whose limits can be directly justified by the definition.
+            Additional theorems then establish rules about limits based on arithmetic combining those formulas.
+        </p>
+        <assemblage xml:id="asmbl_limits_elementary">
+            <title>Elementary Limits</title>
+            <statement>
+                <p>
+                    Functions defined by one of the following elementary forms have limits directly justified by the definition of a limit.
+                    <ul>
+                        <li><p>
+                            Constant Functions: <m>f(x)=c</m> for any real number <m>c</m>,
+                            <me>\lim_{x \to a} c = c</me>.
+                        </p></li>
+                        <li><p>
+                            Identity Function: <m>f(x)=x</m>,
+                            <me>\lim_{x \to a} x = a</me>.
+                        </p></li>
+                        <li><p>
+                            Linear Functions: <m>f(x)=mx+b</m> for any real numbers <m>m,b</m>,
+                            <me>\lim_{x \to a} [mx+b] = ma+b</me>.
+                        </p></li>
+                    </ul>
+                    Ultimately, what these limit rules say is that these elementary functions are continuous.
+                </p>
+            </statement>
+        </assemblage>
+        <p>
+            Algebraic functions are those functions defined by combining these elementary functions using arithmetic operations (sum, difference, product, and quotient), including powers (repeated multiplication).
+            Limit rules for functions constructed from simpler parts are based on the idea that if we know the limits of the parts, then we can guarantee the limit of the combination has a value calculated from those simpler limits.
+        </p>
+        <assemblage xml:id="asmbl_limits_combination_rules">
+            <title>Limit Rules for Combinations</title>
+            <statement>
+                <p>
+                    Suppose that <m>f(x)</m> and <m>g(x)</m> are functions with <em>known</em> limits as <m>x \to a</m>:
+                    <md>
+                        <mrow>\lim_{x \to a} f(x) = L</mrow>,
+                        <mrow>\lim_{x \to a} g(x) = M</mrow>.
+                    </md>
+                    The following combinations of formulas also have limits:
+                    <ul>
+                        <li><p>
+                            Limit of Constant Sum: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [f(x)+k] = L + k</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Constant Multiple: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Reciprocal (Multiplicative Inverse): If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{1}{g(x)}] = \frac{1}{M}</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Sum: <m>\displaystyle \lim_{x \to a} [f(x) + g(x)] = L+M</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Difference: <m>\displaystyle \lim_{x \to a} [f(x) - g(x)] = L-M</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Product: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.
+                        </p></li>
+                        <li><p>
+                            Limit of Quotient: If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{f(x)}{g(x)}] = \frac{L}{M}</m>.
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+        </assemblage>
+        <p>
+            The first three rules that only involve one function are listed separately because using those rules only requires knowing the limit of one function in advance.
+            This simplifies the process of justification in that we don't need to separately make note of the limits of the individual constants involved.
+            Otherwise, to justify a limit using a limit rule, we first show the limits of the parts are separately justified, and then we apply the limit rule to justify the combined limit is justified.
+        </p>
+        <p>
+            The process of justification of a limit using limit rules starts by thinking through the deconstruction of a formula, as addressed in our earlier learning outcomes in <xref ref="subsec_fcn_deconstruction" />.
+            Each operation that combines two formulas to create a slightly more complex formula will correspond to using a limit rule in a limit justification.
+            Once we have the deconstruction, the elementary functions will be the leaves of the tree.
+            We start by justifying the limits of these functions using the elementary limit rules.
+            Then we work our way up the tree, combining branches one at a time using limit rules of combination, until we have the limit of interest.
+            We do need beware that we don't try to combine limits involving division by zero.
+        </p>
+        <example xml:id="ex_lim_justify_basic" >
+            <statement>
+                <p>
+                    Find and justify the limit <m>\displaystyle \lim_{x \to 2} 5x^3(x^2+3x)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Justifying the limit requires more than just plugging the value into the formula.
+                    That would be evaluating the function, not finding the limit, and their equivalence is a consequence of continuity.
+                    In fact, limit justification for this example is really justification that the function is continuous.
+                    Instead, we need to look at how the function <m>f(x)=5x^3(x^2+3x)</m> is constructed from elementary functions and then use limit rules based on that deconstruction.
+                </p>
+                <p>
+                    The elementary building blocks for which direct limits are justified are constant functions, the identity function (<m>x</m> all alone), and linear functions.
+                    Our formula involves powers of <m>x</m>. We will need to think of those as repeated multiplication: <m>x^2 = x \cdot x</m> and <m>x^3 = x \cdot x \cdot x = x^2 \cdot x</m>.
+                    In principle, we could create an entire decontruction using a tree.
+                </p>
+                <figure xml:id="fig_lim_deconstruction_tree">
+                    <caption>Tree representation of the deconstruction of <m>5x^3(x^2+3x)</m></caption>
+                    <image xml:id="lim_deconstruction_tree" label="lim_deconstruction_tree" width="75%">
+                        <latex-image>
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+\node (f) at (0,0) {$5x^3(x^2+3x)$};
+\node (fl) [below=0ex of f] {$\boxed{\cdot}$};
+\node at (fl) [right] {\phantom{$\cdot$}\tiny{product}};
+\node (f1) at (-2,-1.5) {$5x^3$};
+\node (fl1) [below=0ex of f1] {$\boxed{\cdot}$};
+\node at (fl1) [right] {\phantom{$\cdot$}\tiny{constant multiple}};
+\node (f2) at (2,-1.5) {$x^2+3x$};
+\node (fl2) [below=0ex of f2] {$\boxed{+}$};
+\node at (fl2) [right] {\phantom{$+$}\tiny{sum}};
+\draw (fl) -- (f1);
+\draw (fl) -- (f2);
+\node (f3) at (-3,-3) {$5$};
+\node (f4) at (-1,-3) {$x^3$};
+\node (fl4) [below=0ex of f4] {$\boxed{\cdot}$};
+\draw (fl1) -- (f3);
+\draw (fl1) -- (f4);
+\node (f5) at (1,-3) {$x^2$};
+\node (fl5) [below=0ex of f5] {$\boxed{\cdot}$};
+\node (f6) at (3,-3) {$3x$};
+\draw (fl2) -- (f5);
+\draw (fl2) -- (f6);
+\node (f7) at (-1.5,-4.5) {$x$};
+\node (f8) at (-0.5,-4.5) {$x^2$};
+\node (fl8) [below=0ex of f8] {$\boxed{\cdot}$};
+\draw (fl4) -- (f7);
+\draw (fl4) -- (f8);
+\node (f9) at (.5,-4.5) {$x$};
+\node (f10) at (1.5,-4.5) {$x$};
+\draw (fl5) -- (f9);
+\draw (fl5) -- (f10);
+\node (f13) at (-1,-5.75) {$x$};
+\node (f14) at (0,-5.75) {$x$};
+\draw (fl8) -- (f13);
+\draw (fl8) -- (f14);
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Each leaf on this tree is an elementary formula (constant, identity or linear function), and we can state their limits as being justified by elementary limit rules.
+                    For reference later in our justification, each limit that is justified will be numbered.
+                    Constants that will be used in a constant multiple rule or constant sum rule are not required to justify limits separately as the limit rule has that built-in.
+                    The two elementary limits that are needed are for <m>x</m> (identity) and <m>3x</m> (linear).
+                    <tabular>
+                        <row header="yes">
+                            <cell>Step</cell>
+                            <cell>Limit</cell>
+                            <cell>Justification</cell>
+                        </row>
+                        <row>
+                            <cell>1</cell>
+                            <cell><m>\displaystyle \lim_{x \to 2} x = 2</m></cell>
+                            <cell>Limit of Identity</cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell><m>\displaystyle \lim_{x \to 2} 3x = 3 \cdot 2 = 6</m></cell>
+                            <cell>Limit of Linear Function</cell>
+                        </row>
+                    </tabular>
+                    Alternatively, we could have used the constant multiple rule since <m>3x = 3 \cdot x</m>.
+                </p>
+                <p>
+                    We now start justifying limits of intermediate formulas, working from the leaves upward in the tree.
+                    Notice that <m>x^2</m> appears twice in this tree, but the limit only needs to be justified once.
+                    Then we can build <m>x^3</m> as a product and <m>x^2+3x</m> as a sum.
+                    The remaining steps involved in justification are listed below.
+                    <tabular>
+                        <row header="yes">
+                            <cell>Step</cell>
+                            <cell>Limit</cell>
+                            <cell>Justification</cell>
+                        </row>
+                        <row>
+                            <cell>3</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 2} x^2 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x</mrow>
+                                <mrow>&amp;= 2 \cdot 2 = 4</mrow>
+                            </md></cell>
+                            <cell>Limit of Product</cell>
+                        </row>
+                        <row>
+                            <cell>4</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 2} x^3 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x^2</mrow>
+                                <mrow>&amp;= 2 \cdot 4 = 8</mrow>
+                            </md></cell>
+                            <cell>Limit of Product</cell>
+                        </row>
+                        <row>
+                            <cell>5</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 2} x^2+3x &amp;= \lim_{x \to 2} x^2 + \lim_{x \to 2} 3x</mrow>
+                                <mrow>&amp;= 8 + 6 = 14</mrow>
+                            </md></cell>
+                            <cell>Limit of Sum</cell>
+                        </row>
+                        <row>
+                            <cell>6</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 2} 5x^3 &amp;= 5 \cdot \lim_{x \to 2} x^3</mrow>
+                                <mrow>&amp;= 5 \cdot 8 = 40</mrow>
+                            </md></cell>
+                            <cell>Limit of Constant Multiple</cell>
+                        </row>
+                        <row>
+                            <cell>7</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 2} 5x^3 (x^2+3x) &amp;= \lim_{x \to 2} 5x^3 \cdot \lim_{x \to 2} (x^2+3x)</mrow>
+                                <mrow>&amp;= 40 \cdot 14 = 560</mrow>
+                            </md></cell>
+                            <cell>Limit of Product</cell>
+                        </row>
+                    </tabular>
+                </p>
+            </solution>
+        </example>
+        <p>
+            This sure feels like a lot of work.
+            It is because it is a methodical justification of <em>why</em> we are allowed to evaluate an algebraic formula <em>at</em> a value when calculating a limit, which is formally defined through a statement about inequalities.
+            Any formula constructed only involving arithmetic (including powers that can be rewritten as repeated multiplication) can always be justified following this pattern.
+            The steps will vary for different formulas, but the process is the same.
+            This is why basic algebraic formulas are all continuous.
+        </p>
+        <p>
+            The process also works for limits that are <em>not</em> based on continuous functions, so long as we have rules for the limits that correspond to discontinuities.
+            This is where assessment questions related to the learning outcome will focus.
+        </p>
+        <example xml:id="ex_lim_justification">
+            <title>Learning Objective L-9</title>
+            <statement>
+                <p>
+                    Suppose that we know <m>\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} = 5</m>.
+                    Find and justify the limit <m>\displaystyle \lim_{x \to 3} \frac{2f(x)(x^2+1)}{x^2-x-6}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Notice that if we use <m>x=3</m> in the denominator <m>x^2-x-6</m> we get <m>3^2-3-6 = 0</m>.
+                    The limit rule for a quotient does not apply when the denominator results in division by zero.
+                    This is why we needed to be told <em>separately</em> the value of a limit that had division by zero in the formula.
+                </p>
+                <p>
+                    In order to use limit rules to justify a limit for this formula, we need to rewrite the formula so that we get a product with <m>\displaystyle \frac{f(x)}{x-3}</m>.
+                    Factoring the denominator, we have <m>x^2-x-6 = (x-3)(x+2)</m>.
+                    The factor <m>x-3</m> can be group with the numerator factor <m>f(x)</m> so that we rewrite our limit in question:
+                    <me>
+                        \lim_{x \to 3} \frac{2f(x)(x^2+1)}{x^2-x-6} = \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2}
+                    </me>.
+                    The factor on the left has a <em>given</em> limit.
+                    We will use limits rules with deconstruction to find the limit of the formula on the right.
+                    Then we will use the limit of a product to justify a limit of the entire formula.
+                </p>
+                <p>
+                    See if you can deconstruct the formula on the right on your own.
+                    You should then be able to follow the steps of limit justification shown below.
+                    Notice that multiplication by 2 is a constant multiple and adding the constant 1 to <m>x^2</m> is a constant sum, allowing us to avoid needing to find limits of the constants on their own.
+                    <tabular>
+                        <row header="yes">
+                            <cell>Step</cell>
+                            <cell>Limit</cell>
+                            <cell>Justification</cell>
+                        </row>
+                        <row>
+                            <cell>1</cell>
+                            <cell><m>\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} = 5</m></cell>
+                            <cell>Given</cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell><m>\displaystyle \lim_{x \to 3} x = 3</m></cell>
+                            <cell>Limit of Identity</cell>
+                        </row>
+                        <row>
+                            <cell>3</cell>
+                            <cell><m>\displaystyle \lim_{x \to 3} x+2 = 5</m></cell>
+                            <cell>Limit of a Linear Function</cell>
+                        </row>
+                        <row>
+                            <cell>4</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 3} x^2 &amp;= \lim_{x \to 3} x \cdot \lim_{x \to 3} x</mrow>
+                                <mrow> &amp;= 3 \cdot 3 = 9</mrow>
+                            </md></cell>
+                            <cell>Limit of a Product</cell>
+                        </row>
+                        <row>
+                            <cell>5</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 3} x^2+1 &amp;= \left(\lim_{x \to 3} x^2 \right) + 1</mrow>
+                                <mrow> &amp;= 9+1 = 10</mrow>
+                            </md></cell>
+                            <cell>Limit of a Constant Sum</cell>
+                        </row>
+                        <row>
+                            <cell>6</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 3} 2(x^2+1) &amp;= 2 \cdot \left(\lim_{x \to 3} x^2+1 \right)</mrow>
+                                <mrow> &amp;= 2 \cdot 10 = 20</mrow>
+                            </md></cell>
+                            <cell>Limit of a Constant Multiple</cell>
+                        </row>
+                        <row>
+                            <cell>7</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 3} \frac{2(x^2+1)}{x+2} &amp;= \frac{20}{5} = 4</mrow>
+                            </md></cell>
+                            <cell>Limit of a Quotient</cell>
+                        </row>
+                        <row>
+                            <cell>8</cell>
+                            <cell><md>
+                                <mrow>\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2} &amp;= 5 \cdot 4 = 20</mrow>
+                            </md></cell>
+                            <cell>Limit of a Product</cell>
+                        </row>
+                    </tabular>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

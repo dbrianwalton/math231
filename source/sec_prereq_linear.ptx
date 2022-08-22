@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_prereq_linear" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linear Relations</title>
+    <introduction>
+        <p>
+            Calculus is focused on how variables covary or change <em>with</em> one another.
+            Ultimately, we will want to describe this change through the language of functions.
+            However, as we get started, it is easiest to think of a simple relation between two variables represented by an equation.
+            The most basic relation represented by an equation is a <term>linear relation</term>.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_prereq_linear_graphs_equations">
+        <p>
+            What is a line? In common language, we might think of a line as something that we can draw with a pen. Mathematics requires a more precise definition and is motivated from geometry by the idea of a straight edge graph joining two points.
+            In mathematics, lines <em>are</em> straight. Anything else would be a <term>curve</term>.
+        </p>
+        <p>
+            Okay, now we have a <em>geometric</em> way of thinking about a line<mdash/>it is a straight edge you can form joining two points.
+            We would like an <em>algebraic</em> way of thinking about a line so that we can use formulas.
+            To connect the geometric and algebraic concepts, we need to think about locations of points in terms of <term>coordinates</term> on a <term>Cartesian plane</term>.
+        </p>
+        <p>
+            Points on a plane can be identified by knowing the horizontal and the vertical displacements from an origin.
+            These displacements correspond to two variables.
+            When mathematics is disconnected from physical applications, these variables are most commonly called <m>x</m> and <m>y</m>.
+            In applications, the variables more commonly are assigned to names that have some physical significance.
+            For example, we might use <m>t</m> for time, <m>v</m> for velocity, or <m>F</m> for force.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_prereq_linear_slope_as_rate">
+        <p>
+            A line, like any other curve, includes infinitely many points.
+            What is it about a line that distinguishes it from other curves?
+            Ultimately, it comes down to the fact that lines have a <em>constant</em> <term>rate of change</term>.
+        </p>
+        <p>
+            To understand the concept of rate of change, we need to consider the relationship between two different points, <m>A</m> and <m>B</m>, from the same graph.
+            If our variables are <m>x</m> and <m>y</m>, then we might represent one point as having coordinates <m>A=(x_1,y_1)</m> and the second point as having coordinates <m>B=(x_2,y_2)</m>.
+            We calculate how the variables change going <em>from</em> <m>A</m> <em>to</em> <m>B</m>:
+            <md>
+                <mrow>\Delta x = x_2 - x_1</mrow>,
+                <mrow>\Delta y = y_2 - y_1</mrow>.
+            </md>
+            Note that we think of <m>\Delta x</m> as the name of a <em>single</em> quantity.
+            The order of subtraction is chosen so that we can legitimately say <m>x_2 = x_1 + \Delta x</m> and <m>y_2 = y_1 + \Delta y</m>.
+            We call <m>\Delta x</m> the <term>increment of change</term> in <m>x</m> and <m>\Delta y</m> the <term>increment of change</term> in <m>y</m> as we go from <m>A</m> to <m>B</m>.
+        </p>
+        <definition xml:id="defn_average_rate_of_change_variables">
+            <title>Average Rate of Change</title>
+            <statement>
+                For <em>any</em> relation between variables <m>x</m> and <m>y</m> joining two points <m>A=(x_1,y_1)</m> and <m>B=(x_2,y_2)</m>, the <term>average rate of change</term> of <m>y</m> with respect to <m>x</m> is defined as the ratio <m>\Delta y / \Delta x</m>,
+                <me>\frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}</me>.
+            </statement>
+        </definition>
+        <p>
+            For a line, the increments of change are <em>proportional</em> to one another.
+            Equivalently, a line has the same average rate of change between any two points.
+            That is, there is a <em>constant</em>, usually designated by <m>m</m>, such that for any two points on the line, <m>A</m> and <m>B</m>, the increments of change are related by
+            <me>\Delta y = m \cdot \Delta x \qquad \Leftrightarrow \qquad \frac{\Delta y}{\Delta x} = m</me>.
+            For a line, this constant rate of change is called the <term>slope</term> of the line.
+        </p>
+        <p>
+            The basic skill related to calculating and using a slope is to identify the two points and calculate the ratio of the change in the dependent variable (<m>y</m>) to the change in the independent variable (<m>x</m>).
+        </p>
+        <example xml:id="ex_slope_simple_calculate">
+            <statement>
+                <p>
+                    Calculate the slope of the line joining the points <m>(x,y)=(1.8,5)</m> and <m>(x,y)=(3.2, -2)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Rather than jump right into the calculation, it is better to think about what we expect so that we can see if our calculated answer makes sense.
+                    In this case, a visualization of what we are calculating is helpful.
+                    We can do this by graphing the two points (or at least thinking about the graph).
+                </p>
+                <figure xml:id="fig_graph_slope_from_two_points">
+                    <caption>Graph of the line joining points <m>(1.8,5)</m> and <m>(3.2,-2)</m>.</caption>
+                    <image xml:id="graph_slope_from_two_points" label="graph_slope_from_two_points" width="50%">
+                        <description>graph of a line passing through two points</description>
+<latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=0, xmax=5, ymin=-5, ymax=8, xlabel=$x$, ylabel=$y$, grid=both]
+\addplot[only marks] coordinates{ (1.8,5) (3.2,-2) };
+\addplot [domain=0:5, samples=10, color=blue, line width=2] {5-5*(x-1.8)};
+\end{axis}
+\end{tikzpicture}    
+</latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Notice how the point <m>(3.2,-2)</m> is to the right of and below the first point <m>(1.8,5)</m>.
+                    We say that the graph of the line is <em>decreasing</em>.
+                    This corresponds to a slope that is <em>negative</em>.
+                    When we complete our calculation, we want to be sure that we get a negative slope.
+                </p>
+                <p>
+                    As we calculate the slope, it is possible to do it in a single step.
+                    Again, it can be helpful to think about it more deliberately by calculating the increments <m>\Delta x</m> and <m>\Delta y</m> separately.
+                    <md>
+                        <mrow>\Delta x &amp;= x_2 - x_1 = 3.2 - 1.8 = 1.4</mrow>
+                        <mrow>\Delta y &amp;= y_2 - y_1 = -2 - 5 = -7</mrow>
+                    </md>
+                    Notice how the definition we are following expects that we have identified what we mean by <em>first</em> and <em>second</em> point.
+                    We need to be careful that we calculate both increments as the change going <em>from</em> the first <em>to</em> the second point.
+                </p>
+                <p>
+                    Do the values make sense?
+                    The increment <m>\Delta x</m> is <em>positive</em> because the second point is <em>to the right of</em> the first point.
+                    The increment <m>\Delta y</m> is <em>negative</em> because the second point is <em>below</em> the first point.
+                    So we have verified that the <em>signs</em> of the increments are consistent with what we observed in the graph.
+                </p>
+                <p>
+                    The value of the slope (rate of change) can now be directly calculated as the ratio of the increments of change,
+                    <me>m = \frac{\Delta y}{\Delta x} = \frac{-7}{1.4} = -5</me>.
+                    The slope is negative as we expected.
+                </p>
+            </solution>
+        </example>
+        <p>
+            More thought is required when the points are not identified so clearly
+            or when you need to identify which variable is independent and which is dependent.
+        </p>
+        <example xml:id="ex_slope_from_data">
+            <title>Learning Outcome P-1</title>
+            <statement>
+                <p>
+                    Foresters are interested in the relationship between the trunk thickness (DBH=diameter at breast height) and total biomass of a species of tree in order to understand the carbon content in forests.
+                    (See <url href="https://www.fs.fed.us/pnw/pubs/pnw_rp591.pdf" visual="https://www.fs.fed.us/pnw/pubs/pnw_rp591.pdf">USDA Research Paper PNW-RP-591</url>.)
+                    A stand of Douglas-fir in the Pacific Northwest was sampled and trees with a trunk diameter of 12 cm had an average biomass of 38 kg,
+                    while trees with a trunk diameter of 14 cm had an average biomass of 56 kg.
+                    Find the average rate of change of the biomass with respect to the trunk diameter based on this data, including proper use of units.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    How do we approach this type of question?
+                    Instead of being given two points, we are given a text description of some data.
+                    We don't even know what the variables are.
+                    A useful strategy for solution is to read the problem to identify what is wanted.
+                </p>
+                <p>
+                    The example asks us to <q><em>Find</em> the average rate of change of the biomass with respect to the trunk diameter</q>.
+                    The key phrase <em>with respect to</em> helps us identify what are being consider the independent and dependent variables.
+                    The main quantity of interest is the <em>biomass</em> and that will be the <em>dependent</em> variable (<m>y</m>-like).
+                    The quantity identified <em>after</em> the phrase <em>with respect to</em> is the <em>independent variable</em>.
+                    That is, we think of the independent variable as <em>controlling</em> or <em>influencing</em> the dependent variable.
+                </p>
+                <p>
+                    To visualize the data, we could graph two points.
+                    If it is not clear what points we should use, it can be useful to first make a table from the data and then identify the points.
+                    We will create a table with columns for the trunk diameter and the tree biomass.
+                    For consistency in our identification of the independent and dependent variables, it might be useful to list the diameter first and the biomass second.
+                    The rows of the table correspond to paired observations.
+                    That is, trees with 12 cm diameter at breast height are the same trees that had an average biomass of 38 kg.
+                </p>
+                <table xml:id="table_tree_diameter_biomass" label="table_tree_diameter_biomass">
+                    <title>Tree diameter and biomass</title>
+                    <tabular>
+                        <row header="yes">
+                            <cell>trunk diameter (cm)</cell>
+                            <cell>total biomass (kg)</cell>
+                        </row>
+                        <row><cell>12</cell><cell>38</cell></row>
+                        <row><cell>14</cell><cell>56</cell></row>
+                    </tabular>
+                </table>
+                <p>
+                    Next, for scientific communication, it is better to use variable names that have a connection to the data they represent than always using <m>x</m> and <m>y</m>.
+                    For this data set, we might choose <m>D</m> as our variable representing the <em>diameter</em> of the trees and <m>M</m> as our variable representing the total biomass.
+                    Consequently, our data correspond to two points:
+                    <m>(D,M)=(12,38)</m> and <m>(D,M)=(14,56)</m>.
+                </p>
+                <p>
+                    Physical measurements are always associated with a unit scale.
+                    That is, it doesn't make sense to a length measured 4;
+                    we need to say the unit used in the measurement.
+                    Notice that <m>D</m> has associated units of cm (a length) while <m>M</m> has units of kg (a mass).
+                    The increments of change between the two points are
+                    <md>
+                        <mrow>\Delta D &amp;= D_2 - D_1 = 14-12 = 2 \, \text{cm}</mrow>
+                        <mrow>\Delta M &amp;= M_2 - M_1 = 56-38 = 18 \, \text{kg}</mrow>.
+                    </md>
+                </p>
+                <p>
+                    The average rate of change is the slope of the line joining these points.
+                    The units of rate of change is the ratio of the units of the corresponding variables.
+                    The average rate of change of <em>biomass</em> with respect to <em>trunk diameter</em> will therefore have units of kg/cm.
+                    The value is calculated as
+                    <me>\frac{\Delta M}{\Delta D} = \frac{18 \, \text{kg}}{2 \, \text{cm}} = 9 \, \text{kg/cm}</me>.
+                </p>
+                <p>
+                    Does this make sense?
+                    The increments are both positive.
+                    Changing from the first point <m>(D,M)=(12,38)</m> to <m>(D,M)=(14,56)</m>, both the diameter and the biomass increased.
+                    This corresponds to both increments being positive and the resulting slope being a positive number.
+                    A graph of the points reinforces this, showing that the line would have a positive slope.
+                </p>
+                <figure xml:id="fig_graph_slope_from_tree_data">
+                    <caption>Graph of the line joining points <m>(1.8,5)</m> and <m>(3.2,-2)</m>.</caption>
+                    <image xml:id="graph_slope_from_tree_data" label="graph_slope_from_tree_data" width="50%">
+                        <description>graph of a tree data points and corresponding line</description>
+<latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=8, xmax=15, ymin=0, ymax=80, xlabel=$D$, ylabel=$M$, grid=both]
+\addplot[only marks] coordinates{ (12,38) (14,56) };
+\addplot [domain=8:15, samples=10, color=blue, line width=2] {38+9*(x-12)};
+\end{axis}
+\end{tikzpicture}    
+</latex-image>
+                    </image>
+                </figure>
+           </solution>
+        </example>
+    </subsection>
+
+    <subsection xml:id="subsec_prereq_linear_equations">
+        <p>
+            An equation involving two variables defines a <term>relation</term> between those variables.
+            Values for the variables that would make the equation <em>true</em> correspond to points that would be included in the graph.
+            Values for the variables that would make the equation <em>false</em> correspond to points are not included.
+        </p>
+        <p>
+            A line provides a simple example to illustrate this idea as well as provides one of the most basic examples of a relation that is a function.
+            Consider the equation
+            <me>3x+2y=12</me>.
+            As written, the statement is not true or false because we have left <m>x</m> and <m>y</m> as variables.
+            The truth of the statement is waiting for specific values.
+        </p>
+        <p>
+            But now consider a particular point, say <m>(x,y)=(2,3)</m>.
+            In the context of that point, we will use <m>x=2</m> and <m>y=3</m>.
+            The expression <m>3x+2y</m> now has a specific value,
+            <me>3x+2y = 3(2)+2(3) = 12</me>,
+            so that <m>3x+2y=12</m> is a true statement.
+            This means that the point <m>(2,3)</m> is <em>in</em> the relation defined by the equation and therefore a point on its graph.
+        </p>
+        <p>
+            On the other hand, another point <m>(x,y)=(3,2)</m> assigns different values to the variables.
+            For this point, the expression <m>3x+2y = 3(3)+2(2)=13</m>.
+            The relation's equation <m>3x+2y = 12</m> is <em>false</em> for this point.
+            The point is <em>not</em> in the relation and will be <em>off</em> the graph.
+        </p>
+        <p>
+            The graph of <m>3x+2y=12</m> happens to be a line.
+            Two other points on this line are <m>(x,y)=(4,0)</m> and <m>(x,y)=(0,6)</m>.
+            (Can you verify this?)
+            A graph showing that the three points we identified are <em>on</em> the line while <m>(3,2)</m> is not is illustrated in the graph below.
+        </p>
+        <figure xml:id="fig_graph_line_from_equation">
+            <caption>Graph of <m>3x+2y=12</m> as a line, showing points that are or are not included.</caption>
+            <image xml:id="graph_line_from_equation" label="graph_line_from_equation" width="50%">
+                <description>graph of a line showing three points included and one not</description>
+<latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-2, xmax=6, ymin=-4, ymax=8, xlabel=$x$, ylabel=$y$, grid=both]
+\addplot[only marks] coordinates{ (4,0) (2,3) (3,2) (0,6) };
+\addplot [domain=-2:6, samples=10, color=blue, line width=2] {6-1.5*x};
+\end{axis}
+\end{tikzpicture}    
+</latex-image>
+            </image>
+        </figure>
+        <p>
+            In the discussion above, we started with an equation and were basically just randomly picking points and testing if they were or were not in the graph of the equation.
+            One important skill is to be able to <em>create</em> an equation that represents a relation that we want.
+            A second important skill is to be able to <em>visualize</em> the graph of an equation without necessarily trying a lot of different points.
+            Here we will focus on how to <em>create</em> an equation for a line when we know the slope and one point.
+        </p>
+        <p>
+            The definition of slope can be used to create an equation of a line.
+            If we know one point <m>(x,y)=(a,b)</m> (think of <m>a</m> and <m>b</m> as placeholders for that knowledge), then for <em>any other</em> point <m>(x,y)=(x_2,y_2)</m>, we know that
+            <me>\frac{\Delta y}{\Delta x} = \frac{y_2-b}{x_2-a} = m</me>.
+            Equivalently, this means <m>\Delta y = m \cdot \Delta x</m> or
+            <me>y_2 - b = m \cdot(x_2 - a)</me>.
+            The subscripts on <m>x_2</m> and <m>y_2</m> were meant to indicate we were thinking about some specific point.
+        </p>
+        <p>
+            More probably, we want to think about <em>arbitrary</em> points, so we will drop the subscripts and think about the variables <m>x</m> and <m>y</m> directly.
+            An equation for the line passing through <m>(x,y)=(a,b)</m> and having a slope <m>m</m> is given by
+            <me>y - b = m \cdot (x-a)</me>.
+            This equation is called the point-slope equation of a line. We often rewrite the equation by isolating <m>y</m> as a <em>function</em> of <m>x</m>.
+        </p>
+        <definition xml:id="defn_point_slope_equation">
+            <title>Point<ndash/>Slope Equation of a Line</title>
+            <statement>
+                <p>
+                    The point<ndash/>slope equation of a line passing through a point <m>(x,y)=(a,b)</m> and having slope <m>m</m> given by
+                    <md>
+                        <mrow>y-b \amp= m \cdot (x-a) \amp \text{(symmetric form)}</mrow>
+                        <mrow>y \amp= m \cdot (x-a) + b \amp \text{(function form)}</mrow>
+                    </md>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            You may be more familiar or comfortable with the equation of a line defined as <m>y=mx+b</m>, called the <em>slope-intercept</em> equation of a line.
+            This is a special case of the point<ndash/>slope equation of a line where we know the slope <m>m</m> and the <m>y</m>-intercept point <m>(0,b)</m>.
+            However, knowing the <m>y</m>-intercept is uncommon in applications.
+            Using the point<ndash/>slope equation allows us to write down the equation of a line without needing to go figure out a separate point.
+        </p>
+        <example xml:id="ex_find_line_equation">
+            <statement>
+                <p>
+                    Find an equation of the line passing through the point <m>(5,12)</m> with a slope <m>m=\frac{3}{2}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The point<ndash />slope form makes this very simple.
+                    When we recall that <m>\Delta y = m \cdot \Delta x</m> and then think of <m>(5,12)</m> as our starting point and <m>(x,y)</m> as a second point, we get increments <m>\Delta y = y-12</m> and <m>\Delta x = x-5</m>.
+                    The equation can then be immediately written
+                    <me>y - 12 = \frac{3}{2} \cdot(x-5)</me>.
+                    If we want to write <m>y</m> as a function of <m>x</m>, we isolate the <m>y</m> to get
+                    <me>y = \frac{3}{2} \cdot(x-5) + 12</me>.
+                </p>
+                <p>
+                    Compare what would happen if we tried to use the slope<ndash />intercept form <m>y=mx+b</m>.
+                    We know from the problem <m>m=\frac{3}{2}</m> but we do not yet know the intercept value <m>b</m>.
+                    We might make use of the information that we do know to get
+                    <me>y=\frac{3}{2} x + b</me>.
+                    To find <m>b</m>, we could use the information that we know <m>(x,y)=(5,12)</m> is a point on the line.
+                    That is, substituting values <m>x=5</m> and <m>y=12</m> must create a true equation:
+                    <me>12 = \frac{3}{2} \cdot 5 + b</me>.
+                    We can now solve for <m>b</m>:
+                    <me>b = 12 - \frac{15}{2} = \frac{24-15}{2} = \frac{9}{2}</me>.
+                    Now that we know the value of the intercept, we can finish the equation,
+                    <me>y = \frac{3}{2} x + \frac{9}{2}</me>.
+                    This second method is completely valid but requires extra work.
+                    Also, students often find the value of <m>b</m> but then forget to use it to finish stating the equation that was requested.
+                </p>
+            </solution>
+        </example>
+        <p>
+            In the previous example, we saw how the point<ndash />slope equation of a line is an efficient way to find the equation of a line.
+            More importantly, as we are preparing for calculus, this form of a line illustrates a core idea that we will be studying: the relationships between <em>increments</em> of change and <em>rates</em> of change.
+        </p>
+        <p>
+            Consider <m>x</m> and <m>y</m> as variables and think of the slope <m>m</m> as defining the constant rate of change of <m>y</m> with respect to <m>x</m>.
+            Knowing a point <m>(x,y)=(a,b)</m> corresponds to know that <m>y=b</m> when <m>x=a</m>.
+            The point<ndash />slope equation of a line tells us that if we <em>change</em> <m>x</m> by an increment <m>\Delta x</m> to <m>x=a+\Delta x</m>, then the dependent variable <m>y</m> must also change but with an increment <m>\Delta y = m \cdot \Delta x</m> to <m>y = b + \Delta y = b + m \cdot \Delta x</m>.
+        </p>
+        <example xml:id="ex_using_point_slope">
+            <title>Learning Outcome P-2</title>
+            <statement>
+                <p>
+                    In our earlier example, we learned that the total biomass of a Douglas-fir is related to the diameter at breast height of the trunk. When the diameter is 12 cm, the average total biomass was 38 kg. The biomass increased at a rate of 9 kg per cm with respect to the diameter.
+                </p>
+                <p>
+                    Estimate the total biomass of a Douglas-fir tree whose diameter at breast height is 12.8 cm.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    First, we identify our variables.
+                    As in our earlier example, we will let <m>M</m> be the total biomass (kg) and will let <m>D</m> be the trunk diameter (cm).
+                    The <em>known</em> point is the given information <m>M=38 \, \text{kg}</m> and <m>D=12 \, \text{cm}</m>.
+                    The phrase <q>increased at a rate</q> identifies the value <m>9 \, \text{kg/cm}</m> as the rate of change. The word <em>increased</em> indicates that this is a positive value. (To say a quantity decreases would mean it has a negative rate of change.)
+                    The phrase <q>with respect to the diameter</q> lets us know that we are thinking of <m>D</m> as being the independent variable (<m>x</m>-like).
+                    This is reinforced by the units of the rate being <em>kg per cm</em> so that the <m>y</m>-variable is measured in kg and the <m>x</m>-variable is measured in cm.
+                </p>
+                <p>
+                    We can immediately write down our model equation,
+                    <me>M-38 = 9 \cdot (D-12)</me>,
+                    which becomes
+                    <me>M = 38 + 9 \cdot (D-12)</me>.
+                    Can you see how we can view the biomass formula as <m>M = 38 + \Delta M</m>?
+                </p>
+                <p>
+                    Now that we have our model equation, we can <em>substitute</em> the new value of <m>D = 12.8 \, \text{cm}</m> into our equation,
+                    <me>M = 38 + 9 \cdot (12.8 - 12)</me>.
+                    Can you see how <m>\Delta D = 0.8 \, \text{cm}</m> is the increment of change of the diameter and how that will lead to <m>\Delta M = 9 \cdot 0.8 = 7.2 \, \text{kg}</m>?
+                    Consequently, our model predicts <m>M = 38 + 7.2 = 45.2 \, \text{kg}</m>.
+                    We predict the biomass of the tree will be 45.2 kg.
+                </p>
+                <figure xml:id="fig_point_slope_application">
+                    <caption>Illustration of the point-slope calculation.</caption>
+                    <image xml:id="point_slope_application" label="point_slope_application" width="50%">
+                        <description>graph showing the line and initial point while visualizing the increments of diameter (x) and mass (y)</description>
+        <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=10, xmax=14, ymin=-4, ymax=60, xlabel=$D$, ylabel=$M$, grid=both]
+\addplot [domain=10:14, samples=10, color=blue, line width=2] {38+9*(x-12)};
+\addplot[only marks] coordinates{ (12,38) (12.8,45.2) };
+\addplot [no marks, line width=1] coordinates { (12,38) (12.8,38) } node [pos=0.5, below] {$\Delta D$};
+\addplot [no marks, line width=1] coordinates { (12.8,38) (12.8,45.2) } node [pos=0.5, right] {$\Delta M$};
+\end{axis}
+\end{tikzpicture}    
+        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+</section>

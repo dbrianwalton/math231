@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_derivs_deriv_function" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>The Derivative Function</title>
+    <introduction>
+        <p>
+            So far, we have talked about the derivative as the slope of the tangent line for a function at a particular point.
+            Because a function theoretically could have a tangent line at <em>each point in the domain</em>, we really should think about the derivative as a <em>function</em>.
+            The most common notation for a derivative of a function is to put a <em>prime</em> on the name of the original function using an apostrophe.
+            For a function named <m>f</m>, the derivative would be named <m>f'</m>.
+            For a function named <m>\mathrm{brian}</m>, the derivative would be named <m>\mathrm{brian}'</m>.
+        </p>
+        <p>
+            In this section, we focus on three core outcomes related to the idea of a derivative as a function.
+            <ul>
+                <li><p>
+                    Use the definition of the derivative for a <em>variable</em> point to find the derivative for a polynomial.
+                </p></li>
+                <li><p>
+                    Use the definition of the derivative for a <em>variable</em> point to find the derivative for a simple algebraic function involving either a quotient or a square root.
+                </p></li>
+                <li><p>
+                    Based on the graph of a function <m>y=f(x)</m>, sketch a reasonable graph of the derivative <m>y=f'(x)</m>.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_deriv_definition_function">
+        <title>Derivative Functions and Polynomials</title>
+        <p>
+            When we used the definition of the derivative to find the derivative at a point (<xref ref="subsec_derivative_exact" />), we started by identifying the value of <m>f(a)</m> and a formula for <m>f(a+h)</m> in terms of <m>h</m> so that we could write down a formula for the slope of the secant line joining the points.
+            In that approach, the value <m>a</m> referred to a specific number.
+        </p>
+        <p>
+            When calculating the derivative as a function using the definition, we want to consider an <em>arbitrary</em> value in the domain.
+            Instead of a specific value <m>a</m>, we will use a variable <m>x</m> as a placeholder for this arbitrary value.
+            We will compute expressions for <m>f(x)</m> and <m>f(x+h)</m> and again calculate a formula for the slope of the secant line joining these points, after which we will work to evaluate the limit as <m>h \to 0</m>.
+        </p>
+        <p>
+            For polynomials, this calculation is fairly straight forward.
+            The main complication is properly expanding the formula for <m>f(x+h)</m>, as it is easy for students to forget to multiply out powers properly.
+            The second complication is when you subtract <m>f(x)</m> from <m>f(x+h)</m> that you need to subtract the overall formula.
+            When students forget to write this formula inside grouping parentheses, it is too easy to forget that we need to add the opposite of each term, not just the first term.
+        </p>
+        <p>
+            We will illustrate this with a typical example.
+        </p>
+        <example xml:id="ex_deriv_function_polynomial">
+            <title>Learning Objective D-5</title>
+            <statement>
+                <p>
+                    Use the definition of the derivative to compute the exact formula <m>g'(x)</m> for <m>g(x)=x^2-2x</m>. (Note that this formula also appeared in the piecewise function in <xref ref="ex_derivative_exact_piecewise" />.)
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The basic pattern for using the definition of the derivative will be used:
+                    <ul>
+                        <li><p>
+                            Identify the formula for <m>g(x)</m>.
+                        </p></li>
+                        <li><p>
+                            Compute <m>g(x+h)</m> using function substitution.
+                        </p></li>
+                        <li><p>
+                            Write down the formula for <m>\displaystyle \frac{\Delta g}{\Delta x} = \frac{g(x+h)-g(x)}{h}</m>.
+                        </p></li>
+                        <li><p>
+                            Use algebra to rewrite this in order to cancel away division by <m>h</m> (finding a continuous formula at <m>h=0</m>).
+                        </p></li>
+                        <li><p>
+                            Use continuity at <m>h=0</m> to evaluate the limit as <m>h \to 0</m> of the slope of the secant line.
+                        </p></li>
+                    </ul>
+                    The resulting formula coming after this limit will <em>be</em> the formula for the derivative function.
+                </p>
+                <p>
+                    Here are the steps for this problem.
+                    First, find the <m>y</m>-values for the two points on the secant line.
+                    <md>
+                        <mrow>g(x) &amp;= x^2 -2x</mrow>
+                        <mrow>g(x+h) &amp;= (x+h)^2 - 2(x+h)</mrow>
+                        <mrow> &amp;= (x+h)(x+h) - 2(x+h)</mrow>
+                        <mrow> &amp;= x^2+2xh+h^2 - 2x - 2h</mrow>
+                    </md>
+                    Second, write down the formula for the <em>slope</em> of the secant line and then simplify the result.
+                    <md>
+                        <mrow>\frac{\Delta g}{\Delta x} &amp;= \frac{g(x+h)-g(x)}{h}</mrow>
+                        <mrow> &amp;= \frac{(x^2+2xh+h^2 - 2x - 2h) - (x^2-2x)}{h}</mrow>
+                        <mrow> &amp;= \frac{\cancel{x^2}+2xh+h^2 - \cancel{2x} - 2h -  \cancel{x^2} + \cancel{2x}}{h}</mrow>
+                        <mrow> &amp;= \frac{2xh+h^2 - 2h}{h}</mrow>
+                    </md>
+                    Notice that each term in the numerator has a common factor of <m>h</m>.
+                    We factor it out in order to cancel:
+                    <md>
+                        <mrow>\frac{\Delta g}{\Delta x} &amp;= \frac{2xh+h^2 - 2h}{h}</mrow>
+                        <mrow> &amp;= \frac{\cancel{h}(2x+h-2)}{\cancel{h}}</mrow>
+                        <mrow> &amp;= 2x+h-2</mrow>
+                    </md>
+                    Lastly, the derivative is defined as the <em>limit</em> of this secant line slope as <m>h \to 0</m>.
+                    Because the final formula removed the discontinuity at <m>h=0</m>, we can use substitution to find the limit.
+                    <md>
+                        <mrow>g'(x) &amp;= \lim_{h \to 0} \frac{\Delta g}{\Delta x}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0} [2x+h - 2]</mrow>
+                        <mrow> &amp;=  2x + 0 - 2</mrow>
+                        <mrow> &amp;= 2x - 2</mrow>
+                    </md>
+                    Therefore, we have shown, using the definition of the derivative, that for <m>g(x)=x^2-2x</m>, we have <m>g'(x) = 2x-2</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            The example above showed that for <m>g(x)=x^2-2x</m>, we have <m>g'(x)=2x-2</m>.
+            This formula can be used now to find the slope of the tangent line at any point.
+            For example, we have <m>g'(2) = 2(2)-2 = 2</m>.
+            The tangent line at <m>x=2</m> has slope 2.
+            Similarly, we have <m>g'(3)=2(3)-2 = 4</m>, so that the tangent line at <m>x=3</m> has slope 4.
+            This one formula allows us to find the slope of <em>any</em> tangent line for <m>g(x)</m>.
+        </p>
+        <p>
+            To find the equation of the tangent line, we would use the point-slope formula, <m>y=m(x-a)+b</m>.
+            This requires knowing the point <m>(a,b)</m> and the slope <m>m</m>.
+            The derivative has provided the slope.
+            The original function is used to find the <m>y</m>-value of the point.
+            At <m>x=2</m>, we have <m>g(2)=2^2-2(2)=0</m>, so our point would be <m>(2,0)</m>.
+            Using the slope <m>g'(2)=2</m>, the tangent line would be
+            <me>y=2(x-2)+0 = 2(x-2)</me>.
+            At <m>x=3</m>, we have <m>g(3)=3^2-2(3) = 3</m> with a corresponding point <m>(3,3)</m> and tangent line
+            <me>y=6(x-3)+3</me>.
+        </p>
+        <p>
+            We will have a learning outcome that uses the tangent line later (D-8).
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_derivs_algebraic">
+        <title>Derivative Functions of Algebraic Formulas</title>
+        <p>
+            We are almost ready to learn differentiation, a method to find derivative formulas using derivative rules instead of the raw definition of a derivative.
+            However, before we get there, we will look at two additional examples of simple algebraic functions that we can find using the derivative's definition.
+            This way we will be able to compare whether differentiation finds correct formulas for a variety of examples.
+            In addition, the methods used in these additional examples will be used to show why the derivative rules in differentiation are valid.
+        </p>
+        <p>
+            One of our learning objectives is to apply the definition of a derivative to one of these types of formulas.
+            The setup process is identical.
+            We do need to be careful that we use proper algebra in the context of either roots or quotients before we cancel away <m>h</m> in the slope formula.
+        </p>
+        <p>
+            The first example is a formula that involves a simple quotient.
+            A <term>rational function</term> is a formula that is the quotient of two polynomials.
+            The main challenge here is (1) writing down the appropriate formula for the slope of the secant line and (2) simplifying the slope quotient by finding a valid common denominator.
+            In addition, it will be helpful to remember that dividing by <m>h</m> is the same as multiplying by <m>\frac{1}{h}</m> in order to express our slope formula as a simple quotient rather than a quotient of a quotient.
+            If those steps are done properly, we should be able to factor out <m>h</m> and cancel it to find a continuous version of the slope formula prior to finding a limit.
+        </p>
+        <example xml:id="ex_deriv_function_rational">
+            <title>Learning Objective D-6 (Rational Functions)</title>
+            <statement>
+                <p>
+                    Use the definition of the derivative to compute the exact formula <m>f'(x)</m> for <m>\displaystyle f(x)=\frac{2x}{3x+1}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We will repeat the same steps to find the derivative using the definition as before.
+                    <ul>
+                        <li><p>
+                            Identify the formula for <m>f(x)</m>,
+                            <me>f(x) = \frac{2x}{3x+1}</me>.
+                        </p></li>
+                        <li><p>
+                            Compute <m>f(x+h)</m> using function substitution.
+                        </p></li>
+                        <li><p>
+                            Write down the formula for <m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}</m>.
+                        </p></li>
+                        <li><p>
+                            Use algebra to rewrite this in order to cancel away division by <m>h</m> (finding a continuous formula at <m>h=0</m>).
+                        </p></li>
+                        <li><p>
+                            Use continuity at <m>h=0</m> to evaluate the limit as <m>h \to 0</m> of the slope of the secant line.
+                        </p></li>
+                    </ul>
+                </p>
+                <p>
+                    First, we compute
+                    <me>f(x+h) = \frac{2(x+h)}{3(x+h)+1}</me>.
+                    Notice that <em>each</em> instance of <m>x</m> was replaced by <m>(x+h)</m>.
+                    We will rewrite this as
+                    <me>f(x+h) = \frac{2x+2h}{3x+3h+1}</me>.
+                </p>
+                <p>
+                    Next, we write down the formula for <m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}</m>,
+                    <me>\frac{\Delta f}{\Delta x} = \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}</me>.
+                    This is where we have a quotient of a quotient.
+                    We want to rewrite this so that the difference on the top is combined to a single quotient, and instead of dividing by <m>h</m>, we multiply by <m>\frac{1}{h}</m>.
+                    The first fraction has a denominator of <m>3x+3h+1</m> and the second has a denominator of <m>3x+1</m>.
+                    The <em>temptation</em> is to <em>add</em> <m>3h</m> to get a common denominator, but this is not valid.
+                </p>
+                <p>
+                    The only way we can leave a quotient's value unchanged is to <em>multiply</em> the top and bottom by the same thing.
+                    In this case, we will create a new common denominator that is the <em>product</em> of the two original denominators.
+                    This is the motivation for writing
+                    <md>
+                        <mrow>\frac{\Delta f}{\Delta x} &amp;= \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}</mrow>
+                        <mrow> &amp;= \frac{1}{h} \cdot \left( \frac{(2x+2h)(3x+1)}{(3x+3h+1)(3x+1)} - \frac{2x(3x+3h+1)}{(3x+1)(3x+3h+1)}\right)</mrow>
+                        <mrow> &amp;= \frac{1}{h} \cdot \left( \frac{(6x^2+2x+6xh+2h)-(6x^2+6xh+2x)}{(3x+3h+1)(3x+1)}\right)</mrow>
+                        <mrow> &amp;= \frac{1}{h} \cdot \left( \frac{2h}{(3x+3h+1)(3x+1)}\right)</mrow>
+                    </md>
+                    At this point the factor of <m>h</m> on the right cancels division by <m>h</m> on the left, leaving
+                    <me>\frac{\Delta f}{\Delta x} = \frac{2}{(3x+3h+1)(3x+1)}</me>,
+                    which is continuous at <m>h=0</m>.
+                </p>
+                <p>
+                    The derivative <m>f'(x)</m> will be the limit of the slope of the secant line as <m>h \to 0</m>.
+                    <md>
+                        <mrow>f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0} \frac{2}{(3x+3h+1)(3x+1)}</mrow>
+                        <mrow> &amp;= \frac{2}{(3x+3(0)+1)(3x+1)}</mrow>
+                        <mrow> &amp;= \frac{2}{(3x+1)^2}</mrow>.
+                    </md>
+                    That is, we have found that for <m>\displaystyle f(x)=\frac{2x}{3x+1}</m>, we have a derivative <m>\displaystyle f'(x)=\frac{2}{(3x+1)^2}</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Any simple quotient will follow this basic pattern.
+            The other example that we will want to explore occurs with square roots.
+            In this type of problem, our temptation is going to be to try to cancel terms that appear in different square roots.
+            For example, if we have <m>\sqrt{x+1}-\sqrt{x}</m>, the temptation I am referring to is to think that we can cancel <m>\sqrt{x}</m> from the first term with <m>\sqrt{x}</m> in the second term.
+            But algebra does not allow us to separate the <m>x+1</m> that is inside the square root.
+        </p>
+        <p>
+            Instead, we will find a new representation, again using multiplication.
+            The process we use is called <term>rationalization</term> using multiplication by a <term>conjugate</term>.
+            The word <term>conjugate</term> refers to expressions that are sums or differences of square roots.
+            You might have learned in algebra about a <em>complex conjugate</em> of a number like <m>2+3i</m> where the coefficient of <m>i</m> (in this case 3) has its sign changed to <m>2-3i</m>.
+            The symbol <m>i</m> represents <m>\sqrt{-1}</m>, so we were dealing with a sum/difference involving a square root.
+        </p>
+        <p>
+            A formula like <m>\sqrt{x+1} - \sqrt{x}</m> can be <em>rewritten</em> by multiplying and dividing by the same expression, in this case the <term>conjugate</term>, which uses the <em>sum</em> of the same terms in the difference:
+            <me>\sqrt{x+1}-\sqrt{x} = \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}</me>.
+            Why would we do this?
+            Every time we multiply conjugates, we get the <em>difference</em> of the squares of the terms: <m>(a-b)(a+b) = a^2 - b^2</m>.
+            So the numerator of this new formula we have a <em>difference</em> of squares of square roots, meaning the numerator will no longer have any square roots:
+            <md>
+                <mrow>\sqrt{x+1}-\sqrt{x} &amp;= \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}</mrow>
+                <mrow> &amp;= \frac{(\sqrt{x+1})^2-(\sqrt{x})^2}{\sqrt{x+1}+\sqrt{x}</mrow>
+                <mrow> &amp;= \frac{(x+1)-x}{\sqrt{x+1}+\sqrt{x}</mrow>
+                <mrow> &amp;= \frac{1}{\sqrt{x+1}+\sqrt{x}</mrow>
+            </md>.
+            That is, we have eliminated the <em>difference</em> of square roots in the numerator by introducing a <em>sum</em> of square roots in the denominator.
+        </p>
+        <p>
+            This same strategy will be used to simplify the slope of a secant line based on a function involving a square root.
+        </p>
+        <example xml:id="ex_deriv_function_root">
+            <title>Learning Objective D-6 (Square Root Functions)</title>
+            <statement>
+                <p>
+                    Use the definition of the derivative to compute the exact formula <m>f'(x)</m> for <m>f(x)=\sqrt{4x-1}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Notice how we will use the same general steps to find the slope of the secant line joining <m>(x,f(x))</m> and <m>(x+h,f(x+h))</m>, simplify that formula to a continuous version, and then evaluate the limit in order to find the derivative.
+                    <md>
+                        <mrow>f(x) &amp;= \sqrt{4x-1}</mrow>
+                        <mrow>f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}</mrow>
+                        <mrow>\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}</mrow>
+                        <mrow> &amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}</mrow>
+                        <mrow> &amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                        <mrow> &amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                        <mrow> &amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                        <mrow> &amp;= \frac{4\cancel{h}}{\cancel{h}}(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                        <mrow> &amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}</mrow>
+                        <mrow>f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}</mrow>
+                        <mrow>&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}</mrow>
+                        <mrow>&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}</mrow>
+                        <mrow>&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}</mrow>
+                        <mrow>&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_deriv_graphing">
+        <title>Graphs of Derivative Functions</title>
+        <p>
+            Because the derivative function <m>f'(x)</m> measures the slope of tangent lines of another function <m>f(x)</m>, we can visualize the graph of <m>f'(x)</m> by recognizing how the slope of <m>f(x)</m> itself is changing.
+        </p>
+        <p>
+            When creating a graph of <m>f'(x)</m>, we should pay particular attention to the following features:
+            <ul>
+                <li><p>
+                    Where <m>f(x)</m> is <em>horizontal</em>, the slope of the tangent line is zero. At such a point, <m>f'(x)=0</m> so that the graph of <m>f'(x)</m> touches the <m>x</m>-axis.
+                </p></li>
+                <li><p>
+                    Where <m>f(x)</m> has a <em>positive slope</em>, the value of <m>f'(x)</m> itself is positive so the graph of <m>f'(x)</m> is <em>above</em> the <m>x</m>-axis.
+                </p></li>
+                <li><p>
+                    Where <m>f(x)</m> has a <em>negative slope</em>, the value of <m>f'(x)</m> itself is negative and the graph of <m>f'(x)</m> is <em>below</em> the <m>x</m>-axis.
+                </p></li>
+                <li><p>
+                    Where <m>f(x)</m> is concave up, the slope is increasing, so the graph of <m>f'(x)</m> will be an increasing function.
+                </p></li>
+                <li><p>
+                    Where <m>f(x)</m> is concave down, the slope is decreasing, so the graph of <m>f'(x)</m> will be an decreasing function.
+                </p></li>
+                <li><p>
+                    Inflection points where <m>f(x)</m> changes concavity will be local extreme values for <m>f'(x)</m>.
+                </p></li>
+            </ul>
+        </p>
+        <p>
+            Overall, the idea is to imagine going from left to right on the graph of <m>y=f(x)</m> and pay attention to the <em>slope</em> of that graph.
+            At each <m>x</m>-value, we note the value of the slope and record that as the value of <m>f'(x)</m>. If the <m>f(x)</m> graph is concave up, that means the slope is increasing and our <m>f'(x)</m> function should be rising.
+            If the <m>f(x)</m> graph is concave down, <m>f'(x)</m> should be falling.
+            And the closer the graph of <m>f(x)</m> is to horizontal, the closer the <m>f'(x)</m> graph should be getting to the <m>x</m>-axis (<m>f'(x)=0</m>).
+        </p>
+        <p>
+            Let us start with a dynamic illustration.
+            The figure below shows a graph of <m>y=f(x)</m> on the left.
+            A point on the graph is draggable, and at that point, the graph also shows the corresponding tangent line.
+            The graph on the left shows the derivative function <m>f'(x)</m>.
+            As you drag from left to right, more of the graph of <m>y=f'(x)</m> will be shown.
+            Pay attention to how each of the features described above come into play.
+        </p>
+        <figure xml:id="fig_derivs_graph_deriv_reveal">
+            <caption>Dynamic illustration of the derivative as a function measuring the slope of the tangent line of <m>y=f(x)</m> (left) as the <em>value</em> of <m>f'(x)</m> (right).</caption>
+            <interactive xml:id="derivs_graph_deriv_reveal" platform="jsxgraph" aspect="10:6" source="code/derivs_graph_deriv_reveal.js">
+                <sidebyside width="45%">
+                        <slate xml:id="box_fcn" surface="jsxboard" aspect="1:1" />
+                        <slate xml:id="box_deriv" surface="jsxboard" aspect="1:1" />
+                </sidebyside>
+            </interactive>
+        </figure>
+        <p>
+            Notice how on the far left and far right edges of the graph, the tangent line is almost horizontal so the <m>f'(x)</m> graph is close to zero on these same edges.
+            Similarly, the graph <m>y=f(x)</m> has horizontal tangents at its local extreme values at <m>x=-2</m> and <m>x=2</m>, so the <m>f'(x)</m> graph crosses the axis at these points.
+            On the interval <m>(-\infty,-2)</m>, the graph of <m>f(x)</m> has a tangent line with negative slope, so <m>f'(x)</m> is below the axis on this same interval.
+            You should also notice that the <m>f'(x)</m> graph has its own local minimum at about <m>x \approx -3.5</m>.
+            This is a consequence of the graph <m>y=f(x)</m> having an inflection point changing from concave down on the far left to concave up.
+            The corresponding point is where the tangent line has the most negative slope.
+        </p>
+        <p>
+            When doing this by hand, I recommend:
+            <ul>
+                <li><p>
+                    Identify where <m>f'(x)=0</m>. Mark this on your graph as points <em>on</em> the <m>x</m>-axis.
+                </p></li>
+                <li><p>
+                    Determine the intervals where <m>f'(x)</m> is positive or negative.
+                </p></li>
+                <li><p>
+                    Identify extreme slopes (inflection points). Mark approximate points on your graph giving the approximate slope at these points. These will become extreme values for <m>f'(x)</m>.
+                </p></li>
+                <li><p>
+                    Determine what happens at the edge of your graph. Is the slope becoming unbounded? Or is the slope approaching zero?
+                </p></li>
+                <li><p>
+                    Draw a graph joining the points you created earlier with the correct end behavior and correct signs.
+                </p></li>
+            </ul>
+        </p>
+        <example xml:id="ex_draw_graph_derivative">
+            <title>Learning Objective D-7</title>
+            <statement>
+                <p>
+                    Given the graph of <m>y=f(x)</m> shown below, sketch a graph of <m>y=f'(x)</m>.
+                </p>
+                <figure xml:id="ex_draw_graph_deriv_originial_fcn">
+                    <caption>Graph of <m>y=f(x)</m></caption>
+                    <image xml:id="draw_graph_deriv_original_fcn" width="50%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \begin{axis}
+                            [ xmin=-7.5, xmax=7.5, ymin=-1, ymax=10.5, grid=both, minor tick num=1 ]
+                            \addplot[domain=-8:8, samples=200, very thick, blue] 
+                            {2*(x^2-3)*exp(-x^2/6)+7};
+                            \end{axis}
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    Since this is about <em>drawing</em> a new graph, it is hard to walk through in written text.
+                    Here is a video solution walking through the process instead.
+                </p>
+                <figure xml:id="fig_draw_graph_derivative_soln_video">
+                    <caption>Video solution</caption>
+                    <video youtube="oqpqDHCed1c"/>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_derivs_linear_approximation">
+        <title>Tangent Lines and Linear Approximations</title>
+        <p>
+            In the paragraphs following <xref ref="ex_deriv_function_polynomial"/>,
+            we emphasized how the derivative function calculates the slope of a tangent line and introduced the idea of using that information to write down the equation of a line.
+            In this subsection, we want to explore this idea in a little more depth.
+        </p>
+        <p>
+            Recall that a tangent line is the <em>best</em> linear function to approximate a function through a given point.
+            The derivative is the tool that helps us defined how to get the slope of this linear approximation.
+            The resulting linear function is called <term>linearization</term> of the original function around the point where the tangent line was found.
+            Why do we ever want a linearization?
+        </p>
+        <p>
+            There are many examples where variables in data are related according to complicated relationships.
+            Finding those formulas might be a very complex task.
+            But if we can find a <em>linearization</em>, which only requires knowing an initial value (the point) and the rate of change (the slope), then at least for nearby points we have a simple formula to make calculated predictions.
+        </p>
+        <p>
+            In physics, the force of resistance to change provided by an elastic object like a spring is actually a complex nonlinear relation.
+            However, like any differentiable function, for small changes from its equilibrium position, the linearization will be quite close to this nonlinear function.
+            This is why physics typically represents springs using a linear force, known as Hooke's law, <m>F=-kx</m> where <m>x</m> is the <em>displacement from equilibrium</em>. If we represented <m>x</m> as a position and a particular position as equilibrium <m>x_0</m>, the equation would intead be <m>F = -k(x-x_0)</m>. The spring constant <m>k</m> is actually the derivative or rate of change of the more complex nonlinear force function with respect to displacement.
+        </p>
+        <p>
+            Finding a linear approximation is nothing more than repeating Learning Objective P-2 (<xref ref="ex_using_point_slope"/>).
+            The only difference is that now we know where the slope is coming from. It is coming from the derivative.
+            For the purpose of this learning objective, it might be assumed that the derivative formula has already been found and your task is to use the formula.
+        </p>
+        <example xml:id="ex_use_linearization">
+            <title>Learning Objective D-8 (Formula)</title>
+            <statement>
+                <p>
+                    Specific heat is a physical quantity measured for many substances. It is actually a derivative <m>\frac{dQ}{dT}</m> of the energy of heat <m>Q</m> (Joules) in a single gram of the substance with respect to the temperature <m>T</m> (degrees Celsius).
+                    An engineer has done analysis on some specific heat data for sapphire and has determined that for the values of interest,
+                    <me>\frac{dQ}{dT} \approx 0.7180 + 0.0024 T - 0.000005 T^2</me>.
+                    After adding <m>Q=4</m> Joules to a gram sapphire, the temperature is now <m>T=60</m> degrees C.
+                    Use a linearization of heat with respect to temperature to approximate the value of <m>Q</m> that is needed to reach <m>T=65</m> degrees C.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Underneath the discussion about physical variables, we understand from the problem that <m>Q</m> is a function of <m>T</m>, say <m>Q=f(T)</m>.
+                    The rate of change <m>\frac{dQ}{dT}</m> that is given represents the derivative <m>f'(T)</m>,
+                    <me>f'(T) = 0.7180 + 0.0024T - 0.000005 T^2</me>.
+                    From the given information, we know that <m>f(60) = 4</m>.
+                    Using the derivative formula, we can also find 
+                    <me>f'(60) = 0.7180 + 0.0024(60) - 0.000005 (60)^2 = 0.844</me>.
+                    The linearization says that for <m>T</m> close to <m>T=60</m>, we have an approximate relation
+                    <me>Q = 4 + 0.844(T-60)</me>.
+                    Using <m>T=65</m>, we find
+                    <me>Q \approx 4 + 0.844(65-60) = 8.22</me>.
+                    That is, the total heat added to reach 65 degrees Celsius is approximately 8.22 Joules (from its original state) or 4.22 additional Joules (from its current state).
+                </p>
+                <p>
+                    In this solution, the key features I will be looking for is whether you stated a linearization (the tangent line formula), and then whether you used it to answer the question.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Alternatively, you might also be given information about the function and its derivative in other formats.
+            In the following example, information about a function and its derivative are given in a table, and we are asked to use the information to approximate a function value at a point not in the table.
+            Because a linearization gives a good approximation for small deviations from the original point, we choose the closest point to make the linearization.
+        </p>
+        <example xml:id="ex_derivs_linearization_table">
+            <title>Learning Objective D-8 (Data)</title>
+            <statement>
+                <p>
+                    A population growing in time is observed every five years to record the population <m>P</m> and the population growth rate <m>\frac{dP}{dt}</m>(birth rate minus death rate).
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>t</m> (yr)</cell>
+                            <cell><m>P</m> (thousands)</cell>
+                            <cell><m>\frac{dP}{dt}</m> (thousands/yr)</cell>
+                        </row>
+                        <row>
+                            <cell>0</cell><cell>10.0</cell><cell>1.9</cell>
+                            <cell>5</cell><cell>25.0</cell><cell>4.4</cell>
+                            <cell>10</cell><cell>56.0</cell><cell>8.1</cell>
+                            <cell>15</cell><cell>102.8</cell><cell>10.0</cell>
+                            <cell>20</cell><cell>148.4</cell><cell>7.7</cell>
+                        </row>
+                    </tabular>
+                    Use an appropriate linearization to estimate the population size for <m>t=12</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The time <m>t=12</m> is closest to <m>t=10</m> in the table.
+                    We will use use <m>t=10</m> for our linearization,
+                    at which time we have that <m>P=56.0</m> (thousands of individuals) and <m>\frac{dP}{dt}=8.1</m> (thousands per year).
+                    The tangent line formula is given by
+                    <me>P = 56.0 + 8.1\cdot(t-10)</me>,
+                    so that the approximate value at <m>t=12</m> is given by
+                    <me>P = 56.0 + 8.1\cdot(12-10) = 72.2</me>.
+                    The linearization predicts a population of about 72.2 thousand individuals.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

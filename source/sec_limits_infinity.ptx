@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_limits_infinity" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Limits at Infinity</title>
+    <introduction>
+        <p>
+            Limits describe function behavior as the input approaches some value.
+            A limit at a point, say <m>\displaystyle \lim_{x \to a} f(x) = L</m> is a <m>y</m>-value <m>y=L</m> that the function value <m>f(x)</m> approaches for sequences of <m>x</m>-values approaching <m>x=a</m>.
+            We also think of a vertical asymptote at <m>x=a</m> in terms of limits.
+            This occurs when the values of a function <m>f(x)</m> get larger and larger in size as <m>x \to a</m>, and we say <m>y \to \pm \infty</m>.
+        </p>
+        <p>
+            End behavior of a function is when we describe what happens to the values of a function as <m>x \to \pm \infty</m>.
+            We use limits in this context as well.
+            Learning goals related to end behavior include:
+            <ul>
+                <li><p>Understand and describe possible end behaviors, including horizontal asymptotes and unbounded growth.</p></li>
+                <li><p>Appropriately calculate limits involving infinity.</p></li>
+                <li><p>Relate limits at infinity to end-behavior.</p></li>
+            </ul>
+            Specific measured outcomes focus on applications of these goals to polynomials and rational functions.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_lim_end_behavior">
+        <title>Describing End Behavior</title>
+        <p>
+            When we talk about intervals with two numbers as end points, such as <m>(a,b)</m>, we are working with a <term>bounded</term> interval.
+            When an interval only has one end point, such as <m>(-\infty,a)</m> or <m>(b,\infty)</m>, we are working with an <term>unbounded</term> interval.
+            Our discussion about limits thus far have focused on limits where the variable approaches some specific value, <m>x \to a</m>.
+            These limits deal with bounded subsets of the domain.
+            End behavior deals with limits of a function over unbounded domains, thinking of <m>x \to -\infty</m> or <m>x \to +\infty</m>.
+        </p>
+        <p>
+            One example of a possible end behavior is a <term>horizontal asymptote</term>.
+            The word <em>asymptote</em> is used to say that the graph <m>y=f(x)</m> approaches (gets closer and closer to) some other simpler graph (the asymptote).
+            In this case, a horizontal asymptote refers to a horizontal line <m>y=L</m> that a function approaches.
+            There are some common misconceptions:
+            <ul>
+                <li><p>You might think a graph can only have one horizontal asymptote, but there can be different asymptotes on the left and the right.</p></li>
+                <li><p>You might think a graph won't cross an asymptote (or maybe just once), but crossing an asymptote is allowed.</p></li>
+            </ul>
+        </p>
+        <p>
+            A limit at infinity <m>\displaystyle \lim_{x \to \infty} f(x) = L</m> captures the idea of a horizontal asymptote of <m>y=L</m> on the right as <m>x \to +\infty</m>.
+            A similar limit as <m>x \to -\infty</m> would capture the idea of a horizontal asymptote on the left.
+            <xref ref="fig_lim_horiz_asymptotes"/> illustrates a function with a horizontal asymptote <m>y=2</m> on the right and <m>y=-1</m> on the left.
+        </p>
+        <figure xml:id="fig_lim_horiz_asymptotes">
+            <caption>Example of a graph of a function <m>f(x)</m> with a horizontal asymptote <m>y=-1</m> on the left and <m>y=2</m> on the right</caption>
+            <image xml:id="lim_horiz_asymptotes" width="50%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-10, xmax=10, ymin=-6, ymax=6, grid=both, minor tick num=1]
+\addplot [blue, very thick, domain=-10:10, samples=300] {(2*exp(x)-1)/(exp(x)+1) + 5*sin(180*x)/(1+0.1*x^4)};
+\end{axis}
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            What does this actually mean?
+            Let us focus on <m>x \to \infty</m>.
+            We need to imagine a sequence of <m>x</m>-values that are unbounded and increasing, <m>x_1 \lt x_2 \lt x_3 \lt \cdots</m> with <m>x \to +\infty</m>.
+            We look at the values of the function <m>f(x_1), f(x_2), f(x_3), \ldots</m>.
+            If this sequence <em>always</em> converges to <m>L</m>, <m>f(x) \to L</m>,
+            no matter which unbounded sequence is chosen, then
+            <m>\displaystyle \lim_{x \to \infty} f(x) = L</m>.
+        </p>
+        <p>
+            Another way to think of this is imagining trying to find a box that is unbounded to the right that can contain all points in the graph with <m>x \gt M</m> (for some choice of <m>M</m>).
+            If the graph itself is bounded, there will be a roof and a floor to the box.
+            The function has a limit <m>f(x) \to L</m> as <m>x \to +\infty</m> if the roof and the floor both approach <m>L</m> if you make <m>M</m> larger and larger.
+            If the roof and the floor are kept apart because the graph keeps oscillating, then the function does not have a limit.
+            <em>Warning: Just looking at a graph can be deceptive because you only ever see a bounded portion of that graph.</em>
+        </p>
+        <p>
+            An example of this is illustrated in <xref ref="fig_horiz_asympt_oscillation"/>.
+            Notice in this graph how the ceiling and floor are getting closer to one another as <m>M</m> moves to the right.
+            The view of the graph does not show whether the oscillation decays enough for the ceiling and floor to actually approach one.
+        </p>
+        <figure xml:id="fig_horiz_asympt_oscillation">
+            <caption>A function with horizontal asymptote <m>y=2</m> showing the boxes containing the graph for <m>x \gt M</m> with <m>M=4</m> and <m>M=10</m></caption>
+            <image xml:id="illust_horiz_asympt_oscillation" width="50%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=0, xmax=40, ymin=-4, ymax=6, grid=both, minor tick num=4]
+\addplot [blue, very thick, domain=0:10, samples=200] {2+4*cos(90*x)/(.04*x^2+1)};
+\addplot [blue, very thick, domain=10:40, samples=200] {2+4*cos(90*x)/(.04*x^2+1)};
+\addplot [blue, very thick, dashed, domain=0:40] {2};
+\addplot [red, thick] coordinates {(40,4.45) (4,4.45) (4,0.35) (40,0.35) } node [pos=0.4, above] {$M=4$};
+\addplot [red, thick] coordinates {(40,2.6) (10,2.6) (10,1.2) (40,1.2) } node [pos=0.4, above] {$M=10$};
+\end{axis}
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            The other end-behavior we will look at is unbounded growth.
+            Think about the graph of a parabola, <m>y=x^2</m>.
+            It forms the shape of a U with the two arms reaching up forever.
+            This idea of reaching up is what we want to understand.
+            As limits, we say <m>\displaystyle \lim_{x \to -\infty} x^2 = +\infty</m> (left arm reaches up) and <m>\displaystyle \lim_{x \to +\infty} x^2 = +\infty</m> (right arm reaches up).
+            A cubic has one arm reaching up and one reaching down, represented by limits
+            <md>
+                <mrow>\lim_{x \to -\infty} x^3 = -\infty</mrow>,
+                <mrow>\lim_{x \to +\infty} x^3 = +\infty</mrow>.
+            </md>
+        </p>
+        <figure xml:id="fig_end_behavior_quadratic_cubic">
+            <caption>End behavior of a quadratic (left) and cubic (right)</caption>
+            <sidebyside width="40%">
+                <image xml:id="end_behavior_quadratic">
+                    <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=20, grid=both]
+\addplot [blue, very thick, domain=-5:5, samples=200] {x^3};
+\node at (axis cs:-4,17.5) [right] {$y \to +\infty$};
+\node at (axis cs:4,17.5) [left] {$y \to +\infty$};
+\end{axis}
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+                <image xml:id="end_behavior_cubic">
+                    <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-4, xmax=4, ymin=-20, ymax=20, grid=both]
+\addplot [blue, very thick, domain=-4:4, samples=200] {x^3};
+\node at (axis cs:-2.25,-17.5) [right] {$y \to -\infty$};
+\node at (axis cs:2.25,17.5) [left] {$y \to +\infty$};
+\end{axis}
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+            </sidebyside>
+        </figure>
+    </subsection>
+    <subsection xml:id="subsec_limits_at_infinity">
+        <title>Infinite Limits</title>
+        <p>
+            Now that we know the meaning of limits corresponding to end behavior,
+            we turn our attention to their calculation.
+            The easiest way is to think about extending our view of arithmetic by including calculations <em>with</em> the values of <m>\pm\infty</m>.
+            In reality, we these calculations are about how limits of a combination is calculated from the limits of the parts, something we call <term>limit forms</term>.
+            The key to this extension is that we must avoid any calculations that would cancel away values that are infinitely big or infinitely small.
+            Such limit forms are called <term>indeterminate</term>.
+        </p>
+        <assemblage xml:id="asmbl_indeterminate">
+            <title>Indeterminate Limit Forms</title>
+            <statement>
+                <p>
+                    Limit forms that are <term>indeterminate</term> can not be calculated from the limits of the individual terms but require rewriting the original formula into a new form. Indeterminate limit forms include limits where it looks like infinitely large or infinitely small things cancel each other:
+                    <ul>
+                        <li><p><m>\infty - \infty</m></p></li>
+                        <li><p><m>0 \cdot \infty</m></p></li>
+                        <li><p><m>\frac{0}{0}</m></p></li>
+                        <li><p><m>\frac{\infty}{\infty}</m></p></li>
+                    </ul>
+                </p>
+            </statement>
+        </assemblage>
+        <p>
+            Otherwise, we can compute limits based on simple rules that combine real limits with infinite limits.
+            Let <m>L</m> represent any <em>non-zero</em> real-valued positive limit.
+            <ul>
+                <li><p><m>\infty \pm L = \infty</m> and <m>-\infty \pm L = -\infty</m>: Adding a real limit to an infinite limit is still infinite.</p></li>
+                <li><p><m>L \cdot \infty = \infty</m> and <m>L \cdot -\infty = -\infty</m>: Multiply a non-zero real limit with an infinite limit is still infinite.</p></li>
+                <li><p><m>\frac{L}{\pm\infty} = 0</m>: Dividing a real limit by an infinite limit is zero (values get infinitely small).</p></li>
+                <li><p><m>\infty+\infty = \infty</m> and <m>\infty \cdot \infty = \infty</m></p></li>
+            </ul>
+            Multiplication by a negative value changes the sign, so for products we need to count the number of negative factors.
+        </p>
+        <example xml:id="ex_limits_at_infinity">
+            <statement>
+                <p>
+                    <ul>
+                        <li>
+                            <p><m>\displaystyle \lim_{x \to \infty} -2x^2 + 4</m></p>
+                            <p>
+                                In the limit, each <m>x \to +\infty</m>, so the limit form is <m>-2 \cdot (\infty)^2 + 4</m>. We know <m>\infty\cdot\infty = \infty</m> and <m>-2 \cdot \infty = -\infty</m> and <m>-\infty + 4 = -\infty</m>.
+                                We would write:
+                                <md>
+                                    <mrow>\lim_{x \to \infty} -2x^2 + 4 &amp;= -2(\infty)^2 + 4</mrow>
+                                    <mrow>&amp;= -2(\infty) + 4</mrow>
+                                    <mrow>&amp;= -\infty + 4</mrow>
+                                    <mrow>&amp;= -\infty</mrow>
+                                </md>
+                                The interpretation of this is that <m>f(x) = -2x^2+4</m> has right end behavior <m>y \to -\infty</m> as <m>x \to +\infty</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p><m>\displaystyle \lim_{x \to -\infty} \frac{3}{2x+5}</m></p>
+                            <p>
+                                To evaluate this limit, we would write it in terms of a limit form involving <m>-\infty</m> for each <m>x</m>:
+                                <md>
+                                    <mrow>\lim_{x \to -\infty} \frac{3}{2x+5} &amp;= \frac{3}{2(-\infty)+5}</mrow>
+                                    <mrow>&amp;= \frac{3}{-\infty+5}</mrow>
+                                    <mrow>&amp;= \frac{3}{-\infty}</mrow>
+                                    <mrow>&amp;= 0</mrow>
+                                </md>
+                                The interpretation of this is that <m>g(x) = \frac{3}{2x+5}</m> has left end behavior <m>y \to 0</m> as <m>x \to -\infty</m>,
+                                meaning there is a horizontal asymptote <m>y=0</m> on the left.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </statement>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_lim_end_behavior_polynomial">
+        <title>End Behavior of Polynomials</title>
+        <p>
+            We now know everything we need to understand the end-behavior of polynomials, and to be able to justify that behavior in terms of limit forms.
+            Ultimately, everything will be based on the <em>highest-order term</em>, the term that has the greatest power of the variable.
+            For our learning objective, we focus as much or more on the reasoning for our limits based on appropriate use of limit forms.
+        </p>
+        <p>
+            Polynomials are usually written as a sum of terms.
+            Because limit forms adding <m>+\infty</m> and <m>-\infty</m> are indeterminate,
+            we need to <em>rewrite</em> polynomials in a new form prior to the limit.
+            Multiplying infinities does not create problems, so our strategy will be to rewrite the sum as a product.
+            We could do a full factorization, but that is more work than is needed.
+            Instead, we factor out the highest power of <m>x</m>.
+            The highest-order term's coefficient will be a constant, and all other terms will be their coefficients divided by a power of <m>x</m>.
+        </p>
+        <example xml:id="ex_lim_end_behavior_polynomial">
+            <title>Learning Objective L-6</title>
+            <statement>
+                <p>
+                    State and justify limits that describe the end behavior of <m>f(x) = 2x^4 - 3x^2 + 5x - 7</m>. Explain how the limits correspond to the behavior of the graph.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The highest-order term of <m>f(x)</m> is <m>2x^4</m>, so we will factor out <m>x^4</m>.
+                    The other factor will have each term divided by <m>x^4</m>:
+                    <md>
+                        <mrow>f(x) &amp;= 2x^4 - 3x^2 + 5x - 7</mrow>
+                        <mrow> &amp;= x^4 \cdot (\frac{2x^4}{x^4} - \frac{3x^2}{x^4} + \frac{5x}{x^4} - \frac{7}{x^4}</mrow>
+                        <mrow> &amp;= x^4 \cdot (2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}</mrow>
+                    </md>
+                    The new formula introduces a discontinuity at <m>x=0</m>, but that does not change our limits as <m>x \to \pm\infty</m>.
+                </p>
+                <p>
+                    To calculate end behavior, we use limits as <m>x \to \pm\infty</m>.
+                    <md>
+                        <mrow>\lim_{x \to +\infty} f(x) &amp;= \lim_{x \to +\infty} x^4 \cdot \left(2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}\right)</mrow>
+                        <mrow> &amp;= (+\infty)^4 \cdot \left(2 - \frac{3}{(+\infty)^2} + \frac{5}{(+\infty)^3} - \frac{7}{(+\infty)^4}\right)</mrow>
+                        <mrow> &amp;= +\infty \cdot \left(2 - \frac{3}{\infty} + \frac{5}{\infty} - \frac{7}{\infty}\right)</mrow>
+                        <mrow> &amp;= +\infty \cdot (2 - 0 + 0 - 0) = 2 \cdot \infty = \infty</mrow>
+                    </md>
+                    That is, the right end behavior of <m>f(x)</m> is a branch <m>y \to +\infty</m> as <m>x \to +\infty</m>.
+                    <md>
+                        <mrow>\lim_{x \to -\infty} f(x) &amp;= \lim_{x \to -\infty} x^4 \cdot \left(2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}\right)</mrow>
+                        <mrow> &amp;= (-\infty)^4 \cdot \left(2 - \frac{3}{(-\infty)^2} + \frac{5}{(-\infty)^3} - \frac{7}{(-\infty)^4}\right)</mrow>
+                        <mrow> &amp;= +\infty \cdot \left(2 - \frac{3}{\infty} + \frac{5}{-\infty} - \frac{7}{\infty}\right)</mrow>
+                        <mrow> &amp;= +\infty \cdot (2 - 0 + 0 - 0) = 2 \cdot \infty = \infty</mrow>
+                    </md>
+                    So the left end behavior of <m>f(x)</m> is another branch with <m>y \to +\infty</m> as <m>x \to -\infty</m>.
+                    Both arms of the graph reach upward, consistent with <em>any</em> polynomial having an even dominant power.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_lim_end_behavior_rational">
+        <title>End Behavior of Rational Functions</title>
+        <p>
+            A <term>rational function</term> is a function that can be written as a quotient of two polynomials.
+            The end behavior of a rational function can be unbounded like a polynomial or it can result in a horizontal asymptote.
+            The end behavior will always match the end behavior of what you see if you simplify the leading term in the numerator divided by the leading term in the denominator.
+        </p>
+        <p>
+            Again, our emphasis is in the communication and justification, not the answer.
+            We use the same strategies that we used for end behavior limits of polynomials.
+            We must avoid limit forms that attempt to cancel, whether it is adding/subtracting infinity or dividing infinity by infinity.
+            To avoid both of these problems, we will factor out the highest power from the numerator, factor out the highest power from the denominator, and then simplify prior to evaluating limits.
+        </p>
+        <example xml:id="ex_lim_end_behavior_rational">
+            <title>Learning Objective L-7</title>
+            <statement>
+                <p>
+                    State and justify limits that describe the end behavior of <m>Q(x) = \frac{2x^5 - 3x^2 - 7}{x^2+2x-5}</m>. Explain how the limits correspond to the behavior of the graph.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We need to compute limits of <m>Q(x)</m> as <m>x \to \pm \infty</m>.
+                    In both cases, we will want to use a revised formula that expresses <m>Q(x)</m> as a product of terms rather than quotient of sums.
+                    The dominant power in the numerator is <m>x^5</m> and the dominant power in the denominator is <m>x^2</m>.
+                    We factor each of those powers out of their respective expressions.
+                    For <m>x \ne 0</m>, we have
+                    <md>
+                        <mrow> Q(x) &amp;= \frac{2x^5-3x^2-7}{x^2+2x-5} </mrow>
+                        <mrow> &amp;= \frac{x^5 \cdot (2 - \frac{3}{x^3} - \frac{7}{x^5}}{x^2 \cdot (1 + \frac{2}{x} - \frac{5}{x^2})}</mrow>
+                    </md>
+                    Next we rewrite this as a product, grouping the ratio <m>\frac{x^5}{x^2}</m> in order to simplify it:
+                    <md>
+                        <mrow> Q(x) &amp;= \frac{x^5}{x^2} \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
+                        <mrow> &amp;= x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
+                    </md>
+                </p>
+                <p>
+                    End behavior is characterized by the limits <m>\displaystyle \lim_{x \to \pm \infty} Q(x)</m>.
+                    <md>
+                        <mrow> \lim_{x \to -\infty} Q(x) &amp;= \lim_{x \to -\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
+                        <mrow> &amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}</mrow>
+                        <mrow> &amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}</mrow>
+                        <mrow> &amp;= -\infty \cdot \frac{2 - 0 - 0}{1 + 0 - 0}</mrow>
+                        <mrow> &amp;= -\infty \cdot 2 = -\infty</mrow>
+                    </md>
+                    This limit shows that <m>Q(x)</m> has left end behavior <m>y \to -\infty</m> as <m>x \to -\infty</m> (left side branch goes down).
+                    <md>
+                        <mrow> \lim_{x \to +\infty} Q(x) &amp;= \lim_{x \to +\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
+                        <mrow> &amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}</mrow>
+                        <mrow> &amp;= +\infty \cdot 2 = +\infty</mrow>
+                    </md>
+                    This limit shows that <m>Q(x)</m> has right end behavior <m>y \to +\infty</m> as <m>x \to +\infty</m> (right side branch goes up).
+                </p>
+                <p>
+                    Note that the step where we simplified the fraction <m>\frac{x^5}{x^2}</m> is where the relative size of the powers of the dominant terms was important. In this case, the numerator had a higher power so that the limit ended up being infinite. When the powers are the same, this fraction cancels entirely and the other factor controls the limit. When the power in the denominator is greater, the limit of the simplified fraction will be a limit of the form <m>\frac{1}{\infty}=0</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

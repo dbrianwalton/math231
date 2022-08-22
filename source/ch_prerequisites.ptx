@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch_prerequisites" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Prerequisite Core</title>
+
+  <introduction>
+    <p>
+        There are some basic skills and concepts that you are expected
+        to know from previous courses that will be revisited here.
+        We can think of these concepts as roughly being in the following broad categories.
+        <ul>
+            <li><p>Concepts related to linear relationships, specifically the meaning and application of slope and the equation of a linear relation.</p></li>
+            <li><p>Concepts relating to sets using interval notation, specifically how to write and interpret a set using intervals and calculating and interpreting the union and intersection of such sets.</p></li>
+            <li><p>Three basic methods for solving a quadratic equation and being able to identify which method is most appropriate for a given context.</p></li>
+            <li><p>Solving inequalities using factored expressions through the strategy of sign analysis.</p></li>
+        </ul>
+    </p>
+    <p>
+        The individual sections will introduce the basic ideas and provide support for how to practice thinking about the corresponding skills.
+    </p>
+  </introduction>
+
+  <xi:include href="./sec_prereq_linear.ptx" />
+  <xi:include href="./sec_prereq_sets.ptx" />
+  <xi:include href="./sec_prereq_quadratic.ptx" />
+  <xi:include href="./sec_prereq_sign_analysis.ptx" />
+</chapter>

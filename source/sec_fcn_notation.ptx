@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_fcn_notation" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Function Notation</title>
+    <introduction>
+        <p>
+            Function notation provides a means to write about the value of a dependent variable given the value of the independent variable.
+            Suppose we have a function <m>x \mapsto y</m> with a name of <m>f</m>, meaning that knowing the value of <m>x</m>, <m>f</m> allows us to determine the specific value of <m>y</m>.
+            We would write <me>y=f(x)</me>.
+            Function notation does not simply mean reading this as <q><m>y</m> is <em>a</em> function of <m>x</m></q>.
+            Rather, this means that <m>f</m> provides <em>the rule</em> connecting the values of <m>x</m> and <m>y</m>.
+        </p>
+        <p>
+            Function notation consists of using the name of the function followed immediately by a value or expression inside of parentheses.
+            That value or expression represents the value of the independent variable in the relation.
+            In algebra, a variable name followed by something inside of parentheses would mean there is an implicit (unstated) multiplication.
+            However, for functions, this is not multiplication but mapping.
+            The expression <m>f(2)</m> refers to <q>the output value of <m>f</m> when the input value is 2</q>, or more succinctly <q>the value of <m>f</m> at 2</q>.
+        </p>
+        <p>
+            If <m>x</m> and <m>y</m> are related by an equation and we can solve that equation so that <m>y</m> is isolated, the formula on the other side is a formula representation of <m>f(x)</m>.
+            So if we started with an equation <m>x^2+y=3</m>, this defines a relation.
+            If we solve for <m>y</m> and get <m>y=3-x^2</m>, we realize that knowing <m>x</m> we can find <m>y</m> and so this equation defines a function.
+            If we name the function <m>f</m>, then we have <m>f(x)=3-x^2</m>.
+            We can then directly calculate the value of <m>y</m> by using the formula we find after substituting the variable <m>x</m> with its value.
+            This means that <m>f(4)</m> represents <q>the value of <m>y</m> when <m>x=4</m></q> and using substitution we find
+            <me>f(4) = 3-(4)^2 = 3-16 = -13</me>.
+        </p>
+        <p>
+            This section focuses on three learning goals that build on this core understanding.
+            <ul>
+                <li><p>
+                    Use function notation on a formula to evaluate and simplify an expression involving substitution with formulas.
+                </p></li>
+                <li><p>
+                    Use function notation to understand relations between variables represented by tables and graphs.
+                </p></li>
+                <li><p>
+                    Use function notation to understand relations defined with piecewise formulas.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_fcn_evaluation">
+        <p>
+            Function notation is often used to describe a summary of mathematical operations applied to a value.
+            A function like <m>f(x)=x^2-3x</m> could be read as saying,
+            <q>Given the input value, calculate its square and then subtract from it three times the input value</q>.
+            If we then had <m>f(4)</m>, we would look at this and think, <q>The input is 4. So our rule says <m>f(4)</m> will have a value that is the square of 4 minus three times 4.</q>
+            This is what we mean by <m>f(4) = 4^2 - 3(4)</m> to get <m>f(4)=16-12=4</m>.
+        </p>
+        <p>
+            In applications, variables represent actual physical quantities.
+            A function relating these variables will need to respect what <em>type</em> of value is used as the input and what type of value is created as an output.
+            For example, if I were doing an electrophoresis gel observation with DNA, then there is a relation between the mass of a DNA segment and the distance it travels through the gel during the observation.
+            If we let <m>M</m> be the mass of a segment and <m>D</m> be the distance traveled, then our observation would create a map <m>M \mapsto D</m>.
+            If we said <m>D = f(M)</m>, then the function <m>f</m> is expecting <em>mass of a DNA fragment</em> as an input and gives a <em>distance</em> as output.
+            It would not make any sense to talk about <m>f(M^2)</m> because <m>M^2</m> is no longer the mass of a fragment.
+        </p>
+        <p>
+            On the other hand, in mathematics variables represent values in an abstract sense without including the units being measured.
+            If we wrote <m>f(x^2)</m> for the same function described previously,
+            we would think of <m>x</m> as a value so that <m>x^2</m> gives the mass of a DNA fragment.
+            So mathematically, <m>f(x^2)</m> <em>can</em> make sense.
+        </p>
+        <p>
+            This idea perhaps feels weirder when we have a function defined in abstract, such as <m>f(x)=x^2-3x</m> and then write something like <m>f(2x+1)</m>.
+            In one sense, it might feel like we are saying <m>x</m> <em>equals</em> <m>2x+1</m>.
+            This is where it is helpful to think of <m>f</m> as the <em>rule</em> of what we <em>do</em> to the input (and not what we do to <m>x</m>).
+            We need to <em>square</em> the input <m>(2x+1)</m> and then we need to subtract from that three times the input <m>(2x+1)</m>.
+            <me>f(2x+1) = (2x+1)^2 - 3(2x+1)</me>.
+            If we compare this to the original formula,
+            <me>f(x) = x^2 - 3 x</me>,
+            we can see that we are <em>substituting</em> the input formula <em>in place of</em> the input variable.
+            Because the input formula represents a single value, we wrap it in parentheses as a group.
+        </p>
+        <p>
+            Once we make the substitution, we are free to rewrite the formula in more convenient forms.
+            For example, we might want to write the polynomial in standard form so that it is easier to combine with other polynomials later.
+            <md>
+                <mrow>f(2x+1) &amp;= (2x+1)^2 - 3(2x+1)</mrow>
+                <mrow>&amp;= (2x+1)(2x+1) - 3(2x+1)</mrow>
+                <mrow>&amp;= 4x^2 + 2x + 2x + 1 - 6x - 3</mrow>
+                <mrow>&amp;= 4x^2 - 2x - 2</mrow>
+            </md>
+            The <em>representations</em> of the function value are different but they always given the same value.
+        </p>
+        <p>
+            You are expected to be able to apply the principles of function evaluation using substitution in order to expand and then simplify combinations of functions evaluated with expressions as inputs.
+        </p>
+        <example xml:id="ex_function_evaluate_simplify">
+            <title>Learning Objective F-1</title>
+            <statement>
+                <p>
+                    Given a function <m>f(x) = x^2 - 2x</m>,
+                    Compute, expand, and simplify <m>f(2x) - f(x-3)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    When thinking about a problem like this, I like to imagine blocks representing components of the formula.
+                    I might write <m>\boxed{f(2x)} - \boxed{f(x-3)}</m>.
+                    That is, I should recognize that there are two formulas I need to find, <m>f(2x)</m> and <m>f(x-3)</m>, and I will later subtract them.
+                </p>
+                <p>
+                    One method would be to find the individual formulas first using substitution.
+                    <md>
+                        <mrow>f(x) &amp;= x^2 - 2x</mrow>
+                        <mrow>f(2x) &amp;= (2x)^2 - 2(2x)</mrow>
+                        <mrow>&amp;= (2x)(2x) - 2(2x)</mrow>
+                        <mrow>&amp;= 4x^2 - 4x</mrow>
+                        <mrow>f(x-3) &amp;= (x-3)^2 - 2(x-3)</mrow>
+                        <mrow>&amp;= (x-3)(x-3) - 2(x-3)</mrow>
+                        <mrow>&amp;= x^2-3x-3x+9-2x+6</mrow>
+                        <mrow>&amp;= x^2-8x+15</mrow>
+                    </md>
+                    Once we know the individual formulas, we combine them to create the value in question.
+                    We need to be careful to think of these formulas as giving a single value, so we place them inside parentheses to treat the formula as a grouped expression:
+                    <md>
+                        <mrow>f(2x) - f(x-3) &amp;= (4x^2-4x) - (x^2-8x+15)</mrow>
+                        <mrow> &amp;= 4x^2-4x - x^2 + 8x - 15</mrow>
+                        <mrow> &amp;= 3x^2 + 4x - 15</mrow>
+                    </md>
+                </p>
+                <p>
+                    An alternative method would be to do all of the substitution at once.
+                    If this approach is used, extra caution must be taken to ensure that we treat all of the grouped expressions as single values.
+                    Use parentheses carefully:
+                    <md>
+                        <mrow>f(2x) - f(x-3) &amp;= \Big((2x)^2-2(2x)\Big) - \Big((x-3)^2 - 2(x-3)\Big)</mrow>
+                        <mrow> &amp;= \Big(4x^2-4x\Big) - \Big(x^2-6x+9-2x+6\Big)</mrow>
+                        <mrow> &amp;= 4x^2-4x - x^2 +8x -15</mrow>
+                        <mrow> &amp;= 3x^2+4x -15.</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_function_graphs_tables">
+        <p>
+            Understanding the relation between the input and output values of a function are critical in understanding function notation.
+            If <m>f</m> is a specified function and we are told for some value <m>x</m> that <m>f(x)=4</m>, we should recognize that the symbol <m>f(x)</m> represents the <em>output</em> value of the function for an input value of <m>x</m>.
+            Saying that <m>f(x)=4</m> means <m>x</m> is a value for the input such that the output is 4.
+            To apply this understanding to problems involving tables and graphs,
+            we need to know how to interpret input/output pairings for each tool.
+        </p>
+        <p>
+            A graph representing a function <m>f</m> includes points <m>(a,b)</m> where <m>f(a)=b</m>.
+            That is, the <m>x</m>-value of a point on the graph is an <em>input</em> value.
+            The <m>y</m>-value will be the corresponding <em>output</em> value.
+            You should have previously learned that a function must satisfy the <term>vertical line test</term>, which means that for every specific value of <m>x</m> (a vertical line), there can be <em>at most</em> one point on the graph.
+            Otherwise, knowing the value of the input would <em>not</em> allow us to know the value of the output.
+            If there is no point on the graph for the given value of <m>x</m>, then <m>f(x)</m> will be undefined at that input.
+        </p>
+        <p>
+            A table representing a function will typically give a column (or row) corresponding to the values of inputs and their corresponding outputs.
+            If the heading to the column of inputs were <m>x</m>, then the column of outputs would be <m>f(x)</m>.
+        </p>
+        <example xml:id="ex_fcn_table_graph">
+            <title>Learning Objective F-2</title>
+            <statement>
+                <p>
+                    The function <m>f</m> is represented by a graph and the function <m>g</m> is represented by a table, shown below.
+                    Demonstrate how function notatation allows you to find the requested values.
+                </p>
+                <sidebyside width="45%">
+                    <figure xml:id="fig_fcn_notation_graph">
+                        <caption>Graph of <m>y=f(x)</m></caption>
+                        <image xml:id="fcn_notation_graph" label="fcn_notation_graph">
+                            <description></description>
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[ xmin=-5.5, xmax=5.5, ymin=-5, ymax=5, grid=both, minor tick num=1 ]
+\addplot [line width=2, blue] coordinates { (-6,-1) (-4,3) (-2,1)};
+\addplot [line width=2, blue] coordinates { (-2,-1) (0,-3) (2,1) (3,2) (6,-1)};
+\addplot [only marks, blue] coordinates { (1,3) (-2,-1)};
+\addplot [only marks, thick, blue, fill=white] coordinates { (-2,1) (-4,3) (1,-1) (3,2) };
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                    <table xml:id="fig_fcn_notation_table">
+                        <title>Table for <m>y=g(x)</m></title>
+                        <tabular>
+                            <row header="yes">
+                                <cell><m>x</m></cell><cell><m>g(x)</m></cell>
+                            </row>
+                            <row><cell>-4</cell><cell>3</cell></row>
+                            <row><cell>-3</cell><cell>2</cell></row>
+                            <row><cell>-2</cell><cell>0</cell></row>
+                            <row><cell>-1</cell><cell>4</cell></row>
+                            <row><cell>0</cell><cell>1</cell></row>
+                            <row><cell>1</cell><cell>-2</cell></row>
+                            <row><cell>2</cell><cell>-4</cell></row>
+                            <row><cell>3</cell><cell>-3</cell></row>
+                            <row><cell>4</cell><cell>-1</cell></row>
+                        </tabular>
+                    </table>
+                </sidebyside>
+                <p>
+                    Find the following values.
+                    <ul>
+                        <li><m>f(-2)</m></li>
+                        <li><m>g(2)</m></li>
+                        <li><m>x</m> so that <m>f(x)=g(0)</m></li>
+                        <li><m>g(f(-1))</m></li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    To find <m>f(-2)</m>, we first interpret notation.
+                    The symbol <m>f(-2)</m> stands for the <em>output</em> value of a function <m>f</m> with an input of <m>-2</m>.
+                    That is, we want the <m>y</m>-value of the graph corresponding to the value <m>x=-2</m>.
+                    The vertical line at <m>x=-2</m> passes through an open point at <m>(-2,1)</m> and a closed point at <m>(-2,-1)</m>.
+                    The solid point is the point in the relation, so <m>f(-2) = -1</m>.
+                    The open point represents a <em>limit</em> of the segment of the graph and not an actual point in the graph.
+                </p>
+                <p>
+                    To find <m>g(2)</m>, we again interpret notation.
+                    The symbol <m>g(2)</m> is the output value of the map with input of <m>2</m>.
+                    We look in the table of <m>g</m>.
+                    The column headed by <m>x</m> contains input values while the column headed by <m>g(x)</m> contains corresponding output values.
+                    Finding <m>x=2</m> in the first column is paired with <m>g(x)=-4</m> in the second column.
+                    So <m>g(2)=-4</m>.
+                </p>
+                <p>
+                    To find <m>x</m> so that <m>f(x)=g(0)</m>, we need to think through a few steps.
+                    The symbol <m>g(0)</m> represents an output from <m>g</m> corresponding to an input of <m>0</m>.
+                    Looking in the table with <m>x=0</m> we find <m>g(0)=1</m>.
+                    We <em>replace</em> the symbol <m>g(0)</m> in the equation with this value to restate our question:
+                    find <m>x</m> so that <m>f(x)=1</m>.
+                </p>
+                <p>
+                    Notice that the value 1 and the symbol <m>f(x)</m> are equal, meaning that we are looking for value(s) <m>x</m> so that the <em>output</em> value <m>f(x)=1</m>.
+                    We now look at the graph at a <m>y</m>-value (horizontal line) <m>y=1</m> and see what point(s) on the graph match.
+                    There are three points where the graph's lines cross <m>y=1</m>,
+                    at <m>x=-5</m>, <m>x=2</m>, and <m>x=4</m>.
+                    The open point at <m>(-2,1)</m> is not an included point of the graph.
+                </p>
+                <p>
+                    To find <m>g(f(1))</m>, we need to think carefully about what this means.
+                    A function name with parentheses means that whatever is inside the parentheses represents the input value.
+                    Both <m>f</m> and <m>g</m> are functions here.
+                    So what is the input?
+                    The function <m>g</m> (outer function) has parentheses surrounding <m>f(1)</m>, so the value of <m>f(1)</m> is the input.
+                    Because <m>f</m> is also a function, its parentheses indicate that <em>its</em> input is 1.
+                </p>
+                <p>
+                    We start with the innermost piece to find <m>f(1)</m>.
+                    An input <m>x=1</m> on the graph is matched with <m>y=3</m> (the closed point), so <m>f(1)=3</m>.
+                    Once we know that value, we <em>substitute</em> to discover
+                    <me>g(f(1)) = g(3)</me>.
+                    The input <m>x=3</m> for the function <m>g</m> is paired with an output <m>g(x)=-3</m>, so <m>g(f(1))=-3</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection>
+        <p>
+            The <term>domain</term> of a function is the set of all valid <em>input</em> values.
+            When we have a formula for a function, the domain is normally understood to be the set of all values for which the formula makes sense (output value is defined).
+            We can <term>restrict</term> the domain of a function by specifying a specific set, usually by giving an interval for the valid input values.
+            In this case, a function requires that we indicate both the formula and the interval.
+        </p>
+        <p>
+            The notation for specifying a formula on a particular interval is to state the equation for the function's formula along with an inequality for the domain variable.
+            If we want to use <m>f(x)=x^2</m> but use a domain <m>(0,3]</m>,
+            we would write
+            <me>f(x) = x^2, \quad 0 \lt x \le 3</me>.
+            For this function, <m>f(0)</m> would not be defined because <m>x=3</m> is outside of the domain.
+        </p>
+        <p>
+            Once we are able to specify a specific formula on an interval in the domain, we can expand this idea to allow <em>different</em> formulas on different intervals.
+            We call such functions <term>piecewise-defined</term>.
+            The notation is to group the collection of rules on individual subsets of the domain with a curly brace on the left.
+        </p>
+        <example xml:id="ex_simple_piecewise_function">
+            <statement>
+                <p>
+                    Define the function <m>f(x)</m> piecewise by
+                    <me>
+                        f(x) = \begin{cases}
+                        3-x, &amp; -2 \le x \lt 0, \\
+                        x^2, &amp; 0 \lt x \le 3.
+                        \end{cases}
+                    </me>
+                    The domain has two subsets of interest.
+                    On <m>[-2,0)</m>, the function uses <m>f(x)=3-x</m>;
+                    on <m>(0,3]</m>, the function uses <m>f(x)=x^2</m>.
+                    The overall domain is <m>[-2,0)\cup(0,3]</m>.
+                    The value of <m>f(0)</m> is undefined because <m>x=0</m> is not in either domain restriction.
+                </p>
+            </statement>
+        </example>
+        <p>
+            To evaluate a piecewise function at a point,
+            the input value needs to be compared to the restricted domains.
+            Whichever domain restriction the input value belongs determines which formula rule will be used.
+            In the preceding example, to find <m>f(2)</m>, we look at the input <m>x=2</m> and recognize it belongs to the restriction <m>(0,3]</m>.
+            So the formula will be <m>f(x)=x^2</m> when <m>x=2</m> to give <m>f(2)=(2)^2 = 4</m>.
+            On the other hand, <m>f(-2)</m> will use <m>f(x)=3-x</m> since <m>x=-2</m> is in the restriction <m>[-2,0)</m>, giving <m>f(-2) = 3-(-2)=5</m>.
+        </p>
+        <p>
+            An important piecewise function in mathematics is the absolute value function.
+            It is named <m>\mathrm{abs}</m> but can also be represented by vertical bars around the input, <m>\abs(x) = |x|</m>.
+            This function creates an output that <em>matches</em> the input (we call this the <term>identity function</term>) when the input is non-negative.
+            When the input is negative, the output changes sign by multiplying the input by <m>-1</m>.
+            <me>\abs(x) = |x| 
+                = \begin{cases}
+                x, &amp; x \ge 0, \\
+                -x, &amp; x \lt 0.
+                \end{cases}
+            </me>
+        </p>
+        <p>
+            One strategy for thinking about piecewise functions is to think of the domain on a number line.
+            For each restriction, identify that subset on the number line.
+            Then label the interval with the formula that gets used on that interval.
+        </p>
+        <figure xml:id="fig_piecewise_restriction_domain">
+            <caption>Domain restrictions of a piecewise function</caption>
+            <image xml:id="piecewise_restriction_domain">
+                <description>number line showing intervals [-2,0) and (0,3] and indicating formulas used on each</description>
+                <latex-image>
+\begin{tikzpicture}
+\draw [&lt;-&gt;] (-5,0) -- (5,0);
+\foreach \x in {-2,0,3} {
+\draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [blue, thick] (-2,0.3) -- (0,0.3) node [pos=0.5, above] {$3-x$};
+\draw [blue, fill=blue] (-2,0.3) circle (0.5ex);
+\draw [blue, line width=1, fill=white] (0,0.3) circle (0.5ex);
+\draw [orange, thick] (0,0.6) -- (3,0.6) node [pos=0.5, above] {$x^2$};
+\draw [orange, line width=1, fill=white] (0,0.6) circle (0.5ex);
+\draw [orange, fill=orange] (3,0.6) circle (0.5ex);
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            A graph of a piecewise function follows this same pattern.
+            The graph of the individual parts are restricted based on the domain
+            and combined to a single graph.
+        </p>
+        <figure xml:id="fig_piecewise_restriction_graph">
+            <caption>Graph of a piecewise function</caption>
+            <image xml:id="piecewise_restriction_graph">
+                <description>graph of piecewise defined function consisting of a line for [-2,0) and a parabola for (0,3]</description>
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[ xmin=-5, xmax=5, ymin=-2, ymax=10, grid=both, xlabel={$x$}, ylabel={$y$} ]
+\addplot [domain=-2:0, blue, very thick] {3-x} node [pos=0.5, above right] {$3-x$};
+\addplot [domain=0:3, orange, very thick] {x^2} node [pos=0.5, right] {$x^2$};
+\addplot [only marks, blue, fill=blue] coordinates { (-2,5) };
+\addplot [only marks, blue, very thick, fill=white] coordinates { (0,3) };
+\addplot [only marks, orange, fill=orange] coordinates { (3,9) };
+\addplot [only marks, orange, very thick, fill=white] coordinates { (0,0) };
+\end{axis}
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            You should be comfortable interpreting the restricted domains that make up a piecewise function.
+            In particular, you should be able to recognize where a function is or isn't defined.
+            Pay close attention to whether end-points of intervals are included or excluded in a domain restriction.
+        </p>
+        <example xml:id="ex_piecewise_evaluation">
+            <title>Learning Objective F-3</title>
+            <statement>
+                <p>
+                    For the function <m>g(x)</m> defined piecewise below, evaluate each of the following points, showing clearly how you find the value from the formulas.
+                    If the value does not exist, indicate so.
+                    <me>
+                        g(x) = \begin{cases}
+                        x^2-2, &amp; x \le -1, \\
+                        2+3x, &amp; -1 \lt x \lt 1, \\
+                        5x-1, &amp; 1 \lt x \lt 3, \\
+                        x^2+2, &amp; x \ge 3
+                        \end{cases}
+                    </me>
+                    <ol>
+                        <li><p><m>g(-2)</m></p></li>
+                        <li><p><m>g(-1)</m></p></li>
+                        <li><p><m>g(0)</m></p></li>
+                        <li><p><m>g(1)</m></p></li>
+                        <li><p><m>g(3)</m></p></li>
+                    </ol>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    If the idea of visualizing the restricted domain helps you,
+                    we might start by creating a number line showing where the different rules are used.
+                    This doesn't really add any new information, so this is strictly a personal preference.
+                </p>
+                <figure xml:id="fig_piecewise_visualize_restricted_domain">
+                    <caption>Domain restrictions of a piecewise function</caption>
+                    <image xml:id="piecewise_visualize_restricted_domain" label="piecewise_visualize_restricted_domain">
+                        <description>number line intervals where formulas are used</description>
+                        <latex-image>
+\begin{tikzpicture}
+\draw [&lt;-&gt;] (-5,0) -- (5,0);
+\foreach \x in {-1,1,3} {
+\draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [&lt;-, blue, thick] (-5,0.3) -- (-1,0.3) node [pos=0.5, above] {$x^2-2$};
+\draw [blue, thick] (-1,0.5) -- (1,0.5) node [pos=0.5, above] {$2+3x$};
+\draw [blue, thick] (1,0.7) -- (3,0.7) node [pos=0.5, above] {$5x-1$};
+\draw [-&gt;, blue, thick] (3,0.9) -- (5,0.9) node [pos=0.5, above] {$x^2+2$};
+\draw [blue, fill=blue] (-1,0.3) circle (0.5ex);
+\draw [blue, line width=1, fill=white] (-1,0.5) circle (0.5ex);
+\draw [blue, line width=1, fill=white] (1,0.5) circle (0.5ex);
+\draw [blue, line width=1, fill=white] (1,0.7) circle (0.5ex);
+\draw [blue, line width=1, fill=white] (3,0.7) circle (0.5ex);
+\draw [blue, fill=blue] (3,0.9) circle (0.5ex);
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    We work through each value in turn.
+                    First, we look at the value of the input.
+                    Then we decide which restricted domain it belongs to.
+                    Finally, we use the formula for the restricted domain to find the value.
+                    <ol>
+                        <li>
+                            <p>
+                                To find <m>g(-2)</m>, we recognize <m>x=-2</m> is in <m>(-\infty,-1]</m> and so use <m>g(x)=x^2-2</m>:
+                                <me>g(-2) = (-2)^2-2 = 4-2 = 2</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                To find <m>g(-1)</m>, we recognize <m>x=-1</m> is the end-point included in <m>(-\infty,-1]</m> and so again use <m>g(x)=x^2-2</m>:
+                                <me>g(-1) = (-1)^2-2 = 1-2 = -1</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                To find <m>g(0)</m>, we recognize <m>x=0</m> is in <m>(-1,1)</m> and so use <m>g(x)=2+3x</m>:
+                                <me>g(0) = 2+3(0) = 2</me>.
+                                <m>g(0)</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                To find <m>g(1)</m>, we realize <m>x=1</m> is not in any of the restricted domains.
+                                <m>g(1)</m> does not exist.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                To find <m>g(3)</m>, we see <m>x=3</m> is the end-point included in <m>[3,\infty)</m> and uses <m>g(x)=x^2+2</m>:
+                                <me>g(3) = (3)^2+2 = 9+2 = 11</me>.
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

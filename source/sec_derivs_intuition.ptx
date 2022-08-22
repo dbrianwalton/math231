@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_derivs_intuition" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivatives and Tangent Lines</title>
+    <introduction>
+        <p>
+            It often helps to understand what we <em>want</em> out of a definition before we actually attempt the actual definition.
+            A derivative is ultimately defined as the limit of an average rate of change over an interval as the width of the interval goes to zero.
+            But to understand why this might make sense, we start by thinking geometrically about <term>tangent lines</term>.
+        </p>
+        <p>
+            A function having a derivative goes one step further than a function being continuous.
+            Recall that for a function <m>f</m> to be continuous at a point <m>x=a</m> means that <m>f(a)</m> is closely approximated by <m>f(x)</m> as long as <m>x</m> is chosen close enough to <m>a</m>.
+            A derivative gives us additional information about <em>how close</em> the approximations will be and how much change we should expect.
+            In particular, a function that has a derivative will be smooth enough so that close to <m>x=a</m>, the graph should behave <em>almost linearly</em>.
+            The line that approximately matches the function is called the <term>tangent line</term>.
+            The derivative is the slope of that line.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_derivs_tangent_line">
+        <title>Finding a Tangent Line</title>
+        <p>
+            Suppose that we have the graph of a function <m>y=f(x)</m>.
+            Imagine that we look at the graph around a particular point <m>(a, f(a))</m>.
+            In fact, imagine we draw a small rectangle with this point in the center
+            and that we could zoom into the graph so that this rectangle becomes the new viewing window.
+            On a map, this would be called an <term>inset</term>.
+            For smooth functions, if we make the rectangle small enough, the graph looks like a line, at least within the inset portion of the graph.
+            If we allowed that line to continue outside the inset, no longer paying attention to the original graph, that line would be the tangent line.
+        </p>
+        <p>
+            <xref ref="fig_derivs_tangent_zoom_inset" /> shows the graph of a function <m>y=f(x)</m> on a subset of the domain <m>(-5,5)</m>.
+            This graph passes through the point <m>(1,-1)</m>.
+            If we look at an inset around this point using a smaller subdomain <m>(0.5,1.5)</m>, the graph is almost linear.
+            If we were to choose an even smaller inset, the linear behavior would be even closer.
+        </p>
+        <figure xml:id="fig_derivs_tangent_zoom_inset">
+            <caption>Graph of a function with an inset surrounding a point showing approximate linear behavior</caption>
+            <sidebyside width="40%">
+                <image xml:id="img_derivs_tangent_original">
+                    <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, thick] coordinates { (0.5, -1.5) (0.5, -0.5) (1.5, -0.5) (1.5, -1.5) (0.5, -1.5) };
+\end{axis}
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+                <image xml:id="img_derivs_tangent_zoom_inset">
+\begin{tikzpicture}
+\begin{axis}
+[xmin=0.5, xmax=1.5, ymin=-1.5, ymax=-0.5, grid=both, minor tick num=1]
+\addplot [domain=0.4:1.6, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, thick] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
+\end{axis}
+\end{tikzpicture}
+                </image>
+            </sidebyside>
+        </figure>
+        <p>
+            Now, imagine if we were to take that small inset and treat it like it initiated an actual linear function that could extend beyond the inset.
+            This would create a line that closely approximated the function inside the inset.
+            The line <em>is</em> the <term>tangent line</term>.
+        </p>
+        <figure xml:id="fig_derivs_tangent_from_inset">
+            <caption>Extending a tangent line from an inset of the graph</caption>
+            <sidebyside width="40%">
+                <image xml:id="img_derivs_tangent_from_inset_a">
+                    <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, dashed] coordinates { (0.5, -1.5) (0.5, -0.5) (1.5, -0.5) (1.5, -1.5) (0.5, -1.5) };
+\addplot [red] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
+\addplot [orange, very thick, domain=0.9:1.1] {-1+-16/9*(x-1)};
+\end{axis}
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+                <image xml:id="img_derivs_tangent_from_inset_b">
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, dashed] coordinates { (0.5, -1.5) (0.5, -0.5) (1.5, -0.5) (1.5, -1.5) (0.5, -1.5) };
+\addplot [red] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
+\addplot [orange, very thick, domain=-5:5] {-1+-16/9*(x-1)};
+\end{axis}
+\end{tikzpicture}
+                </image>
+            </sidebyside>
+        </figure>
+        <p>
+            The idea illustrated above was that a function, when zoomed in far enough, looks like a line, and that if we were to extend that line back out to the original view of the graph, we would get a tangent line.
+            Another way to imagine finding a tangent line is to imagine a line that is anchored to the point of interest <m>(a,f(a))</m> but that can rotate.
+            The tangent line is the line that is chosen so that the line most closely matches the graph around the point of interest on both sides.
+            Or you could imagine a ruler is placed at the point to be following the graph (tangent) and you just draw the line following the straight edge of the ruler.
+        </p>
+        <p>
+            The derivative of <m>f(x)</m> at <m>x=a</m> <em>is</em> the slope of the tangent line.
+            The mathematical symbol for the derivative at a point is written <m>\frac{df}{dx}\Big|_{a}</m>.
+            The <m>df</m> and <m>dx</m> in the fraction are meant to remind us of a slope <m>\frac{\Delta y}{\Delta x}</m>, where the the <m>d</m> replaces <m>\Delta</m> because we will eventually be using limits.
+            The subscript on the bar indicates the point of interest <m>x=a</m>.
+        </p>
+        <p>
+            Now that we have an <em>approximation</em> for the graph of the tangent line, we can <em>approximate</em> the derivative by calculating the slope of the line.
+            We can calculate the slope using two points chosen from the line we drew.
+            Look for points that are easily estimated based on the grid used for the graph.
+        </p>
+        <figure xml:id="fig_derivs_slope_from_tangent">
+            <caption>Choosing points on tangent line to estimate slope</caption>
+            <image xml:id="img_derivs_slope_from_tangent" width="40%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [orange, very thick, domain=0.9:1.1] {-1+-16/9*(x-1)};
+\addplot [orange, only marks] coordinates {(1,-1) (-1,-4.555)};
+\end{axis}
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            We know from the graph that <m>(1,-1)</m> is one point on the tangent line.
+            From the grid, it looks like <m>(-1,2.5)</m> is another point on the line.
+            This is where we have some error<mdash />we can't be sure of the location of this point.
+            In fact, it is closer to <m>(-1,2.55)</m>, but we wouldn't be able to eye that much accuracy.
+            Our approximation for the derivative at <m>x=1</m> can now be calculated:
+            <md>
+                <mrow>\frac{df}{dx}\Big{|}_{1} &amp; \approx \frac{-1 - 2.5}{1--1}</mrow>
+                <mrow>&amp;= \frac{-3.5}{2} = -1.75</mrow>.
+            </md>
+            An exact value (using calculus) would have given <m>-\frac{16}{9} \approx -1.777</m>.
+        </p>
+        <example xml:id="ex_derivs_tangent_derivative">
+            <title>Learning Objective D-1</title>
+            <statement>
+                <p>
+                    A graph of <m>y=f(x)</m> is shown below. Draw a tangent line at <m>x=-2</m> and estimate the derivative at this point.
+                </p>
+                <figure xml:id="fig_ex_tangent_derivative">
+                    <caption>Extending a tangent line from an inset of the graph</caption>
+                    <image width="40%">
+                        <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=4]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\end{axis}
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </statement>
+        </example>
+    </subsection>
+</section>

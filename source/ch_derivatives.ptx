@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch_derivatives" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Derivatives</title>
+
+  <introduction>
+    <p>
+        Derivatives allow us to describe how two variables relate to one another through the idea of <term>rate of change</term>.
+        Consider a linear relation, <m>y = mx+b</m>.
+        The value of <m>y</m> <em>depends</em> on the value of <m>x</m>.
+        If we <em>change</em> the value of <m>x</m>, the value of <m>y</m> will necessarily change.
+        The rate of change describe <em>how fast</em> <m>y</m> changes <em>relative</em> to changes in <m>x</m>, and for a linear relation is the slope <m>m</m>.
+    </p>
+    <p>
+        That is, suppose we use a particular example, <m>y=3x-2</m> and start with <m>x=3</m>.
+        The relation requires <m>y=3(3)-2 = 7</m>, so that we are starting at a point <m>(x_0,y_0)=(3,7)</m>.
+        Now, if <m>x</m> <em>increases</em> by the value <m>\Delta x = 0.5</m> to the new value <m>x = x_0 + \Delta x = 3.5</m>, the value of <m>y</m> also changes to a new value <m>y = y_0 + \Delta y = 3(3.5)-2 = 8.5</m>.
+        Knowing <m>y_0 = 7</m>, we find <m>\Delta y = 8.5 - 7 = 1.5</m>.
+        The <em>slope</em> give the <em>ratio</em> <m>\Delta y / \Delta x = 1.5 / 0.5 = 3</m>.
+        The idea of <term>rate of change</term> is literally a ratio of changes.
+    </p>
+    <p>
+        Linear relations are <em>linear</em> precisely because the rate of change is <em>constant</em><mdash />the rate of change does not depend on which point is considered.
+        Most relations have varying rates of change (leading to concavity).
+        A <term>derivative</term> provides the mathematical tool to describe rate of change as a varying quantity, and it is defined in terms of a limit of average rates of change.
+    </p>
+    <p>
+        The learning objectives related to derivatives focus on understanding the relation between the derivative and tangent lines, the attribute of differentiability, working with the definition of the derivative, and applying the rules of differentiation to find derivatives.
+    </p>
+  </introduction>
+
+  <xi:include href="./sec_derivs_intuition.ptx" />
+  <xi:include href="./sec_derivs_limit_definition.ptx" />
+  <xi:include href="./sec_derivs_deriv_function.ptx" />
+  <xi:include href="./sec_derivs_differentiation.ptx" />
+</chapter>

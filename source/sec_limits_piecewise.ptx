@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_limits_piecewise" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Limits with Simple Formulas</title>
+    <introduction>
+        <p>
+            For most students, their experience with functions is that graphs are always continuous.
+            Or at least if they are discontinuous, there is a definite reason like a vertical asymptote.
+            That is because all algebraic functions <em>are</em> continuous, at least at the points in their domains.
+            This is not an obvious fact, and it requires additional mathematical tools to show it is true, some of which we will learn.
+            For this section, we will take as an article of faith (that needs to be justified later) the following statement.
+        </p>
+        <theorem xml:id="thm_algebraic_continuous_on_domain">
+            <title>Continuity of Algebraic Functions</title>
+            <statement>
+                <p>
+                    Let <m>f(x)</m> be a function defined algebraically, so that it only involves operations of arithmetic (addition, subtraction, multiplication, and division) and powers (including roots).
+                    Let <m>x=a</m> be a value in the domain of <m>f</m>.
+                    If there exists <m>\delta \gt 0</m> so that <m>(a-\delta,a+\delta)</m> is a subset of the domain of <m>f</m>, then <m>f(x)</m> is continuous at <m>x=a</m>.
+                </p>
+                <p>
+                    That is, if <m>f(x)</m> is defined for values immediately to the left and to the right of <m>x=a</m>, then <m>f(x)</m> is continuous at <m>x=a</m>.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            The consequence of this theorem is that when we are calculating limits when we know the formula,
+            we really only need to calculate the function value as long as that value exists.
+            If the value of the formula does <em>not</em> exist, then the theorem is silent and does not say how we would calculate the limit.
+            We will learn <em>some</em> strategies for dealing with that case in the next section.
+            In this section, we will use the power of continuity of individual formulas to explore limits and continuity of functions that are defined piecewise.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_lim_piecewise_limits">
+        <title>Limits of Piecewise Functions</title>
+        <p>
+            A piecewise defined function gives different rules or formulas for a function on different restrictions to the domain.
+            A limit looks at the values to the left or to the right of a given point and sees what they approach.
+            Putting these two ideas together, we can evaluate a limit of a piecewise defined function where each formula is itself algebraic by:
+            <ul>
+                <li><p>
+                    Identifying which restricted domain applies for values to the left or right of the point (based on left or right limit). 
+                </p></li>
+                <li><p>
+                    Attempting to evaluate the corresponding algebraic formula to see if it has a value.
+                </p></li>
+                <li><p>
+                    If the value exists, by continuity <em>of the formula</em>, it must be the same as the desired limit. If the value does not exist (not continuous), we need more tools to determine what happens to the limit.
+                </p></li>
+            </ul>
+        </p>
+        <example xml:id="ex_lim_piecewise_limit">
+            <title>Learning Objective L-3</title>
+            <statement>
+                <p>
+                    Given the function <m>g(x)</m> defined piecewise by
+                    <me>
+                        g(x) = \begin{cases}
+                        2x+3, &amp; x \lt -2, \\
+                        1-x, &amp; -2 \lt x \le 1, \\
+                        x^2-1, &amp; x \gt 1.
+                        \end{cases}
+                    </me>
+                    Find the limits <m>\displaystyle \lim_{x \to -2} g(x)</m>, <m>\displaystyle \lim_{x \to 1} g(x)</m>, and <m>\displaystyle \lim_{x \to 2} g(x)</m>, showing full reasoning.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    It is often helpful for students to think about the restricted domains as intervals on a number line.
+                </p>
+                <figure xml:id="fig_lim_piecewise_restricted_domains">
+                    <caption>Restricted domains associated with <m>g(x)</m></caption>
+                    <image xml:id="lim_piecewise_restricted_domains">
+                        <latex-image>
+\begin{tikzpicture}
+\draw [&lt;-&gt;] (-5,0) -- (5,0);
+\foreach \x in {-2,1} {
+\draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [&lt;-, blue, thick] (-5,0.6) -- (-2,0.6) node [pos=0.5, above] {$2x+3$};
+\draw [blue, fill=white] (-2,0.6) circle (0.5ex);
+\draw [blue, thick] (-2,0.3) -- (1,0.3) node [pos=0.5, above] {$1-x$};
+\draw [blue, fill=white] (-2,0.3) circle (0.5ex);
+\draw [blue, fill=blue] (1,0.3) circle (0.5ex);
+\draw [-&gt;, blue, thick] (1,0.6) -- (5,0.6) node [pos=0.5, above] {$x^2-1$};
+\draw [blue, fill=white] (1,0.6) circle (0.5ex);
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    To find <m>\displaystyle \lim_{x \to -2} g(x)</m>, we need to look at the left-limit and the right-limit first.
+                    Checking our restricted domains, we see that for <m>x \to -2</m> with <m>x \lt -2</m>, we will use <m>g(x)=2x+3</m> and write:
+                    <me>\lim_{x \to -2^-} g(x) = \lim_{x \to -2^-} [2x+3]</me>.
+                    That formula is algebraic and so the limit will use the value if it makes sense (continuity), so that we find
+                    <me>\lim_{x \to -2^-} g(x) = \lim_{x \to -2^-} [2x+3] = 2(-2)+3 = -1</me>.
+                    For <m>x \to -2</m> with <m>x \gt -2</m>, we see we need to use <m>g(x)=1-x</m>, which is also algebraic and continuous when defined:
+                    <me>\lim_{x \to -2^+} g(x) = \lim_{x \to -2^+}[1-x] = 1-(-2) = 3</me>.
+                    At this point, we compare those answers and see that they are not equal, and the two-sided limit does not exist:
+                    <me>\lim_{x \to -2} g(x) \; \text{d.n.e.}</me>.
+                </p>
+                <p>
+                    To find <m>\displaystyle \lim_{x \to 1} g(x)</m>, we again need to look at the left- and right-limits.
+                    On the left, using the restricted domains and continuity of algebraic formulas, we have
+                    <me>\lim_{x \to 1^-} g(x) = \lim_{x \to 1^-}[1-x] = 1-1 = 0</me>.
+                    On the right, we similarly find
+                    <me>\lim_{x \to 1^+} g(x) = \lim_{x \to 1^+}[x^2-1] = (1)^2-1 = 0</me>.
+                    This time, the left- and right-limits agree, so the two-sided limit exists,
+                    <me>\lim_{x \to 1} g(x) = 0</me>,
+                    but this limit has no direct relation to a formula.
+                </p>
+                <p>
+                    To find <m>\displaystyle \lim_{x \to 2} g(x)</m>, we find that <m>x=2</m> is inside the restricted domain <m>(1,\infty)</m>.
+                    Both the left- and right-limits are going to involve the same algebraic formula and by continuity.
+                    As long as the value makes sense, both sides use the same calculation:
+                    <me>\lim_{x \to 2} g(x) = \lim_{x \to 2}[x^2-1] = 2^2 - 1 = 3</me>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_lim_piecewise_continuity">
+        <title>Continuity of Piecewise Functions</title>
+        <p>
+            Although individual algebraic formulas are continuous, when they are combined in a piecewise defined function, the continuity of the combined function requires verifying whether the definition of continuity is satisfied.
+            Recall that this involves:
+            <ul>
+                <li><p>
+                    Make sure the limit exists (both sides) and find its value.
+                </p></li>
+                <li><p>
+                    Make sure the function value exists (single point) and find its value.
+                </p></li>
+                <li><p>
+                    Make sure the limit and the function value have the same value.
+                </p></li>
+            </ul>
+        </p>
+        <example xml:id="ex_lim_piecewise_continuity">
+            <title>Learning Objective L-4</title>
+            <statement>
+                <p>
+                    Using the same piecewise function as in <xref ref="ex_lim_piecewise_limit" />,
+                    <me>
+                        g(x) = \begin{cases}
+                        2x+3, &amp; x \lt -2, \\
+                        1-x, &amp; -2 \lt x \le 1, \\
+                        x^2-1, &amp; x \gt 1,
+                        \end{cases}
+                    </me>
+                    provide a justification for whether or not <m>g(x)</m> is continuous at <m>x=-2</m> and at <m>x=1</m>, directly referencing the definition of continuity.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We previously found
+                    <md>
+                        <mrow>\lim_{x \to -2^-} g(x) = -1</mrow>,
+                        <mrow>\lim_{x \to -2^+} g(x) = 3</mrow>,
+                    </md>
+                    from which we decided that <m>\displaystyle \lim_{x \to -2} g(x)</m> does not exist.
+                    Furthermore, <m>g(-2)</m> itself also does not exist since <m>x=-2</m> is not in any of the restricted domains.
+                    Since both values fail to exist, they can not be equal.
+                    <m>g</m> is <em>not</em> continuous at <m>x=-2</m>.
+                </p>
+                <p>
+                    We also previously found
+                    <md>
+                        <mrow>\lim_{x \to 1^-} g(x) = 0</mrow>,
+                        <mrow>\lim_{x \to 1^+} g(x) = 0</mrow>.
+                    </md>
+                    As these have the same value, we know <m>\lim_{x \to 1} g(x) = 0</m>.
+                    Looking at the restricted domains, we find that <m>x=1</m> is in the domain <m>(-2,1]</m> so that <m>g(1)</m> will use the formula <m>g(x)=1-x</m> to give <m>g(1)=1-1=0</m>.
+                    Because <m>\displaystyle \lim_{x \to 1}g(x) = g(1)</m>, we have verified that <m>g(x)</m> is continuous at <m>x=1</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Remember that getting the left- and right-limits to agree is what is necessary for the two-sided limit to have a value but is <em>not</em> enough to show continuity.
+            Continuity requires also showing that the function's value matches the same thing.
+            Otherwise (the limit exists but does <em>not</em> match the function), the function has a <term>removable discontinuity</term>.
+            It gets this name because if we <em>modified</em> the function at a single point in the domain, we could change it to continuous.
+        </p>
+        <p>
+            Any time the left- and right-limits both have values but are different, the function has a <term>jump discontinuity</term>,
+            regardless of whether the function is defined at the point of interest.
+            A jump discontinuity can not be made continuous by changing a single point.
+        </p>
+        <p>
+            There are other types of discontinuities.
+            When limits are infinite (see later), the function has an <term>infinite discontinuity</term>.
+            When left- or right-limits just don't exist at all because the values just don't approach any single value, the function has an <term>essential discontinuity</term>.
+        </p>
+        <p>
+            Knowing this terminology can help in communication but is not part of learning objectives.
+        </p>
+    </subsection>
+</section>

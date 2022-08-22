@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch_functions" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Functions</title>
+
+  <introduction>
+    <p>
+        Functions provide the main tool in mathematics to describe a relationship between two variables.
+        Whenever knowing the value of one variable (independent) can be used to calculate or determine the precise value of th other variable (dependent), that relation is a <term>function</term>.
+        A function is also known as a <term>map</term> and we write <m>x \mapsto y</m> to say that <q><m>x</m> maps to <m>y</m></q> or <q><m>y</m> is a function <em>of</em> <m>x</m></q>.
+        Like other mathematical objects, a function can be given a name (looks like another variable) and the discipline of mathematics has established function notation to understand how to write about and manipulate functions.
+    </p>
+    <p>
+        The learning objectives related to functions focus on understanding what a function is, how function notation works, how functions can be constructed, and how functions interact with one another in combination.
+    </p>
+  </introduction>
+
+  <xi:include href="./sec_fcn_notation.ptx" />
+  <xi:include href="./sec_fcn_construction.ptx" />
+  <xi:include href="./sec_fcn_inverse.ptx" />
+  <xi:include href="./sec_fcn_properties.ptx" />
+</chapter>

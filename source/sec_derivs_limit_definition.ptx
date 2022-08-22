@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_derivs_limit_definition" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Defining the Derivative</title>
+    <introduction>
+        <p>
+            Our intuitive introduction (<xref ref="sec_derivs_intuition" />) to what a derivative measures, the slope of a tangent line, started by imagining that we could find the tangent line as a starting point.
+            This can't be the real starting point.
+            How would we really know which line is the <em>best</em> approximation?
+            Mathematically, we will start by establishing a rule or definition for how to calculate the derivative that is consistent with our intuition and use that to define the tangent line using the derivative's value to know the slope.
+        </p>
+        <p>
+            Recall that we intuitively found a tangent line by imagining we could zoom in on the function until it looked linear, and then use that short segment to extend to a full tangent line.
+            This idea of zooming in is the essence of using a limiting process.
+            The farther in we zoom, the closer the graph looks like a line.
+            If we use two points from the function's actual graph, the slope between those points will be closer and closer to the slope of the tangent line as we zoom more and more in toward the point.
+        </p>
+        <p>
+            For a relation between variables, we previously defined the average rate of change in <xref ref="defn_average_rate_of_change_variables" />.
+            We are now focused on functions as the primary tool to describe relationships between variables, so let us restate this definition in terms of functions.
+        </p>
+        <definition xml:id="defn_average_rate_of_change">
+            <title>Average Rate of Change</title>
+            <statement>
+                <p>
+                    Given a function <m>f(x)</m> and an interval <m>[a,b]</m>,
+                    the <q><term>average rate of change</term> of the function over the interval <m>[a,b]</m></q> is a value given by the ratio of the change in the output relative to the change in the input:
+                    <me>\frac{\Delta f}{\Delta x}\Big|_{[a,b]} = \frac{f(b)-f(a)}{b-a}</me>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Suppose we want the derivative of <m>f</m> at <m>x=a</m>.
+            Then as we zoom, <m>(a,f(a))</m> will always be in the inset view.
+            We can choose a second point in the view.
+            That second point will be at <m>x=a+h</m> where <m>h</m> (sometimes written <m>\Delta x</m>) measures the increment of change required to go from <m>x=a</m> to the second point.
+            The line segment joining <m>(a,f(a))</m> and <m>(a+h, f(a+h))</m> is called a <term>chord</term> and when that is extended to a line, it creates the <term>secant line</term>.
+            The closer we zoom in, the closer the secant line will be to the tangent line,
+            meaning the <em>limit of the slopes of the secant lines</em> will be the slope of the tangent line.
+            We choose this as our <em>definition</em> of a derivative.
+        </p>
+        <definition xml:id="defn_derivative_as_limit">
+            <title>Definition of a Derivative</title>
+            <statement>
+                <p>
+                    Let <m>f(x)</m> be a function so that the domain includes an interval surrounding <m>x=a</m>. <q>The derivative of <m>f</m> at <m>x=a</m></q> is a numerical value represented by <m>\frac{df}{dx}\Big|_a</m> or <m>f'(a)</m> and is defined by a limit:
+                    <me>\frac{df}{dx}\Big|_a = f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}</me>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            The immediate learning out comes associated with learning the definition of the derivative focus on conceptualizing and using the limit process associated with formulas or graphs.
+            <ul>
+                <li><p>
+                    Apply a visualization of the limit of a secant line to understand how a derivative is calculated.
+                </p></li>
+                <li><p>
+                    Use the visualization of the limit of a secant line to explain differentiability of a function defined graphically involving discontinuities or slope mismatches.
+                </p></li>
+                <li><p>
+                    Apply the definition of a derivative to numerically approximate the derivative of a function.
+                </p></li>
+                <li><p>
+                    Apply the definition of a derivative to use a limit to exactly calculate the derivative of simple algebraic formulas.
+                </p></li>
+                <li><p>
+                    Determine differentiability of a piecewise function by considering left- and right-derivatives at end points of restricted domains.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_derivs_visualizing_definition">
+        <title>Visualizing the Limit of Secant Lines</title>
+        <p>
+            A derivative is a numerical value giving the slope of a tangent line to a function at a point <m>x=a</m>.
+            The definition of the derivative involves introducing an intermediate object, the secant line, by choosing a second point <m>x=b=a+h</m>, some increment <m>h</m> away from <m>x=a</m>.
+            This line will be <em>close</em> to the tangent line as long as <m>h</m> is chosen to be sufficiently small.
+            We can <em>visualize</em> the limit by imagining we <em>move</em> the second point closer and closer to <m>x=a</m> and see what the limiting line would be.
+            Some times, this limit won't make any sense, and in that case the derivative just does not exist.
+        </p>
+        <definition xml:id="defn_differentiability">
+            <title>Differentiability</title>
+            <statement>
+                <p>
+                    Let <m>f</m> be a function. <q><m>f</m> is <term>differentiable</term> at <m>x=a</m></q> means that <m>\frac{df}{dx}\Big|_a</m> exists.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Below are some interactive graphs.
+            A function is defined and a point <m>x=a</m> is fixed.
+            A second point <m>x=b</m> is movable by adjusting a slider for <m>h</m> and allows you to follow the graph <m>y=f(x)</m>.
+            The secant line through <m>(a,f(a))</m> and <m>(b,f(b))</m> is shown and the average rate of change <m>\frac{\Delta f}{\Delta x}\Big|_{[a,b]}</m> is calculated and shown.
+        </p>
+        <p>
+            In each example, adjust the slider for <m>h</m> and watch how the secant line moves.
+            Notice how the secant line approximates the tangent line when <m>h</m> is close to zero.
+            Look at the average rate of change value.
+            Does it appear to be converging to any particular value when <m>h \to 0</m>?
+            If so, that value would be the derivative.
+        </p>
+        <p>
+            The first example in <xref ref="fig_secant_quadratic" /> considers a quadratic function <m>f(x)=x^2</m> and looks at the point <m>x=1</m>.
+            As you explore, can you see why it we might expect <m>\frac{df}{dx}\big|_1 = 2</m>?
+        </p>
+        <figure xml:id="fig_secant_quadratic">
+            <caption>Illustration of secant lines to approximate the derivative of <m>f(x)=x^2</m> at <m>x=1</m>.</caption>
+            <interactive xml:id="secant_line_quadratic" platform="jsxgraph" aspect="10:6" source="code/secant_lines_quadratic.js">
+                <sidebyside width="60%">
+                    <stack>
+                        <slate xml:id="box_slq" surface="jsxboard" aspect="4:3" />
+                        <slate xml:id="interact_slq" surface="jsxboard" aspect="8:1" />
+                    </stack>
+                </sidebyside>
+            </interactive>
+        </figure>
+        <p>
+            The second example in <xref ref="fig_secant_cubic" /> considers a cubic function <m>f(x)=x^3-4x</m> and looks at the point <m>x=1</m>.
+            As you explore, can you see why it we might expect <m>\frac{df}{dx}\big|_1 = -1</m>?
+        </p>
+        <figure xml:id="fig_secant_cubic">
+            <caption>Illustration of secant lines to approximate the derivative of <m>f(x)=x^3-4x</m> at <m>x=1</m>.</caption>
+            <interactive xml:id="secant_line_cubic" platform="jsxgraph" aspect="10:6" source="code/secant_lines_cubic.js">
+                <sidebyside width="60%">
+                    <stack>
+                        <slate xml:id="box_slc" surface="jsxboard" aspect="4:3" />
+                        <slate xml:id="interact_slc" surface="jsxboard" aspect="8:1" />
+                    </stack>
+                </sidebyside>
+            </interactive>
+        </figure>
+        <p>
+            The third example in <xref ref="fig_secant_cubic" /> considers a piecewise function <m>f(x)</m> made from two different quadratics and looks at the point <m>x=1</m>.
+            Can you see how the limit appears to be different from the two sides, <m>h \to 0^-</m> vs <m>h \to 0^+</m>?
+        </p>
+        <figure>
+            <caption>Illustration of secant lines to approximate the derivative of a piecewise function at <m>x=1</m>.</caption>
+            <interactive xml:id="secant_line_piecewise_corner" platform="jsxgraph" aspect="10:6" source="code/secant_lines_piecewise_corner.js">
+                <sidebyside width="60%">
+                    <stack>
+                        <slate xml:id="box_slpc" surface="jsxboard" aspect="4:3" />
+                        <slate xml:id="interact_slpc" surface="jsxboard" aspect="8:1" />
+                    </stack>
+                </sidebyside>
+            </interactive>
+        </figure>
+        <p>
+            The piecewise example illustrates that we can have different limits from the left and right.
+            We define left- and right-derivatives as the corresponding limits of the average rate of change:
+            <md>
+                <mrow>\frac{df}{dx}\Big|_{a^-} = \lim_{h \to 0^-} \frac{f(a+h)-f(a)}{h}</mrow>,
+                <mrow>\frac{df}{dx}\Big|_{a^+} = \lim_{h \to 0^+} \frac{f(a+h)-f(a)}{h}</mrow>.
+            </md>
+            The derivative will only be defined if these two values both exist and have the same value.
+            Recall that this was required of any limit.
+            The function is <term>differentiable</term> at <m>x=a</m> if the left- and right-derivatives both exist and have the same value.
+        </p>
+        <p>
+            There will be corresponding left- and right-tangent lines as well.
+            The left-tangent line will be the line (if it exists) that goes through <m>(a,f(a))</m> and the limit of points immediately to the left.
+            The right-tangent line will be the line (if it exists) that goes through <m>(a,f(a))</m> and the limit of points immediately to the right.
+        </p>
+        <p>
+            One learning objective we will assess will ask you to take the graph of a piecewise function and illustrate the limiting line from secant lines (from the left and right if they are undefined or different) in order to answer questions about differentiability.
+        </p>
+        <example xml:id="ex_derivs_differentiability_piecewise_graph">
+            <title>Learning Objective D-2</title>
+            <statement>
+                <p>
+                    Given the graph of the function <m>f(x)</m> shown in <xref ref="fig_ex_differentiability_piecewise_graph" />, estimate the one-sided derivatives at <m>x=-2</m> and <m>x=2</m>. Explain whether <m>f</m> is differentiable at each of these points.
+                </p>
+                <figure xml:id="fig_ex_differentiability_piecewise_graph">
+                    <caption>Graph of <m>f(x)</m>. Note that in this interactive graph, the point <m>A</m> is draggable.</caption>
+                    <interactive xml:id="secant_line_piecewise_exercise" platform="jsxgraph" aspect="10:6" source="code/secant_lines_piecewise_exercise.js">
+                        <sidebyside width="60%">
+                            <stack>
+                                <slate xml:id="box_slpe" surface="jsxboard" aspect="4:3" />
+                                <slate xml:id="interact_slpe" surface="jsxboard" aspect="8:1" />
+                            </stack>
+                        </sidebyside>
+                    </interactive>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    On a paper version of this problem, you would need to identify points of interest and physically draw the left- and right-tangent lines, or the limits of the secant lines coming from the left and right.
+                    As you interact with this graph, imagine how you would do this by hand.
+                </p>
+                <p>
+                    Move the point <m>A</m> to <m>x=-2</m>.
+                    You should be sure to select the filled in point as the hollow point is just a limit point of the graph.
+                    You can now adjust the slider for <m>h</m>.
+                    If you approach <m>h \to 0^-</m> by coming from the left (negative <m>h</m>), you should see a left-tangent line has a slope that is approximately 2.
+                    This allows us to state:
+                    <me>\frac{df}{dx}\Big|_{x=-2^-} \approx 2</me>.
+                    (Do you see how the tangent line appears like it would go through <m>(-3,0)</m>? If doing this by hand, you would use that point to calculate a slope.)
+                </p>
+                <p>
+                    If you approach <m>h \to 0^+</m> by coming from the right, you will see the right-tangent line goes vertical.
+                    For <m>h \to 0^+</m>, you should observe that the slope is negative in the limit so that
+                    <me>\frac{df}{dx}\Big|_{x=-2^+} \approx -\infty</me>.
+                </p>
+                <p>
+                    We now turn our attention to <m>x=2</m>.
+                    Move <m>A</m> to <m>(2,1)</m> and check what the left- and right-tangent lines (limits of secant lines) look like.
+                    The left-tangent line (using <m>h \to 0^-</m>) appears to go through <m>(1,3)</m> so that we can approximate
+                    <me>\frac{df}{dx}\Big|_{x=2^-} \approx -2</me>.
+                    Similarly, the right-tangent line (using <m>h \to 0^+</m>) appears to go through <m>(3,2)</m> so that we can approximate
+                    <me>\frac{df}{dx}\Big|_{x=2^+} \approx 1</me>.
+                </p>
+                <p>
+                    Now that we have the left- and right-derivative values, we can interpret the results to say something about differentiability.
+                    In both cases, the left- and right-derivatives have <em>different</em> values.
+                    So we say that <m>f</m> is <em>not</em> differentiable at <m>x=-2</m> and at <m>x=2</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id='subsec_derivative_at_point'>
+        <title>Calculating the Derivative at a Point</title>
+        <p>
+            We have just considered the definition of the derivative in a graphical setting.
+            That is, we considered what happens to a secant line that is anchored at a point <m>(a,f(a))</m> and passes through another point <m>(a+h, f(a+h))</m> and then considered the limit of the slope as <m>h \to 0</m>.
+            We now want to think about this <em>numerically</em>.
+        </p>
+        <p>
+            In this first setting, we are going to consider numerical approximations of the derivative by looking at the decimal value of the slope of secant lines with progressively smaller values of <m>h</m>.
+            We want to see how making <m>h \to 0</m> causes the value of the slope of the secant line to converge to some value.
+            That value will be the derivative.
+            Later we will look at examples where the algebra of the formula for the slope of the secant line can simplify and allows us to compute an exact limit.
+        </p>
+        <p>
+            Our first example will be simpler in that the limit will converge to an easily recognized value.
+        </p>
+        <example xml:id='ex_derivative_at_point_simple'>
+            <statement>
+                <p>
+                    Use numerical approximations to estimate the value of <m>f'(3)</m> for <m>f(x)=x^2+x</m> using the definition of the derivative.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    First, recall that <m>f'(3)</m> and <m>\frac{df}{dx}\Big|_{3}</m> are different notations for the same thing.
+                    The definition of the derivative tells us we should consider the two points <m>(3,f(3))</m> and <m>(3+h,f(3+h))</m> and compute the slope.
+                    We will start by computing the formulas for the function values:
+                    <md>
+                        <mrow>f(x) &amp;= x^2 + x</mrow>
+                        <mrow>f(3) &amp;= 3^2 + 3 = 12</mrow>
+                        <mrow>f(3+h) &amp;=(3+h)^2 + (3+h)</mrow>
+                        <mrow> &amp;= 9 + 6h + h^2 + 3 + h</mrow>
+                        <mrow> &amp;= 12 + 7h + h^2</mrow>
+                    </md>
+                    The slope of the <em>secant line</em> will be:
+                    <md>
+                        <mrow>\frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{f(3+h)-f(3)}{h}</mrow>
+                        <mrow>&amp;= \frac{(12+7h+h^2)-12}{h}</mrow>
+                        <mrow>&amp;= \frac{7h+h^2}{h}</mrow>
+                    </md>
+                </p>
+                <p>
+                    It is at this point where we would be able to cancel out the factor <m>h</m>.
+                    For the purpose of numerical approximations, however, cancellation is not required.
+                    For more advanced examples, it will not be possible.
+                    Instead, what we want to do is create a table of values for progressively smaller values of <m>h</m> using this slope formula until we see the value converging to a desired degree of accuracy.
+                </p>
+                <p>
+                    One common choice would be to try decreasing powers of 10.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>h</m></cell>
+                            <cell><m>\frac{\Delta f}{\Delta x}</m></cell>
+                        </row>
+                        <row><cell>0.1</cell><cell>7.1</cell></row>
+                        <row><cell>0.01</cell><cell>7.01</cell></row>
+                        <row><cell>0.001</cell><cell>7.001</cell></row>
+                        <row><cell>0.0001</cell><cell>7.0001</cell></row>
+                    </tabular>
+                    We should also be in a habit of checking negative powers of 10.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>h</m></cell>
+                            <cell><m>\frac{\Delta f}{\Delta x}</m></cell>
+                        </row>
+                        <row><cell>-0.1</cell><cell>6.9</cell></row>
+                        <row><cell>-0.01</cell><cell>6.99</cell></row>
+                        <row><cell>-0.001</cell><cell>6.999</cell></row>
+                        <row><cell>-0.0001</cell><cell>6.9999</cell></row>
+                    </tabular>
+                    In both cases, we can see that the slope of the secant line is converging to a value of <m>7</m>, so we would say <m>f'(3) \approx 7</m>.
+                </p>
+                <p>
+                    Notice that if we did simplify the formula of the slope of the secant line, we would have <m>\frac{\Delta f}{\Delta x} = 7 + h</m>. Can you see how the values calculated in the table relate to this? And can you see how a limit with <m>h \to 0</m> results in a value of 7?
+                </p>
+            </solution>
+        </example>
+        <p>
+            For demonstrating the learning outcome, you will be given a function for which the slope of the secant line does not simplify so that you need to rely on the converging values to find your approximation.
+            In the example below, we see that we could use a new variable <m>x</m> in place of <m>a+h</m> and use a limit <m>x \to a</m> in place of <m>h \to 0</m>.
+        </p>
+        <example xml:id="ex_derivative_at_point_value">
+            <title>Learning Objective D-3</title>
+            <statement>
+                <p>
+                    Use numerical approximations to estimate the value of <m>f'(3)</m> for <m>f(x)=2^x</m> using the definition of the derivative.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    As in the last example, we start by writing down the formula for the slope of a secant line passing through <m>(3,f(3))</m> and <m>(3+h,f(3+h))</m>.
+                    The alternative would be to choose the second point as <m>(x,f(x))</m>, or use any new variable in place of <m>x</m>.
+                    The value for <m>f(3)</m> is <m>f(3)=2^3 = 8</m>.
+                    Using the second point <m>(x,f(x))</m>, we have
+                    <me>\frac{\Delta f}{\Delta x}\Big|_{3,x} = \frac{f(x)-f(3)}{x-3} = \frac{2^x-8}{x-3}</me>.
+                    If we instead used <m>(3+h,f(3+h))</m> as the second point, we would use <m>f(3+h) = 2^{3+h} = 2^3 \cdot 2^h = 8 \cdot 2^h</m>,
+                    resulting in a formula for the secant line slope given by
+                    <me>\frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{f(3+h)-f(3)}{h} = \frac{2^{3+h} - 8}{h}= \frac{8 \cdot 2^h - 8}{h}</me>.
+                </p>
+                <p>
+                    Depending on which choice we used for the second point, we either need a limit as <m>x \to 3</m> or <m>h \to 0</m>,
+                    <md>
+                        <mrow>f'(3) &amp;= \lim_{h \to 0}\frac{f(3+h)-f(3)}{h}</mrow>
+                        <mrow> &amp;= \lim_{x \to 3} \frac{f(x)-f(3)}{x-3}</mrow>.
+                    </md>
+                    Notice how we setup the table of values in our approximation.
+                    We will choose points closer and closer to <m>x \to 3</m> or <m>h \to 0</m> until it is clear that the decimal values are converging. The entire table that shows the convergence is necessary for showing that your approximation is good. We also need to include enough decimal values in our results to see if the convergence is actually happening.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>x \to 3</m></cell>
+                            <cell><m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}</m></cell>
+                        </row>
+                        <row><cell>2.9</cell><cell>5.357361</cell></row>
+                        <row><cell>2.99</cell><cell>5.526003</cell></row>
+                        <row><cell>2.999</cell><cell>5.543256</cell></row>
+                    </tabular>
+                    With the data so far, we don't quite see convergence.
+                    The values for 2.99 and 2.999 have the first two digits in common of 5.5 for the slope, but the next digit is getting bigger.
+                    Sometimes it is easier to discover convergence by checking both sides, this time trying <m>x \to 3^+</m>.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>x \to 3</m></cell>
+                            <cell><m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}</m></cell>
+                        </row>
+                        <row><cell>3.1</cell><cell>5.741877</cell></row>
+                        <row><cell>3.01</cell><cell>5.564440</cell></row>
+                        <row><cell>3.001</cell><cell>5.547100</cell></row>
+                    </tabular>
+                    The slope values for this table are decreasing.
+                    We can see that the value should be <em>between</em> 5.543256 and 5.547100.
+                    In fact, once we are close on both sides, the average will usually be quite close to the approximate value:
+                    <me>f'(3) \approx 5.545178</me>.
+                </p>
+                <p>
+                    If we did our calculation using the second point as <m>(3+h,f(3+h))</m>, we would have a similar table.
+                    This time, we will stay on a single side limit with <m>h \to 0^+</m>.
+                    Because we are not bracketing the value from both sides, we need to use closer and closer values for <m>h \to 0</m> before we obtain a similar degree of approximation.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>h \to 0^+</m></cell>
+                            <cell><m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^{3+h}-8}{h}</m></cell>
+                        </row>
+                        <row><cell>0.1</cell><cell>5.741877</cell></row>
+                        <row><cell>0.01</cell><cell>5.564440</cell></row>
+                        <row><cell>0.001</cell><cell>5.547100</cell></row>
+                        <row><cell>0.0001</cell><cell>5.545369</cell></row>
+                        <row><cell>0.00001</cell><cell>5.545197</cell></row>
+                        <row><cell>0.000001</cell><cell>5.545179</cell></row>
+                    </tabular>
+                </p>
+                <p>
+                    This table has six entries, comparable to the previous calculation.
+                    The last three entries had slope values with digits 5.545 in common, and the last two had 5.5451 in common.
+                    Without additional entries, this is the degree of approximation that we might trust, and we would say
+                    <me>f'(3) \approx 5.5451</me>.
+                    We don't know if the remaining digits are converging or not, and we don't really even know if the digits we wrote down have converged.
+                    This is why the two-sided approach is preferred, but for the assessment, either approach properly demonstrates the idea.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id='subsec_derivative_exact'>
+        <title>Exact Derivative from Definition</title>
+        <p>
+            We noted in the previous subsection that the formula for the slope of the secant line sometimes can be simplified, and when this happens we can find the exact value of the derivative without the table approximation.
+            This occurs when we can cancel away a factor of <m>h</m> from the numerator and denominator.
+            In the context of our work with limits, the cancellation finds a <em>continuous</em> formula that is equivalent to the original formula for <m>h \ne 0</m>.
+            With that continuous formula, finding the limit is equivalent to direct calculation of the value (plugging it in).
+        </p>
+        <example xml:id='ex_derivative_exact_simple'>
+            <statement>
+                <p>
+                    Consider the earlier example (<xref ref='ex_derivative_at_point_simple' />) of finding <m>f'(3)</m> for <m>f(x)=x^2+x</m>.
+                    In that example, we found the slope of the secant line joining <m>(3,f(3))</m> and <m>(3+h, f(3+h))</m> to be
+                    <me>\frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{7h+h^2}{h}</me>.
+                    This formula has a discontinuity at <m>h=0</m>, so a limit based on this formula can only be approximated using a numerical table.
+                </p>
+                <p>
+                    However, <m>h</m> is a common factor in the numerator so that we can rewrite
+                    <md>
+                        <mrow>\frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{7h+h^2}{h}</mrow>
+                        <mrow> &amp;= \frac{h(7+h)}{h}</mrow>
+                        <mrow> &amp;= 7+h</mrow>,
+                    </md>
+                    for <m>h \ne 0</m>.
+                    Where the original quotient had a discontinuity, the new formula is continuous and we can find the limit using value substitution.
+                    <md>
+                        <mrow>f'(3) &amp;= \lim_{h \to 0} \frac{f(3+h)-f(3)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0} \frac{7h+h^2}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0} [7+h]</mrow>
+                        <mrow> &amp;= 7 + 0 = 7</mrow>.
+                    </md>
+                    We <em>replaced</em> the limit in the second to last row by the <em>value</em> of the formula using continuity.
+                    So <m>f'(3) = 7</m>, and this is not an approximation but an exact value as calculated using the definition.
+                </p>
+            </statement>
+        </example>
+        <p>
+            For the learning outcome associated with this skill, we will combine the calculation of the limit defining a derivative with the idea of differentiability.
+            That is, we will work with a piecewise defined function and calculate the derivative from each side.
+            Our task will be to create the correct limits, calculate each of their values, and interpret differentiability based on the results.
+        </p>
+        <p>
+            It is helpful to think about the graphical interpretation as we work.
+            Recall that when the slope from the two sides were different because the graph meets at a corner, the function was not differentiable.
+            This will correspond to a calculation where both left- and right-derivatives have values but disagree.
+            We also explored situations where the function had a break (discontinuity).
+            In those cases, at least one of the one-sided derivatives resulted in a limit that was infinite because of a difference between <m>f(a)</m> and the limit of <m>f(x)</m> as <m>x \to a</m>.
+            We should expect these possibilities in our calculations as well.
+        </p>
+        <example xml:id='ex_derivative_exact_piecewise'>
+            <title>Learning Objective D-4</title>
+            <statement>
+                <p>
+                    Consider the function <m>g(x)</m> defined piecewise by
+                    <me>
+                        g(x) = \begin{cases}
+                        x^2 - 2x, &amp; x \le 2, \\
+                        2x, &amp; x \gt 2.
+                        \end{cases}
+                    </me>
+                    Find <m>g'(2)</m> if it exists.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    If you previously learned calculus, you might be tempted to use derivative rules for the formula that applies with <m>x=2</m>.
+                    However, because this is a piecewise formula that uses <m>x=2</m> as a boundary between two rules, this is not appropriate.
+                    Instead, we need to compare the left- and right-derivatives.
+                </p>
+                <p>
+                    When using the definition of the derivative <m>g'(a)</m> on a piecewise function, you need to be careful that the value <m>g(a)</m> uses the function value <em>at</em> the point of interest and not the formula from the sides.
+                    But when calculating <m>g(a+h)</m>, we need to consider the different cases for <m>h \gt 0</m> (used for the right-derivative) and for <m>h \lt 0</m> (used for the left-derivative).
+                </p>
+                <p>
+                    In this example, the function <m>g(x)</m> at <m>x=2</m> uses the formula <m>x^2-2x</m> to give <m>g(2)=2^2-2(2) = 0</m>.
+                    The right-derivative uses a secant line based on <m>g(2+h)</m> with <m>h \gt 0</m> so that we use the formula for <m>x \gt 2</m>,
+                    <me>g(2+h) = 2(2+h) = 4+2h</me>.
+                    The left-derivative uses a secant line based on <m>g(2+h)</m> with <m>h \lt 0</m> to use <m>g(x)=x^2-2x</m>
+                    <me>g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2</me>.
+                    Once we recognize which formulas and values to use, we calculate the slope of the secant lines and then find the limits.
+                </p>
+                <p>
+                    We start with the right-derivative.
+                    <md>
+                        <mrow>\frac{dg}{dx}\Big|_{2^+} &amp;= \lim_{h \to 0^+} \frac{g(2+h)-g(2)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0^+} \frac{(4+2h) - (0)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0^+} \frac{4+2h}{h}</mrow>
+                    </md>
+                    Because <m>h</m> is not a factor in the numerator, the limit will have <m>4+2h \to 4</m> and <m>h \to 0</m>, giving a limit of the form <m>4/0</m>.
+                    Our experience with limits tells us that this will be an <em>infinite</em> limit.
+                    We need to test the sign.
+                    For small positive <m>h</m>, the numerator will be close to 4 and the denominator will be a small positive number, so that the quotient will be positive.
+                    This means:
+                    <me>\frac{dg}{dx}\Big|_{2^+} = +\infty</me>.
+                    In the graphical interpretation, this would mean that the graph has a jump discontinuity that goes up on the right so that the limit of the secant line is a vertical line.
+                </p>
+                <p>
+                    Next, we compute the left-derivative.
+                    <md>
+                        <mrow>\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} \frac{g(2+h)-g(2)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0^-} \frac{(2h+h^2) - (0)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0^-} \frac{h(2+h)}{h}</mrow>
+                        <mrow> &amp;= \lim_{h \to 0^-} 2+h</mrow>
+                    </md>
+                    This time the quotient had a common factor of <m>h</m> that could cancel from the denominator.
+                    The new formula is continuous so that the limit can be calculated using continuity to give
+                    <md>
+                        <mrow>\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} 2+h</mrow>
+                        <mrow> &amp;= 2+0 = 2</mrow>.
+                    </md>
+                    The function has a left-tangent line with a slope of 2.
+                </p>
+                <p>
+                    We finish by comparing the values.
+                    The left- and right-derivatives do not have a common value,
+                    so the value <m>g'(2)</m> does not exist.
+                    The function <m>g(x)</m> is <em>not</em> differentiable at <m>x=2</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

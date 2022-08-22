@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch_limits" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Limits</title>
+
+  <introduction>
+    <p>
+        Functions can have widely varying behaviors.
+        One of the most fundamental properties of a function is <term>continuity</term>, which is often framed in terms of connectedness.
+        When a function has a break or a jump, it is <em>not</em> continuous or <term>discontinuous</term>.
+        However, mathematicians realized that there is more power in the concept by thinking about continuity as saying that a value of a function is well-approximated by nearby values in the domain.
+        This resulted in the development of the <term>limit</term> of a function, which is at the heart of all ideas in calculus.
+    </p>
+    <p>
+        The learning objectives related to limits focus on understanding the relation between limits and continuity, particularly in terms of piecewise functions, finding limits given formulas where a function is undefined, describing the end-behavior of functions using limits, and understanding ideas related to the definition of limits and the theorems that result from that definition.
+    </p>
+  </introduction>
+
+  <xi:include href="./sec_limits_intuition.ptx" />
+  <xi:include href="./sec_limits_piecewise.ptx" />
+  <xi:include href="./sec_limits_simplifying.ptx" />
+  <xi:include href="./sec_limits_infinity.ptx" />
+  <xi:include href="./sec_limits_reasoning.ptx" />
+</chapter>

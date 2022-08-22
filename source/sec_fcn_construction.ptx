@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_fcn_construction" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Constructing Functions</title>
+    <introduction>
+        <p>
+            One of the most important skills necessary for success in calculations relating to calculus is to understand how functions or expressions written as formulas are constructed out of simpler building blocks.
+            Once we understand the rules of calculus for the individual building blocks, calculus provides rules for how to deal with more complex constructions.
+        </p>
+        <p>
+            The learning outcomes represented in this section focus on developing this skill.
+            <ul>
+                <li><p>
+                    Find the domain of a function. The process of finding a domain given a formula is based on recognizing some steps in construction, specifically relating to the presence of division or square (even) roots. Once these steps are identified, the process reduces to solving equations or inequalities and interpreting the resulting sets.
+                </p></li>
+                <li><p>
+                    Recognize composition of functions. One of the basic methods of creating a complex function from simple elements, the composition of functions plays a central role in understanding inverse functions and is essential in understanding and using the chain rule and other rules involving substitution.
+                </p></li>
+                <li><p>
+                    Deconstruct a function. All of the rules of calculus (limits, derivatives, integrals) are based on the structure of a formula. Recognizing how a single formula is constructed from smaller units will be essential for later success.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_fcn_domain">
+        <title>Natural Domains</title>
+        <p>
+            Learning how to find the domain of an expression involves a subset of the skills relating to how expressions are constructed.
+            While it might be preferable to frame this in terms of deconstruction and composition discussed below,
+            this discussion will try to focus specifically on two operations that impact the domain<mdash />division and even roots.
+        </p>
+        <p>
+            The <term>natural domain</term> of an expression (a function) involving one or more variables is the set of values that can be assigned to the variables such that the expression has a well-defined resulting value.
+            When a function is constructed so that it only involves basic arithmetic operations (addition, subtraction, multiplication, and division) and powers, the only possible problem is division by zero.
+            If a formula has an even root (or powers <m>p/q</m> with <m>q</m> an even integer), the resulting root of a negative value is not a real number.
+            Apart from those issues, the formula will create a real-valued answer.
+        </p>
+        <p>
+            To find the domain of an algebraic function, we need to identify the risky operations (division and even roots) and create inequalities that will ensure they are safe.
+            The set of values that avoid all undefined circumstances will be the domain.
+            Thus, the first skill is to <em>identify</em> where the operations of division occur and the sub-expression that might create a problem.
+            <ol>
+                <li><p>
+                    Is there division? What are the subexpressions representing the numerator and denominator? Values making the denominator <em>zero</em> need to be removed from the domain.
+                </p></li>
+                <li><p>
+                    Is there an even root or a power of the form <m>p/q</m> with <m>q</m> an even integer? What is the subexpression of the formula <em>inside</em> the root? (This is an input of a composition.) Values making the input expression <em>negative</em> need to be removed from the domain.
+                </p></li>
+            </ol>
+            The second skill is to apply our previously reviewed principles of solving equations and inequalities to find the sets described above.
+        </p>
+        <example xml:id="ex_fcn_domain_quotient">
+            <statement>
+                <p>
+                    Determine the domain of <m>\displaystyle f(x) = 5x + \frac{2x+3}{x^2-4}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    When we look at the formula for <m>f(x)</m>,
+                    we see that the construction involves <em>division</em>,
+                    <me>5x + \boxed{\frac{2x+3}{x^2-4}}</me>.
+                    We need to recognize the <em>denominator</em> in that step.
+                    The formula <m>2x+3</m> is <em>divided by</em> <m>x^2-4</m>.
+                    The domain requires that the denominator <m>x^2-4</m> is <em>nonzero</em>.
+                    We create an equation to see what values create problems by relating the denominator to zero,
+                    <me>x^2-4 = 0</me>.
+                    We solve the equation using factoring, since a product can only equal zero if one of the factors equals zero.
+                    <md>
+                        <mrow>x^2-4 = 0</mrow>
+                        <mrow>(x+2)(x-2) = 0 </mrow>
+                        <mrow>x+2 = 0 \quad \text{or} \quad x-2=0</mrow>
+                        <mrow>x=-2 \quad \text{or} \quad x=2</mrow>
+                    </md>
+                    This means <m>f(x)</m> is defined for all inputs except <m>x=-2</m> or <m>x=2</m>.
+                </p>
+                <p>
+                    To describe the domain using intervals, we think of the real number line and remove <m>x=\pm 2</m>.
+                    A graphical representation of the set using a number line is shown below.
+                    Intervals are read from the line left-to-right.
+                    It starts at <m>-\infty</m> and continues until <m>-2</m>, then goes from <m>-2</m> to <m>2</m>,
+                    and finally goes from <m>2</m> until <m>+\infty</m>.
+                    We write <me>D = (-\infty,-2) \cup (-2, 2) \cup (2,+\infty)</me>.
+                </p>
+                <image width="75%" margins="auto">
+                    <latex-image>
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[&lt;-&gt;] (-4,0) -- (4,0);
+\draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+\draw (2, -0.1) -- (2,0.1) node[pos=0, below] {$2$};
+\draw [&lt;-, blue, thick] (-4,0.2) -- (-2.1,0.2);
+\draw [blue, thick] (-2,0.2) circle (0.1);
+\draw [blue, thick] (-1.9,0.2) -- (1.9,0.2);
+\draw [blue, thick] (2,0.2) circle (0.1);
+\draw [->, blue, thick] (2.1,0.2) -- (4,0.2) node [right] {$D$};
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+            </solution>
+        </example>
+        <example xml:id="ex_fcn_squareroot_domain">
+            <statement>
+                <p>
+                    Find the domain of the function <m>\displaystyle g(x)=2x^2 - \sqrt{x^2-x-6}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The expression defining <m>g(x)</m> includes an even root.
+                    To find the domain, we need to identify what expression is the <em>input</em> to that root.
+                    The root will only have a real value when the input expression is non-negative.
+                    We identify the expression <em>inside</em> the root as  <m>x^2-x-6</m>.
+                    The requirement is that this expression is non-negative.
+                    Any values of <m>x</m> that make <m>x^2-x-6 \lt 0</m> can <em>not</em> be in the domain.
+                </p>
+                <p>
+                    To find the domain, our task sign analysis of <m>x^2-x-6</m>.
+                    First, we find possible sign-changing points.
+                    The expression is always defined (no discontinuities) so we just solve for zeros <m>x^2-x-6=0</m>.
+                    <md>
+                        <mrow>x^2-x-6=0 </mrow>
+                        <mrow>(x-3)(x+2)=0</mrow>
+                        <mrow>x-3=0 \quad \text{or} \quad x+2=0</mrow>
+                        <mrow>x=3 \quad \text{or} \quad x=-2</mrow>
+                    </md>
+                    Once we know these points, we test each interval to find the sign of the formula <m>(x-3)(x+2)</m>.
+                </p>
+                <figure xml:id="fig_fcn_root_domain_sign_analysis">
+                    <caption>Sign analysis of <m>x^2-x-6 = (x-3)(x+2)</m></caption>
+                    <image xml:id="fcn_root_domain_sign_analysis" width="75%" margins="auto">
+                        <latex-image>
+                        \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+                        \draw[&lt;-&gt;] (-5,0) -- (5,0)
+                        node[pos=1, above right] {$x^2-x-6$}
+                        node[pos=1, below right] {$x$};
+                        \draw (-2, -0.1) -- (-2,0.1)
+                        node[pos=0, below] {$-2$}
+                        node[pos=1, above] {$0$};
+                        \draw (3, -0.1) -- (3,0.1)
+                        node[pos=0, below] {$3$}
+                        node[pos=1, above] {$0$};
+                        \node [above] at (-3,0.1) {$+$};
+                        \node [above] at (0,0.1) {$-$};
+                        \node [above] at (4,0.1) {$+$};
+                        \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Now we interpret our results.
+                    We were finding the domain of <m>g(x)=2x^2 - \sqrt{x^2-x-6}</m>, which requires <m>x^2-x-6 \ge 0</m>.
+                    Based on our summary, we need to find all values which result in the expression <m>x^2-x-6</m> having a positive sign or zero.
+                    Any values the cause the expression to have a negative sign are <em>not</em> in the domain.
+                    So our solution is the set
+                    <me>D = (-\infty,-2] \cup [3,\infty)</me>.
+                </p>
+                <image width="75%" margins="auto">
+                    <latex-image>
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\draw[&lt;-&gt;] (-5,0) -- (5,0);
+\draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+\draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+\draw [&lt;-, blue, thick] (-5,0.2) -- (-2.1,0.2);
+\draw [blue, fill=blue, thick] (-2,0.2) circle (0.1);
+\draw [blue, fill=blue, thick] (3,0.2) circle (0.1);
+\draw [-&gt;, blue, thick] (3.1,0.2) -- (5,0.2) node [right] {$D$};
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+            </solution>
+        </example>
+        <p>
+            More complicated problems require dealing with multiple issues.
+        </p>
+        <example xml:id="ex_fcn_find_domain_complex">
+            <title>Learning Objective F-4</title>
+            <statement>
+                <p>
+                    Find the domain of <m>\displaystyle f(x) = \frac{\sqrt{\frac{x-3}{x+1}}+2}{x^2+3x-4}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Our task is to find the domain of the function.
+                    We look at the formula for the potential risk factors: division and even roots.
+                    There are two steps involving division and a square root.
+                    For each division, we need to look at what is the denominator and ensure it is not zero.
+                    For the square root, we need to identify its input and ensure it is not negative.
+                </p>
+                <p>
+                    One division has a denominator of <m>x+1</m>.
+                    We can't divide by zero, so we identify where a problem would occur by solving <m>x+1 = 0</m>.
+                    The method of isolation quickly results in <m>x=-1</m> being <em>excluded</em> from the domain.
+                </p>
+                <p>
+                    The second division has a denominator of <m>x^2+3x-4</m>.
+                    After factoring, we see this is rewritten <m>(x+4)(x-1)</m>.
+                    A problem occurs if the denominator is zero, so we need to solve <m>(x+4)(x-1)=0</m>.
+                    The two solutions at <m>x=1</m> and <m>x=-4</m> are also excluded from the domain.
+                </p>
+                <p>
+                    For the square root, we need to identify the input expression.
+                    What formula is <em>inside</em> the root?
+                    We need to require <m>\displaystyle \frac{x-3}{x+1} \ge 0</m> and so will remove any values causing <m>\displaystyle \frac{x-3}{x+1} \lt 0</m>.
+                    This is already factored, so sign analysis will be quick.
+                </p>
+                <figure xml:id="fig_fcn_complex_input_sign_analysis">
+                    <caption>Sign analysis of <m>\displaystyle \frac{x-3}{x+1}</m></caption>
+                    <image xml:id="fcn_complex_input_sign_analysis" width="75%" margins="auto">
+                        <latex-image>
+                        \begin{tikzpicture}[x=1.5cm,y=0.7cm]
+                        \draw[&lt;-&gt;] (-3,0) -- (5,0)
+                        node[pos=1, above right] {$\displaystyle \frac{x-3}{x+1}$}
+                        node[pos=1, below right] {$x$};
+                        \draw (-1, -0.1) -- (-1,0.1)
+                        node[pos=0, below] {$-1$}
+                        node[pos=1, above] {und};
+                        \draw (3, -0.1) -- (3,0.1)
+                        node[pos=0, below] {$3$}
+                        node[pos=1, above] {$0$};
+                        \node [above] at (-2,0.1) {$+$};
+                        \node [above] at (1,0.1) {$-$};
+                        \node [above] at (4,0.1) {$+$};
+                        \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    To interpret the results of sign analysis, recall that we were exploring the domain of the square root portion of the formula.
+                    That portion is defined where sign analysis reveals values that are positive or zero, which occur for <m>x \in (-\infty, -1) \cup [3, \infty)</m>.
+                    The interval <m>[-1,3)</m> must all be removed from the domain<mdash />removing -1 because it causes division by zero and removing all values <m>-1 \lt x \lt 3</m> because they put a negative value inside the square root.
+                </p>
+                <p>
+                    Once we have considered the restrictions for each risk factor (division and even roots), the domain of the function overall requires that <em>all</em> restrictions are satisfied.
+                    If we imagine a number line of potential domain values,
+                    we remove <m>x=-1</m> for the first division, <m>x=-4</m> and <m>x=1</m> for the second division, and all values <m>-1 \lt x \lt 3</m> for the square root.
+                    Notice that <m>x=1</m> is not allowed for two reasons.
+                    The domain is the set of remaining values, 
+                    <me>D = (-\infty, -4) \cup (-4, -1) \cup [3,\infty)</me>.
+                </p>
+                <image width="75%" margins="auto">
+                    <latex-image>
+\begin{tikzpicture}[x=1.2cm,y=0.7cm]
+\draw[&lt;-&gt;] (-5.5,0) -- (5.5,0);
+\draw (-4, -0.1) -- (-4,0.1) node[pos=0, below] {$-4$};
+\draw (-1, -0.1) -- (-1,0.1) node[pos=0, below] {$-1$};
+\draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+\draw [&lt;-, blue, thick] (-5.5,0.2) -- (-1,0.2);
+\draw [-&gt;, blue, thick] (3,0.2) -- (5.5,0.2) node [right] {$D$};
+\draw [blue, fill=white, thick] (-4,0.2) circle (0.1);
+\draw [blue, fill=white, thick] (-1,0.2) circle (0.1);
+\draw [blue, fill=blue, thick] (3,0.2) circle (0.1);
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_composition">
+        <title>Function Composition</title>
+        <p>
+            A <term>composition</term> is when we use the <em>output</em> value of one function as the <em>input</em> value of another function.
+            That is, if <m>f</m> and <m>g</m> are functions, then <m>f\big(g(x)\big)</m> is the composition of <m>f</m> with <m>g</m>.
+            Overall, this constructs a <em>new</em> function <m>f \circ g</m>,
+            <me>f \circ g(x) = f\big(g(x)\big)</me>.
+            We are using composition every time we evaluate a function using substitution with a formula as its input.
+            When we identified a formula that was inside of a square root, we were identifying a composition.
+            The skill we want to focus on in this subsection is in recognizing a sequence of operations as a composition of two functions.
+        </p>
+        <p>
+            The idea behind a composition <m>f \circ g(x)</m> is in thinking of the overall expression or function as a sequence or <term>chain</term> of two maps (functions) that accomplish the overall sequence of operations.
+            We take the variable and perform some of the operations to find <m>g(x)</m>.
+            The rest of the calculation then consists of operations that are applied to that intermediate result.
+            It is often the case that we think of this intermediate result as a dependent variable, say <m>u=g(x)</m>, and the final result is a function  of <m>u</m>, <m>y=f(u)</m>.
+        </p>
+        <example xml:id="ex_composition_as_chain">
+            <statement>
+                <p>
+                    A drop of water sitting on a flat surface forms the shape of half a sphere. 
+                    Suppose the radius of the drop, which starts at 3 mm, is decreasing through evaporation at a rate of 0.2 mm/min. 
+                    The volume of water is a function of the radius of the drop, and the radius of the drop is itself a function of time.
+                    This chain of relations allows us to write the volume as a function of time using composition.
+                </p>
+                <p>
+                    We will represent this model using a chain of relations involving time <m>t</m> (in minutes), radius <m>r</m> (in millimeters), and volume <m>V</m> (in cubic millimeters).
+                    First, we will find a function representing the map from time to radius, <m>t \mapsto r</m>.
+                    Then, we will find a function representing the map from radius to volume, <m>r \mapsto V</m>.
+                    The overall relation between time and volume is found by composition of this chain,
+                    <me> t \mapsto r \mapsto V</me>.
+                </p>
+                <p>
+                    In the first step, we need the function <m>t \mapsto r</m> which is modeled by a linear function because of the constant rate of change.
+                    That is, we know the slope (negative because decreasing) and an initial point:
+                    <me> \frac{\Delta r}{\Delta t} = -0.2, \quad (t,r)=(0,3)</me>.
+                    We have <m>r=-0.2t+3</m>. This is the first step of the chain, <m>t\mapsto r=-0.2t+3</m>, which we could assign to a function <m>g(t) = -0.2t+3</m>.
+                </p>
+                <p>
+                    The second step of the chain is based on the relation between radius and volume.
+                    Because the drop of water forms just half a sphere, the volume formula is given by 
+                    <me>V = \frac{1}{2} \cdot \frac{4}{3}\pi r^3 = \frac{2}{3} \pi r^3</me>.
+                    This is already in the form of a function, so we have the second step of the chain, <m>r \mapsto V = \frac{2}{3} \pi r^3</m>, 
+                    which we could assign to another function <m>f(r) = \frac{2}{3} \pi r^3</m>.
+                </p>
+                <p>
+                    We know that the radius is a function of time <m>r=g(t) = -0.2t+3</m>, and volume is a function of radius, <m>V=f(r) = \frac{2}{3} \pi r^3</m>.
+                    The relation <m>t \mapsto V</m> is a composition of this chain, <m>V = f \circ g(t)</m>.
+                    Using substitution, we have
+                    <me>V = f(g(t)) = f(-0.2t+3) = \frac{2}{3} \pi (-0.2t+3)^3</me>.    
+                </p>
+            </statement>
+        </example>
+        <p>
+            The focus of the measured learning objective is in being able to think through this in reverse.
+            Recognizing a composition involves <em>looking</em> for formula patterns that could have come <em>from</em> this type of substitution.
+            Try to find a sub-expression that involves the variable so that the overall expression consists only of further operations on that formula (and no others variables).
+            That sub-expression would be the intermediate variable in the chain, often generically assigned a name <m>u</m>.
+            The outer function is identified by <em>replacing</em> that expression by the intermediate variable.
+            There can often be multiple choices for what to call the intermediate variable.
+        </p>
+        <example xml:id="ex_fcn_find_composition">
+            <title>Learning Objective F-5</title>
+            <statement>
+                <p>
+                    Identify non-trivial functions <m>f(x)</m> and <m>g(x)</m> (meaning don't choose <m>f(x)=x</m> or <m>g(x)=x</m>) so that
+                    <me>f(g(x)) = 2(3x+1)^4+6</me>.
+                    Show that the substitution in the composition works as required.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    If we look at the overall expression as a function of <m>x</m>,
+                    we can think about the operations happening in some sequence.
+                    The table below tries to highlight this order:
+                    <md>
+                        <mrow>2(3 \boxed{x} + 1)^4 + 6 &amp; &amp; \text{find the variable}</mrow>
+                        <mrow>2(\boxed{3 x} + 1)^4 + 6 &amp; &amp; \text{multiply by 3}</mrow>
+                        <mrow>2(\boxed{3 x + 1})^4 + 6 &amp; &amp; \text{add 1}</mrow>
+                        <mrow>2\boxed{(3 x + 1)^4} + 6 &amp; &amp; \text{apply exponent 4}</mrow>
+                        <mrow>\boxed{2(3 x + 1)^4} + 6 &amp; &amp; \text{multiply by 2}</mrow>
+                        <mrow>\boxed{2(3 x + 1)^4 + 6} &amp; &amp; \text{add 6}</mrow>
+                    </md>
+                    In principle, <em>any</em> intermediate step in this example could be used to identify our intermediate variable in the chain.
+                    The <em>inner function</em> will capture all of the operations up to that step;
+                    the <em>outer function</em> will capture all of the remaining operations.
+                </p>
+                <p>
+                    The most important place to recognize composition is at the step that is not simple arithmetic<mdash />at the use of an exponent.
+                    The formula <m>3x+1</m> captures all of the operations preceding the exponent.
+                    If we replace that formula by an intermediate variable <m>u=3x+1</m>, the overall formula becomes
+                    <me>2u^4+6</me>.
+                    (The boxed formula is replaced by <m>u</m>.)
+                    This formula summarizes all of the remaining operations, starting with the exponent.
+                    Using this choice, the <em>inner</em> function (first map) is
+                    <me>g(x) = 3x+1</me>,
+                    and the <em>outer</em> function (second map) is
+                    <me>f(u) = 2u^4+6</me>.
+                    Mathematically, when the variable used as input is treated abstractly, we could also write
+                    <me>f(x) = 2x^4 + 6</me>.
+                    The composition works because substitution gives
+                    <me>f \circ g(x) = f(\boxed{g(x)}) = 2 (\boxed{3x+1})^4 + 6</me>.
+                </p>
+                <p>
+                    However, other composition choices could have been made.
+                    If we chose to do all steps including the exponent as the first step, we would have instead found
+                    <m>u = g(x) = (3x+1)^4</m> and <m>y = f(u) = 2u + 6</m> or <m>f(x)= 2x+6</m>.
+                    With this choice, composition gives the same overall result:
+                    <me>f \circ g(x) = f(\boxed{g(x)}) = 2 \boxed{(3x+1)^4} + 6</me>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_deconstruction">
+        <title>Expression Deconstruction</title>
+        <p>
+            We are now ready to look at the full picture of how all algebraic functions and expressions are constructed.
+            Every formula consists of a collection of <term>operations</term> that take simpler expressions to create more complex expressions.
+            The <em>simplest</em> expressions would be numbers and variables (which are symbols representing numbers).
+            All of the operations can be summarized as arithmetic or composition.
+        </p>
+        <p>
+            Arithmetic operations are the four basic operations of addition, subtraction, multiplication, and division.
+            These operations are called <term>binary</term> operations because they use <em>two</em> expressions as inputs to create a new complex expression.
+            The associative and commutative properties of addition and multiplication make it so that we <em>could</em> think of addition or multiplication of more than two values at a time, but then the way we talk about things gets more complicated.
+            Subtraction and division do <em>not</em> conveniently  allow for more than two values.
+            So we will always think of <em>all</em> of the arithmetic operations as being binary.
+        </p>
+        <p>
+            Every other operation is represented by a function.
+            Is something raised to a power? That's a function.
+            Do we use an absolute value? That's a function.
+            For each new operation, we have additional functions.
+            When we use the operation to another formula, we have composition of functions.
+        </p>
+        <p>
+            To understand the rules of calculus, we must be able to look at a formula and understand how that formula is constructed and the order in which the operations are used.
+            This is where we really need the <term>order of operations</term>.
+            Some teachers use the acronym <c>PEMDAS</c> for (1) Parentheses, (2) Exponents, (3) Multiplication, (4) Division, (5) Addition, and (6) Subtraction.
+            In reality, multiplication and division are the <em>same thing</em>, so they happen at the same priority.
+            Similarly, addition and subtraction are really the same thing and have the same priority.
+            When there are multiple items with the same priority, the understanding is that they are completed from left to right.
+        </p>
+        <p>
+            We need a slightly broader view in order to account for other operations.
+            Because an exponent can be interpreted as a function, we put all functions at that same priority order.
+            We could think of the <c>E</c> in the acronym as meaning <em>every function</em>.
+        </p>
+        <p>
+            Parentheses are not a separate type of operation.
+            They are listed first because they are used to <em>change</em> the priority to complete everything inside.
+            For example, if we want to be sure that we add two values before a multiplication, we write <m>(a+b) \cdot c</m> because without parentheses <m>a+b\cdot c</m> would be understood to complete multiplication <m>b \cdot c</m> <em>before</em> we add <m>a</m>.
+            Functions use parentheses to emphasize that everything is inside needs to be evaluated <em>before</em> using the function's operation.
+        </p>
+        <p>
+            When you look at a formula, whether it is an expression standing alone or a function, you should be able to quickly identify the <em>last</em> operation so that you can <em>deconstruct</em> the formula into an operation involving two simpler expressions or functions.
+            You could think of this as looking for the <em>lowest order of operation</em> in the expression.
+            If there are not two clear parts, then you are most likely facing a composition of an operation with some input formula.
+        </p>
+        <p>
+            We will look at some examples of formula construction.
+        </p>
+        <example xml:id="ex_fcn_deconstruction_arithmetic_product">
+            <statement>
+                <p>
+                    How is <m>\displaystyle 3x^4(2x+1)</m> made from two simpler expressions?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    This formula involves exponents, multiplication, and addition.
+                    Addition would normally be last, but it is occuring inside parentheses which raises the priority.
+                    So the last operation is a multiplication, and to be more precise is the <em>right-most</em> multiplication:
+                    <me>\boxed{3x^4} \cdot \boxed{(2x+1)}</me>.
+                </p>
+                <p>
+                    We say the expression is a <term>product</term> of the simpler expressions <m>3x^4</m> and <m>2x+1</m>.
+                </p>
+            </solution>
+        </example>
+        <example xml:id="ex_fcn_deconstruction_arithmetic_sum">
+            <statement>
+                <p>
+                    How is <m>\displaystyle 2x^3 + \frac{2x-1}{x^2+5}</m> made from two simpler expressions?
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    This formula involves exponents, multiplication, division, addition, and subtraction.
+                    One aspect of quotients (division) written in fraction form is that the numerator and denominator don't <em>show</em> parentheses but it is as if they were.
+                    The formula might also have been written
+                    <me>2x^3 + (2x-1)/(x^2+5)</me>.
+                </p>
+                <p>
+                    The product <m>2x^3</m> and the quotient <m>(2x-1)/(x^2+5)</m> both have higher priority than the addition that joins them.
+                    So the last operation is the addition:
+                    <me>\boxed{2x^3} + \boxed{\frac{2x-1}{x^2+5}}</me>.
+                </p>
+                <p>
+                    We say the expression is a <term>sum</term> of the simpler expressions <m>2x^3</m> and <m>\displaystyle \frac{2x-1}{x^2+5}</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Examples of compositions might include:
+            <ul>
+                <li>
+                    <p>
+                        <m>\sqrt{x^2+3x}</m>: The last operation is the square root acting on a formula. So this is a <term>composition</term> <m>f \circ g(x)</m> of outer function <m>f(x)=\sqrt{x}</m> with inner function <m>g(x)=x^2+3x</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>(\sqrt{x}+3)^4</m>: The last operation is the exponent acting on a formula. So this is also a <term>composition</term> <m>f \circ g(x)</m>, but with an outer function <m>f(x)=x^4</m> and an inner function <m>g(x)=\sqrt{x}+3</m>.
+                    </p>
+                </li>
+            </ul>
+        </p>
+        <p>
+            The learning outcome focuses on identifying the structure at multiple layers.
+            Once you have identified the last operation and the two simpler expressions or functions involved,
+            each of those expressions are themselves either elementary or can be further deconstructed.
+            Repeat the process on the individual parts.
+        </p>
+        <example xml:id="ex_fcn_deconstruction_complex">
+            <title>Learning Objective F-6</title>
+            <statement>
+                <p>
+                    Deconstruct the function <m>f(x)=\sqrt{x^2+3x} - 3x^4(2x+1)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The last operation is subtraction:
+                    <me>f(x) = \boxed{\sqrt{x^2+3x}} - \boxed{3x^4(2x+1)}</me>.
+                    We can label the simpler expressions with subscripts rather than creating new function names:
+                    <md>
+                        <mrow>f(x) &amp;= f_1(x) - f_2(x) &amp; \text{difference}</mrow>
+                        <mrow>f_1(x) &amp;= \sqrt{x^2+3x}</mrow>
+                        <mrow>f_2(x) &amp;= 3x^4(2x+1)</mrow>
+                    </md>
+                </p>
+                <p>
+                    We need to deconstruct <m>f_1(x)</m> and <m>f_2(x)</m>.
+                    The last operation for <m>f_1(x)</m> is the square root with a formula as its input. So we have a composition:
+                    <md>
+                        <mrow>f_1(x) &amp;= f_3 \circ f_4(x) &amp; \text{composition}</mrow>
+                        <mrow>f_3(x) &amp;= \sqrt{x}</mrow>
+                        <mrow>f_4(x) &amp;= x^2+3x</mrow>
+                    </md>
+                    The last operation of <m>f_2(x)</m> is multiplication:
+                    <md>
+                        <mrow>f_2(x) &amp;= f_5(x) \cdot f_6(x) &amp; \text{product}</mrow>
+                        <mrow>f_5(x) &amp;= 3x^4</mrow>
+                        <mrow>f_6(x) &amp;= 2x+1</mrow>
+                    </md>
+                </p>
+                <p>
+                    We would then continue for each of the functions.
+                    The function <m>f_3(x) = \sqrt{x}</m> is a simple function acting on <m>x</m>, so this has no further deconstruction.
+                    The function <m>f_4(x) = x^2 + 3x</m> is a sum:
+                    <md>
+                        <mrow>f_4(x) &amp;= f_7(x) + f_8(x) &amp; \text{sum}</mrow>
+                        <mrow>f_7(x) &amp;= x^2</mrow>
+                        <mrow>f_8(x) &amp;= 3x</mrow>
+                    </md>
+                    Note that <m>f_7(x)</m> is another simple function and requires no further deconstruction, while <m>f_8(x)</m> is a product of elementary expressions <m>3</m> and <m>x</m>.
+                    The function <m>f_5(x) = 3x^4</m> is a product of <m>f_9(x)=3</m> (elementary expression) and <m>f_{10}(x)=x^4</m> (elementary function).
+                    And the function <m>f_6(x)=2x+1</m> is a sum of <m>f_{11}(x)=2x</m> (a product) and <m>f_{12}(x)=1</m> (elementary expression).
+                </p>
+            </solution>
+        </example>
+        <p>
+            One way to visualize the construction of an expression is with a graphical structure called a <term>tree</term>.
+            The original expression or function is the <term>root</term> of the tree and it is associated with the last operation.
+            Each of the two component expressions that are combined become branches of the tree.
+            We keep branching each branch until we end up at a number, a variable, or an elementary function.
+        </p>
+        <figure xml:id="fig_fcn_deconstruction_as_tree">
+            <caption>Tree representation of the deconstruction from <xref ref="ex_fcn_deconstruction_complex"/></caption>
+            <image xml:id="fcn_deconstruction_as_tree" label="fcn_deconstruction_as_tree" width="75%">
+                <latex-image>
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+\node (f) at (0,0) {$\sqrt{x^2+3x}-3x^4(2x+1)$};
+\node (fl) [below=0ex of f] {$\boxed{-}$};
+\node at (fl) [right] {\phantom{$-$}\tiny{difference}};
+\node (f1) at (-2,-1.5) {$\sqrt{x^2+3x}$};
+\node (fl1) [below=0ex of f1] {$\boxed{\circ}$};
+\node at (fl1) [right] {\phantom{$\circ$}\tiny{composition}};
+\node (f2) at (2,-1.5) {$3x^4(2x+1)$};
+\node (fl2) [below=0ex of f2] {$\boxed{\cdot}$};
+\node at (fl2) [right] {\phantom{$\cdot$}\tiny{product}};
+\draw (fl) -- (f1);
+\draw (fl) -- (f2);
+\node (f3) at (-3,-3) {$\sqrt{x}$};
+\node (f4) at (-1,-3) {$x^2+3x$};
+\node (fl4) [below=0ex of f4] {$\boxed{+}$};
+\draw (fl1) -- (f3);
+\draw (fl1) -- (f4);
+\node (f5) at (1,-3) {$3x^4$};
+\node (fl5) [below=0ex of f5] {$\boxed{\cdot}$};
+\node (f6) at (3,-3) {$2x+1$};
+\node (fl6) [below=0ex of f6] {$\boxed{+}$};
+\draw (fl2) -- (f5);
+\draw (fl2) -- (f6);
+\node (f7) at (-1.5,-4.5) {$x^2$};
+\node (f8) at (-0.5,-4.5) {$3x$};
+\node (fl8) [below=0ex of f8] {$\boxed{\cdot}$};
+\draw (fl4) -- (f7);
+\draw (fl4) -- (f8);
+\node (f9) at (.5,-4.5) {$3$};
+\node (f10) at (1.5,-4.5) {$x^4$};
+\draw (fl5) -- (f9);
+\draw (fl5) -- (f10);
+\node (f11) at (2.5,-4.5) {$2x$};
+\node (fl11)[below=-0.4ex of f11] {$\boxed{+}$};
+\node (f12) at (3.5,-4.5) {$1$};
+\draw (fl6) -- (f11);
+\draw (fl6) -- (f12);
+\node (f13) at (-1,-5.75) {$3$};
+\node (f14) at (0,-5.75) {$x$};
+\draw (fl8) -- (f13);
+\draw (fl8) -- (f14);
+\node (f15) at (2,-5.75) {$2$};
+\node (f16) at (3,-5.75) {$x$};
+\draw (fl11) -- (f15);
+\draw (fl11) -- (f16);
+\end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+    </subsection>
+</section>

@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_fcn_properties" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Function Properties</title>
+    <introduction>
+        <p>
+            Mathematics, as a field of study, examines many different types of objects and the patterns that they follow.
+            In order to communicate consistently about these patterns,
+            language is <em>created</em> to describe specific attributes and properties.
+            Words in the context of mathematics are associated with specific definitions.
+            Recall how the idea of inverse functions had a conceptual idea of undoing the operations of one another <em>and</em> a formal definition.
+            The definition was a precise logical statement that we had to precisely verify in order to formally <em>know</em> that our functions were inverses.        </p>
+        <p>
+            This pattern will apply to the properties of other objects in mathematics.
+            We will try to create a common understanding of properties but we will also create formal definitions.
+            The logical consequences for how different properties are related will need to follow based on how the definitions are created.
+            Consequently, definitions can feel cumbersome because they are created as much to facilitate the reasoning in this deductive process as they are to capture natural intuition.
+        </p>
+        <p>
+            In this section, we will focus on learning the intuitive ideas behind definitions for some of the properties of functions, specifically those properties that are used to describe the shapes of function graphs.
+            Most properties are associated with subsets of the domain.
+            Some properties describe what happens at individual points, and we say those properties occur <em>at</em> a given point.
+            Other properties describe what happens over a subset of the domain, and we say those properties occur <em>on</em> a given set.
+        </p>
+        <p>
+            The learning outcomes represented in this section focus on developing this skill.
+            <ul>
+                <li><p>
+                    Describe the graph of a function using mathematical language to characterize where the function is increasing, decreasing, concave up, and concave down, and where the function has extreme values and inflection points.
+                </p></li>
+                <li><p>
+                    Sketch the graph of a function that is consistent with a provided description based on monotonicity and concavity.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_fcn_monotonicity">
+        <title>Increasing, Decreasing, or Constant</title>
+        <p>
+            The first group of attributes are classified as describing the <term>monotonicity</term> of a function.
+            The attributes of interest are <term>increasing</term>, <term>decreasing</term>, and <term>constant</term>, and they are properties that a function has <em>on a set</em>.
+            An intuitive understanding of these attributes can come by thinking about moving along a graph of the function restricted to the set in question from left to right.
+            The function is <term>increasing on the set</term> if the <m>y</m>-values of the graph always go up as you move left to right.
+            The function is <term>decreasing on the set</term> if the <m>y</m>-values go down.
+            The function is <term>constant on the set</term> if all <m>y</m>-values are the same.
+        </p>
+        <p>
+            When functions are smooth, we can think about the graph as having a definite slope at each point (the <term>derivative</term>).
+            One of the major goals in a first-semester of calculus is to make a connection between the derivative and monotonicity.
+            We can associate <em>positive slopes</em> with <em>increasing</em> functions, <em>negative slopes</em> with <em>decreasing</em> functions, and <em>zero slopes</em> with <em>constant</em> functions, but only when these properties are on <em>intervals</em> and not at individual points.
+            The reasoning behind this connection will come later.
+            We are trying to build a sense of how to <em>think</em> about the properties before we get too far into the details.
+        </p>
+        <p>
+            The formal definition of monotonicity creates a mathematical statement about our intuition of what happens to a <m>y</m>-value as we move left-to-right.
+        </p>
+        <definition xml:id="defn_fcn_monotonicity">
+            <title>Monotonicity of Functions</title>
+            <statement>
+                <p>
+                    Let <m>f</m> be a function with domain <m>D</m>, and let <m>S</m> be a subset of <m>D</m> (usually an interval).
+                    <ul>
+                        <li>
+                            <p>
+                                <q><m>f</m> is <term>increasing</term> on <m>S</m></q> means:
+                                For any <m>a,b \in S</m> with <m>a \lt b</m>, <m>f(b) \gt f(a)</m>.
+                            </p>
+                            <p>
+                                <q><m>f</m> is <term>decreasing</term> on <m>S</m></q> means:
+                                For any <m>a,b \in S</m> with <m>a \lt b</m>, <m>f(b) \lt f(a)</m>.
+                            </p>
+                            <p>
+                                <q><m>f</m> is <term>constant</term> on <m>S</m></q> means:
+                                For any <m>a,b \in S</m>, <m>f(a) = f(b)</m>.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    If no set is included (e.g., <m>f</m> is increasing), then it is understood to apply to the entire domain.
+                    If <m>f</m> is increasing or <m>f</m> is decreasing (on the domain), we say <m>f</m> is <term>monotone</term>.
+                </p>
+            </statement>
+        </definition>
+        <example xml:id="ex_fcn_monotonicity">
+            <statement>
+                <p>
+                    The following figures illustrate the basic ideas.
+                </p>
+                <sidebyside width="40%">
+                    <figure xml:id="fig_fcn_monotone_example_left">
+                        <caption>Graph of a continuous function that is increasing on <m>(-\infty,-1]</m> and on <m>[2,\infty)</m> and decreasing on <m>[-1,2]</m>.</caption>
+                        <image xml:id="graph_fcn_monotone_example_left">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}[xmin=-5.5, xmax=5.5, grid=both]
+\addplot [domain=-5.5:-1, thick, blue] {8*2^x};
+\addplot [domain=-1:0, thick, blue] {-4*x};
+\addplot [domain=0:2, thick, blue] {-x^2/2};
+\addplot [domain=2:5.5, thick, blue] {x-4};
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                    <figure xml:id="fig_fcn_monotone_example_right">
+                        <caption>Graph of a discontinuous function that is increasing on <m>(-\infty,-1)</m> and on <m>(1,2)</m> and decreasing on <m>[2,4]</m>.</caption>
+                        <image xml:id="graph_fcn_monotone_example_right">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}[xmin=-5.5, xmax=5.5, grid=both]
+\addplot [domain=-5.5:-1, thick, blue] {4*2^x};
+\addplot [domain=-1:2, thick, blue] {1.5*(x-0.5)^3};
+\addplot [domain=2:5, thick, blue] {2 + 4/(x-6)};
+\addplot [only marks, blue, fill=blue] coordinates { (-1,-2) (2,2) (5,-2) };
+\addplot [only marks, blue, fill=white] coordinates { (-1,2) (-1,-5) (2,5) (2,1) };
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                </sidebyside>
+                <p>
+                    In <xref ref="fig_fcn_monotone_example_left" />,
+                    we can imagine moving from left-to-right in the domain.
+                    As we move along the graph, the <m>y</m>-values steadily rise until we reach <m>x=-1</m>.
+                    Immediately after this point, the graph starts to decrease,
+                    so we say the function is <term>increasing on</term> <m>(-\infty,-1]</m>.
+                    The end-point is included because <m>f(-1)</m> is greater than all values to the left.
+                </p>
+                <p>
+                    Now, starting at <m>x=-1</m> and continuing to the right,
+                    the graph continues to drop until <m>x=2</m>.
+                    The sudden change in slope at <m>x=0</m> is irrelevant.
+                    We say that the function is <term>decreasing on </term> <m>[-1,2]</m>.
+                    Again, both end-points are <em>included</em> because even when the graph is highest at <m>x=-1</m> and lowest at <m>x=2</m> and decreasing everywhere in between.
+                </p>
+                <p>
+                    Finally, starting at <m>x=2</m> and continuing to the right,
+                    the graph is now rising apparently forever (based on the trend as the graph leaves the viewing window).
+                    We say that the function is <term>increasing on</term> <m>[2,\infty)</m>.
+                </p>
+                <p>
+                    In <xref ref="fig_fcn_monotone_example_right" />,
+                    we again imagine moving from left-to-right in the domain.
+                    As we move along the graph, the <m>y</m>-values steadily rise until we reach <m>x=-1</m>.
+                    However, this function has a break or discontinuity.
+                    The <m>y</m>-value at <m>x=-1</m> is <em>below</em> the values immediately to the left.
+                    Consequently, we say the function is increasing on <m>(-\infty,-1)</m>, not including the end-point.
+                </p>
+                <p>
+                    Starting at <m>x=-1</m>, the graph immediately jumps down to a curve which is then rising.
+                    We ignore the point at <m>x=-1</m>, but continue to the right until <m>x=2</m> where the graph has another break.
+                    The value at <m>x=2</m> is below the points immediately to the left, so we must not include <m>x=2</m> in the set where the function is increasing.
+                    The function is increasing on <m>(-1,2)</m>.
+                </p>
+                <p>
+                    Now we start at <m>x=2</m>.
+                    The graph immediately drops to a curve, which then continues to decrease.
+                    Since <m>f(2)</m> is greater than all of these values <m>f(x)</m> with <m>x \gt 2</m>, we will <em>include</em> the end-point at 2 in our interval for decreasing.
+                    The graph continues to decrease until the graph stops at <m>x=5</m>.
+                    The value at <m>x=5</m> is lower than points to its left, so this point will also be included.
+                    The function is decreasing on <m>[2,5]</m>.
+                </p>
+            </statement>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_concavity">
+        <title>Concavity</title>
+        <p>
+            While the monotonicity of a function describes how it rises or falls,
+            <term>concavity</term> describes how a function's graph bends or curves.
+            A straight line has no concavity.
+            If a curve bends upward, we say the graph is <term>concave up</term>.
+            If a curve bends downward, we say the graph is <term>concave down</term>.
+        </p>
+        <p>
+            One way to think about concavity is about a tangent line at a point.
+            The tangent line captures the rate of change of the function at that point.
+            If we took a short segment of the tangent line centered at the point of contact, and this segment would be <em>above</em> the graph immediately to the left <em>and</em> to the right,
+            we would have to <em>bend the segment downward</em> to match our graph.
+            This captures the idea of locally being <term>concave down</term>.
+            If the short segment was <em>below</em> the graph immediately to the left and right, we would have to <em>bend the segment upward</em> to match the graph.
+            This captures the idea of locally being <term>concave up</term>.
+            We just need to see how big we can make an interval to include all the points that locally have such a property.
+        </p>
+        <p>
+            Another way to think about concavity in terms of a tangent line is by thinking about how the slope of the tangent line changes as you consider points going from left to right.
+            The slope of a function <m>f(x)</m> at a point <m>x=a</m> is represented by the symbol <m>\frac{df}{dx}\Big|_{a}</m>.
+            Because this slope changes as we consider different points, this defines a new function <m>f'(x)</m> called the derivative function.
+            We will define these objects more carefully later.
+        </p>
+        <p>
+            A function is concave up if its slope is <em>increasing</em>,
+            and it is concave down if its slope is <em>decreasing</em>.
+            In calculus, this actually serves as our basic definition.
+            We will only define concavity on intervals so that we are dealing with connected sets.
+        </p>
+        <definition xml:id="defn_fcn_concavity">
+            <title>Concavity of a Function</title>
+            <statement>
+                <p>
+                    Let <m>f(x)</m> be a function, let <m>S</m> be an <em>interval</em> that is a subset of the domain of <m>f</m>, and suppose <m>f'(x)</m> is defined on <m>S</m> (there is a clear sense of slope on <m>S</m>).
+                    <ul>
+                        <li><p>
+                            <q><m>f</m> is <term>concave up</term> on <m>S</m></q> means the slope (<m>f'(x)</m>) is <em>increasing</em> on <m>S</m>.
+                        </p></li>
+                        <li><p>
+                            <q><m>f</m> is <term>concave down</term> on <m>S</m></q> means the slope (<m>f'(x)</m>) is <em>decreasing</em> on <m>S</m>.
+                        </p></li>
+                        <li><p>
+                            <q><m>f</m> is <term>linear</term> on <m>S</m></q> means the slope (<m>f'(x)</m>) is <em>constant</em> on <m>S</m>.
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            We will return to the definition near the end of the semester when we have defined exactly what <m>f'(x)</m> means and how to calculate it.
+            For our purposes, we will focus on the interpretation of which direction the curve is bending.
+            An interval of concavity must end as soon as the bending direction switches.
+            We will also only consider intervals on which the graph itself is connected, because we will later learn that <m>f'(x)</m> can not be defined at a discontinuity.
+            We will also not include points where the slope suddenly changes, again because <m>f'(x)</m> won't exist at these points.
+        </p>
+        <definition xml:id="defn_fcn_inflection_point">
+            <title>Inflection Point</title>
+            <statement>
+                <p>
+                    Let <m>f</m> be a function. <q><m>f</m> has an <term>inflection point</term> at <m>x=a</m></q> means that <m>f</m> is continuous at <m>x=a</m> (not broken), has a tangent line, and the concavity changes at <m>x=a</m>.
+                </p>
+            </statement>
+        </definition>
+        <example xml:id="ex_fcn_concavity">
+            <statement>
+                <p>
+                    The following figures illustrate the basic ideas.
+                </p>
+                <sidebyside width="40%">
+                    <figure xml:id="fig_fcn_concavity_example_left">
+                        <caption>Graph of a continuous function that is increasing on <m>(-\infty,-1]</m> and on <m>[2,\infty)</m> and decreasing on <m>[-1,2]</m>.</caption>
+                        <image xml:id="graph_fcn_concavity_example_left">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}[xmin=-5.5, xmax=6.5, grid=both]
+\addplot [domain=-5.5:-1, thick, blue] {4*2^x};
+\addplot [domain=-1:0, thick, blue] {-2*x};
+\addplot [domain=0:4, thick, blue] {1-(x-2)^2/4};
+\addplot [domain=4:6.5, thick, blue] {-3/2+(x-7)^2/6};
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                    <figure xml:id="fig_fcn_concavity_example_right">
+                        <caption>Graph of a discontinuous function that is increasing on <m>(-\infty,-1)</m> and on <m>(1,2)</m> and decreasing on <m>[2,4]</m>.</caption>
+                        <image xml:id="graph_fcn_concavity_example_right">
+                            <latex-image>
+\begin{tikzpicture}
+\begin{axis}[xmin=-5.5, xmax=5.5, grid=both]
+\addplot [domain=-5.5:-3, samples=50, thick, blue] {exp(1.25*(x+3))};
+\addplot [domain=-3:3, samples=50, thick, blue] {1.18+x^2/6-x^4/48};
+\addplot [domain=3:5.5, samples=50, thick, blue] {exp(-1.25*(x-3))};
+\end{axis}
+\end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                </sidebyside>
+                <p>
+                    The function in <xref ref="fig_fcn_concavity_example_left"/> illustrates several intervals of concavity.
+                    We start going left to right.
+                    When we first encounter the graph around <m>x=-5</m>,
+                    we can see that the graph is locally bending upwards.
+                    That is, the graph is above a tangent line on both sides.
+                    The curve continues to bend upward until the corner at <m>x=-1</m>.
+                    Assuming the graph has a similar behavior to the left of the viewing window, we would say <m>f</m> is <term>concave up on</term> <m>(-\infty,-1)</m>.
+                    The point <m>x=-1</m> is not included because there is no well-defined slope at <m>x=-1</m>.
+                </p>
+                <p>
+                    Going from <m>x=-1</m> to <m>x=0</m>, the graph is a straight line.
+                    That is, <m>f</m> has no concavity on <m>(-1,0)</m>.
+                    Instead, we say <m>f</m> is <em>linear</em> on <m>[-1,0]</m>.
+                </p>
+                <p>
+                    Now, starting at <m>x=0</m> and going to the right,
+                    we see the function is curving downward.
+                    Far to the right, however, we see that the curve begins to curve back upward.
+                    We need to identify the point where the curving direction switches.
+                    In this example, it occurs at <m>x=4</m>.
+                    If we could draw a tangent line at <m>x=4</m>, the graph is <em>below</em> the tangent line for <m>x \lt 4</m> and <em>above</em> the tangent line for <m>x \gt 4</m>.
+                    Consequently, we say <m>f</m> is <term>concave down</term> on <m>(0,4]</m> and <term>concave up</term> on <m>[4,\infty)</m> (assuming the shape pattern continues outside the window).
+                </p>
+                <p>
+                    The function in <xref ref="fig_fcn_concavity_example_right"/> provides an additional example. 
+                    On the far left, the graph is bending upwards, so we know there will be an interval that is concave up.
+                    Looking at the graph at <m>x=-2</m>, we can see the graph is now bending downwards, so there will be an interval that is concave down.
+                </p>
+                <p>
+                    We check between these points to identify the inflection point.
+                    From a graph, we can only give a reasonable guess.
+                    The graph appears to be roughly straight for <m>x</m>-values close to <m>x=3</m>.
+                    A tangent line at <m>x=3</m> appears consistent with having the graph <em>above</em> the line on the left and <em>below</em> the line on the right.
+                    So <m>x=3</m> being the inflection point is a reasonable guess.
+                    We conclude that <m>f</m> is <term>concave up</term> on <m>(-\infty,3]</m>.
+                </p>
+                <p>
+                    We earlier noted that the graph is concave down around <m>x=2</m>.
+                    Looking further to the right, we should notice that the graph is concave up around <m>x=0</m>.
+                    It appears that an inflection point is at or near <m>x=-1</m>.
+                    So we conclude <m>f</m> is <term>concave down</term> on <m>[-3,-1]</m>.
+                </p>
+                <p>
+                    Using similar reasoning, we decide there are inflection points at <m>x=1</m> and at <m>x=3</m>.
+                    We further conclude that <m>f</m> is concave up on <m>[-1,1]</m>, concave down on <m>[1,3]</m>, and concave up on <m>[3,\infty)</m>.
+                </p>
+            </statement>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_extreme_values">
+        <title>Extreme Values</title>
+        <p>
+            We introduced inflection points as places where a continuous function with a tangent line change concavity.
+            There should be a similar idea for where a function changes monotonicity.
+            Suppose a function is increasing and then at a point <m>x=a</m> changes to decreasing.
+            If we were to draw that picture, we would realize that <m>f(a)</m> must be <em>greater</em> than the values to the left (because it is increasing), but also <em>greater</em> than the values to the right (because it is decreasing).
+            That makes the point a <term>maximum</term> value on an interval that extends to the left and right of <m>x=a</m> (a <term>neighborhood</term> of <m>x=a</m>).
+        </p>
+        <p>
+            Continuous functions that change monotonicity have reached an extreme value.
+            However, this value is only guaranteed to be a maximum or minimum on an interval subset of the domain.
+            We call such points <term>local extreme values</term>.
+            They are the peaks or valleys of the function.
+            The mathematical definition focuses only on the function reaching the highest or lowest value within an interval rather than requiring monotonicity.
+        </p>
+        <definition xml:id="defn_fcn_local_extreme">
+            <title>Local Extreme Values (Relative Extreme Values)</title>
+            <statement>
+                <p>
+                    Let <m>f</m> represent a function and suppose there is some neighborhood of <m>x=a</m>, an interval <m>(a-\delta, a+\delta)</m> with <m>\delta \gt 0</m>, that is a subset of the domain of <m>f</m>.
+                    <ul>
+                        <li><p>
+                            <q><m>f</m> has a <term>local (relative) maximum</term> at <m>x=a</m></q> means for each <m>x \in (a-\delta, a+\delta)</m>, <m>f(a) \ge f(x)</m>. (The highest value of <m>f</m> in the neighborhood occurs at <m>x=a</m>.)
+                        </p></li>
+                        <li><p>
+                            <q><m>f</m> has a <term>local (relative) minimum</term> at <m>x=a</m></q> means for each <m>x \in (a-\delta, a+\delta)</m>, <m>f(a) \le f(x)</m>. (The lowest value of <m>f</m> in the neighborhood occurs at <m>x=a</m>.)
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            We are also interested in the most extreme values across the entire domain.
+            These extreme values are called <term>global extreme values</term> or <term>absolute extreme values</term>.
+        </p>
+        <definition xml:id="defn_fcn_global_extreme">
+            <title>Global Extreme Values (Absolute Extreme Values)</title>
+            <statement>
+                <p>
+                    Let <m>f</m> represent a function with a domain <m>D</m>.
+                    <ul>
+                        <li><p>
+                            <q><m>f</m> has a <term>global (absolute) maximum</term> at <m>x=a</m></q> means for each <m>x \in D</m>, <m>f(a) \ge f(x)</m>.
+                        </p></li>
+                        <li><p>
+                            <q><m>f</m> has a <term>global (absolute) minimum</term> at <m>x=a</m></q> means for each <m>x \in D</m>, <m>f(a) \le f(x)</m>.
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+        </definition>
+    </subsection>
+    <subsection xml:id="subsec_fcn_shape">
+        <title>Describing the Shape</title>
+        <p>
+            A description of the graph of a function includes identifying the monotonicity and concavity of the function, the inflection points and extreme values, and other important features of the graph.
+            These other features might include characterizing discontinuities or asymptotes, ideas we will encounter later when we discuss limits.
+        </p>
+        <p>
+            Our learning objectives focus on how we communicate about mathematical objects.
+            Communication occurs in sentences, so we need to practice writing complete sentences that properly use mathematical language in their context.
+            The functions are the objects under study, so they will play the role of the nouns in our sentences.
+            When discussing monotonicity or concavity, the definitions are in terms of subsets of the domain, so the sentences should use a prepositional phrase involving <em>on</em> a set.
+            When discussing inflection points or extreme values, the definitions are in terms of individual points, so the sentences should use a prepositional phrase involving <em>at</em> a value.
+        </p>
+        <example xml:id="ex_fcn_describe_function_graph">
+            <title>Learning Objective F-10</title>
+            <statement>
+                <p>
+                    The graph of a function <m>g(x)</m> is illustrated in the figure below.
+                    Assume that behavior at the edge of the viewing window continues indefinitely.
+                    Describe <m>g(x)</m>, using separate sentences to describe monotonicity and concavity on intervals chosen as large as appropriate.
+                    Estimate the location of inflection points and extreme values if not obvious.
+                </p>
+                <figure xml:id="fig_fcn_needs_description">
+                    <caption>Graph of <m>g(x)</m> for <xref ref="ex_fcn_describe_function_graph" /></caption>
+                    <image width="50%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \begin{axis}[xmin=-5.5, xmax=5.5, grid=both]
+                            \addplot [domain=-4:-2, samples=50, thick, blue] {1+3*(x+4)^2/8};
+                            \addplot [domain=-2:0, samples=50, thick, blue] {4-3*x^2/8};
+                            \addplot [domain=0:3, samples=50, thick, blue] {2+(x-2)^2/2};
+                            %\addplot [domain=2:2, samples=50, thick, blue] {2};
+                            \addplot [domain=3:6, samples=50, thick, blue] {3.5-exp(3-x)};
+                            \addplot [only marks, blue, fill=blue] coordinates { (-4,1) };
+                            \end{axis}
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    First, we describe the monotonicity.
+                    Looking at the graph, we see it rises, falls, and rises,
+                    so we will have three intervals.
+                    The function <m>g</m> is <em>increasing</em> on <m>[-4,0]</m>,
+                    <em>decreasing</em> on <m>[0,2]</m>, and increasing on <m>[2,\infty)</m>.
+                    End-points were all included because the function values at those points were the lowest or highest value on their intervals.
+                </p>
+                <p>
+                    <m>g</m> has a global minimum at <m>x=-4</m> and a global maximum at <m>x=0</m> because it appears the right-edge of the graph is leveling out fast enough that the <m>y</m>-value will not get higher than <m>y=4</m>.
+                    <m>g</m> also has a local minimum at <m>x=2</m>.
+                </p>
+                <p>
+                    Second, we describe the concavity.
+                    On the far left, the graph starts concave up to the right of <m>x=-4</m>.
+                    To the left of <m>x=0</m>, the graph is concave down.
+                    We can estimate an inflection point at <m>x=-2</m>.
+                    So <m>g</m> is concave up on <m>(-4,-2]</m> and concave down on <m>[-2,0)</m>.
+                    End-points are not included because the functions does not have clear tangent lines at those points.
+                </p>
+                <p>
+                    The graph is clearly concave up around <m>x=2</m>.
+                    This extends leftward to <m>x=0</m>.
+                    By the time we get to <m>x=4</m>, the graph is concave down.
+                    An inflection point can be estimated to be at <m>x=3</m>.
+                    So <m>g</m> is concave up on <m>(0,3]</m> and concave down on <m>[3,\infty)</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            The reverse skill is also important.
+            Given a description of the behavior of a function,
+            you should be able to sketch a graph of a function that matches that behavior.
+            There are multiple ways to think about creating a graph.
+            See if the following suggestions help or if you can think of other ways.
+        </p>
+        <p>
+            One perpective is to think about monotonicity and concavity as pairs of information.
+            There are four basic pairs: increasing and concave up, increasing and concave down, decreasing and concave up, and decreasing and concave down.
+            Each pair corresponds to the shape of the four quadrants of a circle.
+        </p>
+        <sidebyside>
+            <figure xml:id="fig_shape_increase_concave_down">
+                <caption>Increasing and concave down</caption>
+                <image xml:id="shape_increase_concave_down">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \draw (-1,0) arc (180:90:1);
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <figure xml:id="fig_shape_decrease_concave_down">
+                <caption>Decreasing and concave down</caption>
+                <image xml:id="shape_decrease_concave_down">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \draw (0,1) arc (90:0:1);
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <figure xml:id="fig_shape_decrease_concave_up">
+                <caption>Decreasing and concave up</caption>
+                <image xml:id="shape_decrease_concave_up">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \draw (-1,0) arc (180:270:1);
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <figure xml:id="fig_shape_increase_concave_up">
+                <caption>Increasing and concave up</caption>
+                <image xml:id="shape_increase_concave_up">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \draw (0,-1) arc (-90:0:1);
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+        </sidebyside>
+        <p>
+            Using the information about monotonicity and concavity, we can identify intervals with these pairs of shape information.
+            If there are intervals with constant or linear graphs, we add those as well.
+            We can then construct a graph by joining small arcs of graph shapes together, with each arc matching the shape pair information.
+            If the graph is continuous, the arcs need to join together at their end-points.
+            Otherwise, there could be breaks in the graph.
+        </p>
+        <example xml:id="ex_fcn_draw_graph_shape_1">
+            <title>Learning Objective F-11</title>
+            <statement>
+                <p>
+                    A function <m>f</m> is increasing on <m>(-\infty,-2]</m>, on <m>[0,2]</m>, and on <m>[4,\infty)</m>.
+                    The function is decreasing on <m>[-2,0]</m> and on <m>[2,4]</m>.
+                    <m>f</m> is concave up on <m>(-\infty,-1]</m> and on <m>[3,\infty)</m> and concave down on <m>[-1,3]</m>.
+                    Draw a graph of a continuous function consistent with this information.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The first two sentences give us information about monotonicity, and the last sentence gives us information about concavity.
+                    We need to identify intervals of the paired information.
+                    One way to get this paired information is to create adjacent number line information showing monotonicity and concavity.
+                </p>
+                <figure xml:id="fig_paired_shape_information_lines">
+                    <caption>Paired number line information showing monotonicity and concavity.</caption>
+                    <image xml:id="paired_shape_information_lines" width="70%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \draw [&lt;-&gt;] (-4,0) -- (4,0);
+                            \foreach \x in {-2, -1, 0, 1, 2} {
+                              \draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+                            }
+                            \draw [&lt;-, thick, blue] (-4,1) -- (-2,1) node [pos=0.5, above] {incr};
+                            \draw [thick, blue] (-2,1) -- (0,1) node [pos=0.5, above] {decr};
+                            \draw [thick, blue] (0,1) -- (2,1) node [pos=0.5, above] {incr};
+                            \draw [-&gt;, thick, blue] (2,1) -- (4,1) node [pos=0.5, above] {decr};
+                            \foreach \x in {-2, 0, 2} { 
+                              \draw [thick, blue] (\x, 0.9) -- (\x, 1.1);
+                            }
+                            \draw [&lt;-, thick, orange] (-4,.4) -- (-1,.4) node [pos=0.5, above] {c. down};
+                            \draw [thick, orange] (-1,0.4) -- (1,0.4) node [pos=0.5, above] {c. up};
+                            \draw [-&gt;, thick, orange] (1,0.4) -- (4,0.4) node [pos=0.5, above] {c. down};
+                            \foreach \x in {-1, 1} { 
+                              \draw [thick, orange] (\x, 0.3) -- (\x, 0.5);
+                            }
+                            \end{tikzpicture}                            
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Reading this paired information from left-to-right, we can identify intervals of basic shapes.
+                    <ul>
+                        <li><p>
+                            <m>(-\infty,-2]</m>: increasing and concave down
+                        </p></li>
+                        <li><p>
+                            <m>[-2,-1]</m>: decreasing and concave down
+                        </p></li>
+                        <li><p>
+                            <m>[-1,0]</m>: decreasing and concave up
+                        </p></li>
+                        <li><p>
+                            <m>[0,1]</m>: increasing and concave up
+                        </p></li>
+                        <li><p>
+                            <m>[1,2]</m>: increasing and concave down
+                        </p></li>
+                        <li><p>
+                            <m>[2,\infty)</m>: decreasing and concave down
+                        </p></li>
+                    </ul>
+                    We might just draw the corresponding shapes below our earlier number line.
+                </p>
+                <figure xml:id="fig_paired_shape_information_shapes">
+                    <caption>Paired number line information showing monotonicity and concavity.</caption>
+                    <image xml:id="paired_shape_information_shapes" width="70%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \draw [&lt;-&gt;] (-4,0) -- (4,0);
+                            \foreach \x in {-2, -1, 0, 1, 2} {
+                              \draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+                            }
+                            \draw [&lt;-, thick, blue] (-4,1) -- (-2,1) node [pos=0.5, above] {incr};
+                            \draw [thick, blue] (-2,1) -- (0,1) node [pos=0.5, above] {decr};
+                            \draw [thick, blue] (0,1) -- (2,1) node [pos=0.5, above] {incr};
+                            \draw [-&gt;, thick, blue] (2,1) -- (4,1) node [pos=0.5, above] {decr};
+                            \foreach \x in {-2, 0, 2} { 
+                              \draw [thick, blue] (\x, 0.9) -- (\x, 1.1);
+                            }
+                            \draw [&lt;-, thick, orange] (-4,.4) -- (-1,.4) node [pos=0.5, above] {c. down};
+                            \draw [thick, orange] (-1,0.4) -- (1,0.4) node [pos=0.5, above] {c. up};
+                            \draw [-&gt;, thick, orange] (1,0.4) -- (4,0.4) node [pos=0.5, above] {c. down};
+                            \foreach \x in {-1, 1} { 
+                              \draw [thick, orange] (\x, 0.3) -- (\x, 0.5);
+                            }
+                            \draw [thick] (-3.25,-0.9) arc (170:100:0.8);
+                            \draw [thick] (-1.1,-0.9) arc (10:80:0.8);
+                            \draw [thick] (-0.1,-0.9) arc (-100:-170:0.8);
+                            \draw [thick] (0.1,-0.9) arc (-80:-10:0.8);
+                            \draw [thick] (1.1,-0.9) arc (170:100:0.8);
+                            \draw [thick] (3,-0.9) arc (10:80:0.8);
+                            \end{tikzpicture}                            
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Once we know the individual shapes, we can draw the full graph.
+                    Because we were told to draw a graph of a continuous function, we will join the shapes together at the points of change.
+                    At <m>x=-2</m>, we reach a local maximum;
+                    at <m>x=0</m>, we reach a local minimum;
+                    and at <m>x=2</m>, we reach another local maximum.
+                    At <m>x=-1</m> and at <m>x=1</m>, we have inflection points because the concavity changes.
+                    None of our given information tells us about <m>y</m>-values of the graph, so we will not show a vertical scale.
+                </p>
+                <figure xml:id="fig_graph_from_shape_information">
+                    <caption>Graph of a continuous function consistent with shape information</caption>
+                    <image xml:id="graph_from_shape_information">
+                        <latex-image>
+\begin{tikzpicture}
+\draw [&lt;-&gt;] (-4,0) -- (4,0);
+\foreach \x in {-3,-2,...,3} {
+  \draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [thick, blue] (-4,0.1) arc [ start angle=160, end angle=90, x radius=2.14, y radius=4 ]
+node (a) [pos=1, circle] {}
+arc [start angle=90, end angle=45, x radius=1.4, y radius=2 ]
+node (b) [pos=1, circle] {}
+arc [start angle=215, end angle=270, x radius=1.2, y radius=1 ]
+node (c) [pos=1, circle] {}
+arc [start angle=-90, end angle=-45, x radius=1.4, y radius=1.8 ]
+node (d) [pos=1, circle] {}
+arc [start angle=130, end angle=90, x radius=1.6, y radius=3 ]
+node (e) [pos=1, circle] {}
+arc [start angle=90, end angle=20, x radius=1.6, y radius=4.35 ]
+;
+\foreach \x in {-2,-1,0,1,2} {
+\draw [dotted] (\x,0) -- (\x,3.5);
+}
+\draw [fill=blue] (a) circle (0.5ex);
+\draw [fill=blue] (b) circle (0.5ex);
+\draw [fill=blue] (c) circle (0.5ex);
+\draw [fill=blue] (d) circle (0.5ex);
+\draw [fill=blue] (e) circle (0.5ex);
+\end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        <p>
+            A second approach to creating such a graph is to focus first on the monotonicity information to create proposed locations of extreme values.
+            We might imagine a graph consisting of only linear segments for this.
+            Then, we add concavity information by identifying intervals on the subdomain in which we need to add curvature.
+            We replace the linear segments with curved arcs that preserve the monotonicity we originally found.
+        </p>
+        <p>
+            We repeat the previous example using this alternative approach.
+        </p>
+        <example xml:id="ex_fcn_draw_graph_shape_2">
+            <title>Learning Objective F-11</title>
+            <statement>
+                <p>
+                    A function <m>f</m> is increasing on <m>(-\infty,-2]</m>, on <m>[0,2]</m>, and on <m>[4,\infty)</m>.
+                    The function is decreasing on <m>[-2,0]</m> and on <m>[2,4]</m>.
+                    <m>f</m> is concave up on <m>(-\infty,-1]</m> and on <m>[3,\infty)</m> and concave down on <m>[-1,3]</m>.
+                    Draw a graph of a continuous function consistent with this information.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We use the monotonicity information first.
+                    The graph is increasing on <m>(-\infty,-2]</m>,
+                    so our preliminary graph will use an increasing line that stops at <m>x=-2</m>.
+                    This point will become our local maximum.
+                    The graph the decreases on <m>[-2,0]</m>,
+                    so we add a new line segment that is decreasing until <m>x=0</m> for a local minimum.
+                    We then draw an increasng line segment between <m>x=0</m> and <m>x=2</m> to give a second local maximum.
+                    Finishing the preliminary graph, we draw a decreasing line extending to the right from <m>x=2</m>.
+                    On a paper solution, we might only have drawn the locations of the local extrema.
+                </p>
+                <figure xml:id="fig_preliminary_graph_monotonicity">
+                    <caption>A piecewise linear graph that matches the provided monotonicity information</caption>
+                    <image xml:id="preliminary_graph_monotonicity" width="70%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \draw [&lt;-&gt;] (-4,0) -- (4,0);
+                            \foreach \x in {-3,-2,...,3} {
+                              \draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+                            }
+                            \draw [thick, dashed, blue] (-4,0.2) -- (-2,3) -- (0,2) -- (2,4) -- (4,0.2);
+                            \foreach \x/\y in { -2/3, -1/2.5, 0/2, 1/3, 2/4 } {
+                              \draw [fill] (\x,\y) circle (0.5ex);
+                            }
+                            \end{tikzpicture}                            
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Now, we turn our attention to concavity.
+                    The function needs to be concave down on <m>(-\infty,-1]</m>.
+                    At <m>x=-1</m>, our preliminary graph is using the decreasing line.
+                    We will identify a <m>y</m>-value between the maximum at <m>x=-2</m> and the minimum at <m>x=0</m> as the location of our inflection point.
+                    It can often be chosen to be on the line itself, but it does not need to be.
+                    To the left of this point, our preliminary graph is increasing and then decreasing.
+                    We convert this to a curved arc that is concave down.
+                </p>
+                <p>
+                    Next, the graph is concave up on <m>[-1,1]</m>.
+                    So we find another point at <m>x=1</m> between the minimum at <m>x=0</m> and maximum at <m>x=2</m>.
+                    The preliminary graph is piecewise linear, decreasing on <m>[-1,0]</m> and increasing on <m>[0,1]</m>.
+                    We convert this to a curved arc that is concave up.
+                    To the right of this, the graph is concave down on <m>[-1,\infty)</m>.
+                    The preliminary graph is piecewise linear that we need to convert to a curved arc.
+                </p>
+                <figure xml:id="fig_updated_graph_with_concavity">
+                    <caption>Updated graph that incorporates concavity</caption>
+                    <image xml:id="updated_graph_with_concavity" width="70%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \draw [&lt;-&gt;] (-4,0) -- (4,0);
+                            \foreach \x in {-3,-2,...,3} {
+                                \draw (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+                            }
+                            \draw [thick, dotted, black] (-4,0.2) -- (-2,3) -- (0,2) -- (2,4) -- (4,0.2);                 
+                            \foreach \x/\y in { -2/3, -1/2.5, 0/2, 1/3, 2/4 } {
+                                \draw [fill, blue] (\x,\y) circle (0.5ex);
+                            }
+                            \draw [thick, blue] (-4,0.2) .. controls (-3.25,2) and (-2.75,3) .. (-2,3);
+                            \draw [thick,blue] (-2,3)
+                            to[out=80, in=180] (-2,3)
+                            to[out=0, in=-40] (-1,2.5)
+                            to[out=-40, in=180] (0,2)
+                            to[out=0, in=-110] (1,3)
+                            to[out=70, in=180] (2,4);
+                            \draw [thick, blue] (2,4) .. controls (2.75,4) and (3.5,3) .. (4,0.2);
+                            \end{tikzpicture}                            
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+</section>

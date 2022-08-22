@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_derivs_differentiation" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Differentiation</title>
+    <introduction>
+        <p>
+            The derivative of a function <m>f(x)</m> at a point <m>x=a</m> is the slope of the tangent line (linearization) of the function.
+            In order to make sense of what that would mean, we needed to define the derivative as the <em>limit</em> of the slope of a secant line passing through the point <m>(a,f(a))</m> and another point <m>(a+h, f(a+h))</m> as the second point is chosen closer and closer to <m>x=a</m> by using <m>h \to 0</m>.
+            Because this process could be done, in principle, at <em>any</em> point in the domain, this actually defines a <em>function</em> called the derivative function <m>f'(x)</m>, defined whenever this limit exists.
+            In certain algebraic cases, we could allow a specific point <m>a</m> to be replaced by a generic variable <m>x</m> and still compute the limit.
+        </p>
+        <p>
+            The process described above gives the interpretation and justification for the derivative, but it is tedious as a process.
+            Fortunately, there are patterns in the formulas for the derivative function in relation to the formulas for the original function.
+            Rules describing these patterns establish a methodical process for calculating the derivative that does not require a limit.
+            We will see that each of these rules is justified by the definition of the derivative in terms of limits and the use of limit rules that we learned previously.
+        </p>
+        <p>
+            <term>Differentiation</term> is the process of finding a derivative.
+            This section focuses on how we differentiate formulas, the rules of derivatives, and how to think through the steps of identifying which rules apply in different circumstances.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_deriv_definition_function">
+        <title>Derivative Functions and Polynomials</title>
+        <p>
+            Polynomials are often used to illustrate that patterns occur in differentiation.
+            Rather than go through the work by hand, we can let a computer do the algebra expansion and simplification and then look for patterns.
+            One free tool that can do this work is SageMath.
+            The cell below provides the steps that SageMath requires to find the derivative using the definition.
+            Push the <c>Evaluate</c> button to find the result.
+        </p>
+        <sage>
+            <input>
+                var('x','h')  # Introduce two variables x and h
+                f(x) = x^2    # Define the function
+                # Calculate and then display the derivative using the definition
+                dfdx = limit((f(x+h)-f(x))/h, h, 0)
+                show(dfdx)
+            </input>
+        </sage>
+        <p>
+            You should have found that for <m>f(x)=x^2</m>, the derivative is <m>f'(x)=2x</m>.
+            Now, modify the cell so that <m>f(x)=x^3</m> and re-evaluate.
+            Then try higher and higher powers.
+            Can you see the pattern?
+        </p>
+        <p>
+            Mathematical notation is often created to reduce repetitive writing.
+            It seems tedious to need to name our function <m>f(x)</m> each time we change the formula so that we can talk about its derivative <m>f'(x)</m>.
+            We introduce the <term>derivative operator</term> <m>\frac{d}{dx}</m> so that we can focus on the formula.
+        </p>
+        <p>
+            An <term>operator</term> is like a function in that it has an <em>input</em> and an <em>output</em>.
+            Instead of taking <em>values</em> as the input, an operator takes an <em>expression</em> or <em>function</em>.
+            The derivative operator takes a function as its input and gives the derivative function as the output.
+            Our earlier work showed that for <m>f(x)=x^2</m>, we have <m>f'(x)=2x</m>.
+            That is, we think of <m>x^2</m> as the input of the step and <m>2x</m> as the output, and write
+            <me>\frac{d}{dx}[x^2] = 2x</me>.
+        </p>
+        <example xml:id="ex_fill_out_deriv_table">
+            <statement>
+                <p>
+                    Using the SageMath tool provided above, find the derivative of the following functions and write the results using the derivative operator.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>f(x)</m></cell>
+                            <cell><m>f'(x)</m></cell>
+                            <cell><m>\frac{d}{dx}[f(x)] = f'(x)</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^2</m></cell>
+                            <cell><m>f'(x)=2x</m></cell>
+                            <cell><m>\frac{d}{dx}[x^2] = 2x</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^3</m></cell>
+                            <cell><m>f'(x)=</m></cell>
+                            <cell><m>\frac{d}{dx}[x^3] = </m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^4</m></cell>
+                            <cell><m>f'(x)=</m></cell>
+                            <cell><m>\frac{d}{dx}[x^4] = </m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^5</m></cell>
+                            <cell><m>f'(x)=</m></cell>
+                            <cell><m>\frac{d}{dx}[x^5] = </m></cell>
+                        </row>
+                    </tabular>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    You should have completed the table to see
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>f(x)</m></cell>
+                            <cell><m>f'(x)</m></cell>
+                            <cell><m>\frac{d}{dx}[f(x)] = f'(x)</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^2</m></cell>
+                            <cell><m>f'(x)=2x</m></cell>
+                            <cell><m>\frac{d}{dx}[x^2] = 2x</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^3</m></cell>
+                            <cell><m>f'(x)=3x^2</m></cell>
+                            <cell><m>\frac{d}{dx}[x^3] = 3x^2</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^4</m></cell>
+                            <cell><m>f'(x)=4x^3</m></cell>
+                            <cell><m>\frac{d}{dx}[x^4] = 4x^3</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x)=x^5</m></cell>
+                            <cell><m>f'(x)=5x^4</m></cell>
+                            <cell><m>\frac{d}{dx}[x^5] = 5x^4</m></cell>
+                        </row>
+                    </tabular>
+                </p>
+            </solution>
+        </example>
+        <p>
+            Can you see the pattern emerging?
+            We want to summarize this pattern as a rule, which we will call the <term>power rule</term>.
+        </p>
+        <theorem xml:id="deriv_rule_powers">
+            <title>Power Rule for Derivatives</title>
+            <statement>
+                <p>
+                    For a function of the form <m>f(x)=x^n</m>, where <m>n</m> is a constant, we have <m>f'(x)=nx^{n-1}</m>:
+                    <me>\frac{d}{dx}[x^n] = nx^{n-1}</me>.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            At the moment, we only have looked at a few examples where this pattern holds.
+            If we were the first to notice the pattern, we would call this a <term>conjecture</term> until we could <em>prove</em> that our pattern really worked in all cases.
+            Fortunately, it actually works for any real number as long as the value is defined. (Some powers of negative numbers don't make sense.)
+        </p>
+        <p>
+            What other patterns can we discover?
+            Well, polynomials are formed by adding different powers together and possibly include multiples of powers.
+            So let's use SageMath to explore examples like that.
+        </p>
+        <p>
+            First, let's just add some simple powers together.
+        </p>
+        <sage>
+            <input>
+                var('x','h')  # Introduce two variables x and h
+                f(x) = x^5 + x^3 + x^2   # Define the function
+                # Calculate and then display the derivative using the definition
+                dfdx = limit((f(x+h)-f(x))/h, h, 0)
+                show(dfdx)
+            </input>
+        </sage>
+        <p>
+            Try changing which powers are included.
+            What do you notice?
+            What do you wonder?
+        </p>
+        <p>
+            Now, what happens if the powers are multiplied by a number?
+        </p>
+        <sage>
+            <input>
+                var('x','h')  # Introduce two variables x and h
+                f(x) = 3*x^5 + 7*x^3 + 4*x^2   # Define the function
+                # Calculate and then display the derivative using the definition
+                dfdx = limit((f(x+h)-f(x))/h, h, 0)
+                show(dfdx)
+            </input>
+        </sage>
+        <p>
+            Again try changing the formulas.
+            What do you notice?
+            What do you wonder?
+        </p>
+        <p>
+            Polynomials, when written as a sum of constants times simple powers, have a very simple pattern for finding their derivatives.
+            We create a <em>new</em> polynomial for the derivative.
+            We get the same number of terms as the original function, but with terms changing as follows:
+            <ul>
+                <li><p>
+                    The constant multiple is multiplied by the original power.
+                </p></li>
+                <li><p>
+                    The power on each term goes down by one.
+                </p></li>
+                <li><p>
+                    A <em>linear term</em> in the original polynomial of the form <m>ax+b</m> results in a <em>constant term</em> in the derivative polynomial of the <em>slope</em> <m>a</m>.
+                </p></li>
+            </ul>
+        </p>
+        <example xml:id="ex_derivs_polynomial_basic">
+            <statement>
+                <p>
+                    Find the following derivatives.
+                    <ul>
+                        <li><p>
+                            <m>\displaystyle \frac{d}{dx}\big[ 4x^5 + 3x^4 - 7x^2 + 5x - 1\big]</m>
+                        </p></li>
+                        <li><p>
+                            <m>\displaystyle \frac{d}{dx}\big[ (3x^2+2x-5)(4x+7)\big]</m>
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    In the first exercise, our function is <m>f(x)=4x^5+3x^4-7x^2+5x-1</m>.
+                    This polynomial is written as a <em>sum</em> of terms that are constants times powers <m>4x^5</m>, <m>3x^4</m>, <m>-7x^2</m>, and a linear term <m>5x-1</m>.
+                    This is exactly the form for which our differentiation process can address.
+                </p>
+                <p>
+                    The derivatives of the powers will be the same constant multiples times the original power times <m>x</m> raised to a power decreased by one.
+                    The derivative of the linear term <m>5x-1</m> will be the slope <m>5</m>.
+                    Putting this together, we write:
+                    <md>
+                        <mrow>\frac{d}{dx}\big[4x^5+3x^4-7x^2+5x-1] &amp;= 4 \cdot 5x^4 + 3 \cdot 4x^3 - 7 \cdot 2x + 5</mrow>
+                        <mrow> &amp;= 20x^4 +12x^3 - 14x + 5</mrow>
+                    </md>
+                    That is, the function <m>f(x)=4x^5+3x^4-7x^2+5x-1</m> has a derivative function <m>20x^4+12x^3-14x+5</m>.
+                </p>
+                <p>
+                    In the second exercise, our function is <m>f(x)=(3x^2+2x-5)(4x+7)</m>.
+                    We need to be paying attention to the structure of the formula.
+                    It is written as a <em>product</em>, so our differentiation process is not designed to address the function in this form.
+                    We will need to multiply it out (distribute) in order to <em>rewrite</em> the formula so that it is a sum of terms.
+                    <md>
+                        <mrow>f(x) &amp;= (3x^2+2x-5)(4x+7)</mrow>
+                        <mrow> &amp;= 4x(3x^2+2x-5) + 7(3x^2+2x-5)</mrow>
+                        <mrow> &amp;= 12x^3 + 8x^2 -20x + 21 x^2 + 14x - 35</mrow>
+                        <mrow> &amp;= 12x^3 +29 x^2 - 6x - 35</mrow>
+                    </md>
+                    Now that we have rewritten our function, see that it is a sum of constant multiples of powers <m>12x^3</m>, <m>29x^2</m>, and a linear term <m>-6x-35</m>.
+                    Using our polynomial differentatiation rule:
+                    <md>
+                        <mrow>\frac{d}{dx}\big[(3x^2+2x-5)(4x+7) &amp;= \frac{d}{dx}\big[12x^3+29x^2-6x-35\big]</mrow>
+                        <mrow> &amp;= 12 \cdot 3x^2 + 29 \cdot 2x + -6</mrow>
+                        <mrow> &amp;= 36 x^2 + 58 x - 6</mrow>.
+                    </md>
+                </p>
+                <p>
+                    There is an important observation to make about the notation in the set of equations above.
+                    When we <em>rewrote</em> the formula of <m>f(x)</m> from being a product to being a sum, we did not <em>yet</em> use differentiation.
+                    So in the notation, you should see that we left the derivative operator alone but changed the formula that appeared <em>as the input</em>.
+                    When we actually <em>used</em> differentiation to find derivative terms, we stopped writing <m>\frac{d}{dx}</m>.
+                    These equations are saying in essence, <q>The derivative of one formula that is a product is equal to the derivative of a rewritten formula that is now a sum and both are equal to a new polynomial given by a particular new formula</q>.
+                    We are <em>not</em> saying that the original function is equal to the final formula that  represents the derivative.
+                </p>
+            </solution>            
+        </example>
+        <p>
+            Because the power rule <m>\frac{d}{dx}[x^n] = nx^{n-1}</m> is true (we've not yet shown this) for <em>any</em> constant power <m>n</m>,
+            the same process we used for polynomials to find a derivative will <em>also</em> work for <em>any</em> function that is written as a sum of constants times elementary powers of <m>x</m>.
+            Polynomials require that the powers are nonnegative integers.
+            When we have a function that is a sum of term with at least one that is a power <em>other</em> than a nonnegative integer (either a negative integer or a rational number), we will call our function a <term>generalized polynomial</term>.
+        </p>
+        <p>
+            One of our learning outcomes is associated with differentiating generalized polynomials.
+            You should expect that the first step will be to rewrite the formula as a sum so that our procedure is valid.
+            We will soon learn additional derivative rules that allow us to calculate a derivative without this step (product and quotient rules), but this learning outcome focuses on using the generalized polynomial approach.
+        </p>
+        <example xml:id="ex_derivs_generalized_polynomial">
+            <title>Learning Objective D-9</title>
+            <statement>
+                <p>
+                    Find the following derivatives without using the product or quotient rules.
+                    <ul>
+                        <li><p>
+                            <m>\displaystyle \frac{d}{dx}\Big[ \frac{2x^5 - x^3 + 7x - 5}{4x^2}\Big]</m>
+                        </p></li>
+                        <li><p>
+                            <m>\displaystyle \frac{d}{dx}\big[ 5\sqrt{x} (x^2 + 2x - 5)\big]</m>
+                        </p></li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The first example looks at a function that is originally written as a quotient.
+                    Because the denominator is a simple power, we can rewrite this in the form of a generalized polynomial.
+                    <md>
+                        <mrow>\frac{d}{dx}\left[ \frac{2x^5 - x^3 + 7x - 5}{4x^2} \right] &amp;= \frac{d}{dx}\left[ \frac{2x^5}{4x^2} - \frac{x^3}{4x^2} + \frac{7x}{4x^2} - \frac{5}{4x^2} \right]</mrow>
+                        <mrow> &amp;= \frac{d}{dx}\left[ \frac{1}{2} x^3 - \frac{1}{4} x + \frac{7}{4} x^{-1} - \frac{5}{4} x^{-2} \right]</mrow>
+                        <mrow> &amp;= \frac{1}{2} \cdot 3x^2 - \frac{1}{4} + \frac{7}{4} \cdot -1x^{-2} - \frac{5}{4} \cdot -2x^{-3}</mrow>
+                        <mrow> &amp;= \frac{3}{2} x^2 - \frac{1}{4} - \frac{7}{4x^2} + \frac{5}{2x^3}</mrow>
+                    </md>
+                </p>
+                <p>
+                    Note that for negative powers, when the power drops by 1, it moves <em>away</em> from zero.
+                    A common mistake is to reduce the size of the power rather than literally subtracting 1, which is what is required.
+                </p>
+                <p>
+                    The second example looks at a function that is originally written as a product.
+                    In addition, the function involves a square root.
+                    To proceed with this problem, we need to recognize that a square root corresponds to a power of <m>\frac{1}{2}</m>.
+                    In addition, we need to multiply out the terms in order to have a formula in the standard representation.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_fcn_inverse" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Inverse Functions</title>
+    <introduction>
+        <p>
+            In the context of covarying variables, a function is a rule (operation) that predicts the value of the dependent variable (output) given the value of the independent variable (input).
+            The algebra equation <m>y=f(x)</m> indicates that an <em>independent</em> variable <m>x</m> can lead to the value of the dependent variable <m>y</m> using the function <m>f</m>.
+            We think of this as a map <m>x \mapsto y</m>.
+        </p>
+        <p>
+            We might be interested in predicting the reverse relation <m>y \mapsto x</m>.
+            That is, it may also be the case that knowing <m>y</m>, we can calculate the value of <m>x</m>.
+            Algebra and pre-calculus courses teach the idea that this is only possible when <m>f</m> is <term>one-to-one</term>, meaning that the value of <m>y</m> can only come from a single value of <m>x</m>.
+            When this is true for a function <m>f</m>, we can talk about <m>f^{-1}</m> as a new function, called the <term>inverse function</term>.
+        </p>
+        <p>
+            This inverse function <em>undoes</em> the calculation of <m>f</m>.
+            Suppose <m>f : x \mapsto y</m> has an inverse function <m>f^{-1}: y \mapsto x</m>.
+            If we know that <m>f(3) = 5</m>, this means <m>x=3 \mapsto y=5</m>.
+            The inverse function would map <m>y=5 \mapsto x=3</m> or <m>f^{-1}(5)=3</m>.
+            This can be true when variables are involved as well: <m>f(a) = 4</m> means <m>f^{-1}(4) = a</m>.
+            So if we are solving an equation <m>f(x) = 4</m>, the solution would be <m>x=f^{-1}(4)</m>.
+        </p>
+        <p>
+            You may remember learning something about the graph of an inverse function being a reflection of the graph of the original.
+            If a point <m>(a,b)</m> is on the graph <m>y=f(x)</m>, this means <m>f(a)=b</m>.
+            The inverse function has <m>f^{-1}(b)=a</m> so that <m>(b,a)</m> is on the graph of <m>f^{-1}</m>.
+            Every point on the graph of <m>f</m> corresponds to a point on the graph of <m>f^{-1}</m> where the coordinates have reversed.
+            Visually, this creates a reflection across the line <m>y=x</m>.
+        </p>
+        <p>
+            The idea of <em>undoing</em> the function is demonstrated through <em>composition</em>.
+            If we start with an equation
+            <me>y=f(x)</me>,
+            look at what happens if we use composition by <m>f^{-1}</m> to both sides of the equation:
+            <me>f^{-1}(y)=f^{-1}\big(f(x)\big)</me>.
+            We know that <m>f^{-1}(y) = x</m> is the inverse map, so the equation becomes
+            <me>x=f^{-1}\big(f(x)\big)</me>.
+            That is, a function composed with its inverse function is the same as doing nothing to the input, an operation called the <term>identity function</term>.
+        </p>
+        <definition xml:id="def_identity">
+            <title>Identity Function</title>
+            <statement>
+                The <term>identity function</term> is a function that returns the same value as its input, <m>\mathrm{id}(x) = x</m>.
+            </statement>
+        </definition>
+        <p>
+            Because some functions may not be represented using formulas, inverse functions need a definition other than rules on how to manipulate formulas.
+            Mathematicians have found that the idea of composition creating the identity function is useful and have adopted that as the official definition of an inverse function.
+        </p>
+        <definition xml:id="def_inverse_function">
+            <title>Inverse Function</title>
+            <statement>
+                <p>
+                    A function <m>f</m> with domain <m>D_f</m> and a function <m>g</m> with domain <m>D_g</m> are <term>inverse functions</term> (to each other) if:
+                    <ul>
+                        <li><p>For every <m>x \in D_f</m>, <m>g \circ f(x) = x</m></p></li>
+                        <li><p><em>and</em> for every <m>x \in D_g</m>, <m>f \circ g(x) = x</m>.</p></li>
+                    </ul>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            We have three learning objectives relating to inverse functions:
+            <ul>
+                <li><p>
+                    Use inverse functions as a way to <em>cancel</em> a function in an equation or expression.
+                </p></li>
+                <li><p>
+                    Verify whether two functions are inverses to each other by computing and simplifying their compositions and determining if the result in each case is the identity function.
+                </p></li>
+                <li><p>
+                    Starting with the formula of an invertible function, find the formula of its inverse function by finding the inverse map.
+                </p></li>
+            </ul>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_fcn_inverse_usage">
+        <title>Using Inverse Functions</title>
+        <p>
+            The fundamental idea of inverse functions is that whenever we have composition <m>f \circ f^{-1}</m> or <m>f^{-1} \circ f</m>, this is identical to the <em>identity function</em>.
+            We explore this idea by solving an equation where some of the operations are not arithmetic but are invertible functions.
+        </p>
+        <p>
+            Recall that the <term>method of isolation</term> is a strategy to solve an equation by applying the same operation on both sides of an equation to cancel away operations until the unknown variable is isolated.
+            Early examples of this strategy focused on operations involving basic arithmetic.
+            We can now add to this strategy the use of inverse functions to cancel away operations represented by functions.
+        </p>
+        <example xml:id="ex_fcn_inverse_solve_simple">
+            <statement>
+                <p>
+                    Suppose that <m>f</m> and <m>g</m> are inverse functions.
+                    Solve the equation <m>f(2x) = 3</m> in terms of values of <m>f</m> and <m>g</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Problems like this may feel unnatural because we don't even know what these functions <m>f</m> and <m>g</m> might be.
+                    Suppose it were a familiar function, say <m>\sqrt{2x} = 3</m>.
+                    We would want to get rid of the square root and would do this by squaring both sides.
+                    That is, we would use an <em>inverse operation</em>.
+                    We will do the same thing here, except the inverse operation to <m>f</m> as a function is the function <m>g</m>.
+                </p>
+                <p>
+                    Starting with the original equation, we use composition with the inverse <m>g</m> on both sides of the equation:
+                    <md>
+                        <mrow>f(2x) &amp;= 3</mrow>
+                        <mrow>g(f(2x)) &amp;= g(3).</mrow>
+                    </md>
+                    The composition <m>g \circ f</m> reduces to the identity function, which just leaves the input expression.
+                    The equation therefore becomes:
+                    <md>
+                        <mrow>g(f(2x)) &amp;= g(3)</mrow>
+                        <mrow>2x &amp;= g(3)</mrow>
+                        <mrow>x &amp;= \frac{1}{2} g(3).</mrow>
+                    </md>
+                    Because we have isolated <m>x</m> and the value is a formula involving <m>g(3)</m>, we are done.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Sometimes we need to use additional operations in order to isolate the function of an expression before using the inverse function.
+        </p>
+        <example xml:id="ex_fcn_inverse_solve_complex">
+            <statement>
+                <p>
+                    Suppose that <m>S</m> and <m>T</m> are inverse functions.
+                    Solve the equation <m>3T(2x+1) - 4 = 1</m> in terms of values of <m>S</m> and <m>T</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The method of isolation should work because the equation involves the variable <m>x</m> in only one place.
+                    We will identify the last operation on the side involving the variable and apply inverse operations until we have finished isolating <m>x</m>.
+                    <tabular>
+                        <row header="yes">
+                            <cell>Equation</cell><cell>Last Operation</cell>
+                        </row>
+                        <row>
+                            <cell><m>3T(2x+1)-4 = 1</m></cell>
+                            <cell>Add: <m>-4</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>3T(2x+1) = 1+4 = 5</m></cell>
+                            <cell>Multiply: <m>3</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>T(2x+1) = \frac{1}{3} \cdot 5 = \frac{5}{3}</m></cell>
+                            <cell>Function: <m>T</m></cell>
+                        </row>
+                    </tabular>
+                    At this point, we will use the <em>inverse</em> function <m>S</m>.
+                    <tabular>
+                        <row header="yes">
+                            <cell>Equation</cell><cell>Last Operation</cell>
+                        </row>
+                        <row>
+                            <cell><m>T(2x+1) = \frac{1}{3} \cdot 5 = \frac{5}{3}</m></cell>
+                            <cell>Function: <m>T</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>2x+1 = S(\frac{5}{3})</m></cell>
+                            <cell>Add: <m>1</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>2x = S(\frac{5}{3}) - 1</m></cell>
+                            <cell>Multiply: <m>2</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>x = \frac{1}{2}\big(S(\frac{5}{3}) - 1\big)
+                            </m></cell>
+                            <cell>Isolated</cell>
+                        </row>
+                    </tabular>
+                    We have found the solution <m>x = \frac{1}{2}\big(S(\frac{5}{3}) -1\big)</m>.
+                </p>
+                <p>
+                    Notice that once we had <m>S(\frac{5}{3})</m> as a term on the right hand side, that represented a single number.
+                    None of the remaining steps had any interaction with the value <m>\frac{5}{3}</m> since that was the <em>input</em> to the expression, not the value of the function's output.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_inverse_verify">
+        <title>Verifying Inverse Functions</title>
+        <p>
+            The learning objective that this subsection focuses on is on the what it means to <em>verify</em> that two functions satisfy the <em>definition</em> of being inverses.
+            The emphasis in your past was likely about <em>finding</em> an inverse function.
+            In mathematics, <term>definitions</term> play a critical role in creating the language we use to describe objects.
+            A definition is a statement that can be true or false.
+            To show that something satisfies a definition, we need to show that the statement in the definition is <em>true</em>.
+        </p>
+        <p>
+            Consequently, to verify that two functions <m>f</m> and <m>g</m> are inverses, we need to construct the compositions <m>f \circ g(x)</m> and <m>g \circ f(x)</m>.
+            If both of these compositions reduce to the identity function, then they satisfy the definition.
+            Along the way, we need to practice simplify formulas that involve compositions.
+            This is the second reason that we have this learning objective<mdash />practicing thinking about the structure of formulas and how the order of operations impacts what does or does not simplify.
+        </p>
+        <p>
+            As we look at a formula, we should identify the order in which the different operations take place.
+            When we find operations that are inverses one after another, they can be canceled.
+            But operations that are inverses of one another but occur out of sequence will not cancel.
+        </p>
+        <example>
+            <statement>
+                Suppose <m>h</m> is an invertible function.
+                Simplify each of the following formulas as much as possible:
+                <ul>
+                    <li><p>
+                        <m>h(h^{-1}(x-1))+1</m>
+                    </p></li>
+                    <li><p>
+                        <m>\frac{1}{2} h(h^{-1}(2x-1))+1</m>
+                    </p></li>
+                </ul>
+            </statement>
+            <solution>
+                <p>
+                    Consider the formula <m>h(h^{-1}(x-1))+1</m>.
+                    We can follow the same process as when we wrote a formula as a composition in <xref ref="ex_fcn_find_composition" /> to work on Learning Objective F-5.
+                    <tabular>
+                        <row>
+                            <cell><m>h(h^{-1}(\boxed{x}-1))+1</m></cell>
+                            <cell>find the variable</cell>
+                        </row>
+                        <row>
+                            <cell><m>h(h^{-1}(\boxed{x-1}))+1</m></cell>
+                            <cell>add -1</cell>
+                        </row>
+                        <row>
+                            <cell><m>h(\boxed{h^{-1}(x-1)})+1</m></cell>
+                            <cell>composition with <m>h^{-1}</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>\boxed{h(h^{-1}(x-1))}+1</m></cell>
+                            <cell>composition with <m>h</m></cell>
+                        </row>
+                        <row>
+                            <cell><m>\boxed{h(h^{-1}(x-1))+1}</m></cell>
+                            <cell>add 1</cell>
+                        </row>
+                    </tabular>
+                    Notice that in one spot we add -1 and in another we add +1.
+                    These are inverse operations.
+                    However, they were not applied in sequence so they do not cancel at this point.
+                </p>
+                <p>
+                    On the other hand, the composition with <m>h</m> and <m>h^{-1}</m> do occur in sequence after one another and so they cancel to leave the identity function:
+                    <md>
+                        <mrow>h(h^{-1}(x-1))+1 &amp;= \boxed{h(h^{-1}(x-1))}+1</mrow>
+                        <mrow> &amp;= \boxed{\mathrm{id}(x-1)}+1</mrow>
+                        <mrow> &amp;= (x-1)+1</mrow>
+                        <mrow> &amp;= x</mrow>
+                    </md>
+                </p>
+                <p>
+                    When we now consider the second expression,
+                    <m>\frac{1}{2} h(h^{-1}(2x-1))+1</m>,
+                    we look for inverse operations that are sequentially in order.
+                    We could think through the order of operations as above.
+                    Or we can directly look for sequential operations that cancel.
+                    There are three potential operations that cancel:
+                    <ul>
+                        <li>multiplication by <m>\frac{1}{2}</m> and by 2,</li>
+                        <li>addition with <m>-1</m> and <m>+1</m>,</li>
+                        <li>composition of <m>h</m> and <m>h^{-1}</m>.</li>
+                    </ul>
+                    However, notice that the operations of multiplication by 2 and addition of -1 are <em>inside</em>  the composition with <m>h^{-1}</m>:
+                    <me>\frac{1}{2} h(h^{-1}(\boxed{2x-1}))+1</me>.
+                    This prevents them being canceled.
+                    However, the composition of <m>h</m> and <m>h^{-1}</m> are back-to-back and cancel to an identity function,
+                    <md>
+                        <mrow>\frac{1}{2} h(\boxed{h^{-1}(2x-1)})+1 &amp;= \frac{1}{2} (\boxed{2x-1})+1</mrow>
+                        <mrow> &amp;= \frac{1}{2}(2x-1)+1</mrow>
+                    </md>
+                    Now we distribute the multiplication by <m>\frac{1}{2}</m> over the addition in <m>2x-1</m>.
+                    <md>
+                        <mrow> \frac{1}{2}(2x-1)+1 &amp;= \frac{1}{2}(2x) - \frac{1}{2}(1) + 1</mrow>
+                        <mrow> &amp;= x - \frac{1}{2} + 1</mrow>
+                        <mrow> &amp;= x + \frac{1}{2}.</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+        <p>
+            When verifying if two functions satisfy the definition of being inverses, we must first create the two compositions.
+            Then we use the process illustrated in the previous example to simplify as much as possible.
+            If the formulas of the compositions both simplify to just <m>x</m>, then we have the composition being equal to the identity function as required by the definition.
+            Otherwise, they do not satisfy the definition and are not inverses.
+        </p>
+        <example xml:id="ex_fcn_verify_identity">
+            <title>Learning Objective F-8</title>
+            <statement>
+                <p>
+                    Verify whether <m>f(x)</m> and <m>g(x)</m> satisfy the definition of inverse functions, where each is defined in terms of an invertible function <m>h</m> by:
+                    <md>
+                        <mrow>f(x) &amp;= 5 h^{-1}\left(\frac{x+1}{2}\right) + 3</mrow>,
+                        <mrow>g(x) &amp;= 2 h\left(\frac{x-3}{5}\right) - 1</mrow>.
+                    </md>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Let us start by clearing identifying our goal.
+                    The functions satisfy the definition of inverse functions if it is true that <m>f \circ g(x) = x</m> and <m>g \circ f(x) = x</m>.
+                    Consequently, we need to create the formulas for <m>f \circ g(x) = f \big(g(x)\big)</m> and <m>g \circ f(x) = g \big(f(x)\big)</m>.
+                    Then we will need to simplify the formulas, canceling terms where appropriate, and see if they reduce to <m>x</m> or something more complicated.
+                </p>
+                <p>
+                    We start with the first composition to find
+                    <md>
+                        <mrow>f \circ g(x) &amp;= f\left(g(x)\right)</mrow>
+                        <mrow> &amp;= 5 h^{-1}\left(\frac{\boxed{g(x)}+1}{2}\right) + 3</mrow>
+                        <mrow> &amp;= 5 h^{-1}\left(\frac{\boxed{2 h\left(\frac{x-3}{5}\right) - 1}+1}{2}\right) + 3</mrow>.
+                    </md>
+                    We are looking for inverse operations that are back-to-back steps.
+                    Notice that the last operation in <m>g(x)</m> was adding -1
+                    and the first operation in <m>f(x)</m> was adding 1.
+                    These cancel one another:
+                    <md>
+                        <mrow>f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right) - \cancel{1}+\cancel{1}}{2}\right) + 3</mrow>
+                        <mrow>f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right)}{2}\right) + 3</mrow>.
+                    </md>
+                    Now we see that in the input to <m>h^{-1}</m>, there is multiplication by 2 and division by 2 back-to-back that cancel:
+                    <md>
+                        <mrow>f \circ g(x) &amp;= 5 h^{-1}\left(\frac{\cancel{2} h\left(\frac{x-3}{5}\right)}{\cancel{2}}\right) + 3</mrow>
+                        <mrow>f \circ g(x) &amp;= 5 h^{-1}\left( h\left(\frac{x-3}{5}\right)\right) + 3</mrow>.
+                    </md>
+                    Now we have a composition of inverses <m>h^{-1} \circ h</m> that reduces to the identity, after which we use algebra to simplify:
+                    <md>
+                        <mrow>f \circ g(x) &amp;= 5 h^{-1} \circ h\left(\frac{x-3}{5}\right) + 3</mrow>
+                        <mrow>&amp;= 5 \left(\frac{x-3}{5}\right) + 3</mrow>
+                        <mrow>&amp;= \cancel{5} \left(\frac{x-3}{\cancel{5}}\right) + 3</mrow>
+                        <mrow>&amp;= x-3 + 3</mrow>
+                        <mrow>&amp;= x</mrow>
+                    </md>
+                    We have shown that <m>f \circ g(x) = x</m>, which is half of the required work to show they are inverses.
+                </p>
+                <p>
+                    We need to check the reverse process.
+                    <md>
+                        <mrow>g \circ f(x) &amp;= g\left(f(x)\right)</mrow>
+                        <mrow> &amp;= 2 h\left(\frac{\boxed{f(x)}-3}{5}\right) - 1</mrow>
+                        <mrow> &amp;= 2 h\left(\frac{\boxed{5 h^{-1}\left(\frac{x+1}{2}\right) + 3}-3}{5}\right) - 1</mrow>
+                        <mrow> &amp;= 2 h\left(\frac{5 h^{-1}\left(\frac{x+1}{2}\right) + \cancel{3} -\cancel{3}}{5}\right) - 1</mrow>
+                        <mrow> &amp;= 2 h\left(\frac{\cancel{5} h^{-1}\left(\frac{x+1}{2}\right)}{\cancel{5}}\right) - 1</mrow>
+                        <mrow> &amp;= 2 h\left( h^{-1}\left(\frac{x+1}{2}\right)\right) - 1</mrow>
+                        <mrow> &amp;= 2 h \circ h^{-1}\left(\frac{x+1}{2}\right) - 1</mrow>
+                        <mrow> &amp;= \cancel{2} \left(\frac{x+1}{\cancel{2}}\right) - 1</mrow>
+                        <mrow> &amp;= x+1 - 1</mrow>
+                        <mrow> &amp;= x</mrow>
+                    </md>
+                    We have now also shown that <m>g \circ f(x) =x</m>.
+                </p>
+                <p>
+                    Because <m>f \circ g(x)=x</m> and <m>g \circ f(x)=x</m>, the functions <m>f</m> and <m>g</m> satisfy the definition of inverse functions.
+                    We now know that <m>f^{-1} = g</m> and <m>g^{-1}=f</m>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_fcn_inverse_find">
+        <title>Finding Inverse Functions</title>
+        <p>
+            Because an inverse function <m>f^{-1}</m> is designed specifically to undo the operations of <m>f</m>, we can often find a formula for <m>f^{-1}</m> by either literally reversing the operations or by solving an equation.
+        </p>
+        <example xml:id="ex_fcn_inverse_find_simple">
+            <statement>
+                <p>
+                    Find a formula for <m>f^{-1}(x)</m> given the function
+                    <me>f(x) = \frac{2}{3x+1} - 4</me>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We know that if <m>y=f(x)</m>, then an inverse function would give <m>x=f^{-1}(y)</m>.
+                    So one approach to finding a formula is to solve the equation to isolate <m>x</m> and use the formula in terms of <m>y</m> as the inverse formula.
+                    We start with the equation
+                    <me>y = f(x) = \frac{2}{3x+1} - 4</me>.
+                    We now try to isolate the variable <m>x</m>:
+                    <md>
+                        <mrow>y &amp;= \frac{2}{3x+1} - 4</mrow>
+                        <mrow>y + 4 &amp;= \frac{2}{3x+1} - \cancel{4} + \cancel{4}</mrow>
+                        <mrow>y + 4 &amp;= \frac{2}{3x+1}</mrow>
+                    </md>
+                    At this point, it is easiest to apply the reciprocal (multiplicative inverse) to both sides:
+                    <md>
+                        <mrow>y + 4 &amp;= \frac{2}{3x+1}</mrow>
+                        <mrow>\frac{1}{y + 4} &amp;= \frac{3x+1}{2}</mrow>
+                        <mrow>2 \cdot \frac{1}{y + 4} &amp;= \cancel{2} \cdot \frac{3x+1}{\cancel{2}}</mrow>
+                        <mrow>\frac{2}{y + 4} &amp;= 3x+1</mrow>
+                        <mrow>\frac{2}{y + 4} - 1 &amp;= 3x</mrow>
+                        <mrow>\frac{1}{3} \left(\frac{2}{y + 4} - 1\right) &amp;= x</mrow>
+                    </md>
+                    Because we finished solving for <m>x</m> and have a formula in terms of <m>y</m>,
+                    that formula can be used to define <m>f^{-1}(y)</m>.
+                    If we think of <m>x</m> as an abstract variable and not a physical quantity, we can use that in place of <m>y</m> to get
+                    <me>f^{-1}(x) = \frac{1}{3} \left( \frac{2}{y+4} - 1\right)</me>.
+                </p>
+                <p>
+                    Alternatively, the inverse function can be constructed by literally undoing the operations occuring in the function <m>f</m>.
+                    The operations applied by <m>f</m>:
+                    <tabular>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \frac{1}{3 \boxed{x}+1} - 4</m></cell>
+                            <cell>start with input</cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \frac{1}{\boxed{3x}+1} - 4</m></cell>
+                            <cell>multiply by 3</cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \frac{1}{\boxed{3x+1}} - 4</m></cell>
+                            <cell>add 1</cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4</m></cell>
+                            <cell>reciprocal</cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4</m></cell>
+                            <cell>multiply by 2</cell>
+                        </row>
+                        <row>
+                            <cell><m>f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4</m></cell>
+                            <cell>subtract 4</cell>
+                        </row>
+                    </tabular>
+                    The operations applied by <m>f^{-1}</m> need to undo the most recent operations:
+                    <tabular>
+                        <row>
+                            <cell>start with input</cell><cell>x</cell>
+                        </row>
+                        <row>
+                            <cell>add 4</cell><cell>x+4</cell>
+                        </row>
+                        <row>
+                            <cell>divide by 2</cell><cell>\frac{x+4}{2}</cell>
+                        </row>
+                        <row>
+                            <cell>reciprocal</cell><cell>\frac{2}{x+4}</cell>
+                        </row>
+                        <row>
+                            <cell>subtract 1</cell><cell>\frac{2}{x+4} - 1</cell>
+                        </row>
+                        <row>
+                            <cell>divide by 3</cell><cell>\frac{1}{3}\left(\frac{2}{x+4} - 1\right)</cell>
+                        </row>
+                    </tabular>
+                    This last formula is <m>f^{-1}(x)</m>.
+                    Notice that solving an equation by isolation is exactly the same process as reversing step-by-step operations.
+                    If we use different methods to solve the equation, we are likely to find a different representation.
+                </p>
+            </solution>
+        </example>
+        <p>
+            To reinforce the abstract notation of unknown functions,
+            the learning objective assessments will typically involve calculations involving some invertible function.
+            This will later be useful when you are working with exponential functions and their inverses (logarithms) and trigonometric functions and their inverses.
+        </p>
+        <example xml:id="ex_fcn_find_inverse_complex">
+            <title>Learning Objective F-9</title>
+            <statement>
+                <p>
+                    Suppose that <m>h</m> is an invertible function and that 
+                    <me>f(x) = \frac{5}{h(2x)+1}-3</me>.
+                    Find a formula for <m>f^{-1}</m> in terms of <m>h</m> and <m>h^{-1}</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The major difference in this example to the previous example is the presence of the function <m>h</m>.
+                    We will follow the same process: create an equation <m>y=f(x)</m>, and because <m>x=f^{-1}(y)</m>, we will use the method of isolation to solve for <m>x</m>.
+                    <md>
+                        <mrow>y = \frac{5}{h(2x)+1}-3</mrow>
+                        <mrow>y+3= 5 \cdot \frac{1}{h(2x)+1}</mrow>
+                        <mrow>\frac{y+3}{5} = \frac{1}{h(2x)+1}</mrow>
+                        <mrow>\frac{5}{y+3} = h(2x)+1</mrow>
+                        <mrow>\frac{5}{y+3} - 1 = h(2x)</mrow>
+                    </md>
+                    We could combine the terms on the left to a single fraction if we use a common denominator:
+                    <md>
+                        <mrow>\frac{5}{y+3} - \frac{y+3}{y+3} = h(2x)</mrow>
+                        <mrow>\frac{5-(y+3)}{y+3} = h(2x)</mrow>
+                        <mrow>\frac{2-y}{y+3} = h(2x)</mrow>
+                    </md>
+                    At this point, we need to cancel the composition with <m>h</m> and do this by using a composition with <m>h^{-1}</m> on both sides.
+                    <md>
+                        <mrow>h^{-1}\left(\frac{2-y}{y+3}\right) = h^{-1} \circ h(2x)</mrow>
+                        <mrow>h^{-1}\left(\frac{2-y}{y+3}\right) = 2x</mrow>
+                        <mrow>\frac{1}{2} h^{-1}\left(\frac{2-y}{y+3}\right) = x</mrow>
+                    </md>
+                    This formula gives us the relation <m>y \mapsto x</m> which must be <m>f^{-1}</m>:
+                    <me>f^{-1}(y) = \frac{1}{2} h^{-1}\left(\frac{2-y}{y+3}\right)</me>.
+                    If we considered the variables <m>x</m> and <m>y</m> as abstract values rather than physical measurements, we can replace <m>y</m> with any variable:
+                    <me>f^{-1}(x) = \frac{1}{2} h^{-1}\left(\frac{2-x}{x+3}\right)</me>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_prereq_sets" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Sets and Interval Notation</title>
+    <introduction>
+        <p>
+            In typical algebra classes, sets are mainly used in describing solutions to equations or inequalities.
+            This will still be true in calculus, but sets will play a more important role than just summarizing solutions.
+            As we learn more about functions, we will learn that functions are defined in terms of sets.
+            In addition, functions will also be described by various attributes (adjectives) that will be characterized by sets.
+            In preparation, we will need to become practiced in describing and working with sets.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_prereq_intervals">
+        <p>
+            Sets are collections of objects from some universe of possibilities.
+            In calculus, we primarily focus on sets of real numbers.
+            A set can be a described by listing its members, when that is possible.
+            If a set has a finite number of values (meaning the list has a specific number of values), then we can list the included values inside of curly braces, as in <m>\{2, 3, 5, 7\}</m>.
+        </p>
+        <p>
+            A set can be assigned a name, such as <m>P = \{2,3,5,7\}</m>.
+            The number 2 is <em>in</em> <m>P</m>, which we write <m>2 \in P</m>.
+            The number 4 is <em>not</em> in <m>P</m>, which we write <m>4 \not \in P</m>.
+            A set that is <em>empty</em> would have no values, <m>\{\}</m>, and sometimes is written with a special symbol <m>\emptyset</m>.
+        </p>
+        <p>
+            Calculus is more interested in <term>intervals</term>.
+            The real numbers form a <em>continuum</em> of values.
+            Between any two real numbers, there is always another number (e.g., the midpoint).
+            In fact, there are <em>infinitely many</em> numbers.
+            Some of them are <term>rational numbers</term>, meaning a ratio of integers.
+            There are also even more <term>irrational numbers</term>, numbers that can never be written as a ratio of integers.
+        </p>
+        <definition xml:id="defn_interval">
+            <title>Intervals</title>
+            <statement>
+                <p>
+                    An interval is a set of real numbers consisting of all numbers between two end-points, possibly including the end-points.
+                    <ul>
+                        <li>
+                            <p>
+                                <m>(a,b) = \{x : a \lt x \lt b\}</m> is called the <term>open interval</term> and excludes both end-points.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>[a,b] = \{x : a \le x \le b\}</m> is called the <term>closed interval</term> and includes both end-points.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>(a,b] = \{x : a \lt x \le b\}</m> is neither open nor closed because it excludes <m>a</m> and includes <m>b</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>[a,b) = \{x : a \le x \lt b\}</m> is neither open nor closed because it includes <m>a</m> and excludes <m>b</m>.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            What are some important take-away messages about how intervals are defined?
+        </p>
+        <p>
+            The end-points of the intervals always need to be ordered with the greater value listed second.
+            So <m>(3,5)</m> is a valid interval but <m>(5,3)</m> is not.
+            If an interval goes on forever, such as <m>x \gt 2</m>, we use infinity as an end-point, as in <m>(2,\infty)</m>.
+            Similarly, <m>x \le -1</m> would create the interval <m>(-\infty,-1]</m>
+            Be aware that infinity is <em>never</em> included as an end-point because it is not actually a real number.
+        </p>
+        <p>
+            Next, a critical understanding requires recognizing that any non-empty interval has infinitely many different numbers inside.
+            Learners often want to think only in terms of integer (whole-number) values, and this interferes with this understanding.
+            For example, some learners want to think of <m>0 \lt x \lt 5</m> as only including integers <m>\{1,2,3,4\}</m> or think of <m>0 \lt x \lt 1</m> as being empty (since there aren't any integers between 0 and 1).
+            Be sure to think about fractional values.
+            For example, <m>0.1 \in (0,1)</m>.
+        </p>
+        <p>
+            We can visualize intervals and sets graphically by highlighting the points on a number line.
+            Since the number line itself is a line, we often draw the interval or set as a thicker line over or next to the number line.
+            Individual points are indicated with solid points.
+            End-points that are not included are indicated with open circles or parentheses.
+            It is also helpful to label the locations of the end-points, especially if the number line itself does not have the location clearly marked.
+        </p>
+        <example xml:id="ex_drawing_intervals">
+            <title>Learning Outcome P-3</title>
+            <statement>
+                <p>
+                    Illustrate the intervals <m>(-4,-\pi]</m>, <m>[0,\sqrt{5})</m>, and <m>[\sqrt{2},\infty)</m>, and, for each interval, identify at least one non-integer real number that is in the interval.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    When thinking about numbers on the number line, it is useful to first identify their approximate decimal representation so that we can correctly find their position.
+                    The value <m>\pi</m> has an approximate decimal representation of <m>\pi \approx 3.14159</m>.
+                    When thinking about <m>-\pi</m>, we need to be careful that we put this <em>to the left</em> of -3 on the number line.
+                </p>
+                <p>
+                    For the other non-integer values, we have <m>\sqrt{2} \approx 1.41421</m> (rounds down) and <m>\sqrt{5} \approx 2.23607</m> (rounds up).
+                    I made mention of rounding because this technically means that <m>\sqrt{2}</m> is <em>between</em> 1.41421 and 1.41422, while <m>\sqrt{5}</m> is between 2.23606 and 2.23607.
+                </p>
+                <p>
+                    Once we know where to place the numbers, we can draw our number line.
+                    We really only need to include that part of the number line that is useful to illustrate our interval.
+                    For example, the interval <m>(-4,-\pi]</m> might include a few integers to the left and right of the interval but does not need more than that.
+                </p>
+                <figure xml:id="fig_drawing_intervals_1">
+                    <caption>Illustration of the interval <m>(-4,-\pi]</m>.</caption>
+                    <image xml:id="drawing_intervals_1" label="drawing_intervals_1" width="50%">
+                        <description>number line from -5 to -2 with interval (-4,-pi].</description>
+                        <latex-image>
+\begin{tikzpicture}[x=2cm]
+\draw [&lt;-&gt;, line width=1] (-5.2,0) -- (-1.8,0);
+\foreach \x in {-5,-4,-3,-2} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [line width=1] (-3.14,0) -- (-3.14,0.1);
+\draw [-&gt;, line width=1] (-3.2,-.5) -- (-3.14,-0.1) node [pos=0, below] {$-\pi$};
+
+\draw [line width=3, blue] (-4,0.25) -- (-3.14,0.25);
+\draw[blue,fill=blue] (-4,0.25) circle (0.75ex);
+\draw[blue,fill=white,line width=1] (-3.14,0.25) circle (0.75ex);
+\end{tikzpicture}    
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    What numbers are inside the interval? What numbers are outside?
+                    You should be able to think about this critically.
+                    Because <m>-\pi \approx -3.14159</m>, you should be able to reason
+                    that <m>-\pi</m> is between -3.2 and -3.1.
+                    Consequently, -3.2 is <em>inside</em> the interval but -3.1 is <em>outside</em> the interval.
+                    Similarly, -3.15 is inside the interval while -3.14 is outside.
+                </p>
+                <p>
+                    The other two intervals are constructed similarly.
+                    Be careful about end-points.
+                    The value <m>\sqrt{2}</m> is <em>in</em> the interval <m>[\sqrt{2],\infty)</m> because the end-point is included.
+                    However, if we used a decimal approximation <m>\sqrt{2} \approx 1.414</m>, the value 1.414 is <em>not</em> in the interval because this is rounding <em>down</em> from the exact value and so is to the left of the actual end-point.
+                </p>
+                <figure xml:id="fig_drawing_intervals_2">
+                    <caption>Illustration of the intervals <m>[0,\sqrt{5})</m> (blue, top) and <m>[\sqrt{2},\infty)</m> (orange, below).</caption>
+                    <image xml:id="drawing_intervals_2" label="drawing_intervals_2" width="75%">
+                        <description>number line from -1 to 4 with interval [0,sqrt(5)) and [sqrt(2),infinity).</description>
+                        <latex-image>
+\begin{tikzpicture}[x=2cm]
+\draw [&lt;-&gt;, line width=1] (-1.2,0) -- (4.2,0);
+\foreach \x in {-1,0,...,4} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [line width=1] (1.414,0) -- (1.414,0.1);
+\draw [-&gt;, line width=1] (1.3,-.5) -- (1.414,-0.1) node [pos=0, below] {$\sqrt{2}$};
+\draw [line width=1] (2.24,0) -- (2.24,0.1);
+\draw [-&gt;, line width=1] (2.1,-.5) -- (2.24,-0.1) node [pos=0, below] {$\sqrt{5}$};
+
+\draw [line width=3, blue] (0,0.75) -- (2.24,0.75);
+\draw[blue,fill=blue] (0,0.75) circle (0.75ex);
+\draw[blue,fill=white,line width=1] (2.24,0.75) circle (0.75ex);
+
+\draw [-&gt;, line width=3, orange] (1.414,0.4) -- (4.2,0.4);
+\draw[orange,fill=orange] (1.414,0.4) circle (0.75ex);
+\end{tikzpicture}                                
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_prereq_compound_sets">
+        <p>
+            Intervals and singletons (sets with a single value) form the elementary building blocks for more complicated sets.
+            Suppose we were looking at the graph <m>y=x^2-1</m> and wanted to describe the set of values <m>x</m> so that the graph had <m>y \gt 0</m>.
+            There are two <term>disjoint</term> pieces of the graph that have <m>y \gt 0</m>. One piece is where <m>x \lt -1</m> and the other is where <m>x \gt 1</m>.
+            This is one set, but it is composed of <em>two</em> disjoint intervals.
+            To make a statement about <m>x</m> being in the set, we would need to say <m>x \lt -1</m> <em>or</em> <m>x \gt 1</m>.
+            Mathematically, we say that the set is a <term>union</term> of intervals and write <m>(-\infty,-1) \cup (1,\infty)</m>.
+        </p>
+        <figure xml:id="fig_parabola_above_axis">
+            <caption>Graph of <m>y=x^2-1</m> that highlights where <m>y \gt 0</m>.</caption>
+            <image xml:id="parabola_above_axis" label="parabola_above_axis" width="75%">
+                <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-4.3, xmax=4.3, ymin=-3, ymax=12, xlabel=$x$, ylabel=$y$, grid=both]
+\addplot [domain=-4.3:4.3, dotted, samples=200, color=black, line width=1] {x^2-1};
+\addplot [domain=-4.3:-1, samples=100, color=blue, line width=2] {x^2-1};
+\addplot [domain=1:4.3, samples=100, color=blue, line width=2] {x^2-1};
+\end{axis}
+\end{tikzpicture}    
+                </latex-image>
+            </image>
+        </figure>
+        <definition xml:id="defn_set_union">
+            <title>Union of Sets</title>
+            <statement>
+                <p>
+                    Given <em>two</em> sets <m>A</m> and <m>B</m>, the <term>union</term> of <m>A</m> and <m>B</m> is a new set <m>A \cup B</m> defined as all values <m>x</m> so that <m>x \in A</m> <em>or</em> <m>x \in B</m>.
+                </p>
+                <p>
+                    If we are given <em>more</em> than two sets, the union of the collection is a new set whose values must be in <em>at least one</em> of the sets that were combined.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            A related concept to union is <term>intersection</term>.
+            An intersection considers where sets <em>overlap</em> and includes <em>shared values</em> from the sets.
+        </p>
+        <definition xml:id="defn_set_intersection">
+            <title>Intersection of Sets</title>
+            <statement>
+                <p>
+                    Given <em>two</em> sets <m>A</m> and <m>B</m>, the <term>intersection</term> of <m>A</m> and <m>B</m> is a new set <m>A \cap B</m> defined as all values <m>x</m> so that <m>x \in A</m> <em>and</em> <m>x \in B</m>.
+                </p>
+                <p>
+                    If we are given <em>more</em> than two sets, the intersection of the collection is a new set whose values must be in <em>all</em> of the sets that were combined.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            If we wanted to be careful, we would also need to learn that there is an order of set operations.
+            Intersection is like multiplication and union is like addition.
+            So if we had three sets <m>A</m>, <m>B</m>, and <m>C</m>, 
+            the notation <m>A \cup B \cap C</m> would mean the union of <m>A</m> with <m>B \cap C</m>.
+            To avoid worrying about this, we will use parentheses to make things clear.
+            For that example, we would have an unambiguous notation by writing <m>A \cup (B \cap C)</m>, which is very different from <m>(A \cup B) \cap C</m>,
+            the intersection of <m>A \cup B</m> with <m>C</m>.
+        </p>
+        <p>
+            When working with sets defined by intervals, it can help greatly to put the sets side by side with a common number line.
+            If you have access to color, that can help you keep track of the sets as well.
+            We will see that if intervals overlap, the union will be a new interval that contains both parts.
+        </p>
+        <example xml:id="ex_union_intersections_simple">
+            <statement>
+                <p>
+                    Given sets <m>A = (-2,1]</m>, <m>B = [3,5)</m> and <m>C = (0,2)</m>,
+                    find the unions <m>A \cup B</m>, <m>A \cup C</m> and <m>B \cup C</m>.
+                    Then find the intersections <m>A \cap B</m>, <m>A \cap C</m> and <m>B \cap C</m>.
+                    Write the sets using simplified unions of disjoint sets.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    To visualize this, let us begin by creating a number line and showing each of the three sets <m>A,B,C</m>.
+                    To emphasize that these are being considered as different sets, they are colored differently and placed on different layers.
+                </p>
+                <figure xml:id="fig_multiple_intervals_aligned">
+                    <caption>Illustration of the sets <m>A = (-2,1]</m> (blue, top), <m>B=[3,5)</m> (orange, middle), and <m>C=(0,2)</m> (purple, bottom).</caption>
+                    <image xml:id="multiple_intervals_aligned" label="multiple_intervals_aligned" width="75%">
+                        <description>Illustration of multiple intervals aligned with a common number line</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, blue] (-3.2,1) -- (6.2,1) node [pos=1, right] {$A$};
+\draw [&lt;-&gt;, line width=1, dotted, orange] (-3.2,.65) -- (6.2,.65) node [pos=1, right] {$B$};
+\draw [&lt;-&gt;, line width=1, dotted, purple] (-3.2,0.3) -- (6.2,0.3) node [pos=1, right] {$C$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [line width=3, blue] (-2,1) -- (1,1);
+\draw[blue,fill=white,line width=1] (-2,1) circle (0.75ex);
+\draw[blue,fill=blue] (1,1) circle (0.75ex);
+\draw [line width=3, orange] (3,0.65) -- (5,0.65);
+\draw[orange,fill=orange] (3,0.65) circle (0.75ex);
+\draw[orange,fill=white,line width=1] (5,0.65) circle (0.75ex);
+\draw [line width=3, purple] (0,0.3) -- (2,0.3);
+\draw[purple,fill=white,line width=1] (0,0.3) circle (0.75ex);
+\draw[purple,fill=purple] (2,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    To find <m>A \cup B</m>, we need to describe the set of all values that are in <m>A</m> <em>or</em> <m>B</m>.
+                    The two sets do not overlap at all, so the union will consist of the same disjoint intervals, but now combined as a single set,
+                    <me>A \cup B = (-2,1] \cup [3,5)</me>.
+                </p>
+                <p>
+                    To find <m>A \cup C</m>, we are interested in values that are in at least one of the sets.
+                    Notice that these sets overlap, meaning there are some values that are in <em>both</em> intervals (in their intersection).
+                    Consider the boundaries of this overlap.
+                    We have <m>0 \in A</m> and <m>0 \not in C</m>, but it <em>is</em> in at least one set and so <m>0 \in A \cup C</m>.
+                    Similarly, we have <m>1 \in A</m> and <m>1 \in C</m>.
+                    By being in <em>both</em> sets, it is necessarily in at least one and so <m>1 \in A \cup C</m>.
+                    All values between them are in both sets and so are in the union.
+                    The union of these overlapping intervals will be a new interval that contains both,
+                    <me>A \cup C = (-2,2]</me>.
+                </p>
+                <p>
+                    The sets <m>B</m> and <m>C</m> do not overlap and so are disjoint.
+                    The union is simply written
+                    <me>B \cup C = (0,2] \cup [3,5)</me>.
+                    Notice that the order of intervals in the union is reading the number line left-to-right, and does not match the order that <m>B</m> and <m>C</m> were listed in the union.
+                    We could have written
+                    <me>B \cup C = [3,5) \cup (0,2]</me>,
+                    but this ordering is harder to transfer to a number line and so is not preferred.
+                </p>
+                <figure xml:id="fig_intervals_after_union">
+                    <caption>Illustration of the sets <m>A \cup B</m> (top), <m>A \cup C</m> (middle), and <m>B \cup C</m> (bottom).</caption>
+                    <image xml:id="intervals_after_union" label="intervals_after_union" width="75%">
+                        <description>Illustration of resulting union sets aligned with a common number line</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, blue] (-3.2,1) -- (6.2,1) node [pos=1, right] {$A \cup B$};
+\draw [&lt;-&gt;, line width=1, dotted, orange] (-3.2,.65) -- (6.2,.65) node [pos=1, right] {$A \cup C$};
+\draw [&lt;-&gt;, line width=1, dotted, purple] (-3.2,0.3) -- (6.2,0.3) node [pos=1, right] {$B \cup C$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [line width=3, blue] (-2,1) -- (1,1);
+\draw[blue,fill=white,line width=1] (-2,1) circle (0.75ex);
+\draw[blue,fill=blue] (1,1) circle (0.75ex);
+\draw [line width=3, blue] (3,1) -- (5,1);
+\draw[blue,fill=blue] (3,1) circle (0.75ex);
+\draw[blue,fill=white,line width=1] (5,1) circle (0.75ex);
+
+\draw [line width=3, orange] (-2,0.65) -- (2,0.65);
+\draw[orange,fill=white,line width=1] (-2,0.65) circle (0.75ex);
+\draw[orange,fill=orange] (2,0.65) circle (0.75ex);
+
+\draw [line width=3, purple] (0,0.3) -- (2,0.3);
+\draw[purple,fill=white,line width=1] (0,0.3) circle (0.75ex);
+\draw[purple,fill=purple] (2,0.3) circle (0.75ex);
+\draw [line width=3, purple] (3,0.3) -- (5,0.3);
+\draw[purple,fill=purple] (3,0.3) circle (0.75ex);
+\draw[purple,fill=white,line width=1] (5,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    The intersections are calculated by finding where the sets overlap (values in both intervals).
+                    The only intervals here that overlapped were <m>A</m> and <m>C</m>.
+                    As noted earlier <m>0 \not in C</m>, so we have
+                    <me>A \cap C = (0,1]</me>.
+                    The other two intersections are empty:
+                    <md>
+                        <mrow>A \cap B = \{\}</mrow>,
+                        <mrow>B \cap C = \{\}</mrow>.
+                    </md>
+                </p>
+                <figure xml:id="fig_intervals_after_intersection">
+                    <caption>Illustration of the set <m>A \cap C</m>. Other intersections were empty.</caption>
+                    <image xml:id="intervals_after_intersection" label="intervals_after_intersection" width="75%">
+                        <description>Illustration of resulting intersection</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, blue] (-3.2,0.3) -- (6.2,0.3) node [pos=1, right] {$A \cap C$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+
+\draw [line width=3, blue] (0,0.3) -- (1,0.3);
+\draw[blue,fill=white,line width=1] (0,0.3) circle (0.75ex);
+\draw[blue,fill=blue] (1,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        <p>
+            To understand union and intersection and to reinforce the interpretation of individual intervals, you should be able to think through the union and intersection of compound sets.
+        </p>
+        <example xml:id="ex_compound_set_operations">
+            <title>Learning Outcome P-4</title>
+            <statement>
+                <p>
+                    Given the sets <m>A = (-\infty,-1] \cup (1,4]</m> and <m>B = [-1,1) \cup (3,5)</m>, find <m>A \cup B</m> and <m>A \cap B</m>, writing them as a union of disjoint sets.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The solution follows the same patterns as our example involving individual intervals.
+                    The major difference is that we are starting with compound sets.
+                    When we graph our representations for <m>A</m> and <m>B</m>, we will want to be clear that each set has multiple parts.
+                </p>
+                <figure xml:id="fig_compound_sets">
+                    <caption>Illustration of the sets <m>A</m> (top, blue) and <m>B</m> (bottom, orange).</caption>
+                    <image xml:id="compound_sets" label="compound_sets" width="75%">
+                        <description>Illustration of compound sets A and B</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, blue] (-3.2,.65) -- (6.2,.65) node [pos=1, right] {$A$};
+\draw [&lt;-&gt;, line width=1, dotted, orange] (-3.2,.3) -- (6.2,.3) node [pos=1, right] {$B$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [&lt;-, line width=3, blue] (-3.2,.65) -- (-1,.65);
+\draw [line width=3, blue] (1,.65) -- (4,.65);
+\draw[blue,fill=blue] (-1,.65) circle (0.75ex);
+\draw[blue,fill=white,line width=1] (1,.65) circle (0.75ex);
+\draw[blue,fill=blue] (4,.65) circle (0.75ex);
+
+\draw [line width=3, orange] (-1,0.3) -- (1,0.3);
+\draw [line width=3, orange] (3,0.3) -- (5,0.3);
+\draw[orange,fill=orange] (-1,0.3) circle (0.75ex);
+\draw[orange,fill=white,line width=1] (1,0.3) circle (0.75ex);
+\draw[orange,fill=white,line width=1] (3,0.3) circle (0.75ex);
+\draw[orange,fill=white,line width=1] (5,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    To find the union, we look for all values that are in <em>at least one</em> of the sets.
+                    With the number line representations, we can scan from left to right.
+                    The set <m>A</m> includes all values until -1, including that value;
+                    the set <m>B</m> immediately begins, also including -1, and continuing until 1.
+                    The union must include all of these values.
+                    When we look at the value <m>1</m>, we see <m>1 \not in A</m> and <m>1 \not in B</m>, so <m>1 \not in A \cup B</m>.
+                    But then <m>A</m> starts up immediately and includes all values until 4.
+                    The set <m>B</m> includes all values from 3 until 5.
+                    This overlap reduces to a single interval <m>(1,5)</m>.
+                </p>
+                <figure xml:id="fig_compound_set_union">
+                    <caption>Illustration of the union <m>A \cup B</m>.</caption>
+                    <image xml:id="compound_set_union" label="compound_set_union" width="75%">
+                        <description>Illustration of the union of sets A and B</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, orange] (-3.2,.3) -- (6.2,.3) node [pos=1, right] {$A \cup B$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw [&lt;-, line width=3, purple] (-3.2,.3) -- (5,.3);
+\draw[purple,fill=white,line width=1] (1,0.3) circle (0.75ex);
+\draw[purple,fill=white,line width=1] (5,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Altogether, this means
+                    <me>A \cup B = (-\infty,1) \cup (1,5)</me>.
+                    Notice how the union has a gap of a single value.
+                </p>
+                <p>
+                    The intersection of the sets looks for points that are in both sets.
+                    We look at the original sets to see where they overlap.
+                    Both sets include -1, but none of the values immediately to the left or right are in both sets.
+                    This will be an isolated value in our intersection.
+                    The value 1 might also look like it is in both sets, but in fact is in neither set.
+                    The next set of values in the intersection is the interval from -3 to 4.
+                    Because <m>-3 \not \in B</m>, it will not be in the intersection.
+                    On the other hand, <m>4 \in A</m> and <m>4 \in B</m>, so it will be in the intersection.
+                </p>
+                <figure xml:id="fig_compound_set_intersection">
+                    <caption>Illustration of the intersection <m>A \cap B</m>.</caption>
+                    <image xml:id="compound_set_intersection" label="compound_set_intersection" width="75%">
+                        <description>Illustration of the intersection of sets A and B</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (6.2,0);
+\draw [&lt;-&gt;, line width=1, dotted, orange] (-3.2,.3) -- (6.2,.3) node [pos=1, right] {$A \cap B$};
+\foreach \x in {-3,-2,...,6} {
+\draw [line width=1] (\x,-0.1) -- (\x,0.1) node [pos=0, below] {\x};
+}
+\draw[purple] (-1,0.3) circle (0.75ex);
+\draw [-, line width=3, purple] (3,.3) -- (4,.3);
+\draw[purple,fill=white,line width=1] (3,0.3) circle (0.75ex);
+\draw[purple] (4,0.3) circle (0.75ex);
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    Interpreting our results, we have
+                    <me>A \cap B = \{-1\} \cup (3,4]</me>.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>
