@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h4>
+<p>A drop of water sitting on a flat surface forms the shape of half a sphere. Suppose the radius of the drop, which starts at 3 mm, is decreasing through evaporation at a rate of 0.2 mm/min. The volume of water is a function of the radius of the drop, and the radius of the drop is itself a function of time. This chain of relations allows us to write the volume as a function of time using composition.</p>
+<p>We will represent this model using a chain of relations involving time <span class="process-math">\(t\)</span> (in minutes), radius <span class="process-math">\(r\)</span> (in millimeters), and volume <span class="process-math">\(V\)</span> (in cubic millimeters). First, we will find a function representing the map from time to radius, <span class="process-math">\(t \mapsto r\text{.}\)</span> Then, we will find a function representing the map from radius to volume, <span class="process-math">\(r \mapsto V\text{.}\)</span> The overall relation between time and volume is found by composition of this chain,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+t \mapsto r \mapsto V\text{.}
+\end{equation*}
+</div>
+<p>In the first step, we need the function <span class="process-math">\(t \mapsto r\)</span> which is modeled by a linear function because of the constant rate of change. That is, we know the slope (negative because decreasing) and an initial point:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta r}{\Delta t} = -0.2, \quad (t,r)=(0,3)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We have <span class="process-math">\(r=-0.2t+3\text{.}\)</span> This is the first step of the chain, <span class="process-math">\(t\mapsto r=-0.2t+3\text{,}\)</span> which we could assign to a function <span class="process-math">\(g(t) = -0.2t+3\text{.}\)</span></p>
+<p>The second step of the chain is based on the relation between radius and volume. Because the drop of water forms just half a sphere, the volume formula is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+V = \frac{1}{2} \cdot \frac{4}{3}\pi r^3 = \frac{2}{3} \pi r^3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is already in the form of a function, so we have the second step of the chain, <span class="process-math">\(r \mapsto V = \frac{2}{3} \pi r^3\text{,}\)</span> which we could assign to another function <span class="process-math">\(f(r) = \frac{2}{3} \pi r^3\text{.}\)</span></p>
+<p>We know that the radius is a function of time <span class="process-math">\(r=g(t) = -0.2t+3\text{,}\)</span> and volume is a function of radius, <span class="process-math">\(V=f(r) = \frac{2}{3} \pi r^3\text{.}\)</span> The relation <span class="process-math">\(t \mapsto V\)</span> is a composition of this chain, <span class="process-math">\(V = f \circ g(t)\text{.}\)</span> Using substitution, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+V = f(g(t)) = f(-0.2t+3) = \frac{2}{3} \pi (-0.2t+3)^3\text{.}
+\end{equation*}
+</div></article><span class="incontext"><a href="sec_fcn_construction.html#ex_composition_as_chain" class="internal">in-context</a></span>
+</body>
+</html>

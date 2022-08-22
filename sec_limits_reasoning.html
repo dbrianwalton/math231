@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Reasoning About Limits</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_limits_infinity.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_derivatives.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_limits_infinity.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_derivatives.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="active">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_limits_reasoning"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Reasoning About Limits</span>
+</h2>
+<section class="introduction" id="introduction-16"><p id="p-524">Recall that mathematics as a discipline seeks to understand patterns. Mathematical definitions provide formal statements that codify the idea of a pattern, and deductive reasoning looks for consequences that are provable based on the attributes an object might possess. A function having a limit is one such pattern; a function being continuous is another. Mathematicians have created a definition for a function limit that captures the intuitive ideas about limits we have used relating to graphs and values being approximated from one side or the other. Simple functions can be showed to have limits directly using the definition. Theorems applying the definition of a limit to more complex formulas constructed from simpler formulas that have limits allow us to apply our ideas about continuity to these complex formulas. Together, these theorems justify our ability to compute limits of functions without needing to verify the definition each time.</p>
+<article class="definition definition-like" id="defn_limit"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Limit of a Function.</span>
+</h3>
+<p id="p-525">Let <span class="process-math">\(f\)</span> be a function, and <span class="process-math">\(a\)</span> and <span class="process-math">\(L\)</span> represent real numbers. “The limit of <span class="process-math">\(f(x)\)</span> as <span class="process-math">\(x \to a\)</span> is <span class="process-math">\(L\)</span>”, <span class="process-math">\(\displaystyle \lim_{x \to a} f(x) = L\text{,}\)</span> means: For all <span class="process-math">\(\epsilon \gt 0\)</span> (a required approximation tolerance for <span class="process-math">\(y\)</span>), there exists <span class="process-math">\(\delta \gt 0\)</span> (a corresponding acceptable variation for <span class="process-math">\(x\)</span>) so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|f(x)-L| \lt \epsilon \quad \text{whenever} \quad 0 \lt |x-a| \lt \delta \text{.}
+\end{equation*}
+</div></article><p id="p-526">Learning goals related to deductive reasoning about limits include:</p>
+<ul class="disc">
+<li id="li-96"><p id="p-527">Given a limit and a required tolerance <span class="process-math">\(\epsilon\text{,}\)</span> find a value for <span class="process-math">\(\delta\)</span> that will guarantee the function approximation stated in the limit definition.</p></li>
+<li id="li-97"><p id="p-528">Apply limit theorems to justify limit calculations on complex algebraic formulas in terms of elementary limits.</p></li>
+</ul></section><section class="subsection" id="subsec_lim_limit_definition"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.5.1</span> <span class="title">Understanding Limits</span>
+</h3>
+<p id="p-529">The definition of a limit of a function attempts to formalize the idea that values to the left and the right of <span class="process-math">\(x=a\)</span> result in values of <span class="process-math">\(f(x)\)</span> that are close to <span class="process-math">\(L\)</span> through the use of inequalities and two tolerance values, traditionally called epsilon <span class="process-math">\(\epsilon\)</span> and delta <span class="process-math">\(\delta\text{.}\)</span> We want the meaning to be something like “if you can get close enough to <span class="process-math">\(x=a\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> will be close to its limit <span class="process-math">\(L\)</span>”.</p>
+<p id="p-530">The value of epsilon <span class="process-math">\(\epsilon\)</span> describes a tolerance (maximum acceptable error) between <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(L\text{,}\)</span> while the value of delta <span class="process-math">\(\delta\)</span> describes how close the value of <span class="process-math">\(x\)</span> needs to be to <span class="process-math">\(a\)</span> in order to guarantee we are within this tolerance. The value of <span class="process-math">\(\epsilon\)</span> is chosen first. Given the value of <span class="process-math">\(\epsilon\text{,}\)</span> the value of <span class="process-math">\(\delta\)</span> is then chosen and typically depends on <span class="process-math">\(\epsilon\text{.}\)</span> The inequalities establish the connection between <span class="process-math">\(\epsilon\)</span> and <span class="process-math">\(\delta\text{.}\)</span></p>
+<p id="p-531">How do we find the value of <span class="process-math">\(\delta\text{?}\)</span></p>
+<ul class="disc">
+<li id="li-98"><p id="p-532">Identify the value of the limit <span class="process-math">\(L\)</span> and the given value <span class="process-math">\(\epsilon \gt 0\text{.}\)</span></p></li>
+<li id="li-99"><p id="p-533">Calculate thresholds <span class="process-math">\(y=L-\epsilon\)</span> and <span class="process-math">\(y=L+\epsilon\text{.}\)</span> The inequality <span class="process-math">\(|f(x)-L| \lt \epsilon\)</span> is equivalent to saying <span class="process-math">\(L-\epsilon \lt f(x) \lt L+\epsilon\text{.}\)</span></p></li>
+<li id="li-100"><p id="p-534">Find the points where <span class="process-math">\(f(x)\)</span> crosses the thresholds by solving equations. Graphically, this will be where <span class="process-math">\(y=f(x)\)</span> intersects the threshold lines or where there are jumps in the graph.</p></li>
+<li id="li-101"><p id="p-535">Identify an interval <span class="process-math">\((x_L,x_R)\)</span> surrounding <span class="process-math">\(x=a\)</span> (not counting <em class="emphasis">at</em> <span class="process-math">\(x=a\)</span>) that satisfies <span class="process-math">\(|f(x)-L| \lt \epsilon\text{.}\)</span></p></li>
+<li id="li-102">
+<p id="p-536">Measure the distances from <span class="process-math">\(x=a\)</span> to each end point:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-70">
+\begin{gather*}
+\delta_{-} = |x_L - a|\\
+\delta_{+} = |x_R - a|
+\end{gather*}
+</div>
+<p class="continuation">Choose <span class="process-math">\(\delta = \min(x_L, x_R)\text{.}\)</span></p>
+</li>
+<li id="li-103"><p id="p-537">For all <span class="process-math">\(x\)</span> in <span class="process-math">\((a-\delta, a) \cup (a,a+\delta)\text{,}\)</span> we are guaranteed that <span class="process-math">\(|f(x)-L| \lt \epsilon\text{.}\)</span></p></li>
+</ul>
+<p id="p-538">The process of finding the end points <span class="process-math">\(x_L\)</span> and <span class="process-math">\(x_R\)</span> will vary based on the particular formula, but otherwise this process is the same for every example. When the limit exists, a value for <span class="process-math">\(\delta\)</span> will <em class="emphasis">always</em> be found. This is why the definition says that <span class="process-math">\(\delta\)</span> exists <em class="emphasis">for every</em> <span class="process-math">\(\epsilon \gt 0\text{.}\)</span> So if there is a value of <span class="process-math">\(\epsilon \gt 0\)</span> for which no <span class="process-math">\(\delta\)</span> can be found, the value of <span class="process-math">\(L\)</span> must not be a limit.</p>
+<article class="example example-like" id="ex_lim_bad_limit"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
+</h4>
+<p id="p-539">Consider <span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{3^x-1}{x}\text{.}\)</span> Clearly, this formula does not allow <span class="process-math">\(x=0\)</span> (division). And it doesn't have any obvious simplifications that might cancel the <span class="process-math">\(x\)</span> in the denominator because the numerator's formula is not algebraic. One strategy to <em class="emphasis">think</em> about such limits is to try values of <span class="process-math">\(x\)</span> that get closer and closer to <span class="process-math">\(x=0\)</span> and see if we can decide what value might be the limit.</p>
+<p id="p-540">Define <span class="process-math">\(\displaystyle f(x) = \frac{3^x-1}{x}\)</span> and look at the values for a sequence of values of <span class="process-math">\(x\text{:}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.1</td>
+<td class="l m b0 r0 l0 t0 lines">1.16123</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.01</td>
+<td class="l m b0 r0 l0 t0 lines">1.10467</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.001</td>
+<td class="l m b0 r0 l0 t0 lines">1.09922</td>
+</tr>
+</table></div> What might we predict based on this small sample of values? The values of <span class="process-math">\(f(x)\)</span> are decreasing. We might want to assume that the limit goes to something nice that is below 1.099, and a graph might suggest trying <span class="process-math">\(f(x) \to 1.09\text{.}\)</span></p>
+<p id="p-541">Let us now look at what the definition of a limit would require for us to say <span class="process-math">\(\displaystyle \lim_{x \to 0} f(x) = 1.09\text{.}\)</span> For <em class="emphasis">any</em> value of <span class="process-math">\(\epsilon \gt 0\)</span> that we are given, it must be possible to find <span class="process-math">\(\delta \gt 0\)</span> so that whenever <span class="process-math">\(0 \lt |x-0| \lt \delta\text{,}\)</span> it follows that <span class="process-math">\(|f(x)-1.09| \lt \epsilon\text{.}\)</span></p>
+<p id="p-542">Visualize this in terms of a graph. We will plot <span class="process-math">\(y=f(x)\)</span> and the two threshold lines <span class="process-math">\(y=L-\epsilon\)</span> and <span class="process-math">\(y=L+\epsilon\text{.}\)</span> We want to identify the set of <span class="process-math">\(x\)</span>-values so that <span class="process-math">\(L-\epsilon \lt f(x) \lt L+\epsilon\text{.}\)</span> This set needs to include an interval surrounding but excluding <span class="process-math">\(x=0\)</span> (called a <em class="emphasis">punctured neighborhood</em>). Looking at <a href="" class="xref" data-knowl="./knowl/fig_lim_thresholds_bad_limit.html" title="Figure 3.5.3">Figure 3.5.3</a>, everything looks good when we use <span class="process-math">\(\epsilon = 0.1\)</span> (left image). If we zoom in further and use <span class="process-math">\(\epsilon = 0.01\)</span> (right image), the interval barely extends to the right of <span class="process-math">\(x=0\text{.}\)</span> It is clear that if we choose a smaller value of <span class="process-math">\(\epsilon\text{,}\)</span> the set of points between the thresholds will be entirely to the left of <span class="process-math">\(x=0\text{.}\)</span> This is because the limit is not 1.09 but some value slightly greater.</p>
+<figure class="figure figure-like" id="fig_lim_thresholds_bad_limit"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_lim_thresholds_bad_limit_a.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_lim_thresholds_bad_limit_b.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>Illustration of proposed limit <span class="process-math">\(L=1.09\)</span> and thresholds for <span class="process-math">\(\epsilon=0.1\)</span> (left) and <span class="process-math">\(\epsilon=0.01\)</span> (right)</figcaption></figure><p id="p-543">The actual limit for this question is an irrational number whose decimal representation begins <span class="process-math">\(L=1.098612\ldots\text{.}\)</span></p></article><p id="p-544">A limit requires that <em class="emphasis">no matter how small</em> <span class="process-math">\(\epsilon\)</span> is chosen, the set of values for <span class="process-math">\(x\)</span> so that <span class="process-math">\(|f(x)-L| \lt \epsilon\)</span> must extend slightly to the left of <span class="process-math">\(x=a\)</span> and slightly to the right of <span class="process-math">\(x=a\text{.}\)</span> For many limits, a finite decimal representation will not be possible. Once <span class="process-math">\(\epsilon\)</span> is chosen to be smaller than the place value of the last digit chosen, the representation is likely to break down. In that case, we would say we know an approximation to the limit within that value of <span class="process-math">\(\epsilon\text{.}\)</span></p>
+<p id="p-545">For our class, you are expected to be able to construct an appropriate graphical representation of the limit thresholds, find the set of <span class="process-math">\(x\)</span>-values resulting in <span class="process-math">\(|f(x)-L| \lt \epsilon\text{,}\)</span> and determine the value of <span class="process-math">\(\delta\)</span> that would have been used in the definition for that choice of <span class="process-math">\(\epsilon&gt;\text{.}\)</span> The formulas appearing in assessment questions will allow you to solve for the end-points of the interval exactly.</p>
+<article class="example example-like" id="ex_lim_find_delta"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-8.</span>
+</h4>
+<p id="p-546">We know that <span class="process-math">\(\lim_{x \to 4} \sqrt{x} = 2\text{.}\)</span></p>
+<p id="p-547">For <span class="process-math">\(\epsilon = 0.1\text{,}\)</span> find <span class="process-math">\(\delta\)</span> so that <span class="process-math">\(|f(x)-L| \lt \epsilon\)</span> whenever <span class="process-math">\(0 \lt |x-4| \lt \delta\text{,}\)</span> for the appropriate <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(L\)</span> for this limit. Illustrate the role of <span class="process-math">\(\epsilon\)</span> and <span class="process-math">\(\delta\)</span> by including an appropriate graph.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-44" id="solution-44"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-44"><div class="solution solution-like">
+<p id="p-548">The function <span class="process-math">\(f(x)\)</span> will be the formula in the limit, so <span class="process-math">\(f(x)=\sqrt{x}\)</span> for this problem. The proposed limit is <span class="process-math">\(L=2\text{.}\)</span> Starting with a graph may be most helpful.</p>
+<ul class="disc">
+<li id="li-104"><p id="p-549">Graph <span class="process-math">\(y=f(x)\text{.}\)</span></p></li>
+<li id="li-105"><p id="p-550">Graph <span class="process-math">\(y=L-\epsilon=2-0.1=1.9\)</span> and <span class="process-math">\(y=L+\epsilon=2+0.1=2.1\text{.}\)</span></p></li>
+<li id="li-106"><p id="p-551">Find where <span class="process-math">\(f(x)\)</span> intersects or jumps the thresholds to the left and right of <span class="process-math">\(x=4\text{.}\)</span></p></li>
+</ul>
+<figure class="figure figure-like" id="fig_lim_draw_thresholds"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/graph_lim_draw_thresholds.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.5<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=\sqrt{x}\)</span> and thresholds at <span class="process-math">\(y=1.9\)</span> and <span class="process-math">\(y=2.1\)</span> that correspond to <span class="process-math">\(\epsilon=0.1\)</span></figcaption></figure><p id="p-552">Our algebraic task is to find these points, so we will be solving the equations <span class="process-math">\(\sqrt{x} = 1.9\)</span> and <span class="process-math">\(\sqrt{x} = 2.1\text{.}\)</span> The first equation gives <span class="process-math">\(x=1.9^2 = 3.61\)</span> and the second gives <span class="process-math">\(x=2.1^2 = 4.41\text{.}\)</span> The inequality <span class="process-math">\(|f(x)-2| \lt 0.1\)</span> therefore includes the interval <span class="process-math">\((3.61, 4.41)\text{,}\)</span> which does surround <span class="process-math">\(x=4\text{.}\)</span></p>
+<p id="p-553">To find <span class="process-math">\(\delta\text{,}\)</span> we want to see how big an interval we get that is <em class="emphasis">symmetric</em> around <span class="process-math">\(x=4\)</span> and stays inside of this set. The left end point at <span class="process-math">\(x=3.61\)</span> is a distance <span class="process-math">\(|3.61-4| = 0.39\)</span> away from <span class="process-math">\(x=4\text{.}\)</span> The right end point at <span class="process-math">\(x=4.41\)</span> is a distance <span class="process-math">\(|4.41-4| =0.41\)</span> away from <span class="process-math">\(x=4\text{.}\)</span> Consequently, if we make our symmetric interval extend <span class="process-math">\(\delta = 0.39\)</span> away from <span class="process-math">\(x=4\text{,}\)</span> it will stay inside of both sides of the interval. If we instead chose <span class="process-math">\(\delta = 0.41\text{,}\)</span> the interval will be inside the set on the right, but will go too far on the left.</p>
+<p id="p-554">We always need to choose the smaller distance, which in this case will be <span class="process-math">\(\delta = 0.39\text{.}\)</span> The symmetric interval is <span class="process-math">\((4-0.39,4+0.39) = (3.61,4.39)\text{.}\)</span> The value at <span class="process-math">\(x=4\)</span> is not required to be in the set for the limit definition to be satisfied, but in this case because <span class="process-math">\(\sqrt{x}\)</span> is defined at <span class="process-math">\(x=4\)</span> and satisfies the inequality, it can be included.</p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_lim_limit_theorems"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.5.2</span> <span class="title">Limit Theorems</span>
+</h3>
+<p id="p-555">For a typical question, relying on the definition of a limit to justify that the value of a limit is valid is much too complex. Theorems provide a connection between calculating limits using various rules and justifying those limits in terms of the definition. Limit theorems start by establishing certain elementary formulas whose limits can be directly justified by the definition. Additional theorems then establish rules about limits based on arithmetic combining those formulas.</p>
+<article class="assemblage assemblage-like" id="asmbl_limits_elementary"><h4 class="heading"><span class="title">Elementary Limits.</span></h4></article><p id="p-560">Algebraic functions are those functions defined by combining these elementary functions using arithmetic operations (sum, difference, product, and quotient), including powers (repeated multiplication). Limit rules for functions constructed from simpler parts are based on the idea that if we know the limits of the parts, then we can guarantee the limit of the combination has a value calculated from those simpler limits.</p>
+<article class="assemblage assemblage-like" id="asmbl_limits_combination_rules"><h4 class="heading"><span class="title">Limit Rules for Combinations.</span></h4></article><p id="p-569">The first three rules that only involve one function are listed separately because using those rules only requires knowing the limit of one function in advance. This simplifies the process of justification in that we don't need to separately make note of the limits of the individual constants involved. Otherwise, to justify a limit using a limit rule, we first show the limits of the parts are separately justified, and then we apply the limit rule to justify the combined limit is justified.</p>
+<p id="p-570">The process of justification of a limit using limit rules starts by thinking through the deconstruction of a formula, as addressed in our earlier learning outcomes in <a href="sec_fcn_construction.html#subsec_fcn_deconstruction" class="internal" title="Subsection 2.2.3: Expression Deconstruction">Subsection 2.2.3</a>. Each operation that combines two formulas to create a slightly more complex formula will correspond to using a limit rule in a limit justification. Once we have the deconstruction, the elementary functions will be the leaves of the tree. We start by justifying the limits of these functions using the elementary limit rules. Then we work our way up the tree, combining branches one at a time using limit rules of combination, until we have the limit of interest. We do need beware that we don't try to combine limits involving division by zero.</p>
+<article class="example example-like" id="ex_lim_justify_basic"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.6</span><span class="period">.</span>
+</h4>
+<p id="p-571">Find and justify the limit <span class="process-math">\(\displaystyle \lim_{x \to 2} 5x^3(x^2+3x)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-45" id="solution-45"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-45"><div class="solution solution-like">
+<p id="p-572">Justifying the limit requires more than just plugging the value into the formula. That would be evaluating the function, not finding the limit, and their equivalence is a consequence of continuity. In fact, limit justification for this example is really justification that the function is continuous. Instead, we need to look at how the function <span class="process-math">\(f(x)=5x^3(x^2+3x)\)</span> is constructed from elementary functions and then use limit rules based on that deconstruction.</p>
+<p id="p-573">The elementary building blocks for which direct limits are justified are constant functions, the identity function (<span class="process-math">\(x\)</span> all alone), and linear functions. Our formula involves powers of <span class="process-math">\(x\text{.}\)</span> We will need to think of those as repeated multiplication: <span class="process-math">\(x^2 = x \cdot x\)</span> and <span class="process-math">\(x^3 = x \cdot x \cdot x = x^2 \cdot x\text{.}\)</span> In principle, we could create an entire decontruction using a tree.</p>
+<figure class="figure figure-like" id="fig_lim_deconstruction_tree"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/lim_deconstruction_tree.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.7<span class="period">.</span></span><span class="space"> </span>Tree representation of the deconstruction of <span class="process-math">\(5x^3(x^2+3x)\)</span></figcaption></figure><p id="p-574">Each leaf on this tree is an elementary formula (constant, identity or linear function), and we can state their limits as being justified by elementary limit rules. For reference later in our justification, each limit that is justified will be numbered. Constants that will be used in a constant multiple rule or constant sum rule are not required to justify limits separately as the limit rule has that built-in. The two elementary limits that are needed are for <span class="process-math">\(x\)</span> (identity) and <span class="process-math">\(3x\)</span> (linear). <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 2} x = 2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Identity</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 2} 3x = 3 \cdot 2 = 6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Linear Function</td>
+</tr>
+</table></div> Alternatively, we could have used the constant multiple rule since <span class="process-math">\(3x = 3 \cdot x\text{.}\)</span></p>
+<p id="p-575">We now start justifying limits of intermediate formulas, working from the leaves upward in the tree. Notice that <span class="process-math">\(x^2\)</span> appears twice in this tree, but the limit only needs to be justified once. Then we can build <span class="process-math">\(x^3\)</span> as a product and <span class="process-math">\(x^2+3x\)</span> as a sum. The remaining steps involved in justification are listed below. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-72">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x\\
+&amp;= 2 \cdot 2 = 4
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-73">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^3 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x^2\\
+&amp;= 2 \cdot 4 = 8
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-74">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2+3x &amp;= \lim_{x \to 2} x^2 + \lim_{x \to 2} 3x\\
+&amp;= 8 + 6 = 14
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Sum</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-75">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 &amp;= 5 \cdot \lim_{x \to 2} x^3\\
+&amp;= 5 \cdot 8 = 40
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Constant Multiple</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-76">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 (x^2+3x) &amp;= \lim_{x \to 2} 5x^3 \cdot \lim_{x \to 2} (x^2+3x)\\
+&amp;= 40 \cdot 14 = 560
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+</table></div></p>
+</div></div>
+</div></article><p id="p-576">This sure feels like a lot of work. It is because it is a methodical justification of <em class="emphasis">why</em> we are allowed to evaluate an algebraic formula <em class="emphasis">at</em> a value when calculating a limit, which is formally defined through a statement about inequalities. Any formula constructed only involving arithmetic (including powers that can be rewritten as repeated multiplication) can always be justified following this pattern. The steps will vary for different formulas, but the process is the same. This is why basic algebraic formulas are all continuous.</p>
+<p id="p-577">The process also works for limits that are <em class="emphasis">not</em> based on continuous functions, so long as we have rules for the limits that correspond to discontinuities. This is where assessment questions related to the learning outcome will focus.</p>
+<article class="example example-like" id="ex_lim_justification"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.8</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-9.</span>
+</h4>
+<p id="p-578">Suppose that we know <span class="process-math">\(\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} = 5\text{.}\)</span> Find and justify the limit <span class="process-math">\(\displaystyle \lim_{x \to 3} \frac{2f(x)(x^2+1)}{x^2-x-6}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-46" id="solution-46"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-46"><div class="solution solution-like">
+<p id="p-579">Notice that if we use <span class="process-math">\(x=3\)</span> in the denominator <span class="process-math">\(x^2-x-6\)</span> we get <span class="process-math">\(3^2-3-6 = 0\text{.}\)</span> The limit rule for a quotient does not apply when the denominator results in division by zero. This is why we needed to be told <em class="emphasis">separately</em> the value of a limit that had division by zero in the formula.</p>
+<p id="p-580">In order to use limit rules to justify a limit for this formula, we need to rewrite the formula so that we get a product with <span class="process-math">\(\displaystyle \frac{f(x)}{x-3}\text{.}\)</span> Factoring the denominator, we have <span class="process-math">\(x^2-x-6 = (x-3)(x+2)\text{.}\)</span> The factor <span class="process-math">\(x-3\)</span> can be group with the numerator factor <span class="process-math">\(f(x)\)</span> so that we rewrite our limit in question:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 3} \frac{2f(x)(x^2+1)}{x^2-x-6} = \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The factor on the left has a <em class="emphasis">given</em> limit. We will use limits rules with deconstruction to find the limit of the formula on the right. Then we will use the limit of a product to justify a limit of the entire formula.</p>
+<p id="p-581">See if you can deconstruct the formula on the right on your own. You should then be able to follow the steps of limit justification shown below. Notice that multiplication by 2 is a constant multiple and adding the constant 1 to <span class="process-math">\(x^2\)</span> is a constant sum, allowing us to avoid needing to find limits of the constants on their own. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} = 5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Given</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} x = 3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Identity</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} x+2 = 5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Linear Function</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-77">
+\begin{align*}
+\displaystyle \lim_{x \to 3} x^2 &amp;= \lim_{x \to 3} x \cdot \lim_{x \to 3} x\\
+&amp;= 3 \cdot 3 = 9
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-78">
+\begin{align*}
+\displaystyle \lim_{x \to 3} x^2+1 &amp;= \left(\lim_{x \to 3} x^2 \right) + 1\\
+&amp;= 9+1 = 10
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Constant Sum</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-79">
+\begin{align*}
+\displaystyle \lim_{x \to 3} 2(x^2+1) &amp;= 2 \cdot \left(\lim_{x \to 3} x^2+1 \right)\\
+&amp;= 2 \cdot 10 = 20
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Constant Multiple</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-80">
+\begin{align*}
+\displaystyle \lim_{x \to 3} \frac{2(x^2+1)}{x+2} &amp;= \frac{20}{5} = 4
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Quotient</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="" id="md-81">
+\begin{align*}
+\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2} &amp;= 5 \cdot 4 = 20
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Product</td>
+</tr>
+</table></div></p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

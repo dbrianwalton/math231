@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.3.7.1</span><span class="period">.</span>
+</h4>
+<p>We know that if <span class="process-math">\(y=f(x)\text{,}\)</span> then an inverse function would give <span class="process-math">\(x=f^{-1}(y)\text{.}\)</span> So one approach to finding a formula is to solve the equation to isolate <span class="process-math">\(x\)</span> and use the formula in terms of <span class="process-math">\(y\)</span> as the inverse formula. We start with the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = f(x) = \frac{2}{3x+1} - 4\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We now try to isolate the variable <span class="process-math">\(x\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+y &amp;= \frac{2}{3x+1} - 4\\
+y + 4 &amp;= \frac{2}{3x+1} - \cancel{4} + \cancel{4}\\
+y + 4 &amp;= \frac{2}{3x+1}
+\end{align*}
+</div>
+<p class="continuation">At this point, it is easiest to apply the reciprocal (multiplicative inverse) to both sides:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+y + 4 &amp;= \frac{2}{3x+1}\\
+\frac{1}{y + 4} &amp;= \frac{3x+1}{2}\\
+2 \cdot \frac{1}{y + 4} &amp;= \cancel{2} \cdot \frac{3x+1}{\cancel{2}}\\
+\frac{2}{y + 4} &amp;= 3x+1\\
+\frac{2}{y + 4} - 1 &amp;= 3x\\
+\frac{1}{3} \left(\frac{2}{y + 4} - 1\right) &amp;= x
+\end{align*}
+</div>
+<p class="continuation">Because we finished solving for <span class="process-math">\(x\)</span> and have a formula in terms of <span class="process-math">\(y\text{,}\)</span> that formula can be used to define <span class="process-math">\(f^{-1}(y)\text{.}\)</span> If we think of <span class="process-math">\(x\)</span> as an abstract variable and not a physical quantity, we can use that in place of <span class="process-math">\(y\)</span> to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f^{-1}(x) = \frac{1}{3} \left( \frac{2}{y+4} - 1\right)\text{.}
+\end{equation*}
+</div>
+<p>Alternatively, the inverse function can be constructed by literally undoing the operations occuring in the function <span class="process-math">\(f\text{.}\)</span> The operations applied by <span class="process-math">\(f\text{:}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{3 \boxed{x}+1} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">start with input</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{\boxed{3x}+1} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">multiply by 3</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{\boxed{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add 1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">reciprocal</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">multiply by 2</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">subtract 4</td>
+</tr>
+</table></div> The operations applied by <span class="process-math">\(f^{-1}\)</span> need to undo the most recent operations: <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">start with input</td>
+<td class="l m b0 r0 l0 t0 lines">x</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">add 4</td>
+<td class="l m b0 r0 l0 t0 lines">x+4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">divide by 2</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{x+4}{2}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">reciprocal</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{2}{x+4}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">subtract 1</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{2}{x+4} - 1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">divide by 3</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{1}{3}\left(\frac{2}{x+4} - 1\right)</td>
+</tr>
+</table></div> This last formula is <span class="process-math">\(f^{-1}(x)\text{.}\)</span> Notice that solving an equation by isolation is exactly the same process as reversing step-by-step operations. If we use different methods to solve the equation, we are likely to find a different representation.</p>
+</div>
+<span class="incontext"><a href="sec_fcn_inverse.html#solution-32" class="internal">in-context</a></span>
+</body>
+</html>

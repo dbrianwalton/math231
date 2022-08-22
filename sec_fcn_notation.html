@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Function Notation</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch_functions.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_fcn_construction.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch_functions.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_fcn_construction.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="active">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_fcn_notation"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Function Notation</span>
+</h2>
+<section class="introduction" id="introduction-7"><p id="p-167">Function notation provides a means to write about the value of a dependent variable given the value of the independent variable. Suppose we have a function <span class="process-math">\(x \mapsto y\)</span> with a name of <span class="process-math">\(f\text{,}\)</span> meaning that knowing the value of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(f\)</span> allows us to determine the specific value of <span class="process-math">\(y\text{.}\)</span> We would write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=f(x)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Function notation does not simply mean reading this as “<span class="process-math">\(y\)</span> is <em class="emphasis">a</em> function of <span class="process-math">\(x\)</span>”. Rather, this means that <span class="process-math">\(f\)</span> provides <em class="emphasis">the rule</em> connecting the values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span></p>
+<p id="p-168">Function notation consists of using the name of the function followed immediately by a value or expression inside of parentheses. That value or expression represents the value of the independent variable in the relation. In algebra, a variable name followed by something inside of parentheses would mean there is an implicit (unstated) multiplication. However, for functions, this is not multiplication but mapping. The expression <span class="process-math">\(f(2)\)</span> refers to “the output value of <span class="process-math">\(f\)</span> when the input value is 2”, or more succinctly “the value of <span class="process-math">\(f\)</span> at 2”.</p>
+<p id="p-169">If <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are related by an equation and we can solve that equation so that <span class="process-math">\(y\)</span> is isolated, the formula on the other side is a formula representation of <span class="process-math">\(f(x)\text{.}\)</span> So if we started with an equation <span class="process-math">\(x^2+y=3\text{,}\)</span> this defines a relation. If we solve for <span class="process-math">\(y\)</span> and get <span class="process-math">\(y=3-x^2\text{,}\)</span> we realize that knowing <span class="process-math">\(x\)</span> we can find <span class="process-math">\(y\)</span> and so this equation defines a function. If we name the function <span class="process-math">\(f\text{,}\)</span> then we have <span class="process-math">\(f(x)=3-x^2\text{.}\)</span> We can then directly calculate the value of <span class="process-math">\(y\)</span> by using the formula we find after substituting the variable <span class="process-math">\(x\)</span> with its value. This means that <span class="process-math">\(f(4)\)</span> represents “the value of <span class="process-math">\(y\)</span> when <span class="process-math">\(x=4\)</span>” and using substitution we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(4) = 3-(4)^2 = 3-16 = -13\text{.}
+\end{equation*}
+</div>
+<p id="p-170">This section focuses on three learning goals that build on this core understanding.</p>
+<ul class="disc">
+<li id="li-9"><p id="p-171">Use function notation on a formula to evaluate and simplify an expression involving substitution with formulas.</p></li>
+<li id="li-10"><p id="p-172">Use function notation to understand relations between variables represented by tables and graphs.</p></li>
+<li id="li-11"><p id="p-173">Use function notation to understand relations defined with piecewise formulas.</p></li>
+</ul></section><section class="subsection" id="subsec_fcn_evaluation"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.1.1</span> <span class="title"></span>
+</h3>
+<p id="p-174">Function notation is often used to describe a summary of mathematical operations applied to a value. A function like <span class="process-math">\(f(x)=x^2-3x\)</span> could be read as saying, “Given the input value, calculate its square and then subtract from it three times the input value”. If we then had <span class="process-math">\(f(4)\text{,}\)</span> we would look at this and think, “The input is 4. So our rule says <span class="process-math">\(f(4)\)</span> will have a value that is the square of 4 minus three times 4.” This is what we mean by <span class="process-math">\(f(4) = 4^2 - 3(4)\)</span> to get <span class="process-math">\(f(4)=16-12=4\text{.}\)</span></p>
+<p id="p-175">In applications, variables represent actual physical quantities. A function relating these variables will need to respect what <em class="emphasis">type</em> of value is used as the input and what type of value is created as an output. For example, if I were doing an electrophoresis gel observation with DNA, then there is a relation between the mass of a DNA segment and the distance it travels through the gel during the observation. If we let <span class="process-math">\(M\)</span> be the mass of a segment and <span class="process-math">\(D\)</span> be the distance traveled, then our observation would create a map <span class="process-math">\(M \mapsto D\text{.}\)</span> If we said <span class="process-math">\(D = f(M)\text{,}\)</span> then the function <span class="process-math">\(f\)</span> is expecting <em class="emphasis">mass of a DNA fragment</em> as an input and gives a <em class="emphasis">distance</em> as output. It would not make any sense to talk about <span class="process-math">\(f(M^2)\)</span> because <span class="process-math">\(M^2\)</span> is no longer the mass of a fragment.</p>
+<p id="p-176">On the other hand, in mathematics variables represent values in an abstract sense without including the units being measured. If we wrote <span class="process-math">\(f(x^2)\)</span> for the same function described previously, we would think of <span class="process-math">\(x\)</span> as a value so that <span class="process-math">\(x^2\)</span> gives the mass of a DNA fragment. So mathematically, <span class="process-math">\(f(x^2)\)</span> <em class="emphasis">can</em> make sense.</p>
+<p id="p-177">This idea perhaps feels weirder when we have a function defined in abstract, such as <span class="process-math">\(f(x)=x^2-3x\)</span> and then write something like <span class="process-math">\(f(2x+1)\text{.}\)</span> In one sense, it might feel like we are saying <span class="process-math">\(x\)</span> <em class="emphasis">equals</em> <span class="process-math">\(2x+1\text{.}\)</span> This is where it is helpful to think of <span class="process-math">\(f\)</span> as the <em class="emphasis">rule</em> of what we <em class="emphasis">do</em> to the input (and not what we do to <span class="process-math">\(x\)</span>). We need to <em class="emphasis">square</em> the input <span class="process-math">\((2x+1)\)</span> and then we need to subtract from that three times the input <span class="process-math">\((2x+1)\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(2x+1) = (2x+1)^2 - 3(2x+1)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If we compare this to the original formula,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = x^2 - 3 x\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we can see that we are <em class="emphasis">substituting</em> the input formula <em class="emphasis">in place of</em> the input variable. Because the input formula represents a single value, we wrap it in parentheses as a group.</p>
+<p id="p-178">Once we make the substitution, we are free to rewrite the formula in more convenient forms. For example, we might want to write the polynomial in standard form so that it is easier to combine with other polynomials later.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-25">
+\begin{align*}
+f(2x+1) &amp;= (2x+1)^2 - 3(2x+1)\\
+&amp;= (2x+1)(2x+1) - 3(2x+1)\\
+&amp;= 4x^2 + 2x + 2x + 1 - 6x - 3\\
+&amp;= 4x^2 - 2x - 2
+\end{align*}
+</div>
+<p class="continuation">The <em class="emphasis">representations</em> of the function value are different but they always given the same value.</p>
+<p id="p-179">You are expected to be able to apply the principles of function evaluation using substitution in order to expand and then simplify combinations of functions evaluated with expressions as inputs.</p>
+<article class="example example-like" id="ex_function_evaluate_simplify"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-1.</span>
+</h4>
+<p id="p-180">Given a function <span class="process-math">\(f(x) = x^2 - 2x\text{,}\)</span> Compute, expand, and simplify <span class="process-math">\(f(2x) - f(x-3)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like">
+<p id="p-181">When thinking about a problem like this, I like to imagine blocks representing components of the formula. I might write <span class="process-math">\(\boxed{f(2x)} - \boxed{f(x-3)}\text{.}\)</span> That is, I should recognize that there are two formulas I need to find, <span class="process-math">\(f(2x)\)</span> and <span class="process-math">\(f(x-3)\text{,}\)</span> and I will later subtract them.</p>
+<p id="p-182">One method would be to find the individual formulas first using substitution.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-26">
+\begin{align*}
+f(x) &amp;= x^2 - 2x\\
+f(2x) &amp;= (2x)^2 - 2(2x)\\
+&amp;= (2x)(2x) - 2(2x)\\
+&amp;= 4x^2 - 4x\\
+f(x-3) &amp;= (x-3)^2 - 2(x-3)\\
+&amp;= (x-3)(x-3) - 2(x-3)\\
+&amp;= x^2-3x-3x+9-2x+6\\
+&amp;= x^2-8x+15
+\end{align*}
+</div>
+<p class="continuation">Once we know the individual formulas, we combine them to create the value in question. We need to be careful to think of these formulas as giving a single value, so we place them inside parentheses to treat the formula as a grouped expression:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-27">
+\begin{align*}
+f(2x) - f(x-3) &amp;= (4x^2-4x) - (x^2-8x+15)\\
+&amp;= 4x^2-4x - x^2 + 8x - 15\\
+&amp;= 3x^2 + 4x - 15
+\end{align*}
+</div>
+<p id="p-183">An alternative method would be to do all of the substitution at once. If this approach is used, extra caution must be taken to ensure that we treat all of the grouped expressions as single values. Use parentheses carefully:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-28">
+\begin{align*}
+f(2x) - f(x-3) &amp;= \Big((2x)^2-2(2x)\Big) - \Big((x-3)^2 - 2(x-3)\Big)\\
+&amp;= \Big(4x^2-4x\Big) - \Big(x^2-6x+9-2x+6\Big)\\
+&amp;= 4x^2-4x - x^2 +8x -15\\
+&amp;= 3x^2+4x -15.
+\end{align*}
+</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_function_graphs_tables"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.1.2</span> <span class="title"></span>
+</h3>
+<p id="p-184">Understanding the relation between the input and output values of a function are critical in understanding function notation. If <span class="process-math">\(f\)</span> is a specified function and we are told for some value <span class="process-math">\(x\)</span> that <span class="process-math">\(f(x)=4\text{,}\)</span> we should recognize that the symbol <span class="process-math">\(f(x)\)</span> represents the <em class="emphasis">output</em> value of the function for an input value of <span class="process-math">\(x\text{.}\)</span> Saying that <span class="process-math">\(f(x)=4\)</span> means <span class="process-math">\(x\)</span> is a value for the input such that the output is 4. To apply this understanding to problems involving tables and graphs, we need to know how to interpret input/output pairings for each tool.</p>
+<p id="p-185">A graph representing a function <span class="process-math">\(f\)</span> includes points <span class="process-math">\((a,b)\)</span> where <span class="process-math">\(f(a)=b\text{.}\)</span> That is, the <span class="process-math">\(x\)</span>-value of a point on the graph is an <em class="emphasis">input</em> value. The <span class="process-math">\(y\)</span>-value will be the corresponding <em class="emphasis">output</em> value. You should have previously learned that a function must satisfy the <dfn class="terminology">vertical line test</dfn>, which means that for every specific value of <span class="process-math">\(x\)</span> (a vertical line), there can be <em class="emphasis">at most</em> one point on the graph. Otherwise, knowing the value of the input would <em class="emphasis">not</em> allow us to know the value of the output. If there is no point on the graph for the given value of <span class="process-math">\(x\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> will be undefined at that input.</p>
+<p id="p-186">A table representing a function will typically give a column (or row) corresponding to the values of inputs and their corresponding outputs. If the heading to the column of inputs were <span class="process-math">\(x\text{,}\)</span> then the column of outputs would be <span class="process-math">\(f(x)\text{.}\)</span></p>
+<article class="example example-like" id="ex_fcn_table_graph"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-2.</span>
+</h4>
+<p id="p-187">The function <span class="process-math">\(f\)</span> is represented by a graph and the function <span class="process-math">\(g\)</span> is represented by a table, shown below. Demonstrate how function notatation allows you to find the requested values.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel top" style="width:47.3684210526316%;"><figure class="figure figure-like" id="fig_fcn_notation_graph"><img src="generated/latex-image/fcn_notation_graph.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.3<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=f(x)\)</span></figcaption></figure></div>
+<div class="sbspanel fixed-width top" style="width:47.3684210526316%;"><figure class="table table-like" id="fig_fcn_notation_table"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.4<span class="period">.</span></span><span class="space"> </span>Table for <span class="process-math">\(y=g(x)\)</span></figcaption><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g(x)\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-4</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-2</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">-2</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">-4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">-3</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+</tr>
+</table></figure></div>
+</div></div>
+<p id="p-188">Find the following values.</p>
+<ul class="disc">
+<li id="li-12"><p id="p-derived-li-12"><span class="process-math">\(\displaystyle f(-2)\)</span></p></li>
+<li id="li-13"><p id="p-derived-li-13"><span class="process-math">\(\displaystyle g(2)\)</span></p></li>
+<li id="li-14"><p id="p-derived-li-14"><span class="process-math">\(x\)</span> so that <span class="process-math">\(f(x)=g(0)\)</span></p></li>
+<li id="li-15"><p id="p-derived-li-15"><span class="process-math">\(\displaystyle g(f(-1))\)</span></p></li>
+</ul>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like">
+<p id="p-189">To find <span class="process-math">\(f(-2)\text{,}\)</span> we first interpret notation. The symbol <span class="process-math">\(f(-2)\)</span> stands for the <em class="emphasis">output</em> value of a function <span class="process-math">\(f\)</span> with an input of <span class="process-math">\(-2\text{.}\)</span> That is, we want the <span class="process-math">\(y\)</span>-value of the graph corresponding to the value <span class="process-math">\(x=-2\text{.}\)</span> The vertical line at <span class="process-math">\(x=-2\)</span> passes through an open point at <span class="process-math">\((-2,1)\)</span> and a closed point at <span class="process-math">\((-2,-1)\text{.}\)</span> The solid point is the point in the relation, so <span class="process-math">\(f(-2) = -1\text{.}\)</span> The open point represents a <em class="emphasis">limit</em> of the segment of the graph and not an actual point in the graph.</p>
+<p id="p-190">To find <span class="process-math">\(g(2)\text{,}\)</span> we again interpret notation. The symbol <span class="process-math">\(g(2)\)</span> is the output value of the map with input of <span class="process-math">\(2\text{.}\)</span> We look in the table of <span class="process-math">\(g\text{.}\)</span> The column headed by <span class="process-math">\(x\)</span> contains input values while the column headed by <span class="process-math">\(g(x)\)</span> contains corresponding output values. Finding <span class="process-math">\(x=2\)</span> in the first column is paired with <span class="process-math">\(g(x)=-4\)</span> in the second column. So <span class="process-math">\(g(2)=-4\text{.}\)</span></p>
+<p id="p-191">To find <span class="process-math">\(x\)</span> so that <span class="process-math">\(f(x)=g(0)\text{,}\)</span> we need to think through a few steps. The symbol <span class="process-math">\(g(0)\)</span> represents an output from <span class="process-math">\(g\)</span> corresponding to an input of <span class="process-math">\(0\text{.}\)</span> Looking in the table with <span class="process-math">\(x=0\)</span> we find <span class="process-math">\(g(0)=1\text{.}\)</span> We <em class="emphasis">replace</em> the symbol <span class="process-math">\(g(0)\)</span> in the equation with this value to restate our question: find <span class="process-math">\(x\)</span> so that <span class="process-math">\(f(x)=1\text{.}\)</span></p>
+<p id="p-192">Notice that the value 1 and the symbol <span class="process-math">\(f(x)\)</span> are equal, meaning that we are looking for value(s) <span class="process-math">\(x\)</span> so that the <em class="emphasis">output</em> value <span class="process-math">\(f(x)=1\text{.}\)</span> We now look at the graph at a <span class="process-math">\(y\)</span>-value (horizontal line) <span class="process-math">\(y=1\)</span> and see what point(s) on the graph match. There are three points where the graph's lines cross <span class="process-math">\(y=1\text{,}\)</span> at <span class="process-math">\(x=-5\text{,}\)</span> <span class="process-math">\(x=2\text{,}\)</span> and <span class="process-math">\(x=4\text{.}\)</span> The open point at <span class="process-math">\((-2,1)\)</span> is not an included point of the graph.</p>
+<p id="p-193">To find <span class="process-math">\(g(f(1))\text{,}\)</span> we need to think carefully about what this means. A function name with parentheses means that whatever is inside the parentheses represents the input value. Both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are functions here. So what is the input? The function <span class="process-math">\(g\)</span> (outer function) has parentheses surrounding <span class="process-math">\(f(1)\text{,}\)</span> so the value of <span class="process-math">\(f(1)\)</span> is the input. Because <span class="process-math">\(f\)</span> is also a function, its parentheses indicate that <em class="emphasis">its</em> input is 1.</p>
+<p id="p-194">We start with the innermost piece to find <span class="process-math">\(f(1)\text{.}\)</span> An input <span class="process-math">\(x=1\)</span> on the graph is matched with <span class="process-math">\(y=3\)</span> (the closed point), so <span class="process-math">\(f(1)=3\text{.}\)</span> Once we know that value, we <em class="emphasis">substitute</em> to discover</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(f(1)) = g(3)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The input <span class="process-math">\(x=3\)</span> for the function <span class="process-math">\(g\)</span> is paired with an output <span class="process-math">\(g(x)=-3\text{,}\)</span> so <span class="process-math">\(g(f(1))=-3\text{.}\)</span></p>
+</div></div>
+</div></article></section><section class="subsection" id="subsection-14"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.1.3</span> <span class="title"></span>
+</h3>
+<p id="p-195">The <dfn class="terminology">domain</dfn> of a function is the set of all valid <em class="emphasis">input</em> values. When we have a formula for a function, the domain is normally understood to be the set of all values for which the formula makes sense (output value is defined). We can <dfn class="terminology">restrict</dfn> the domain of a function by specifying a specific set, usually by giving an interval for the valid input values. In this case, a function requires that we indicate both the formula and the interval.</p>
+<p id="p-196">The notation for specifying a formula on a particular interval is to state the equation for the function's formula along with an inequality for the domain variable. If we want to use <span class="process-math">\(f(x)=x^2\)</span> but use a domain <span class="process-math">\((0,3]\text{,}\)</span> we would write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = x^2, \quad 0 \lt x \le 3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">For this function, <span class="process-math">\(f(0)\)</span> would not be defined because <span class="process-math">\(x=3\)</span> is outside of the domain.</p>
+<p id="p-197">Once we are able to specify a specific formula on an interval in the domain, we can expand this idea to allow <em class="emphasis">different</em> formulas on different intervals. We call such functions <dfn class="terminology">piecewise-defined</dfn>. The notation is to group the collection of rules on individual subsets of the domain with a curly brace on the left.</p>
+<article class="example example-like" id="ex_simple_piecewise_function"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
+</h4>
+<p id="p-198">Define the function <span class="process-math">\(f(x)\)</span> piecewise by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \begin{cases}
+3-x, &amp; -2 \le x \lt 0, \\
+x^2, &amp; 0 \lt x \le 3.
+\end{cases}
+\end{equation*}
+</div>
+<p class="continuation">The domain has two subsets of interest. On <span class="process-math">\([-2,0)\text{,}\)</span> the function uses <span class="process-math">\(f(x)=3-x\text{;}\)</span> on <span class="process-math">\((0,3]\text{,}\)</span> the function uses <span class="process-math">\(f(x)=x^2\text{.}\)</span> The overall domain is <span class="process-math">\([-2,0)\cup(0,3]\text{.}\)</span> The value of <span class="process-math">\(f(0)\)</span> is undefined because <span class="process-math">\(x=0\)</span> is not in either domain restriction.</p></article><p id="p-199">To evaluate a piecewise function at a point, the input value needs to be compared to the restricted domains. Whichever domain restriction the input value belongs determines which formula rule will be used. In the preceding example, to find <span class="process-math">\(f(2)\text{,}\)</span> we look at the input <span class="process-math">\(x=2\)</span> and recognize it belongs to the restriction <span class="process-math">\((0,3]\text{.}\)</span> So the formula will be <span class="process-math">\(f(x)=x^2\)</span> when <span class="process-math">\(x=2\)</span> to give <span class="process-math">\(f(2)=(2)^2 = 4\text{.}\)</span> On the other hand, <span class="process-math">\(f(-2)\)</span> will use <span class="process-math">\(f(x)=3-x\)</span> since <span class="process-math">\(x=-2\)</span> is in the restriction <span class="process-math">\([-2,0)\text{,}\)</span> giving <span class="process-math">\(f(-2) = 3-(-2)=5\text{.}\)</span></p>
+<p id="p-200">An important piecewise function in mathematics is the absolute value function. It is named <span class="process-math">\(\mathrm{abs}\)</span> but can also be represented by vertical bars around the input, <span class="process-math">\(\abs(x) = |x|\text{.}\)</span> This function creates an output that <em class="emphasis">matches</em> the input (we call this the <dfn class="terminology">identity function</dfn>) when the input is non-negative. When the input is negative, the output changes sign by multiplying the input by <span class="process-math">\(-1\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\abs(x) = |x| 
+= \begin{cases}
+x, &amp; x \ge 0, \\
+-x, &amp; x \lt 0.
+\end{cases}
+\end{equation*}
+</div>
+<p id="p-201">One strategy for thinking about piecewise functions is to think of the domain on a number line. For each restriction, identify that subset on the number line. Then label the interval with the formula that gets used on that interval.</p>
+<figure class="figure figure-like" id="fig_piecewise_restriction_domain"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/piecewise_restriction_domain.svg" role="img" class="contained" alt="number line showing intervals [-2,0) and (0,3] and indicating formulas used on each"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.6<span class="period">.</span></span><span class="space"> </span>Domain restrictions of a piecewise function</figcaption></figure><p id="p-202">A graph of a piecewise function follows this same pattern. The graph of the individual parts are restricted based on the domain and combined to a single graph.</p>
+<figure class="figure figure-like" id="fig_piecewise_restriction_graph"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/piecewise_restriction_graph.svg" role="img" class="contained" alt="graph of piecewise defined function consisting of a line for [-2,0) and a parabola for (0,3]"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.7<span class="period">.</span></span><span class="space"> </span>Graph of a piecewise function</figcaption></figure><p id="p-203">You should be comfortable interpreting the restricted domains that make up a piecewise function. In particular, you should be able to recognize where a function is or isn't defined. Pay close attention to whether end-points of intervals are included or excluded in a domain restriction.</p>
+<article class="example example-like" id="ex_piecewise_evaluation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-3.</span>
+</h4>
+<p id="p-204">For the function <span class="process-math">\(g(x)\)</span> defined piecewise below, evaluate each of the following points, showing clearly how you find the value from the formulas. If the value does not exist, indicate so.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) = \begin{cases}
+x^2-2, &amp; x \le -1, \\
+2+3x, &amp; -1 \lt x \lt 1, \\
+5x-1, &amp; 1 \lt x \lt 3, \\
+x^2+2, &amp; x \ge 3
+\end{cases}
+\end{equation*}
+</div>
+<ol class="decimal">
+<li id="li-16"><p id="p-205"><span class="process-math">\(\displaystyle g(-2)\)</span></p></li>
+<li id="li-17"><p id="p-206"><span class="process-math">\(\displaystyle g(-1)\)</span></p></li>
+<li id="li-18"><p id="p-207"><span class="process-math">\(\displaystyle g(0)\)</span></p></li>
+<li id="li-19"><p id="p-208"><span class="process-math">\(\displaystyle g(1)\)</span></p></li>
+<li id="li-20"><p id="p-209"><span class="process-math">\(\displaystyle g(3)\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like">
+<p id="p-210">If the idea of visualizing the restricted domain helps you, we might start by creating a number line showing where the different rules are used. This doesn't really add any new information, so this is strictly a personal preference.</p>
+<figure class="figure figure-like" id="fig_piecewise_visualize_restricted_domain"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/piecewise_visualize_restricted_domain.svg" role="img" class="contained" alt="number line intervals where formulas are used"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.9<span class="period">.</span></span><span class="space"> </span>Domain restrictions of a piecewise function</figcaption></figure><p id="p-211">We work through each value in turn. First, we look at the value of the input. Then we decide which restricted domain it belongs to. Finally, we use the formula for the restricted domain to find the value.</p>
+<ol class="decimal">
+<li id="li-21">
+<p id="p-212">To find <span class="process-math">\(g(-2)\text{,}\)</span> we recognize <span class="process-math">\(x=-2\)</span> is in <span class="process-math">\((-\infty,-1]\)</span> and so use <span class="process-math">\(g(x)=x^2-2\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(-2) = (-2)^2-2 = 4-2 = 2\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-22">
+<p id="p-213">To find <span class="process-math">\(g(-1)\text{,}\)</span> we recognize <span class="process-math">\(x=-1\)</span> is the end-point included in <span class="process-math">\((-\infty,-1]\)</span> and so again use <span class="process-math">\(g(x)=x^2-2\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(-1) = (-1)^2-2 = 1-2 = -1\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-23">
+<p id="p-214">To find <span class="process-math">\(g(0)\text{,}\)</span> we recognize <span class="process-math">\(x=0\)</span> is in <span class="process-math">\((-1,1)\)</span> and so use <span class="process-math">\(g(x)=2+3x\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(0) = 2+3(0) = 2\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><span class="process-math">\(g(0)\)</span></p>
+</li>
+<li id="li-24"><p id="p-215">To find <span class="process-math">\(g(1)\text{,}\)</span> we realize <span class="process-math">\(x=1\)</span> is not in any of the restricted domains. <span class="process-math">\(g(1)\)</span> does not exist.</p></li>
+<li id="li-25">
+<p id="p-216">To find <span class="process-math">\(g(3)\text{,}\)</span> we see <span class="process-math">\(x=3\)</span> is the end-point included in <span class="process-math">\([3,\infty)\)</span> and uses <span class="process-math">\(g(x)=x^2+2\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(3) = (3)^2+2 = 9+2 = 11\text{.}
+\end{equation*}
+</div>
+</li>
+</ol>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

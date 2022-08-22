@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Inverse Functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_fcn_construction.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_fcn_properties.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_fcn_construction.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_fcn_properties.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="active">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_fcn_inverse"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Inverse Functions</span>
+</h2>
+<section class="introduction" id="introduction-9"><p id="p-278">In the context of covarying variables, a function is a rule (operation) that predicts the value of the dependent variable (output) given the value of the independent variable (input). The algebra equation <span class="process-math">\(y=f(x)\)</span> indicates that an <em class="emphasis">independent</em> variable <span class="process-math">\(x\)</span> can lead to the value of the dependent variable <span class="process-math">\(y\)</span> using the function <span class="process-math">\(f\text{.}\)</span> We think of this as a map <span class="process-math">\(x \mapsto y\text{.}\)</span></p>
+<p id="p-279">We might be interested in predicting the reverse relation <span class="process-math">\(y \mapsto x\text{.}\)</span> That is, it may also be the case that knowing <span class="process-math">\(y\text{,}\)</span> we can calculate the value of <span class="process-math">\(x\text{.}\)</span> Algebra and pre-calculus courses teach the idea that this is only possible when <span class="process-math">\(f\)</span> is <dfn class="terminology">one-to-one</dfn>, meaning that the value of <span class="process-math">\(y\)</span> can only come from a single value of <span class="process-math">\(x\text{.}\)</span> When this is true for a function <span class="process-math">\(f\text{,}\)</span> we can talk about <span class="process-math">\(f^{-1}\)</span> as a new function, called the <dfn class="terminology">inverse function</dfn>.</p>
+<p id="p-280">This inverse function <em class="emphasis">undoes</em> the calculation of <span class="process-math">\(f\text{.}\)</span> Suppose <span class="process-math">\(f : x \mapsto y\)</span> has an inverse function <span class="process-math">\(f^{-1}: y \mapsto x\text{.}\)</span> If we know that <span class="process-math">\(f(3) = 5\text{,}\)</span> this means <span class="process-math">\(x=3 \mapsto y=5\text{.}\)</span> The inverse function would map <span class="process-math">\(y=5 \mapsto x=3\)</span> or <span class="process-math">\(f^{-1}(5)=3\text{.}\)</span> This can be true when variables are involved as well: <span class="process-math">\(f(a) = 4\)</span> means <span class="process-math">\(f^{-1}(4) = a\text{.}\)</span> So if we are solving an equation <span class="process-math">\(f(x) = 4\text{,}\)</span> the solution would be <span class="process-math">\(x=f^{-1}(4)\text{.}\)</span></p>
+<p id="p-281">You may remember learning something about the graph of an inverse function being a reflection of the graph of the original. If a point <span class="process-math">\((a,b)\)</span> is on the graph <span class="process-math">\(y=f(x)\text{,}\)</span> this means <span class="process-math">\(f(a)=b\text{.}\)</span> The inverse function has <span class="process-math">\(f^{-1}(b)=a\)</span> so that <span class="process-math">\((b,a)\)</span> is on the graph of <span class="process-math">\(f^{-1}\text{.}\)</span> Every point on the graph of <span class="process-math">\(f\)</span> corresponds to a point on the graph of <span class="process-math">\(f^{-1}\)</span> where the coordinates have reversed. Visually, this creates a reflection across the line <span class="process-math">\(y=x\text{.}\)</span></p>
+<p id="p-282">The idea of <em class="emphasis">undoing</em> the function is demonstrated through <em class="emphasis">composition</em>. If we start with an equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=f(x)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">look at what happens if we use composition by <span class="process-math">\(f^{-1}\)</span> to both sides of the equation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f^{-1}(y)=f^{-1}\big(f(x)\big)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We know that <span class="process-math">\(f^{-1}(y) = x\)</span> is the inverse map, so the equation becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x=f^{-1}\big(f(x)\big)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, a function composed with its inverse function is the same as doing nothing to the input, an operation called the <dfn class="terminology">identity function</dfn>.</p>
+<article class="definition definition-like" id="def_identity"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Identity Function.</span>
+</h3>The <dfn class="terminology">identity function</dfn> is a function that returns the same value as its input, <span class="process-math">\(\mathrm{id}(x) = x\text{.}\)</span></article><p id="p-283">Because some functions may not be represented using formulas, inverse functions need a definition other than rules on how to manipulate formulas. Mathematicians have found that the idea of composition creating the identity function is useful and have adopted that as the official definition of an inverse function.</p>
+<article class="definition definition-like" id="def_inverse_function"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse Function.</span>
+</h3>
+<p id="p-284">A function <span class="process-math">\(f\)</span> with domain <span class="process-math">\(D_f\)</span> and a function <span class="process-math">\(g\)</span> with domain <span class="process-math">\(D_g\)</span> are <dfn class="terminology">inverse functions</dfn> (to each other) if:</p>
+<ul class="disc">
+<li id="li-33"><p id="p-285">For every <span class="process-math">\(x \in D_f\text{,}\)</span> <span class="process-math">\(g \circ f(x) = x\)</span></p></li>
+<li id="li-34"><p id="p-286"><em class="emphasis">and</em> for every <span class="process-math">\(x \in D_g\text{,}\)</span> <span class="process-math">\(f \circ g(x) = x\text{.}\)</span></p></li>
+</ul></article><p id="p-287">We have three learning objectives relating to inverse functions:</p>
+<ul class="disc">
+<li id="li-35"><p id="p-288">Use inverse functions as a way to <em class="emphasis">cancel</em> a function in an equation or expression.</p></li>
+<li id="li-36"><p id="p-289">Verify whether two functions are inverses to each other by computing and simplifying their compositions and determining if the result in each case is the identity function.</p></li>
+<li id="li-37"><p id="p-290">Starting with the formula of an invertible function, find the formula of its inverse function by finding the inverse map.</p></li>
+</ul></section><section class="subsection" id="subsec_fcn_inverse_usage"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.1</span> <span class="title">Using Inverse Functions</span>
+</h3>
+<p id="p-291">The fundamental idea of inverse functions is that whenever we have composition <span class="process-math">\(f \circ f^{-1}\)</span> or <span class="process-math">\(f^{-1} \circ f\text{,}\)</span> this is identical to the <em class="emphasis">identity function</em>. We explore this idea by solving an equation where some of the operations are not arithmetic but are invertible functions.</p>
+<p id="p-292">Recall that the <dfn class="terminology">method of isolation</dfn> is a strategy to solve an equation by applying the same operation on both sides of an equation to cancel away operations until the unknown variable is isolated. Early examples of this strategy focused on operations involving basic arithmetic. We can now add to this strategy the use of inverse functions to cancel away operations represented by functions.</p>
+<article class="example example-like" id="ex_fcn_inverse_solve_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
+</h4>
+<p id="p-293">Suppose that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are inverse functions. Solve the equation <span class="process-math">\(f(2x) = 3\)</span> in terms of values of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-28" id="solution-28"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-28"><div class="solution solution-like">
+<p id="p-294">Problems like this may feel unnatural because we don't even know what these functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> might be. Suppose it were a familiar function, say <span class="process-math">\(\sqrt{2x} = 3\text{.}\)</span> We would want to get rid of the square root and would do this by squaring both sides. That is, we would use an <em class="emphasis">inverse operation</em>. We will do the same thing here, except the inverse operation to <span class="process-math">\(f\)</span> as a function is the function <span class="process-math">\(g\text{.}\)</span></p>
+<p id="p-295">Starting with the original equation, we use composition with the inverse <span class="process-math">\(g\)</span> on both sides of the equation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-36">
+\begin{align*}
+f(2x) &amp;= 3\\
+g(f(2x)) &amp;= g(3).
+\end{align*}
+</div>
+<p class="continuation">The composition <span class="process-math">\(g \circ f\)</span> reduces to the identity function, which just leaves the input expression. The equation therefore becomes:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-37">
+\begin{align*}
+g(f(2x)) &amp;= g(3)\\
+2x &amp;= g(3)\\
+x &amp;= \frac{1}{2} g(3).
+\end{align*}
+</div>
+<p class="continuation">Because we have isolated <span class="process-math">\(x\)</span> and the value is a formula involving <span class="process-math">\(g(3)\text{,}\)</span> we are done.</p>
+</div></div>
+</div></article><p id="p-296">Sometimes we need to use additional operations in order to isolate the function of an expression before using the inverse function.</p>
+<article class="example example-like" id="ex_fcn_inverse_solve_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span>
+</h4>
+<p id="p-297">Suppose that <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> are inverse functions. Solve the equation <span class="process-math">\(3T(2x+1) - 4 = 1\)</span> in terms of values of <span class="process-math">\(S\)</span> and <span class="process-math">\(T\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-29" id="solution-29"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-29"><div class="solution solution-like">
+<p id="p-298">The method of isolation should work because the equation involves the variable <span class="process-math">\(x\)</span> in only one place. We will identify the last operation on the side involving the variable and apply inverse operations until we have finished isolating <span class="process-math">\(x\text{.}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Equation</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Last Operation</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3T(2x+1)-4 = 1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Add: <span class="process-math">\(-4\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3T(2x+1) = 1+4 = 5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Multiply: <span class="process-math">\(3\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(T(2x+1) = \frac{1}{3} \cdot 5 = \frac{5}{3}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Function: <span class="process-math">\(T\)</span>
+</td>
+</tr>
+</table></div> At this point, we will use the <em class="emphasis">inverse</em> function <span class="process-math">\(S\text{.}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Equation</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Last Operation</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(T(2x+1) = \frac{1}{3} \cdot 5 = \frac{5}{3}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Function: <span class="process-math">\(T\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2x+1 = S(\frac{5}{3})\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Add: <span class="process-math">\(1\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2x = S(\frac{5}{3}) - 1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Multiply: <span class="process-math">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x = \frac{1}{2}\big(S(\frac{5}{3}) - 1\big)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Isolated</td>
+</tr>
+</table></div> We have found the solution <span class="process-math">\(x = \frac{1}{2}\big(S(\frac{5}{3}) -1\big)\text{.}\)</span></p>
+<p id="p-299">Notice that once we had <span class="process-math">\(S(\frac{5}{3})\)</span> as a term on the right hand side, that represented a single number. None of the remaining steps had any interaction with the value <span class="process-math">\(\frac{5}{3}\)</span> since that was the <em class="emphasis">input</em> to the expression, not the value of the function's output.</p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_fcn_inverse_verify"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.2</span> <span class="title">Verifying Inverse Functions</span>
+</h3>
+<p id="p-300">The learning objective that this subsection focuses on is on the what it means to <em class="emphasis">verify</em> that two functions satisfy the <em class="emphasis">definition</em> of being inverses. The emphasis in your past was likely about <em class="emphasis">finding</em> an inverse function. In mathematics, <dfn class="terminology">definitions</dfn> play a critical role in creating the language we use to describe objects. A definition is a statement that can be true or false. To show that something satisfies a definition, we need to show that the statement in the definition is <em class="emphasis">true</em>.</p>
+<p id="p-301">Consequently, to verify that two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are inverses, we need to construct the compositions <span class="process-math">\(f \circ g(x)\)</span> and <span class="process-math">\(g \circ f(x)\text{.}\)</span> If both of these compositions reduce to the identity function, then they satisfy the definition. Along the way, we need to practice simplify formulas that involve compositions. This is the second reason that we have this learning objective—practicing thinking about the structure of formulas and how the order of operations impacts what does or does not simplify.</p>
+<p id="p-302">As we look at a formula, we should identify the order in which the different operations take place. When we find operations that are inverses one after another, they can be canceled. But operations that are inverses of one another but occur out of sequence will not cancel.</p>
+<article class="example example-like" id="example-32"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="period">.</span>
+</h4>Suppose <span class="process-math">\(h\)</span> is an invertible function. Simplify each of the following formulas as much as possible: <ul class="disc">
+<li id="li-38"><p id="p-303"><span class="process-math">\(\displaystyle h(h^{-1}(x-1))+1\)</span></p></li>
+<li id="li-39"><p id="p-304"><span class="process-math">\(\displaystyle \frac{1}{2} h(h^{-1}(2x-1))+1\)</span></p></li>
+</ul>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-30" id="solution-30"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-30"><div class="solution solution-like">
+<p id="p-305">Consider the formula <span class="process-math">\(h(h^{-1}(x-1))+1\text{.}\)</span> We can follow the same process as when we wrote a formula as a composition in <a href="" class="xref" data-knowl="./knowl/ex_fcn_find_composition.html" title="Example 2.2.7: Learning Objective F-5">Example 2.2.7</a> to work on Learning Objective F-5. <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(h^{-1}(\boxed{x}-1))+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">find the variable</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(h^{-1}(\boxed{x-1}))+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add -1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(\boxed{h^{-1}(x-1)})+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">composition with <span class="process-math">\(h^{-1}\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{h(h^{-1}(x-1))}+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">composition with <span class="process-math">\(h\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{h(h^{-1}(x-1))+1}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add 1</td>
+</tr>
+</table></div> Notice that in one spot we add -1 and in another we add +1. These are inverse operations. However, they were not applied in sequence so they do not cancel at this point.</p>
+<p id="p-306">On the other hand, the composition with <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\)</span> do occur in sequence after one another and so they cancel to leave the identity function:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-38">
+\begin{align*}
+h(h^{-1}(x-1))+1 &amp;= \boxed{h(h^{-1}(x-1))}+1\\
+&amp;= \boxed{\mathrm{id}(x-1)}+1\\
+&amp;= (x-1)+1\\
+&amp;= x
+\end{align*}
+</div>
+<p id="p-307">When we now consider the second expression, <span class="process-math">\(\frac{1}{2} h(h^{-1}(2x-1))+1\text{,}\)</span> we look for inverse operations that are sequentially in order. We could think through the order of operations as above. Or we can directly look for sequential operations that cancel. There are three potential operations that cancel:</p>
+<ul class="disc">
+<li id="li-40"><p id="p-derived-li-40">multiplication by <span class="process-math">\(\frac{1}{2}\)</span> and by 2,</p></li>
+<li id="li-41"><p id="p-derived-li-41">addition with <span class="process-math">\(-1\)</span> and <span class="process-math">\(+1\text{,}\)</span></p></li>
+<li id="li-42"><p id="p-derived-li-42">composition of <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\text{.}\)</span></p></li>
+</ul>
+<p class="continuation">However, notice that the operations of multiplication by 2 and addition of -1 are <em class="emphasis">inside</em>  the composition with <span class="process-math">\(h^{-1}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2} h(h^{-1}(\boxed{2x-1}))+1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This prevents them being canceled. However, the composition of <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\)</span> are back-to-back and cancel to an identity function,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-39">
+\begin{align*}
+\frac{1}{2} h(\boxed{h^{-1}(2x-1)})+1 &amp;= \frac{1}{2} (\boxed{2x-1})+1\\
+&amp;= \frac{1}{2}(2x-1)+1
+\end{align*}
+</div>
+<p class="continuation">Now we distribute the multiplication by <span class="process-math">\(\frac{1}{2}\)</span> over the addition in <span class="process-math">\(2x-1\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-40">
+\begin{align*}
+\frac{1}{2}(2x-1)+1 &amp;= \frac{1}{2}(2x) - \frac{1}{2}(1) + 1\\
+&amp;= x - \frac{1}{2} + 1\\
+&amp;= x + \frac{1}{2}.
+\end{align*}
+</div>
+</div></div>
+</div></article><p id="p-308">When verifying if two functions satisfy the definition of being inverses, we must first create the two compositions. Then we use the process illustrated in the previous example to simplify as much as possible. If the formulas of the compositions both simplify to just <span class="process-math">\(x\text{,}\)</span> then we have the composition being equal to the identity function as required by the definition. Otherwise, they do not satisfy the definition and are not inverses.</p>
+<article class="example example-like" id="ex_fcn_verify_identity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-8.</span>
+</h4>
+<p id="p-309">Verify whether <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> satisfy the definition of inverse functions, where each is defined in terms of an invertible function <span class="process-math">\(h\)</span> by:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-41">
+\begin{align*}
+f(x) &amp;= 5 h^{-1}\left(\frac{x+1}{2}\right) + 3\\
+g(x) &amp;= 2 h\left(\frac{x-3}{5}\right) - 1
+\end{align*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-31" id="solution-31"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-31"><div class="solution solution-like">
+<p id="p-310">Let us start by clearing identifying our goal. The functions satisfy the definition of inverse functions if it is true that <span class="process-math">\(f \circ g(x) = x\)</span> and <span class="process-math">\(g \circ f(x) = x\text{.}\)</span> Consequently, we need to create the formulas for <span class="process-math">\(f \circ g(x) = f \big(g(x)\big)\)</span> and <span class="process-math">\(g \circ f(x) = g \big(f(x)\big)\text{.}\)</span> Then we will need to simplify the formulas, canceling terms where appropriate, and see if they reduce to <span class="process-math">\(x\)</span> or something more complicated.</p>
+<p id="p-311">We start with the first composition to find</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-42">
+\begin{align*}
+f \circ g(x) &amp;= f\left(g(x)\right)\\
+&amp;= 5 h^{-1}\left(\frac{\boxed{g(x)}+1}{2}\right) + 3\\
+&amp;= 5 h^{-1}\left(\frac{\boxed{2 h\left(\frac{x-3}{5}\right) - 1}+1}{2}\right) + 3
+\end{align*}
+</div>
+<p class="continuation">We are looking for inverse operations that are back-to-back steps. Notice that the last operation in <span class="process-math">\(g(x)\)</span> was adding -1 and the first operation in <span class="process-math">\(f(x)\)</span> was adding 1. These cancel one another:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-43">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right) - \cancel{1}+\cancel{1}}{2}\right) + 3\\
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right)}{2}\right) + 3
+\end{align*}
+</div>
+<p class="continuation">Now we see that in the input to <span class="process-math">\(h^{-1}\text{,}\)</span> there is multiplication by 2 and division by 2 back-to-back that cancel:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-44">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{\cancel{2} h\left(\frac{x-3}{5}\right)}{\cancel{2}}\right) + 3\\
+f \circ g(x) &amp;= 5 h^{-1}\left( h\left(\frac{x-3}{5}\right)\right) + 3
+\end{align*}
+</div>
+<p class="continuation">Now we have a composition of inverses <span class="process-math">\(h^{-1} \circ h\)</span> that reduces to the identity, after which we use algebra to simplify:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-45">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1} \circ h\left(\frac{x-3}{5}\right) + 3\\
+&amp;= 5 \left(\frac{x-3}{5}\right) + 3\\
+&amp;= \cancel{5} \left(\frac{x-3}{\cancel{5}}\right) + 3\\
+&amp;= x-3 + 3\\
+&amp;= x
+\end{align*}
+</div>
+<p class="continuation">We have shown that <span class="process-math">\(f \circ g(x) = x\text{,}\)</span> which is half of the required work to show they are inverses.</p>
+<p id="p-312">We need to check the reverse process.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-46">
+\begin{align*}
+g \circ f(x) &amp;= g\left(f(x)\right)\\
+&amp;= 2 h\left(\frac{\boxed{f(x)}-3}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{\boxed{5 h^{-1}\left(\frac{x+1}{2}\right) + 3}-3}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{5 h^{-1}\left(\frac{x+1}{2}\right) + \cancel{3} -\cancel{3}}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{\cancel{5} h^{-1}\left(\frac{x+1}{2}\right)}{\cancel{5}}\right) - 1\\
+&amp;= 2 h\left( h^{-1}\left(\frac{x+1}{2}\right)\right) - 1\\
+&amp;= 2 h \circ h^{-1}\left(\frac{x+1}{2}\right) - 1\\
+&amp;= \cancel{2} \left(\frac{x+1}{\cancel{2}}\right) - 1\\
+&amp;= x+1 - 1\\
+&amp;= x
+\end{align*}
+</div>
+<p class="continuation">We have now also shown that <span class="process-math">\(g \circ f(x) =x\text{.}\)</span></p>
+<p id="p-313">Because <span class="process-math">\(f \circ g(x)=x\)</span> and <span class="process-math">\(g \circ f(x)=x\text{,}\)</span> the functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> satisfy the definition of inverse functions. We now know that <span class="process-math">\(f^{-1} = g\)</span> and <span class="process-math">\(g^{-1}=f\text{.}\)</span></p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_fcn_inverse_find"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.3.3</span> <span class="title">Finding Inverse Functions</span>
+</h3>
+<p id="p-314">Because an inverse function <span class="process-math">\(f^{-1}\)</span> is designed specifically to undo the operations of <span class="process-math">\(f\text{,}\)</span> we can often find a formula for <span class="process-math">\(f^{-1}\)</span> by either literally reversing the operations or by solving an equation.</p>
+<article class="example example-like" id="ex_fcn_inverse_find_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.7</span><span class="period">.</span>
+</h4>
+<p id="p-315">Find a formula for <span class="process-math">\(f^{-1}(x)\)</span> given the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{2}{3x+1} - 4\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-32" id="solution-32"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-32"><div class="solution solution-like">
+<p id="p-316">We know that if <span class="process-math">\(y=f(x)\text{,}\)</span> then an inverse function would give <span class="process-math">\(x=f^{-1}(y)\text{.}\)</span> So one approach to finding a formula is to solve the equation to isolate <span class="process-math">\(x\)</span> and use the formula in terms of <span class="process-math">\(y\)</span> as the inverse formula. We start with the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = f(x) = \frac{2}{3x+1} - 4\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We now try to isolate the variable <span class="process-math">\(x\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-47">
+\begin{align*}
+y &amp;= \frac{2}{3x+1} - 4\\
+y + 4 &amp;= \frac{2}{3x+1} - \cancel{4} + \cancel{4}\\
+y + 4 &amp;= \frac{2}{3x+1}
+\end{align*}
+</div>
+<p class="continuation">At this point, it is easiest to apply the reciprocal (multiplicative inverse) to both sides:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-48">
+\begin{align*}
+y + 4 &amp;= \frac{2}{3x+1}\\
+\frac{1}{y + 4} &amp;= \frac{3x+1}{2}\\
+2 \cdot \frac{1}{y + 4} &amp;= \cancel{2} \cdot \frac{3x+1}{\cancel{2}}\\
+\frac{2}{y + 4} &amp;= 3x+1\\
+\frac{2}{y + 4} - 1 &amp;= 3x\\
+\frac{1}{3} \left(\frac{2}{y + 4} - 1\right) &amp;= x
+\end{align*}
+</div>
+<p class="continuation">Because we finished solving for <span class="process-math">\(x\)</span> and have a formula in terms of <span class="process-math">\(y\text{,}\)</span> that formula can be used to define <span class="process-math">\(f^{-1}(y)\text{.}\)</span> If we think of <span class="process-math">\(x\)</span> as an abstract variable and not a physical quantity, we can use that in place of <span class="process-math">\(y\)</span> to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f^{-1}(x) = \frac{1}{3} \left( \frac{2}{y+4} - 1\right)\text{.}
+\end{equation*}
+</div>
+<p id="p-317">Alternatively, the inverse function can be constructed by literally undoing the operations occuring in the function <span class="process-math">\(f\text{.}\)</span> The operations applied by <span class="process-math">\(f\text{:}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{3 \boxed{x}+1} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">start with input</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{\boxed{3x}+1} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">multiply by 3</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \frac{1}{\boxed{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add 1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">reciprocal</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">multiply by 2</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 2 \cdot \boxed{\frac{1}{3x+1}} - 4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">subtract 4</td>
+</tr>
+</table></div> The operations applied by <span class="process-math">\(f^{-1}\)</span> need to undo the most recent operations: <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">start with input</td>
+<td class="l m b0 r0 l0 t0 lines">x</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">add 4</td>
+<td class="l m b0 r0 l0 t0 lines">x+4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">divide by 2</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{x+4}{2}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">reciprocal</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{2}{x+4}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">subtract 1</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{2}{x+4} - 1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">divide by 3</td>
+<td class="l m b0 r0 l0 t0 lines">\frac{1}{3}\left(\frac{2}{x+4} - 1\right)</td>
+</tr>
+</table></div> This last formula is <span class="process-math">\(f^{-1}(x)\text{.}\)</span> Notice that solving an equation by isolation is exactly the same process as reversing step-by-step operations. If we use different methods to solve the equation, we are likely to find a different representation.</p>
+</div></div>
+</div></article><p id="p-318">To reinforce the abstract notation of unknown functions, the learning objective assessments will typically involve calculations involving some invertible function. This will later be useful when you are working with exponential functions and their inverses (logarithms) and trigonometric functions and their inverses.</p>
+<article class="example example-like" id="ex_fcn_find_inverse_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-9.</span>
+</h4>
+<p id="p-319">Suppose that <span class="process-math">\(h\)</span> is an invertible function and that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{5}{h(2x)+1}-3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Find a formula for <span class="process-math">\(f^{-1}\)</span> in terms of <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-33" id="solution-33"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-33"><div class="solution solution-like">
+<p id="p-320">The major difference in this example to the previous example is the presence of the function <span class="process-math">\(h\text{.}\)</span> We will follow the same process: create an equation <span class="process-math">\(y=f(x)\text{,}\)</span> and because <span class="process-math">\(x=f^{-1}(y)\text{,}\)</span> we will use the method of isolation to solve for <span class="process-math">\(x\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-49">
+\begin{gather*}
+y = \frac{5}{h(2x)+1}-3\\
+y+3= 5 \cdot \frac{1}{h(2x)+1}\\
+\frac{y+3}{5} = \frac{1}{h(2x)+1}\\
+\frac{5}{y+3} = h(2x)+1\\
+\frac{5}{y+3} - 1 = h(2x)
+\end{gather*}
+</div>
+<p class="continuation">We could combine the terms on the left to a single fraction if we use a common denominator:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-50">
+\begin{gather*}
+\frac{5}{y+3} - \frac{y+3}{y+3} = h(2x)\\
+\frac{5-(y+3)}{y+3} = h(2x)\\
+\frac{2-y}{y+3} = h(2x)
+\end{gather*}
+</div>
+<p class="continuation">At this point, we need to cancel the composition with <span class="process-math">\(h\)</span> and do this by using a composition with <span class="process-math">\(h^{-1}\)</span> on both sides.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-51">
+\begin{gather*}
+h^{-1}\left(\frac{2-y}{y+3}\right) = h^{-1} \circ h(2x)\\
+h^{-1}\left(\frac{2-y}{y+3}\right) = 2x\\
+\frac{1}{2} h^{-1}\left(\frac{2-y}{y+3}\right) = x
+\end{gather*}
+</div>
+<p class="continuation">This formula gives us the relation <span class="process-math">\(y \mapsto x\)</span> which must be <span class="process-math">\(f^{-1}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f^{-1}(y) = \frac{1}{2} h^{-1}\left(\frac{2-y}{y+3}\right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If we considered the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as abstract values rather than physical measurements, we can replace <span class="process-math">\(y\)</span> with any variable:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f^{-1}(x) = \frac{1}{2} h^{-1}\left(\frac{2-x}{x+3}\right)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

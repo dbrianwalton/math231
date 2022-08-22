@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>We now start justifying limits of intermediate formulas, working from the leaves upward in the tree. Notice that <span class="process-math">\(x^2\)</span> appears twice in this tree, but the limit only needs to be justified once. Then we can build <span class="process-math">\(x^3\)</span> as a product and <span class="process-math">\(x^2+3x\)</span> as a sum. The remaining steps involved in justification are listed below. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x\\
+&amp;= 2 \cdot 2 = 4
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^3 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x^2\\
+&amp;= 2 \cdot 4 = 8
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2+3x &amp;= \lim_{x \to 2} x^2 + \lim_{x \to 2} 3x\\
+&amp;= 8 + 6 = 14
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Sum</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 &amp;= 5 \cdot \lim_{x \to 2} x^3\\
+&amp;= 5 \cdot 8 = 40
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Constant Multiple</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 (x^2+3x) &amp;= \lim_{x \to 2} 5x^3 \cdot \lim_{x \to 2} (x^2+3x)\\
+&amp;= 40 \cdot 14 = 560
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+</table></div></p>
+<span class="incontext"><a href="sec_limits_reasoning.html#p-575" class="internal">in-context</a></span>
+</body>
+</html>

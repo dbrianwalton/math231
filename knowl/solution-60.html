@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.4.5.1</span><span class="period">.</span>
+</h4>
+<p>A horizontal tangent corresponds to a slope that is zero. We need to find the derivative function <span class="process-math">\(R'(x)\)</span> and determine values so that <span class="process-math">\(R'(x)=0\text{.}\)</span> The function <span class="process-math">\(R(x)\)</span> is a rational function because it is a <em class="emphasis">quotient</em> of two polynomials.</p>
+<p>To find <span class="process-math">\(R'(x)\text{,}\)</span> we need to use the <em class="emphasis">quotient rule</em> because <span class="process-math">\(R(x)\)</span> itself is a quotient.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} \\
+&amp;= \frac{\frac{d}{dx}[x^2+2x] \cdot (2x^2+1) - (x^2+2x) \cdot \frac{d}{dx}[2x^2+1]}{(2x^2+1)^2} \\
+&amp;= \frac{(2x+2)(2x^2+1) - (x^2+2x)(4x)}{(2x^2+1)^2} \\
+&amp;= \frac{(4x^3+4x^2+2x+2) - (4x^3+8x^2)}{(2x^2+1)^2} \\
+&amp;= \frac{4x^3+4x^2+2x+2 - 4x^3 - 8x^2}{(2x^2+1)^2} \\
+&amp;= \frac{-4x^2+2x+2}{(2x^2+1)^2} 
+\end{align*}
+</div>
+<p class="continuation">Experience has shown me that we <em class="emphasis">always</em> want to rewrite the numerator in hopes of factoring in the future, but <em class="emphasis">almost never</em> want to rewrite the denominator since it is already factored.</p>
+<p>Once we know <span class="process-math">\(R'(x)\text{,}\)</span> we create and solve the equation <span class="process-math">\(R'(x)=0\text{.}\)</span> Because <span class="process-math">\(R'(x) = \frac{-4x^2+2x+2}{(2x^2+1)^2}\)</span> is itself a quotient, <span class="process-math">\(R'(x)= 0\)</span> is solved by determining where the <em class="emphasis">numerator</em> equals zero. In this case, we can factor that resulting polynomial.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{gather*}
+R'(x) = 0\\
+\frac{-4x^2+2x+2}{(2x^2+1)^2} = 0\\
+-4x^2+2x+2 = 0\\
+-2(2x^2-x-1) = 0\\
+-2(2x+1)(x-1) = 0
+\end{gather*}
+</div>
+<p class="continuation">So <span class="process-math">\(R'(x)=0\)</span> at <span class="process-math">\(x=-\frac{1}{2}\)</span> and at <span class="process-math">\(x=1\text{.}\)</span> We can verify whether these values make sense by looking at a graph of <span class="process-math">\(R(x)\text{.}\)</span></p>
+<figure class="figure figure-like"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/graph_horiz_tangents_of_rational.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.6<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(\displaystyle R(x) = \frac{x^2+2x}{2x^2+1}\)</span> showing horizontal tangents at <span class="process-math">\(x=-\frac{1}{2}\)</span> and at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure>
+</div>
+<span class="incontext"><a href="sec_derivs_differentiation.html#solution-60" class="internal">in-context</a></span>
+</body>
+</html>

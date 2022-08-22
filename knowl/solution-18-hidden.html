@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>When thinking about a problem like this, I like to imagine blocks representing components of the formula. I might write <span class="process-math">\(\boxed{f(2x)} - \boxed{f(x-3)}\text{.}\)</span> That is, I should recognize that there are two formulas I need to find, <span class="process-math">\(f(2x)\)</span> and <span class="process-math">\(f(x-3)\text{,}\)</span> and I will later subtract them.</p>
+<p>One method would be to find the individual formulas first using substitution.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= x^2 - 2x\\
+f(2x) &amp;= (2x)^2 - 2(2x)\\
+&amp;= (2x)(2x) - 2(2x)\\
+&amp;= 4x^2 - 4x\\
+f(x-3) &amp;= (x-3)^2 - 2(x-3)\\
+&amp;= (x-3)(x-3) - 2(x-3)\\
+&amp;= x^2-3x-3x+9-2x+6\\
+&amp;= x^2-8x+15
+\end{align*}
+</div>
+<p class="continuation">Once we know the individual formulas, we combine them to create the value in question. We need to be careful to think of these formulas as giving a single value, so we place them inside parentheses to treat the formula as a grouped expression:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(2x) - f(x-3) &amp;= (4x^2-4x) - (x^2-8x+15)\\
+&amp;= 4x^2-4x - x^2 + 8x - 15\\
+&amp;= 3x^2 + 4x - 15
+\end{align*}
+</div>
+<p>An alternative method would be to do all of the substitution at once. If this approach is used, extra caution must be taken to ensure that we treat all of the grouped expressions as single values. Use parentheses carefully:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(2x) - f(x-3) &amp;= \Big((2x)^2-2(2x)\Big) - \Big((x-3)^2 - 2(x-3)\Big)\\
+&amp;= \Big(4x^2-4x\Big) - \Big(x^2-6x+9-2x+6\Big)\\
+&amp;= 4x^2-4x - x^2 +8x -15\\
+&amp;= 3x^2+4x -15.
+\end{align*}
+</div>
+</div></body>
+</html>

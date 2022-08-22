@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Replacing Limit Formulas</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_limits_piecewise.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_limits_infinity.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_limits_piecewise.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_limits_infinity.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="active">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_limits_simplifying"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Replacing Limit Formulas</span>
+</h2>
+<section class="introduction" id="introduction-14"><p id="p-454">Our claim (still not verified) that algebraic functions are continuous so long as the value itself is defined around a point works fine when the value <em class="emphasis">is</em> defined. The most important applications of limits, however, are usually framed in terms of formulas that are <em class="emphasis">not</em> defined at the point of interest. What do we do then?</p>
+<p id="p-455">This section focuses on limits where the value is undefined because the formula in question would involve division by zero. For algebraic formulas, this means that the denominator has a factor that evaluates to zero. Consequently, our approach will be to attempt to factor the numerator and denominator in the quotient of concern and see if we can find a <em class="emphasis">new</em> formula that eliminates that factor but has the same limit. That is, we want to replace the original formula that has a discontinuity at the point of interest with a new formula that is continuous. If we succeed, the limit is then calculated by formula evaluation.</p></section><section class="subsection" id="subsec_lim_cancellation"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.1</span> <span class="title">Canceling Common Factors</span>
+</h3>
+<p id="p-456">In basic algebraic formulas, the only way that a formula is undefined (see topic of domain in <a href="sec_fcn_construction.html#subsec_fcn_domain" class="internal" title="Subsection 2.2.1: Natural Domains">Subsection 2.2.1</a>) is if we divide by zero or if we try to take an even root of a negative value. Limits help us understand what happens at values that are <em class="emphasis">not</em> in the domain of an algebraic expression. When a limit exists, it means the expression has a <dfn class="terminology">removable discontinuity</dfn> and the graph has a corresponding <dfn class="terminology">hole</dfn>. Sometimes, the one-sided limits will be infinite, corresponding to a graph that has a <dfn class="terminology">vertical asymptote</dfn>. We will focus on formulas that can be factored and their associated limits.</p>
+<p id="p-457">For a quotient (division), it is possible that the numerator and denominator have <em class="emphasis">common</em> factors. When working with numbers, canceling common factors is always allowed. But when working with functions, canceling common factors can change the domain.</p>
+<p id="p-458">Consider the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{(x+3)(x-1)}{(x+2)(x-1)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Because of how this function is defined, <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=1\)</span> are both <em class="emphasis">not</em> in the domain. The simplified function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) = \frac{x+3}{x+2}
+\end{equation*}
+</div>
+<p class="continuation">will have a slightly larger domain, excluding only <span class="process-math">\(x=-2\text{.}\)</span> For every value <span class="process-math">\(x \ne 1\text{,}\)</span> the fraction <span class="process-math">\(\displaystyle \frac{x-1}{x-1}\)</span> will simplify to 1, so that <span class="process-math">\(g(x) = f(x)\)</span> for all <span class="process-math">\(x \ne 1\text{.}\)</span> The graphs are the same, except that <span class="process-math">\(f(x)\)</span> has a <dfn class="terminology">hole</dfn> at <span class="process-math">\(x=1\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_limit_cancel_hole"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_with_hole.svg" role="img" class="contained" alt="Graph showing three pieces with a break at x=-2 and a hole at x=1"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_without_hole.svg" role="img" class="contained" alt="Graph showing two continuous pieces with a single break at x=-2"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.1<span class="period">.</span></span><span class="space"> </span>Comparison of <span class="process-math">\(f(x)\)</span> (left) and <span class="process-math">\(g(x)\)</span> (right)</figcaption></figure><p id="p-459">The process of cancelling common factors from a formula leaves the <em class="emphasis">value</em> of the formula unchanged except at points where the common factor is zero. This motivates one of the main strategies for finding limits involving quotients that vanish at the limit. When the simplified quotient is continuous, the limit can be determined using the value of the new formula.</p>
+<article class="theorem theorem-like" id="thm_limits_by_cancellation"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Limits by Cancellation.</span>
+</h4>
+<p id="p-460">If an expression can be written in the form <span class="process-math">\(\displaystyle \frac{(x-a)f(x)}{(x-a)g(x)}\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} \frac{(x-a)f(x)}{(x-a)g(x)} = \lim_{x \to a} \frac{f(x)}{g(x)}\text{.}
+\end{equation*}
+</div></article><p id="p-461">We can therefore find the location of the hole in <a href="" class="xref" data-knowl="./knowl/fig_limit_cancel_hole.html" title="Figure 3.3.1">Figure 3.3.1</a>. The <span class="process-math">\(x\)</span>-value is at <span class="process-math">\(x=1\text{.}\)</span> The <span class="process-math">\(y\)</span>-value is found from the limit, something that can be calculated by replacing the discontinuous formula with the simplified and continuous formula:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_limit_cancel_hole.html">
+\begin{equation*}
+\lim_{x \to 1} f(x)  = \lim_{x \to 1} \frac{(x+3)(x-1)}{(x+2)(x-1)} = \lim_{x \to 1} \frac{x+3}{x+2} = \frac{1+3}{1+2} = \frac{4}{3}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, the hole appears at <span class="process-math">\((1,\frac{4}{3})\text{.}\)</span></p>
+<p id="p-462">For polynomials, a formula <span class="process-math">\(p(x)\)</span> having a factor <span class="process-math">\((x-a)\)</span> is equivalent to having a zero <span class="process-math">\(p(a)=0\text{.}\)</span> So if the formula of a polynomial vanishes, we <em class="emphasis">know</em> that there is a factor. A quotient of polynomials will not have common factors if the numerator is nonzero but the denominator vanishes. Limits with this happening have a numerator that is approaching a specific value but the denominator is approaching zero, getting smaller and smaller.</p>
+<p id="p-463">What happens when a number is divided by progressively smaller values? The value of the quotient must get larger and larger in size. Limits can be used to describe this behavior by saying the limit is infinite.</p>
+<article class="definition definition-like" id="defn_infinite_limit"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span>
+</h4>
+<p id="p-464">“<span class="process-math">\(\displaystyle \lim_{x \to a^+} f(x) = +\infty\)</span>” means that the values <span class="process-math">\(f(x)\)</span> get larger and larger (positively) as <span class="process-math">\(x \to a^+\text{.}\)</span> More specifically, no matter what number <span class="process-math">\(M \gt 0\)</span> you choose, as <span class="process-math">\(x \to a^+\text{,}\)</span> we eventually will have <span class="process-math">\(f(x) \gt M\text{.}\)</span> (Close enough to <span class="process-math">\(x=a\)</span> with <span class="process-math">\(x \gt a\text{,}\)</span> <span class="process-math">\(f(x)\)</span> will stay <em class="emphasis">above</em> <span class="process-math">\(y=M\text{.}\)</span>)</p>
+<p id="p-465">“<span class="process-math">\(\displaystyle \lim_{x \to a^+} f(x) = -\infty\)</span>” means that the values <span class="process-math">\(f(x)\)</span> get lower and lower (negatively) as <span class="process-math">\(x \to a^+\text{.}\)</span> More specifically, no matter what number <span class="process-math">\(-M \lt 0\)</span> you choose, as <span class="process-math">\(x \to a^+\text{,}\)</span> we eventually will have <span class="process-math">\(f(x) \lt -M\text{.}\)</span> (Close enough to <span class="process-math">\(x=a\)</span> with <span class="process-math">\(x \gt a\text{,}\)</span> <span class="process-math">\(f(x)\)</span> will stay <em class="emphasis">below</em> <span class="process-math">\(y=-M\text{.}\)</span>)</p>
+<p id="p-466">Similar definitions hold for left-limits and two-sided limits.</p></article><p id="p-467">Infinite limits exactly correspond to a vertical asymptote. In <a href="" class="xref" data-knowl="./knowl/fig_limit_cancel_hole.html" title="Figure 3.3.1">Figure 3.3.1</a>, both <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> have a vertical asymptote at <span class="process-math">\(x=-2\)</span> because the factor <span class="process-math">\(x+2\)</span> in the denominator did not cancel away. From the graph, we see the left segment of the graph extends to the bottom of the graph, corresponding to</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_limit_cancel_hole.html">
+\begin{equation*}
+\lim_{x \to -2^-} g(x) = -\infty\text{.}
+\end{equation*}
+</div>
+<p class="continuation">On the right segment, the graph extends to the top of the graph, corresponding to</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig_limit_cancel_hole.html">
+\begin{equation*}
+\lim_{x \to -2^+} g(x) = +\infty\text{.}
+\end{equation*}
+</div>
+<p id="p-468">This example is typical of limits involving quotients that result in division by zero.</p>
+<article class="assemblage assemblage-like" id="asmb_limit_quotient"><h4 class="heading"><span class="title">Limits of Rational Functions.</span></h4>
+<p id="p-469">When a formula or function is a quotient of two polynomials (a rational function), say <span class="process-math">\(f(x) = p(x)/q(x)\text{,}\)</span> and we are evaluating a limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} f(x) = \lim_{x \to a} \frac{p(x)}{q(x)}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">then we can use the following process.</p>
+<ul class="disc">
+<li id="li-75">
+<p id="p-470">Check if it is already continuous. If <span class="process-math">\(p(a)/q(a)\)</span> is defined (any time <span class="process-math">\(q(a) \ne 0\)</span>), then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} f(x) = \frac{p(a)}{q(a)}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-76"><p id="p-471">If <span class="process-math">\(p(a) = 0\)</span> and <span class="process-math">\(q(a) = 0\)</span> (limit form: <span class="process-math">\(0/0\)</span>), then <span class="process-math">\((x-a)\)</span> is a factor of both <span class="process-math">\(p(x)\)</span> and <span class="process-math">\(q(x)\text{.}\)</span> Factor both polynomials, cancel any common factors, and then start over using the new formula (leave factored). Use technology if the formulas are hard to factor by hand.</p></li>
+<li id="li-77">
+<p id="p-472">If <span class="process-math">\(p(a) = L \ne 0\)</span> and <span class="process-math">\(q(a) = 0\)</span> (limit form <span class="process-math">\(L/0\)</span>), then <span class="process-math">\(f(x)\)</span> has an <dfn class="terminology">infinite discontinuity</dfn> corresponding to a vertical asymptote. The one-sided limits must be infinite; we just need to determine whether they are <span class="process-math">\(\pm \infty\text{.}\)</span></p>
+<ul class="circle">
+<li id="li-78"><p id="p-473">Use the factored formulas to do sign analysis. Be sure to mark all zeros of <span class="process-math">\(p(x)\)</span> (roots) and of <span class="process-math">\(q(x)\)</span> (discontinuities).</p></li>
+<li id="li-79"><p id="p-474">Only the intervals immediately to the left and right of <span class="process-math">\(x=a\)</span> need to be checked. Test a single value in each interval. If the sign is positive, that side limit will be <span class="process-math">\(+\infty\text{.}\)</span> If the sign is negative, that side limit will be <span class="process-math">\(-\infty\text{.}\)</span></p></li>
+<li id="li-80"><p id="p-475">The results should match the vertical asymptote appearing on a graph.</p></li>
+</ul>
+</li>
+</ul></article><article class="example example-like" id="ex_limit_rational"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-5.</span>
+</h4>
+<p id="p-476">Given <span class="process-math">\(\displaystyle R(x) = \frac{x^3-2x^2-5x+6}{x^3+x^2-8x-12}\text{,}\)</span> find the limits <span class="process-math">\(\displaystyle \lim_{x \to a} R(x)\)</span> for <span class="process-math">\(a=-2\text{,}\)</span> <span class="process-math">\(a=3\text{,}\)</span> and <span class="process-math">\(a=4\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-41" id="solution-41"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-41"><div class="solution solution-like">
+<p id="p-477">We'll need to factor the formula for <span class="process-math">\(R(x)\)</span> eventually. We can use technology to find the factors.</p>
+<pre class="ptx-sagecell hidden-sagecell-sage" id="sage-3"><script type="text/x-sage">numer=x^3-2*x^2-5*x+6
+show(numer.factor())
+denom=x^3+x^2-8*x-12
+show(denom.factor())
+</script></pre>
+<p id="p-478">Now that we know <span class="process-math">\(R(x) = \frac{(x-1)(x+2)(x-3)}{(x+2)^2(x-3)}\text{,}\)</span> we look for common factors so that we can interpret the discontinuities. The factors <span class="process-math">\((x+2)\)</span> and <span class="process-math">\((x-3)\)</span> are both common factors. After canceling, the simplified formula (which still is naturally undefined at <span class="process-math">\(x=-2\)</span>) is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R(x) = \frac{x-1}{x+2}, \quad x \ne 3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The additional constraint <span class="process-math">\(x \ne 3\)</span> appears because we are talking about equality of equations.</p>
+<p id="p-479">The factor <span class="process-math">\(x+2\)</span> still appears in the denominator but is no longer in the numerator. When we attempt to do the limit, the numerator and denominator limits result in a limit form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -2} R(x) = \lim_{x \to -2} \frac{x-1}{x+2} \to \frac{-3}{0}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Having a non-zero value on top is because <span class="process-math">\(x+2\)</span> is not a factor. When we divide -3 by numbers closer and closer to zero, that ratio gets larger and larger in size, meaning we have an infinite limit.</p>
+<p id="p-480">To determine the one-sided limits, we need to test the sign analysis intervals to the left and right of <span class="process-math">\(x=-2\text{.}\)</span> The sign analysis number line will need to have breaks at <span class="process-math">\(x=-2\)</span> (denominator) and at <span class="process-math">\(x=1\)</span> (numerator). So if we test using <span class="process-math">\(x=-2.1\)</span> and <span class="process-math">\(x=-1.9\text{,}\)</span> we get the signs on the intervals:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-58">
+\begin{gather*}
+R(-2.1) = \frac{-2.1-1}{-2.1+2} = \frac{-3.1}{-0.1} = +31\\
+R(-1.9) = \frac{-1.9-1}{-1.9+2} = \frac{-2.9}{+0.1} = -29
+\end{gather*}
+</div>
+<p class="continuation">The sign on the left is positive; the sign on the right is negative:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-59">
+\begin{gather*}
+\lim_{x \to -2^-} R(x) = +\infty\\
+\lim_{x \to -2^+} R(x) = -\infty
+\end{gather*}
+</div>
+<p class="continuation">Because these are different, we say the two-sided limit does not exist, writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -2} R(x) \; \text{d.n.e.}
+\end{equation*}
+</div>
+<p id="p-481">For communicating our reasoning, notice that part of our work was in explaining how we knew the limits would be infinite. This is why we needed to show that <span class="process-math">\(x+2\)</span> did not cancel resulting in a nonzero value divided by zero in the limit form. Then we needed to provide reasoning for which infinity each side's limit approached. This is why we needed to reference sign analysis and checking the signs on both sides. A risk on the sign analysis step is choosing test points that are actually not in the appropriate test interval.</p>
+<p id="p-482">For the other limit of interest, the factor <span class="process-math">\(x-3\)</span> canceled completely from the denominator in the simplification. This means the reduced formula is continuous at <span class="process-math">\(x=3\text{.}\)</span> The value of the reduced formula will be the limit.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 3} R(x) = \lim_{x \to 3} \frac{x-1}{x+2} = \frac{3-1}{3+2} = \frac{2}{5}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">There is no additional required work.</p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

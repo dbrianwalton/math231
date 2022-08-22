@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Relations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch_prerequisites.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_prereq_sets.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch_prerequisites.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_prereq_sets.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="active">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="sec_prereq_linear"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Linear Relations</span>
+</h2>
+<section class="introduction" id="introduction-2"><p id="p-7">Calculus is focused on how variables covary or change <em class="emphasis">with</em> one another. Ultimately, we will want to describe this change through the language of functions. However, as we get started, it is easiest to think of a simple relation between two variables represented by an equation. The most basic relation represented by an equation is a <dfn class="terminology">linear relation</dfn>.</p></section><section class="subsection" id="subsec_prereq_linear_graphs_equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title"></span>
+</h3>
+<p id="p-8">What is a line? In common language, we might think of a line as something that we can draw with a pen. Mathematics requires a more precise definition and is motivated from geometry by the idea of a straight edge graph joining two points. In mathematics, lines <em class="emphasis">are</em> straight. Anything else would be a <dfn class="terminology">curve</dfn>.</p>
+<p id="p-9">Okay, now we have a <em class="emphasis">geometric</em> way of thinking about a line—it is a straight edge you can form joining two points. We would like an <em class="emphasis">algebraic</em> way of thinking about a line so that we can use formulas. To connect the geometric and algebraic concepts, we need to think about locations of points in terms of <dfn class="terminology">coordinates</dfn> on a <dfn class="terminology">Cartesian plane</dfn>.</p>
+<p id="p-10">Points on a plane can be identified by knowing the horizontal and the vertical displacements from an origin. These displacements correspond to two variables. When mathematics is disconnected from physical applications, these variables are most commonly called <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> In applications, the variables more commonly are assigned to names that have some physical significance. For example, we might use <span class="process-math">\(t\)</span> for time, <span class="process-math">\(v\)</span> for velocity, or <span class="process-math">\(F\)</span> for force.</p></section><section class="subsection" id="subsec_prereq_linear_slope_as_rate"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title"></span>
+</h3>
+<p id="p-11">A line, like any other curve, includes infinitely many points. What is it about a line that distinguishes it from other curves? Ultimately, it comes down to the fact that lines have a <em class="emphasis">constant</em> <dfn class="terminology">rate of change</dfn>.</p>
+<p id="p-12">To understand the concept of rate of change, we need to consider the relationship between two different points, <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> from the same graph. If our variables are <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> then we might represent one point as having coordinates <span class="process-math">\(A=(x_1,y_1)\)</span> and the second point as having coordinates <span class="process-math">\(B=(x_2,y_2)\text{.}\)</span> We calculate how the variables change going <em class="emphasis">from</em> <span class="process-math">\(A\)</span> <em class="emphasis">to</em> <span class="process-math">\(B\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-1">
+\begin{gather*}
+\Delta x = x_2 - x_1\\
+\Delta y = y_2 - y_1
+\end{gather*}
+</div>
+<p class="continuation">Note that we think of <span class="process-math">\(\Delta x\)</span> as the name of a <em class="emphasis">single</em> quantity. The order of subtraction is chosen so that we can legitimately say <span class="process-math">\(x_2 = x_1 + \Delta x\)</span> and <span class="process-math">\(y_2 = y_1 + \Delta y\text{.}\)</span> We call <span class="process-math">\(\Delta x\)</span> the <dfn class="terminology">increment of change</dfn> in <span class="process-math">\(x\)</span> and <span class="process-math">\(\Delta y\)</span> the <dfn class="terminology">increment of change</dfn> in <span class="process-math">\(y\)</span> as we go from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{.}\)</span></p>
+<article class="definition definition-like" id="defn_average_rate_of_change_variables"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Average Rate of Change.</span>
+</h4>For <em class="emphasis">any</em> relation between variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> joining two points <span class="process-math">\(A=(x_1,y_1)\)</span> and <span class="process-math">\(B=(x_2,y_2)\text{,}\)</span> the <dfn class="terminology">average rate of change</dfn> of <span class="process-math">\(y\)</span> with respect to <span class="process-math">\(x\)</span> is defined as the ratio <span class="process-math">\(\Delta y / \Delta x\text{,}\)</span><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}\text{.}
+\end{equation*}
+</div></article><p id="p-13">For a line, the increments of change are <em class="emphasis">proportional</em> to one another. Equivalently, a line has the same average rate of change between any two points. That is, there is a <em class="emphasis">constant</em>, usually designated by <span class="process-math">\(m\text{,}\)</span> such that for any two points on the line, <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> the increments of change are related by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Delta y = m \cdot \Delta x \qquad \Leftrightarrow \qquad \frac{\Delta y}{\Delta x} = m\text{.}
+\end{equation*}
+</div>
+<p class="continuation">For a line, this constant rate of change is called the <dfn class="terminology">slope</dfn> of the line.</p>
+<p id="p-14">The basic skill related to calculating and using a slope is to identify the two points and calculate the ratio of the change in the dependent variable (<span class="process-math">\(y\)</span>) to the change in the independent variable (<span class="process-math">\(x\)</span>).</p>
+<article class="example example-like" id="ex_slope_simple_calculate"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h4>
+<p id="p-15">Calculate the slope of the line joining the points <span class="process-math">\((x,y)=(1.8,5)\)</span> and <span class="process-math">\((x,y)=(3.2, -2)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">
+<p id="p-16">Rather than jump right into the calculation, it is better to think about what we expect so that we can see if our calculated answer makes sense. In this case, a visualization of what we are calculating is helpful. We can do this by graphing the two points (or at least thinking about the graph).</p>
+<figure class="figure figure-like" id="fig_graph_slope_from_two_points"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/graph_slope_from_two_points.svg" role="img" class="contained" alt="graph of a line passing through two points"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.3<span class="period">.</span></span><span class="space"> </span>Graph of the line joining points <span class="process-math">\((1.8,5)\)</span> and <span class="process-math">\((3.2,-2)\text{.}\)</span></figcaption></figure><p id="p-17">Notice how the point <span class="process-math">\((3.2,-2)\)</span> is to the right of and below the first point <span class="process-math">\((1.8,5)\text{.}\)</span> We say that the graph of the line is <em class="emphasis">decreasing</em>. This corresponds to a slope that is <em class="emphasis">negative</em>. When we complete our calculation, we want to be sure that we get a negative slope.</p>
+<p id="p-18">As we calculate the slope, it is possible to do it in a single step. Again, it can be helpful to think about it more deliberately by calculating the increments <span class="process-math">\(\Delta x\)</span> and <span class="process-math">\(\Delta y\)</span> separately.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-2">
+\begin{align*}
+\Delta x &amp;= x_2 - x_1 = 3.2 - 1.8 = 1.4\\
+\Delta y &amp;= y_2 - y_1 = -2 - 5 = -7
+\end{align*}
+</div>
+<p class="continuation">Notice how the definition we are following expects that we have identified what we mean by <em class="emphasis">first</em> and <em class="emphasis">second</em> point. We need to be careful that we calculate both increments as the change going <em class="emphasis">from</em> the first <em class="emphasis">to</em> the second point.</p>
+<p id="p-19">Do the values make sense? The increment <span class="process-math">\(\Delta x\)</span> is <em class="emphasis">positive</em> because the second point is <em class="emphasis">to the right of</em> the first point. The increment <span class="process-math">\(\Delta y\)</span> is <em class="emphasis">negative</em> because the second point is <em class="emphasis">below</em> the first point. So we have verified that the <em class="emphasis">signs</em> of the increments are consistent with what we observed in the graph.</p>
+<p id="p-20">The value of the slope (rate of change) can now be directly calculated as the ratio of the increments of change,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+m = \frac{\Delta y}{\Delta x} = \frac{-7}{1.4} = -5\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The slope is negative as we expected.</p>
+</div></div>
+</div></article><p id="p-21">More thought is required when the points are not identified so clearly or when you need to identify which variable is independent and which is dependent.</p>
+<article class="example example-like" id="ex_slope_from_data"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Outcome P-1.</span>
+</h4>
+<p id="p-22">Foresters are interested in the relationship between the trunk thickness (DBH=diameter at breast height) and total biomass of a species of tree in order to understand the carbon content in forests. (See <a class="external" href="https://www.fs.fed.us/pnw/pubs/pnw_rp591.pdf" target="_blank">USDA Research Paper PNW-RP-591</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 1 </sup></a>.) A stand of Douglas-fir in the Pacific Northwest was sampled and trees with a trunk diameter of 12 cm had an average biomass of 38 kg, while trees with a trunk diameter of 14 cm had an average biomass of 56 kg. Find the average rate of change of the biomass with respect to the trunk diameter based on this data, including proper use of units.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
+<p id="p-23">How do we approach this type of question? Instead of being given two points, we are given a text description of some data. We don't even know what the variables are. A useful strategy for solution is to read the problem to identify what is wanted.</p>
+<p id="p-24">The example asks us to “<em class="emphasis">Find</em> the average rate of change of the biomass with respect to the trunk diameter”. The key phrase <em class="emphasis">with respect to</em> helps us identify what are being consider the independent and dependent variables. The main quantity of interest is the <em class="emphasis">biomass</em> and that will be the <em class="emphasis">dependent</em> variable (<span class="process-math">\(y\)</span>-like). The quantity identified <em class="emphasis">after</em> the phrase <em class="emphasis">with respect to</em> is the <em class="emphasis">independent variable</em>. That is, we think of the independent variable as <em class="emphasis">controlling</em> or <em class="emphasis">influencing</em> the dependent variable.</p>
+<p id="p-25">To visualize the data, we could graph two points. If it is not clear what points we should use, it can be useful to first make a table from the data and then identify the points. We will create a table with columns for the trunk diameter and the tree biomass. For consistency in our identification of the independent and dependent variables, it might be useful to list the diameter first and the biomass second. The rows of the table correspond to paired observations. That is, trees with 12 cm diameter at breast height are the same trees that had an average biomass of 38 kg.</p>
+<figure class="table table-like" id="table_tree_diameter_biomass"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.5<span class="period">.</span></span><span class="space"> </span>Tree diameter and biomass</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">trunk diameter (cm)</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">total biomass (kg)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">38</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">14</td>
+<td class="l m b0 r0 l0 t0 lines">56</td>
+</tr>
+</table></div></figure><p id="p-26">Next, for scientific communication, it is better to use variable names that have a connection to the data they represent than always using <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> For this data set, we might choose <span class="process-math">\(D\)</span> as our variable representing the <em class="emphasis">diameter</em> of the trees and <span class="process-math">\(M\)</span> as our variable representing the total biomass. Consequently, our data correspond to two points: <span class="process-math">\((D,M)=(12,38)\)</span> and <span class="process-math">\((D,M)=(14,56)\text{.}\)</span></p>
+<p id="p-27">Physical measurements are always associated with a unit scale. That is, it doesn't make sense to a length measured 4; we need to say the unit used in the measurement. Notice that <span class="process-math">\(D\)</span> has associated units of cm (a length) while <span class="process-math">\(M\)</span> has units of kg (a mass). The increments of change between the two points are</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-3">
+\begin{align*}
+\Delta D &amp;= D_2 - D_1 = 14-12 = 2 \, \text{cm}\\
+\Delta M &amp;= M_2 - M_1 = 56-38 = 18 \, \text{kg}
+\end{align*}
+</div>
+<p id="p-28">The average rate of change is the slope of the line joining these points. The units of rate of change is the ratio of the units of the corresponding variables. The average rate of change of <em class="emphasis">biomass</em> with respect to <em class="emphasis">trunk diameter</em> will therefore have units of kg/cm. The value is calculated as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta M}{\Delta D} = \frac{18 \, \text{kg}}{2 \, \text{cm}} = 9 \, \text{kg/cm}\text{.}
+\end{equation*}
+</div>
+<p id="p-29">Does this make sense? The increments are both positive. Changing from the first point <span class="process-math">\((D,M)=(12,38)\)</span> to <span class="process-math">\((D,M)=(14,56)\text{,}\)</span> both the diameter and the biomass increased. This corresponds to both increments being positive and the resulting slope being a positive number. A graph of the points reinforces this, showing that the line would have a positive slope.</p>
+<figure class="figure figure-like" id="fig_graph_slope_from_tree_data"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/graph_slope_from_tree_data.svg" role="img" class="contained" alt="graph of a tree data points and corresponding line"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.6<span class="period">.</span></span><span class="space"> </span>Graph of the line joining points <span class="process-math">\((1.8,5)\)</span> and <span class="process-math">\((3.2,-2)\text{.}\)</span></figcaption></figure>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_prereq_linear_equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title"></span>
+</h3>
+<p id="p-30">An equation involving two variables defines a <dfn class="terminology">relation</dfn> between those variables. Values for the variables that would make the equation <em class="emphasis">true</em> correspond to points that would be included in the graph. Values for the variables that would make the equation <em class="emphasis">false</em> correspond to points are not included.</p>
+<p id="p-31">A line provides a simple example to illustrate this idea as well as provides one of the most basic examples of a relation that is a function. Consider the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+3x+2y=12\text{.}
+\end{equation*}
+</div>
+<p class="continuation">As written, the statement is not true or false because we have left <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as variables. The truth of the statement is waiting for specific values.</p>
+<p id="p-32">But now consider a particular point, say <span class="process-math">\((x,y)=(2,3)\text{.}\)</span> In the context of that point, we will use <span class="process-math">\(x=2\)</span> and <span class="process-math">\(y=3\text{.}\)</span> The expression <span class="process-math">\(3x+2y\)</span> now has a specific value,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+3x+2y = 3(2)+2(3) = 12\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so that <span class="process-math">\(3x+2y=12\)</span> is a true statement. This means that the point <span class="process-math">\((2,3)\)</span> is <em class="emphasis">in</em> the relation defined by the equation and therefore a point on its graph.</p>
+<p id="p-33">On the other hand, another point <span class="process-math">\((x,y)=(3,2)\)</span> assigns different values to the variables. For this point, the expression <span class="process-math">\(3x+2y = 3(3)+2(2)=13\text{.}\)</span> The relation's equation <span class="process-math">\(3x+2y = 12\)</span> is <em class="emphasis">false</em> for this point. The point is <em class="emphasis">not</em> in the relation and will be <em class="emphasis">off</em> the graph.</p>
+<p id="p-34">The graph of <span class="process-math">\(3x+2y=12\)</span> happens to be a line. Two other points on this line are <span class="process-math">\((x,y)=(4,0)\)</span> and <span class="process-math">\((x,y)=(0,6)\text{.}\)</span> (Can you verify this?) A graph showing that the three points we identified are <em class="emphasis">on</em> the line while <span class="process-math">\((3,2)\)</span> is not is illustrated in the graph below.</p>
+<figure class="figure figure-like" id="fig_graph_line_from_equation"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/graph_line_from_equation.svg" role="img" class="contained" alt="graph of a line showing three points included and one not"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.7<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(3x+2y=12\)</span> as a line, showing points that are or are not included.</figcaption></figure><p id="p-35">In the discussion above, we started with an equation and were basically just randomly picking points and testing if they were or were not in the graph of the equation. One important skill is to be able to <em class="emphasis">create</em> an equation that represents a relation that we want. A second important skill is to be able to <em class="emphasis">visualize</em> the graph of an equation without necessarily trying a lot of different points. Here we will focus on how to <em class="emphasis">create</em> an equation for a line when we know the slope and one point.</p>
+<p id="p-36">The definition of slope can be used to create an equation of a line. If we know one point <span class="process-math">\((x,y)=(a,b)\)</span> (think of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> as placeholders for that knowledge), then for <em class="emphasis">any other</em> point <span class="process-math">\((x,y)=(x_2,y_2)\text{,}\)</span> we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta y}{\Delta x} = \frac{y_2-b}{x_2-a} = m\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Equivalently, this means <span class="process-math">\(\Delta y = m \cdot \Delta x\)</span> or</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y_2 - b = m \cdot(x_2 - a)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The subscripts on <span class="process-math">\(x_2\)</span> and <span class="process-math">\(y_2\)</span> were meant to indicate we were thinking about some specific point.</p>
+<p id="p-37">More probably, we want to think about <em class="emphasis">arbitrary</em> points, so we will drop the subscripts and think about the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> directly. An equation for the line passing through <span class="process-math">\((x,y)=(a,b)\)</span> and having a slope <span class="process-math">\(m\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y - b = m \cdot (x-a)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This equation is called the point-slope equation of a line. We often rewrite the equation by isolating <span class="process-math">\(y\)</span> as a <em class="emphasis">function</em> of <span class="process-math">\(x\text{.}\)</span></p>
+<article class="definition definition-like" id="defn_point_slope_equation"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Point–Slope Equation of a Line.</span>
+</h4>
+<p id="p-38">The point–slope equation of a line passing through a point <span class="process-math">\((x,y)=(a,b)\)</span> and having slope <span class="process-math">\(m\)</span> given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-4">
+\begin{align*}
+y-b \amp= m \cdot (x-a) \amp \text{(symmetric form)}\\
+y \amp= m \cdot (x-a) + b \amp \text{(function form)}
+\end{align*}
+</div></article><p id="p-39">You may be more familiar or comfortable with the equation of a line defined as <span class="process-math">\(y=mx+b\text{,}\)</span> called the <em class="emphasis">slope-intercept</em> equation of a line. This is a special case of the point–slope equation of a line where we know the slope <span class="process-math">\(m\)</span> and the <span class="process-math">\(y\)</span>-intercept point <span class="process-math">\((0,b)\text{.}\)</span> However, knowing the <span class="process-math">\(y\)</span>-intercept is uncommon in applications. Using the point–slope equation allows us to write down the equation of a line without needing to go figure out a separate point.</p>
+<article class="example example-like" id="ex_find_line_equation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.9</span><span class="period">.</span>
+</h4>
+<p id="p-40">Find an equation of the line passing through the point <span class="process-math">\((5,12)\)</span> with a slope <span class="process-math">\(m=\frac{3}{2}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<p id="p-41">The point–slope form makes this very simple. When we recall that <span class="process-math">\(\Delta y = m \cdot \Delta x\)</span> and then think of <span class="process-math">\((5,12)\)</span> as our starting point and <span class="process-math">\((x,y)\)</span> as a second point, we get increments <span class="process-math">\(\Delta y = y-12\)</span> and <span class="process-math">\(\Delta x = x-5\text{.}\)</span> The equation can then be immediately written</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y - 12 = \frac{3}{2} \cdot(x-5)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If we want to write <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{,}\)</span> we isolate the <span class="process-math">\(y\)</span> to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = \frac{3}{2} \cdot(x-5) + 12\text{.}
+\end{equation*}
+</div>
+<p id="p-42">Compare what would happen if we tried to use the slope–intercept form <span class="process-math">\(y=mx+b\text{.}\)</span> We know from the problem <span class="process-math">\(m=\frac{3}{2}\)</span> but we do not yet know the intercept value <span class="process-math">\(b\text{.}\)</span> We might make use of the information that we do know to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=\frac{3}{2} x + b\text{.}
+\end{equation*}
+</div>
+<p class="continuation">To find <span class="process-math">\(b\text{,}\)</span> we could use the information that we know <span class="process-math">\((x,y)=(5,12)\)</span> is a point on the line. That is, substituting values <span class="process-math">\(x=5\)</span> and <span class="process-math">\(y=12\)</span> must create a true equation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+12 = \frac{3}{2} \cdot 5 + b\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can now solve for <span class="process-math">\(b\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+b = 12 - \frac{15}{2} = \frac{24-15}{2} = \frac{9}{2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now that we know the value of the intercept, we can finish the equation,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = \frac{3}{2} x + \frac{9}{2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This second method is completely valid but requires extra work. Also, students often find the value of <span class="process-math">\(b\)</span> but then forget to use it to finish stating the equation that was requested.</p>
+</div></div>
+</div></article><p id="p-43">In the previous example, we saw how the point–slope equation of a line is an efficient way to find the equation of a line. More importantly, as we are preparing for calculus, this form of a line illustrates a core idea that we will be studying: the relationships between <em class="emphasis">increments</em> of change and <em class="emphasis">rates</em> of change.</p>
+<p id="p-44">Consider <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as variables and think of the slope <span class="process-math">\(m\)</span> as defining the constant rate of change of <span class="process-math">\(y\)</span> with respect to <span class="process-math">\(x\text{.}\)</span> Knowing a point <span class="process-math">\((x,y)=(a,b)\)</span> corresponds to know that <span class="process-math">\(y=b\)</span> when <span class="process-math">\(x=a\text{.}\)</span> The point–slope equation of a line tells us that if we <em class="emphasis">change</em> <span class="process-math">\(x\)</span> by an increment <span class="process-math">\(\Delta x\)</span> to <span class="process-math">\(x=a+\Delta x\text{,}\)</span> then the dependent variable <span class="process-math">\(y\)</span> must also change but with an increment <span class="process-math">\(\Delta y = m \cdot \Delta x\)</span> to <span class="process-math">\(y = b + \Delta y = b + m \cdot \Delta x\text{.}\)</span></p>
+<article class="example example-like" id="ex_using_point_slope"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Outcome P-2.</span>
+</h4>
+<p id="p-45">In our earlier example, we learned that the total biomass of a Douglas-fir is related to the diameter at breast height of the trunk. When the diameter is 12 cm, the average total biomass was 38 kg. The biomass increased at a rate of 9 kg per cm with respect to the diameter.</p>
+<p id="p-46">Estimate the total biomass of a Douglas-fir tree whose diameter at breast height is 12.8 cm.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
+<p id="p-47">First, we identify our variables. As in our earlier example, we will let <span class="process-math">\(M\)</span> be the total biomass (kg) and will let <span class="process-math">\(D\)</span> be the trunk diameter (cm). The <em class="emphasis">known</em> point is the given information <span class="process-math">\(M=38 \, \text{kg}\)</span> and <span class="process-math">\(D=12 \, \text{cm}\text{.}\)</span> The phrase “increased at a rate” identifies the value <span class="process-math">\(9 \, \text{kg/cm}\)</span> as the rate of change. The word <em class="emphasis">increased</em> indicates that this is a positive value. (To say a quantity decreases would mean it has a negative rate of change.) The phrase “with respect to the diameter” lets us know that we are thinking of <span class="process-math">\(D\)</span> as being the independent variable (<span class="process-math">\(x\)</span>-like). This is reinforced by the units of the rate being <em class="emphasis">kg per cm</em> so that the <span class="process-math">\(y\)</span>-variable is measured in kg and the <span class="process-math">\(x\)</span>-variable is measured in cm.</p>
+<p id="p-48">We can immediately write down our model equation,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M-38 = 9 \cdot (D-12)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M = 38 + 9 \cdot (D-12)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Can you see how we can view the biomass formula as <span class="process-math">\(M = 38 + \Delta M\text{?}\)</span></p>
+<p id="p-49">Now that we have our model equation, we can <em class="emphasis">substitute</em> the new value of <span class="process-math">\(D = 12.8 \, \text{cm}\)</span> into our equation,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M = 38 + 9 \cdot (12.8 - 12)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Can you see how <span class="process-math">\(\Delta D = 0.8 \, \text{cm}\)</span> is the increment of change of the diameter and how that will lead to <span class="process-math">\(\Delta M = 9 \cdot 0.8 = 7.2 \, \text{kg}\text{?}\)</span> Consequently, our model predicts <span class="process-math">\(M = 38 + 7.2 = 45.2 \, \text{kg}\text{.}\)</span> We predict the biomass of the tree will be 45.2 kg.</p>
+<figure class="figure figure-like" id="fig_point_slope_application"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/point_slope_application.svg" role="img" class="contained" alt="graph showing the line and initial point while visualizing the increments of diameter (x) and mass (y)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.11<span class="period">.</span></span><span class="space"> </span>Illustration of the point-slope calculation.</figcaption></figure>
+</div></div>
+</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">https://www.fs.fed.us/pnw/pubs/pnw_rp591.pdf</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

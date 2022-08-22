@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Limits at Infinity</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_limits_simplifying.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_limits_reasoning.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_limits_simplifying.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_limits_reasoning.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="active">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_limits_infinity"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Limits at Infinity</span>
+</h2>
+<section class="introduction" id="introduction-15"><p id="p-483">Limits describe function behavior as the input approaches some value. A limit at a point, say <span class="process-math">\(\displaystyle \lim_{x \to a} f(x) = L\)</span> is a <span class="process-math">\(y\)</span>-value <span class="process-math">\(y=L\)</span> that the function value <span class="process-math">\(f(x)\)</span> approaches for sequences of <span class="process-math">\(x\)</span>-values approaching <span class="process-math">\(x=a\text{.}\)</span> We also think of a vertical asymptote at <span class="process-math">\(x=a\)</span> in terms of limits. This occurs when the values of a function <span class="process-math">\(f(x)\)</span> get larger and larger in size as <span class="process-math">\(x \to a\text{,}\)</span> and we say <span class="process-math">\(y \to \pm \infty\text{.}\)</span></p>
+<p id="p-484">End behavior of a function is when we describe what happens to the values of a function as <span class="process-math">\(x \to \pm \infty\text{.}\)</span> We use limits in this context as well. Learning goals related to end behavior include:</p>
+<ul class="disc">
+<li id="li-81"><p id="p-485">Understand and describe possible end behaviors, including horizontal asymptotes and unbounded growth.</p></li>
+<li id="li-82"><p id="p-486">Appropriately calculate limits involving infinity.</p></li>
+<li id="li-83"><p id="p-487">Relate limits at infinity to end-behavior.</p></li>
+</ul>
+<p class="continuation">Specific measured outcomes focus on applications of these goals to polynomials and rational functions.</p></section><section class="subsection" id="subsec_lim_end_behavior"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.1</span> <span class="title">Describing End Behavior</span>
+</h3>
+<p id="p-488">When we talk about intervals with two numbers as end points, such as <span class="process-math">\((a,b)\text{,}\)</span> we are working with a <dfn class="terminology">bounded</dfn> interval. When an interval only has one end point, such as <span class="process-math">\((-\infty,a)\)</span> or <span class="process-math">\((b,\infty)\text{,}\)</span> we are working with an <dfn class="terminology">unbounded</dfn> interval. Our discussion about limits thus far have focused on limits where the variable approaches some specific value, <span class="process-math">\(x \to a\text{.}\)</span> These limits deal with bounded subsets of the domain. End behavior deals with limits of a function over unbounded domains, thinking of <span class="process-math">\(x \to -\infty\)</span> or <span class="process-math">\(x \to +\infty\text{.}\)</span></p>
+<p id="p-489">One example of a possible end behavior is a <dfn class="terminology">horizontal asymptote</dfn>. The word <em class="emphasis">asymptote</em> is used to say that the graph <span class="process-math">\(y=f(x)\)</span> approaches (gets closer and closer to) some other simpler graph (the asymptote). In this case, a horizontal asymptote refers to a horizontal line <span class="process-math">\(y=L\)</span> that a function approaches. There are some common misconceptions:</p>
+<ul class="disc">
+<li id="li-84"><p id="p-490">You might think a graph can only have one horizontal asymptote, but there can be different asymptotes on the left and the right.</p></li>
+<li id="li-85"><p id="p-491">You might think a graph won't cross an asymptote (or maybe just once), but crossing an asymptote is allowed.</p></li>
+</ul>
+<p id="p-492">A limit at infinity <span class="process-math">\(\displaystyle \lim_{x \to \infty} f(x) = L\)</span> captures the idea of a horizontal asymptote of <span class="process-math">\(y=L\)</span> on the right as <span class="process-math">\(x \to +\infty\text{.}\)</span> A similar limit as <span class="process-math">\(x \to -\infty\)</span> would capture the idea of a horizontal asymptote on the left. <a href="" class="xref" data-knowl="./knowl/fig_lim_horiz_asymptotes.html" title="Figure 3.4.1">Figure 3.4.1</a> illustrates a function with a horizontal asymptote <span class="process-math">\(y=2\)</span> on the right and <span class="process-math">\(y=-1\)</span> on the left.</p>
+<figure class="figure figure-like" id="fig_lim_horiz_asymptotes"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/lim_horiz_asymptotes.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.1<span class="period">.</span></span><span class="space"> </span>Example of a graph of a function <span class="process-math">\(f(x)\)</span> with a horizontal asymptote <span class="process-math">\(y=-1\)</span> on the left and <span class="process-math">\(y=2\)</span> on the right</figcaption></figure><p id="p-493">What does this actually mean? Let us focus on <span class="process-math">\(x \to \infty\text{.}\)</span> We need to imagine a sequence of <span class="process-math">\(x\)</span>-values that are unbounded and increasing, <span class="process-math">\(x_1 \lt x_2 \lt x_3 \lt \cdots\)</span> with <span class="process-math">\(x \to +\infty\text{.}\)</span> We look at the values of the function <span class="process-math">\(f(x_1), f(x_2), f(x_3), \ldots\text{.}\)</span> If this sequence <em class="emphasis">always</em> converges to <span class="process-math">\(L\text{,}\)</span> <span class="process-math">\(f(x) \to L\text{,}\)</span> no matter which unbounded sequence is chosen, then <span class="process-math">\(\displaystyle \lim_{x \to \infty} f(x) = L\text{.}\)</span></p>
+<p id="p-494">Another way to think of this is imagining trying to find a box that is unbounded to the right that can contain all points in the graph with <span class="process-math">\(x \gt M\)</span> (for some choice of <span class="process-math">\(M\)</span>). If the graph itself is bounded, there will be a roof and a floor to the box. The function has a limit <span class="process-math">\(f(x) \to L\)</span> as <span class="process-math">\(x \to +\infty\)</span> if the roof and the floor both approach <span class="process-math">\(L\)</span> if you make <span class="process-math">\(M\)</span> larger and larger. If the roof and the floor are kept apart because the graph keeps oscillating, then the function does not have a limit. <em class="emphasis">Warning: Just looking at a graph can be deceptive because you only ever see a bounded portion of that graph.</em></p>
+<p id="p-495">An example of this is illustrated in <a href="" class="xref" data-knowl="./knowl/fig_horiz_asympt_oscillation.html" title="Figure 3.4.2">Figure 3.4.2</a>. Notice in this graph how the ceiling and floor are getting closer to one another as <span class="process-math">\(M\)</span> moves to the right. The view of the graph does not show whether the oscillation decays enough for the ceiling and floor to actually approach one.</p>
+<figure class="figure figure-like" id="fig_horiz_asympt_oscillation"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/illust_horiz_asympt_oscillation.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.2<span class="period">.</span></span><span class="space"> </span>A function with horizontal asymptote <span class="process-math">\(y=2\)</span> showing the boxes containing the graph for <span class="process-math">\(x \gt M\)</span> with <span class="process-math">\(M=4\)</span> and <span class="process-math">\(M=10\)</span></figcaption></figure><p id="p-496">The other end-behavior we will look at is unbounded growth. Think about the graph of a parabola, <span class="process-math">\(y=x^2\text{.}\)</span> It forms the shape of a U with the two arms reaching up forever. This idea of reaching up is what we want to understand. As limits, we say <span class="process-math">\(\displaystyle \lim_{x \to -\infty} x^2 = +\infty\)</span> (left arm reaches up) and <span class="process-math">\(\displaystyle \lim_{x \to +\infty} x^2 = +\infty\)</span> (right arm reaches up). A cubic has one arm reaching up and one reaching down, represented by limits</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-60">
+\begin{gather*}
+\lim_{x \to -\infty} x^3 = -\infty\\
+\lim_{x \to +\infty} x^3 = +\infty
+\end{gather*}
+</div>
+<figure class="figure figure-like" id="fig_end_behavior_quadratic_cubic"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/end_behavior_quadratic.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/end_behavior_cubic.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.3<span class="period">.</span></span><span class="space"> </span>End behavior of a quadratic (left) and cubic (right)</figcaption></figure></section><section class="subsection" id="subsec_limits_at_infinity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Infinite Limits</span>
+</h3>
+<p id="p-497">Now that we know the meaning of limits corresponding to end behavior, we turn our attention to their calculation. The easiest way is to think about extending our view of arithmetic by including calculations <em class="emphasis">with</em> the values of <span class="process-math">\(\pm\infty\text{.}\)</span> In reality, we these calculations are about how limits of a combination is calculated from the limits of the parts, something we call <dfn class="terminology">limit forms</dfn>. The key to this extension is that we must avoid any calculations that would cancel away values that are infinitely big or infinitely small. Such limit forms are called <dfn class="terminology">indeterminate</dfn>.</p>
+<article class="assemblage assemblage-like" id="asmbl_indeterminate"><h4 class="heading"><span class="title">Indeterminate Limit Forms.</span></h4></article><p id="p-503">Otherwise, we can compute limits based on simple rules that combine real limits with infinite limits. Let <span class="process-math">\(L\)</span> represent any <em class="emphasis">non-zero</em> real-valued positive limit.</p>
+<ul class="disc">
+<li id="li-90"><p id="p-504"><span class="process-math">\(\infty \pm L = \infty\)</span> and <span class="process-math">\(-\infty \pm L = -\infty\text{:}\)</span> Adding a real limit to an infinite limit is still infinite.</p></li>
+<li id="li-91"><p id="p-505"><span class="process-math">\(L \cdot \infty = \infty\)</span> and <span class="process-math">\(L \cdot -\infty = -\infty\text{:}\)</span> Multiply a non-zero real limit with an infinite limit is still infinite.</p></li>
+<li id="li-92"><p id="p-506"><span class="process-math">\(\frac{L}{\pm\infty} = 0\text{:}\)</span> Dividing a real limit by an infinite limit is zero (values get infinitely small).</p></li>
+<li id="li-93"><p id="p-507"><span class="process-math">\(\infty+\infty = \infty\)</span> and <span class="process-math">\(\infty \cdot \infty = \infty\)</span></p></li>
+</ul>
+<p class="continuation">Multiplication by a negative value changes the sign, so for products we need to count the number of negative factors.</p>
+<article class="example example-like" id="ex_limits_at_infinity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
+</h4>
+<ul id="p-508" class="disc">
+<li id="li-94">
+<p id="p-509"><span class="process-math">\(\displaystyle \lim_{x \to \infty} -2x^2 + 4\)</span></p>
+<p id="p-510">In the limit, each <span class="process-math">\(x \to +\infty\text{,}\)</span> so the limit form is <span class="process-math">\(-2 \cdot (\infty)^2 + 4\text{.}\)</span> We know <span class="process-math">\(\infty\cdot\infty = \infty\)</span> and <span class="process-math">\(-2 \cdot \infty = -\infty\)</span> and <span class="process-math">\(-\infty + 4 = -\infty\text{.}\)</span> We would write:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-61">
+\begin{align*}
+\lim_{x \to \infty} -2x^2 + 4 &amp;= -2(\infty)^2 + 4\\
+&amp;= -2(\infty) + 4\\
+&amp;= -\infty + 4\\
+&amp;= -\infty
+\end{align*}
+</div>
+<p class="continuation">The interpretation of this is that <span class="process-math">\(f(x) = -2x^2+4\)</span> has right end behavior <span class="process-math">\(y \to -\infty\)</span> as <span class="process-math">\(x \to +\infty\text{.}\)</span></p>
+</li>
+<li id="li-95">
+<p id="p-511"><span class="process-math">\(\displaystyle \lim_{x \to -\infty} \frac{3}{2x+5}\)</span></p>
+<p id="p-512">To evaluate this limit, we would write it in terms of a limit form involving <span class="process-math">\(-\infty\)</span> for each <span class="process-math">\(x\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-62">
+\begin{align*}
+\lim_{x \to -\infty} \frac{3}{2x+5} &amp;= \frac{3}{2(-\infty)+5}\\
+&amp;= \frac{3}{-\infty+5}\\
+&amp;= \frac{3}{-\infty}\\
+&amp;= 0
+\end{align*}
+</div>
+<p class="continuation">The interpretation of this is that <span class="process-math">\(g(x) = \frac{3}{2x+5}\)</span> has left end behavior <span class="process-math">\(y \to 0\)</span> as <span class="process-math">\(x \to -\infty\text{,}\)</span> meaning there is a horizontal asymptote <span class="process-math">\(y=0\)</span> on the left.</p>
+</li>
+</ul></article></section><section class="subsection" id="subsec_lim_end_behavior_polynomial"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.3</span> <span class="title">End Behavior of Polynomials</span>
+</h3>
+<p id="p-513">We now know everything we need to understand the end-behavior of polynomials, and to be able to justify that behavior in terms of limit forms. Ultimately, everything will be based on the <em class="emphasis">highest-order term</em>, the term that has the greatest power of the variable. For our learning objective, we focus as much or more on the reasoning for our limits based on appropriate use of limit forms.</p>
+<p id="p-514">Polynomials are usually written as a sum of terms. Because limit forms adding <span class="process-math">\(+\infty\)</span> and <span class="process-math">\(-\infty\)</span> are indeterminate, we need to <em class="emphasis">rewrite</em> polynomials in a new form prior to the limit. Multiplying infinities does not create problems, so our strategy will be to rewrite the sum as a product. We could do a full factorization, but that is more work than is needed. Instead, we factor out the highest power of <span class="process-math">\(x\text{.}\)</span> The highest-order term's coefficient will be a constant, and all other terms will be their coefficients divided by a power of <span class="process-math">\(x\text{.}\)</span></p>
+<article class="example example-like" id="ex_lim_end_behavior_polynomial"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-6.</span>
+</h4>
+<p id="p-515">State and justify limits that describe the end behavior of <span class="process-math">\(f(x) = 2x^4 - 3x^2 + 5x - 7\text{.}\)</span> Explain how the limits correspond to the behavior of the graph.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-42" id="solution-42"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-42"><div class="solution solution-like">
+<p id="p-516">The highest-order term of <span class="process-math">\(f(x)\)</span> is <span class="process-math">\(2x^4\text{,}\)</span> so we will factor out <span class="process-math">\(x^4\text{.}\)</span> The other factor will have each term divided by <span class="process-math">\(x^4\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-63">
+\begin{align*}
+f(x) &amp;= 2x^4 - 3x^2 + 5x - 7\\
+&amp;= x^4 \cdot (\frac{2x^4}{x^4} - \frac{3x^2}{x^4} + \frac{5x}{x^4} - \frac{7}{x^4}\\
+&amp;= x^4 \cdot (2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}
+\end{align*}
+</div>
+<p class="continuation">The new formula introduces a discontinuity at <span class="process-math">\(x=0\text{,}\)</span> but that does not change our limits as <span class="process-math">\(x \to \pm\infty\text{.}\)</span></p>
+<p id="p-517">To calculate end behavior, we use limits as <span class="process-math">\(x \to \pm\infty\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-64">
+\begin{align*}
+\lim_{x \to +\infty} f(x) &amp;= \lim_{x \to +\infty} x^4 \cdot \left(2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}\right)\\
+&amp;= (+\infty)^4 \cdot \left(2 - \frac{3}{(+\infty)^2} + \frac{5}{(+\infty)^3} - \frac{7}{(+\infty)^4}\right)\\
+&amp;= +\infty \cdot \left(2 - \frac{3}{\infty} + \frac{5}{\infty} - \frac{7}{\infty}\right)\\
+&amp;= +\infty \cdot (2 - 0 + 0 - 0) = 2 \cdot \infty = \infty
+\end{align*}
+</div>
+<p class="continuation">That is, the right end behavior of <span class="process-math">\(f(x)\)</span> is a branch <span class="process-math">\(y \to +\infty\)</span> as <span class="process-math">\(x \to +\infty\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-65">
+\begin{align*}
+\lim_{x \to -\infty} f(x) &amp;= \lim_{x \to -\infty} x^4 \cdot \left(2 - \frac{3}{x^2} + \frac{5}{x^3} - \frac{7}{x^4}\right)\\
+&amp;= (-\infty)^4 \cdot \left(2 - \frac{3}{(-\infty)^2} + \frac{5}{(-\infty)^3} - \frac{7}{(-\infty)^4}\right)\\
+&amp;= +\infty \cdot \left(2 - \frac{3}{\infty} + \frac{5}{-\infty} - \frac{7}{\infty}\right)\\
+&amp;= +\infty \cdot (2 - 0 + 0 - 0) = 2 \cdot \infty = \infty
+\end{align*}
+</div>
+<p class="continuation">So the left end behavior of <span class="process-math">\(f(x)\)</span> is another branch with <span class="process-math">\(y \to +\infty\)</span> as <span class="process-math">\(x \to -\infty\text{.}\)</span> Both arms of the graph reach upward, consistent with <em class="emphasis">any</em> polynomial having an even dominant power.</p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_lim_end_behavior_rational"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.4</span> <span class="title">End Behavior of Rational Functions</span>
+</h3>
+<p id="p-518">A <dfn class="terminology">rational function</dfn> is a function that can be written as a quotient of two polynomials. The end behavior of a rational function can be unbounded like a polynomial or it can result in a horizontal asymptote. The end behavior will always match the end behavior of what you see if you simplify the leading term in the numerator divided by the leading term in the denominator.</p>
+<p id="p-519">Again, our emphasis is in the communication and justification, not the answer. We use the same strategies that we used for end behavior limits of polynomials. We must avoid limit forms that attempt to cancel, whether it is adding/subtracting infinity or dividing infinity by infinity. To avoid both of these problems, we will factor out the highest power from the numerator, factor out the highest power from the denominator, and then simplify prior to evaluating limits.</p>
+<article class="example example-like" id="ex_lim_end_behavior_rational"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-7.</span>
+</h4>
+<p id="p-520">State and justify limits that describe the end behavior of <span class="process-math">\(Q(x) = \frac{2x^5 - 3x^2 - 7}{x^2+2x-5}\text{.}\)</span> Explain how the limits correspond to the behavior of the graph.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-43" id="solution-43"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-43"><div class="solution solution-like">
+<p id="p-521">We need to compute limits of <span class="process-math">\(Q(x)\)</span> as <span class="process-math">\(x \to \pm \infty\text{.}\)</span> In both cases, we will want to use a revised formula that expresses <span class="process-math">\(Q(x)\)</span> as a product of terms rather than quotient of sums. The dominant power in the numerator is <span class="process-math">\(x^5\)</span> and the dominant power in the denominator is <span class="process-math">\(x^2\text{.}\)</span> We factor each of those powers out of their respective expressions. For <span class="process-math">\(x \ne 0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-66">
+\begin{align*}
+Q(x) &amp;= \frac{2x^5-3x^2-7}{x^2+2x-5} \\
+&amp;= \frac{x^5 \cdot (2 - \frac{3}{x^3} - \frac{7}{x^5}}{x^2 \cdot (1 + \frac{2}{x} - \frac{5}{x^2})}
+\end{align*}
+</div>
+<p class="continuation">Next we rewrite this as a product, grouping the ratio <span class="process-math">\(\frac{x^5}{x^2}\)</span> in order to simplify it:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-67">
+\begin{align*}
+Q(x) &amp;= \frac{x^5}{x^2} \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}\\
+&amp;= x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}
+\end{align*}
+</div>
+<p id="p-522">End behavior is characterized by the limits <span class="process-math">\(\displaystyle \lim_{x \to \pm \infty} Q(x)\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-68">
+\begin{align*}
+\lim_{x \to -\infty} Q(x) &amp;= \lim_{x \to -\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}\\
+&amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}\\
+&amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}\\
+&amp;= -\infty \cdot \frac{2 - 0 - 0}{1 + 0 - 0}\\
+&amp;= -\infty \cdot 2 = -\infty
+\end{align*}
+</div>
+<p class="continuation">This limit shows that <span class="process-math">\(Q(x)\)</span> has left end behavior <span class="process-math">\(y \to -\infty\)</span> as <span class="process-math">\(x \to -\infty\)</span> (left side branch goes down).</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-69">
+\begin{align*}
+\lim_{x \to +\infty} Q(x) &amp;= \lim_{x \to +\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}\\
+&amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}\\
+&amp;= +\infty \cdot 2 = +\infty
+\end{align*}
+</div>
+<p class="continuation">This limit shows that <span class="process-math">\(Q(x)\)</span> has right end behavior <span class="process-math">\(y \to +\infty\)</span> as <span class="process-math">\(x \to +\infty\)</span> (right side branch goes up).</p>
+<p id="p-523">Note that the step where we simplified the fraction <span class="process-math">\(\frac{x^5}{x^2}\)</span> is where the relative size of the powers of the dominant terms was important. In this case, the numerator had a higher power so that the limit ended up being infinite. When the powers are the same, this fraction cancels entirely and the other factor controls the limit. When the power in the denominator is greater, the limit of the simplified fraction will be a limit of the form <span class="process-math">\(\frac{1}{\infty}=0\text{.}\)</span></p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

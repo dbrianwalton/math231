@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>Let us start by clearing identifying our goal. The functions satisfy the definition of inverse functions if it is true that <span class="process-math">\(f \circ g(x) = x\)</span> and <span class="process-math">\(g \circ f(x) = x\text{.}\)</span> Consequently, we need to create the formulas for <span class="process-math">\(f \circ g(x) = f \big(g(x)\big)\)</span> and <span class="process-math">\(g \circ f(x) = g \big(f(x)\big)\text{.}\)</span> Then we will need to simplify the formulas, canceling terms where appropriate, and see if they reduce to <span class="process-math">\(x\)</span> or something more complicated.</p>
+<p>We start with the first composition to find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f \circ g(x) &amp;= f\left(g(x)\right)\\
+&amp;= 5 h^{-1}\left(\frac{\boxed{g(x)}+1}{2}\right) + 3\\
+&amp;= 5 h^{-1}\left(\frac{\boxed{2 h\left(\frac{x-3}{5}\right) - 1}+1}{2}\right) + 3
+\end{align*}
+</div>
+<p class="continuation">We are looking for inverse operations that are back-to-back steps. Notice that the last operation in <span class="process-math">\(g(x)\)</span> was adding -1 and the first operation in <span class="process-math">\(f(x)\)</span> was adding 1. These cancel one another:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right) - \cancel{1}+\cancel{1}}{2}\right) + 3\\
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{2 h\left(\frac{x-3}{5}\right)}{2}\right) + 3
+\end{align*}
+</div>
+<p class="continuation">Now we see that in the input to <span class="process-math">\(h^{-1}\text{,}\)</span> there is multiplication by 2 and division by 2 back-to-back that cancel:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1}\left(\frac{\cancel{2} h\left(\frac{x-3}{5}\right)}{\cancel{2}}\right) + 3\\
+f \circ g(x) &amp;= 5 h^{-1}\left( h\left(\frac{x-3}{5}\right)\right) + 3
+\end{align*}
+</div>
+<p class="continuation">Now we have a composition of inverses <span class="process-math">\(h^{-1} \circ h\)</span> that reduces to the identity, after which we use algebra to simplify:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f \circ g(x) &amp;= 5 h^{-1} \circ h\left(\frac{x-3}{5}\right) + 3\\
+&amp;= 5 \left(\frac{x-3}{5}\right) + 3\\
+&amp;= \cancel{5} \left(\frac{x-3}{\cancel{5}}\right) + 3\\
+&amp;= x-3 + 3\\
+&amp;= x
+\end{align*}
+</div>
+<p class="continuation">We have shown that <span class="process-math">\(f \circ g(x) = x\text{,}\)</span> which is half of the required work to show they are inverses.</p>
+<p>We need to check the reverse process.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+g \circ f(x) &amp;= g\left(f(x)\right)\\
+&amp;= 2 h\left(\frac{\boxed{f(x)}-3}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{\boxed{5 h^{-1}\left(\frac{x+1}{2}\right) + 3}-3}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{5 h^{-1}\left(\frac{x+1}{2}\right) + \cancel{3} -\cancel{3}}{5}\right) - 1\\
+&amp;= 2 h\left(\frac{\cancel{5} h^{-1}\left(\frac{x+1}{2}\right)}{\cancel{5}}\right) - 1\\
+&amp;= 2 h\left( h^{-1}\left(\frac{x+1}{2}\right)\right) - 1\\
+&amp;= 2 h \circ h^{-1}\left(\frac{x+1}{2}\right) - 1\\
+&amp;= \cancel{2} \left(\frac{x+1}{\cancel{2}}\right) - 1\\
+&amp;= x+1 - 1\\
+&amp;= x
+\end{align*}
+</div>
+<p class="continuation">We have now also shown that <span class="process-math">\(g \circ f(x) =x\text{.}\)</span></p>
+<p>Because <span class="process-math">\(f \circ g(x)=x\)</span> and <span class="process-math">\(g \circ f(x)=x\text{,}\)</span> the functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> satisfy the definition of inverse functions. We now know that <span class="process-math">\(f^{-1} = g\)</span> and <span class="process-math">\(g^{-1}=f\text{.}\)</span></p>
+</div></body>
+</html>

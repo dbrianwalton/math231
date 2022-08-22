@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>When we use the derivative rules for a difference, we just subtract the derivatives of the terms separately. The product will require the product rule. We work through the rules in turn to find the final answer.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+h'(x) &amp;= \frac{d}{dx}\left[ 2x f(x^2) - \frac{1}{g^3(x)} \right]\\
+&amp;= \frac{d}{dx}\left[ 2x f(x^2) \right] - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
+&amp;= \frac{d}{dx}\left[ 2x \right] \cdot f(x^2) + 2x \cdot \frac{d}{dx}\left[ f(x^2) \right]  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
+&amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
+&amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - (-3u^{-4}) \cdot \frac{du}{dx} \Big|_{u=g(x)}\\
+&amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + 3(g(x))^{-4} \cdot g'(x)\\
+&amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + \frac{3g'(x)}{(g(x))^{4}}
+\end{align*}
+</div>
+<span class="incontext"><a href="sec_derivs_differentiation.html#p-773" class="internal">in-context</a></span>
+</body>
+</html>

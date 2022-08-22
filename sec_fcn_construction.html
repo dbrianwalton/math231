@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Constructing Functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_fcn_notation.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_fcn_inverse.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_fcn_notation.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_fcn_inverse.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="active">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_fcn_construction"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Constructing Functions</span>
+</h2>
+<section class="introduction" id="introduction-8"><p id="p-217">One of the most important skills necessary for success in calculations relating to calculus is to understand how functions or expressions written as formulas are constructed out of simpler building blocks. Once we understand the rules of calculus for the individual building blocks, calculus provides rules for how to deal with more complex constructions.</p>
+<p id="p-218">The learning outcomes represented in this section focus on developing this skill.</p>
+<ul class="disc">
+<li id="li-26"><p id="p-219">Find the domain of a function. The process of finding a domain given a formula is based on recognizing some steps in construction, specifically relating to the presence of division or square (even) roots. Once these steps are identified, the process reduces to solving equations or inequalities and interpreting the resulting sets.</p></li>
+<li id="li-27"><p id="p-220">Recognize composition of functions. One of the basic methods of creating a complex function from simple elements, the composition of functions plays a central role in understanding inverse functions and is essential in understanding and using the chain rule and other rules involving substitution.</p></li>
+<li id="li-28"><p id="p-221">Deconstruct a function. All of the rules of calculus (limits, derivatives, integrals) are based on the structure of a formula. Recognizing how a single formula is constructed from smaller units will be essential for later success.</p></li>
+</ul></section><section class="subsection" id="subsec_fcn_domain"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.1</span> <span class="title">Natural Domains</span>
+</h3>
+<p id="p-222">Learning how to find the domain of an expression involves a subset of the skills relating to how expressions are constructed. While it might be preferable to frame this in terms of deconstruction and composition discussed below, this discussion will try to focus specifically on two operations that impact the domain—division and even roots.</p>
+<p id="p-223">The <dfn class="terminology">natural domain</dfn> of an expression (a function) involving one or more variables is the set of values that can be assigned to the variables such that the expression has a well-defined resulting value. When a function is constructed so that it only involves basic arithmetic operations (addition, subtraction, multiplication, and division) and powers, the only possible problem is division by zero. If a formula has an even root (or powers <span class="process-math">\(p/q\)</span> with <span class="process-math">\(q\)</span> an even integer), the resulting root of a negative value is not a real number. Apart from those issues, the formula will create a real-valued answer.</p>
+<p id="p-224">To find the domain of an algebraic function, we need to identify the risky operations (division and even roots) and create inequalities that will ensure they are safe. The set of values that avoid all undefined circumstances will be the domain. Thus, the first skill is to <em class="emphasis">identify</em> where the operations of division occur and the sub-expression that might create a problem.</p>
+<ol class="decimal">
+<li id="li-29"><p id="p-225">Is there division? What are the subexpressions representing the numerator and denominator? Values making the denominator <em class="emphasis">zero</em> need to be removed from the domain.</p></li>
+<li id="li-30"><p id="p-226">Is there an even root or a power of the form <span class="process-math">\(p/q\)</span> with <span class="process-math">\(q\)</span> an even integer? What is the subexpression of the formula <em class="emphasis">inside</em> the root? (This is an input of a composition.) Values making the input expression <em class="emphasis">negative</em> need to be removed from the domain.</p></li>
+</ol>
+<p class="continuation">The second skill is to apply our previously reviewed principles of solving equations and inequalities to find the sets described above.</p>
+<article class="example example-like" id="ex_fcn_domain_quotient"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+</h4>
+<p id="p-227">Determine the domain of <span class="process-math">\(\displaystyle f(x) = 5x + \frac{2x+3}{x^2-4}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
+<p id="p-228">When we look at the formula for <span class="process-math">\(f(x)\text{,}\)</span> we see that the construction involves <em class="emphasis">division</em>,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5x + \boxed{\frac{2x+3}{x^2-4}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We need to recognize the <em class="emphasis">denominator</em> in that step. The formula <span class="process-math">\(2x+3\)</span> is <em class="emphasis">divided by</em> <span class="process-math">\(x^2-4\text{.}\)</span> The domain requires that the denominator <span class="process-math">\(x^2-4\)</span> is <em class="emphasis">nonzero</em>. We create an equation to see what values create problems by relating the denominator to zero,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x^2-4 = 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We solve the equation using factoring, since a product can only equal zero if one of the factors equals zero.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-29">
+\begin{gather*}
+x^2-4 = 0\\
+(x+2)(x-2) = 0 \\
+x+2 = 0 \quad \text{or} \quad x-2=0\\
+x=-2 \quad \text{or} \quad x=2
+\end{gather*}
+</div>
+<p class="continuation">This means <span class="process-math">\(f(x)\)</span> is defined for all inputs except <span class="process-math">\(x=-2\)</span> or <span class="process-math">\(x=2\text{.}\)</span></p>
+<p id="p-229">To describe the domain using intervals, we think of the real number line and remove <span class="process-math">\(x=\pm 2\text{.}\)</span> A graphical representation of the set using a number line is shown below. Intervals are read from the line left-to-right. It starts at <span class="process-math">\(-\infty\)</span> and continues until <span class="process-math">\(-2\text{,}\)</span> then goes from <span class="process-math">\(-2\)</span> to <span class="process-math">\(2\text{,}\)</span> and finally goes from <span class="process-math">\(2\)</span> until <span class="process-math">\(+\infty\text{.}\)</span> We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D = (-\infty,-2) \cup (-2, 2) \cup (2,+\infty)\text{.}
+\end{equation*}
+</div>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-25.svg" role="img" class="contained"></div>
+</div></div>
+</div></article><article class="example example-like" id="ex_fcn_squareroot_domain"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h4>
+<p id="p-230">Find the domain of the function <span class="process-math">\(\displaystyle g(x)=2x^2 - \sqrt{x^2-x-6}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-22" id="solution-22"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like">
+<p id="p-231">The expression defining <span class="process-math">\(g(x)\)</span> includes an even root. To find the domain, we need to identify what expression is the <em class="emphasis">input</em> to that root. The root will only have a real value when the input expression is non-negative. We identify the expression <em class="emphasis">inside</em> the root as  <span class="process-math">\(x^2-x-6\text{.}\)</span> The requirement is that this expression is non-negative. Any values of <span class="process-math">\(x\)</span> that make <span class="process-math">\(x^2-x-6 \lt 0\)</span> can <em class="emphasis">not</em> be in the domain.</p>
+<p id="p-232">To find the domain, our task sign analysis of <span class="process-math">\(x^2-x-6\text{.}\)</span> First, we find possible sign-changing points. The expression is always defined (no discontinuities) so we just solve for zeros <span class="process-math">\(x^2-x-6=0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-30">
+\begin{gather*}
+x^2-x-6=0 \\
+(x-3)(x+2)=0\\
+x-3=0 \quad \text{or} \quad x+2=0\\
+x=3 \quad \text{or} \quad x=-2
+\end{gather*}
+</div>
+<p class="continuation">Once we know these points, we test each interval to find the sign of the formula <span class="process-math">\((x-3)(x+2)\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_fcn_root_domain_sign_analysis"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_root_domain_sign_analysis.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.3<span class="period">.</span></span><span class="space"> </span>Sign analysis of <span class="process-math">\(x^2-x-6 = (x-3)(x+2)\)</span></figcaption></figure><p id="p-233">Now we interpret our results. We were finding the domain of <span class="process-math">\(g(x)=2x^2 - \sqrt{x^2-x-6}\text{,}\)</span> which requires <span class="process-math">\(x^2-x-6 \ge 0\text{.}\)</span> Based on our summary, we need to find all values which result in the expression <span class="process-math">\(x^2-x-6\)</span> having a positive sign or zero. Any values the cause the expression to have a negative sign are <em class="emphasis">not</em> in the domain. So our solution is the set</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D = (-\infty,-2] \cup [3,\infty)\text{.}
+\end{equation*}
+</div>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-27.svg" role="img" class="contained"></div>
+</div></div>
+</div></article><p id="p-234">More complicated problems require dealing with multiple issues.</p>
+<article class="example example-like" id="ex_fcn_find_domain_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-4.</span>
+</h4>
+<p id="p-235">Find the domain of <span class="process-math">\(\displaystyle f(x) = \frac{\sqrt{\frac{x-3}{x+1}}+2}{x^2+3x-4}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-23" id="solution-23"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-23"><div class="solution solution-like">
+<p id="p-236">Our task is to find the domain of the function. We look at the formula for the potential risk factors: division and even roots. There are two steps involving division and a square root. For each division, we need to look at what is the denominator and ensure it is not zero. For the square root, we need to identify its input and ensure it is not negative.</p>
+<p id="p-237">One division has a denominator of <span class="process-math">\(x+1\text{.}\)</span> We can't divide by zero, so we identify where a problem would occur by solving <span class="process-math">\(x+1 = 0\text{.}\)</span> The method of isolation quickly results in <span class="process-math">\(x=-1\)</span> being <em class="emphasis">excluded</em> from the domain.</p>
+<p id="p-238">The second division has a denominator of <span class="process-math">\(x^2+3x-4\text{.}\)</span> After factoring, we see this is rewritten <span class="process-math">\((x+4)(x-1)\text{.}\)</span> A problem occurs if the denominator is zero, so we need to solve <span class="process-math">\((x+4)(x-1)=0\text{.}\)</span> The two solutions at <span class="process-math">\(x=1\)</span> and <span class="process-math">\(x=-4\)</span> are also excluded from the domain.</p>
+<p id="p-239">For the square root, we need to identify the input expression. What formula is <em class="emphasis">inside</em> the root? We need to require <span class="process-math">\(\displaystyle \frac{x-3}{x+1} \ge 0\)</span> and so will remove any values causing <span class="process-math">\(\displaystyle \frac{x-3}{x+1} \lt 0\text{.}\)</span> This is already factored, so sign analysis will be quick.</p>
+<figure class="figure figure-like" id="fig_fcn_complex_input_sign_analysis"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_complex_input_sign_analysis.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.5<span class="period">.</span></span><span class="space"> </span>Sign analysis of <span class="process-math">\(\displaystyle \frac{x-3}{x+1}\)</span></figcaption></figure><p id="p-240">To interpret the results of sign analysis, recall that we were exploring the domain of the square root portion of the formula. That portion is defined where sign analysis reveals values that are positive or zero, which occur for <span class="process-math">\(x \in (-\infty, -1) \cup [3, \infty)\text{.}\)</span> The interval <span class="process-math">\([-1,3)\)</span> must all be removed from the domain—removing -1 because it causes division by zero and removing all values <span class="process-math">\(-1 \lt x \lt 3\)</span> because they put a negative value inside the square root.</p>
+<p id="p-241">Once we have considered the restrictions for each risk factor (division and even roots), the domain of the function overall requires that <em class="emphasis">all</em> restrictions are satisfied. If we imagine a number line of potential domain values, we remove <span class="process-math">\(x=-1\)</span> for the first division, <span class="process-math">\(x=-4\)</span> and <span class="process-math">\(x=1\)</span> for the second division, and all values <span class="process-math">\(-1 \lt x \lt 3\)</span> for the square root. Notice that <span class="process-math">\(x=1\)</span> is not allowed for two reasons. The domain is the set of remaining values,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D = (-\infty, -4) \cup (-4, -1) \cup [3,\infty)\text{.}
+\end{equation*}
+</div>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-29.svg" role="img" class="contained"></div>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_fcn_composition"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.2</span> <span class="title">Function Composition</span>
+</h3>
+<p id="p-242">A <dfn class="terminology">composition</dfn> is when we use the <em class="emphasis">output</em> value of one function as the <em class="emphasis">input</em> value of another function. That is, if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are functions, then <span class="process-math">\(f\big(g(x)\big)\)</span> is the composition of <span class="process-math">\(f\)</span> with <span class="process-math">\(g\text{.}\)</span> Overall, this constructs a <em class="emphasis">new</em> function <span class="process-math">\(f \circ g\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f \circ g(x) = f\big(g(x)\big)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We are using composition every time we evaluate a function using substitution with a formula as its input. When we identified a formula that was inside of a square root, we were identifying a composition. The skill we want to focus on in this subsection is in recognizing a sequence of operations as a composition of two functions.</p>
+<p id="p-243">The idea behind a composition <span class="process-math">\(f \circ g(x)\)</span> is in thinking of the overall expression or function as a sequence or <dfn class="terminology">chain</dfn> of two maps (functions) that accomplish the overall sequence of operations. We take the variable and perform some of the operations to find <span class="process-math">\(g(x)\text{.}\)</span> The rest of the calculation then consists of operations that are applied to that intermediate result. It is often the case that we think of this intermediate result as a dependent variable, say <span class="process-math">\(u=g(x)\text{,}\)</span> and the final result is a function  of <span class="process-math">\(u\text{,}\)</span> <span class="process-math">\(y=f(u)\text{.}\)</span></p>
+<article class="example example-like" id="ex_composition_as_chain"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h4>
+<p id="p-244">A drop of water sitting on a flat surface forms the shape of half a sphere. Suppose the radius of the drop, which starts at 3 mm, is decreasing through evaporation at a rate of 0.2 mm/min. The volume of water is a function of the radius of the drop, and the radius of the drop is itself a function of time. This chain of relations allows us to write the volume as a function of time using composition.</p>
+<p id="p-245">We will represent this model using a chain of relations involving time <span class="process-math">\(t\)</span> (in minutes), radius <span class="process-math">\(r\)</span> (in millimeters), and volume <span class="process-math">\(V\)</span> (in cubic millimeters). First, we will find a function representing the map from time to radius, <span class="process-math">\(t \mapsto r\text{.}\)</span> Then, we will find a function representing the map from radius to volume, <span class="process-math">\(r \mapsto V\text{.}\)</span> The overall relation between time and volume is found by composition of this chain,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+t \mapsto r \mapsto V\text{.}
+\end{equation*}
+</div>
+<p id="p-246">In the first step, we need the function <span class="process-math">\(t \mapsto r\)</span> which is modeled by a linear function because of the constant rate of change. That is, we know the slope (negative because decreasing) and an initial point:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta r}{\Delta t} = -0.2, \quad (t,r)=(0,3)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We have <span class="process-math">\(r=-0.2t+3\text{.}\)</span> This is the first step of the chain, <span class="process-math">\(t\mapsto r=-0.2t+3\text{,}\)</span> which we could assign to a function <span class="process-math">\(g(t) = -0.2t+3\text{.}\)</span></p>
+<p id="p-247">The second step of the chain is based on the relation between radius and volume. Because the drop of water forms just half a sphere, the volume formula is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+V = \frac{1}{2} \cdot \frac{4}{3}\pi r^3 = \frac{2}{3} \pi r^3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is already in the form of a function, so we have the second step of the chain, <span class="process-math">\(r \mapsto V = \frac{2}{3} \pi r^3\text{,}\)</span> which we could assign to another function <span class="process-math">\(f(r) = \frac{2}{3} \pi r^3\text{.}\)</span></p>
+<p id="p-248">We know that the radius is a function of time <span class="process-math">\(r=g(t) = -0.2t+3\text{,}\)</span> and volume is a function of radius, <span class="process-math">\(V=f(r) = \frac{2}{3} \pi r^3\text{.}\)</span> The relation <span class="process-math">\(t \mapsto V\)</span> is a composition of this chain, <span class="process-math">\(V = f \circ g(t)\text{.}\)</span> Using substitution, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+V = f(g(t)) = f(-0.2t+3) = \frac{2}{3} \pi (-0.2t+3)^3\text{.}
+\end{equation*}
+</div></article><p id="p-249">The focus of the measured learning objective is in being able to think through this in reverse. Recognizing a composition involves <em class="emphasis">looking</em> for formula patterns that could have come <em class="emphasis">from</em> this type of substitution. Try to find a sub-expression that involves the variable so that the overall expression consists only of further operations on that formula (and no others variables). That sub-expression would be the intermediate variable in the chain, often generically assigned a name <span class="process-math">\(u\text{.}\)</span> The outer function is identified by <em class="emphasis">replacing</em> that expression by the intermediate variable. There can often be multiple choices for what to call the intermediate variable.</p>
+<article class="example example-like" id="ex_fcn_find_composition"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-5.</span>
+</h4>
+<p id="p-250">Identify non-trivial functions <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> (meaning don't choose <span class="process-math">\(f(x)=x\)</span> or <span class="process-math">\(g(x)=x\)</span>) so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(g(x)) = 2(3x+1)^4+6\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Show that the substitution in the composition works as required.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-24" id="solution-24"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-24"><div class="solution solution-like">
+<p id="p-251">If we look at the overall expression as a function of <span class="process-math">\(x\text{,}\)</span> we can think about the operations happening in some sequence. The table below tries to highlight this order:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-31">
+\begin{align*}
+2(3 \boxed{x} + 1)^4 + 6 &amp; &amp; \text{find the variable}\\
+2(\boxed{3 x} + 1)^4 + 6 &amp; &amp; \text{multiply by 3}\\
+2(\boxed{3 x + 1})^4 + 6 &amp; &amp; \text{add 1}\\
+2\boxed{(3 x + 1)^4} + 6 &amp; &amp; \text{apply exponent 4}\\
+\boxed{2(3 x + 1)^4} + 6 &amp; &amp; \text{multiply by 2}\\
+\boxed{2(3 x + 1)^4 + 6} &amp; &amp; \text{add 6}
+\end{align*}
+</div>
+<p class="continuation">In principle, <em class="emphasis">any</em> intermediate step in this example could be used to identify our intermediate variable in the chain. The <em class="emphasis">inner function</em> will capture all of the operations up to that step; the <em class="emphasis">outer function</em> will capture all of the remaining operations.</p>
+<p id="p-252">The most important place to recognize composition is at the step that is not simple arithmetic—at the use of an exponent. The formula <span class="process-math">\(3x+1\)</span> captures all of the operations preceding the exponent. If we replace that formula by an intermediate variable <span class="process-math">\(u=3x+1\text{,}\)</span> the overall formula becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2u^4+6\text{.}
+\end{equation*}
+</div>
+<p class="continuation">(The boxed formula is replaced by <span class="process-math">\(u\text{.}\)</span>) This formula summarizes all of the remaining operations, starting with the exponent. Using this choice, the <em class="emphasis">inner</em> function (first map) is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) = 3x+1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the <em class="emphasis">outer</em> function (second map) is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(u) = 2u^4+6\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Mathematically, when the variable used as input is treated abstractly, we could also write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = 2x^4 + 6\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The composition works because substitution gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f \circ g(x) = f(\boxed{g(x)}) = 2 (\boxed{3x+1})^4 + 6\text{.}
+\end{equation*}
+</div>
+<p id="p-253">However, other composition choices could have been made. If we chose to do all steps including the exponent as the first step, we would have instead found <span class="process-math">\(u = g(x) = (3x+1)^4\)</span> and <span class="process-math">\(y = f(u) = 2u + 6\)</span> or <span class="process-math">\(f(x)= 2x+6\text{.}\)</span> With this choice, composition gives the same overall result:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f \circ g(x) = f(\boxed{g(x)}) = 2 \boxed{(3x+1)^4} + 6\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_fcn_deconstruction"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.2.3</span> <span class="title">Expression Deconstruction</span>
+</h3>
+<p id="p-254">We are now ready to look at the full picture of how all algebraic functions and expressions are constructed. Every formula consists of a collection of <dfn class="terminology">operations</dfn> that take simpler expressions to create more complex expressions. The <em class="emphasis">simplest</em> expressions would be numbers and variables (which are symbols representing numbers). All of the operations can be summarized as arithmetic or composition.</p>
+<p id="p-255">Arithmetic operations are the four basic operations of addition, subtraction, multiplication, and division. These operations are called <dfn class="terminology">binary</dfn> operations because they use <em class="emphasis">two</em> expressions as inputs to create a new complex expression. The associative and commutative properties of addition and multiplication make it so that we <em class="emphasis">could</em> think of addition or multiplication of more than two values at a time, but then the way we talk about things gets more complicated. Subtraction and division do <em class="emphasis">not</em> conveniently  allow for more than two values. So we will always think of <em class="emphasis">all</em> of the arithmetic operations as being binary.</p>
+<p id="p-256">Every other operation is represented by a function. Is something raised to a power? That's a function. Do we use an absolute value? That's a function. For each new operation, we have additional functions. When we use the operation to another formula, we have composition of functions.</p>
+<p id="p-257">To understand the rules of calculus, we must be able to look at a formula and understand how that formula is constructed and the order in which the operations are used. This is where we really need the <dfn class="terminology">order of operations</dfn>. Some teachers use the acronym <code class="code-inline tex2jax_ignore">PEMDAS</code> for (1) Parentheses, (2) Exponents, (3) Multiplication, (4) Division, (5) Addition, and (6) Subtraction. In reality, multiplication and division are the <em class="emphasis">same thing</em>, so they happen at the same priority. Similarly, addition and subtraction are really the same thing and have the same priority. When there are multiple items with the same priority, the understanding is that they are completed from left to right.</p>
+<p id="p-258">We need a slightly broader view in order to account for other operations. Because an exponent can be interpreted as a function, we put all functions at that same priority order. We could think of the <code class="code-inline tex2jax_ignore">E</code> in the acronym as meaning <em class="emphasis">every function</em>.</p>
+<p id="p-259">Parentheses are not a separate type of operation. They are listed first because they are used to <em class="emphasis">change</em> the priority to complete everything inside. For example, if we want to be sure that we add two values before a multiplication, we write <span class="process-math">\((a+b) \cdot c\)</span> because without parentheses <span class="process-math">\(a+b\cdot c\)</span> would be understood to complete multiplication <span class="process-math">\(b \cdot c\)</span> <em class="emphasis">before</em> we add <span class="process-math">\(a\text{.}\)</span> Functions use parentheses to emphasize that everything is inside needs to be evaluated <em class="emphasis">before</em> using the function's operation.</p>
+<p id="p-260">When you look at a formula, whether it is an expression standing alone or a function, you should be able to quickly identify the <em class="emphasis">last</em> operation so that you can <em class="emphasis">deconstruct</em> the formula into an operation involving two simpler expressions or functions. You could think of this as looking for the <em class="emphasis">lowest order of operation</em> in the expression. If there are not two clear parts, then you are most likely facing a composition of an operation with some input formula.</p>
+<p id="p-261">We will look at some examples of formula construction.</p>
+<article class="example example-like" id="ex_fcn_deconstruction_arithmetic_product"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
+</h4>
+<p id="p-262">How is <span class="process-math">\(\displaystyle 3x^4(2x+1)\)</span> made from two simpler expressions?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-25" id="solution-25"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-25"><div class="solution solution-like">
+<p id="p-263">This formula involves exponents, multiplication, and addition. Addition would normally be last, but it is occuring inside parentheses which raises the priority. So the last operation is a multiplication, and to be more precise is the <em class="emphasis">right-most</em> multiplication:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\boxed{3x^4} \cdot \boxed{(2x+1)}\text{.}
+\end{equation*}
+</div>
+<p id="p-264">We say the expression is a <dfn class="terminology">product</dfn> of the simpler expressions <span class="process-math">\(3x^4\)</span> and <span class="process-math">\(2x+1\text{.}\)</span></p>
+</div></div>
+</div></article><article class="example example-like" id="ex_fcn_deconstruction_arithmetic_sum"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
+</h4>
+<p id="p-265">How is <span class="process-math">\(\displaystyle 2x^3 + \frac{2x-1}{x^2+5}\)</span> made from two simpler expressions?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-26" id="solution-26"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-26"><div class="solution solution-like">
+<p id="p-266">This formula involves exponents, multiplication, division, addition, and subtraction. One aspect of quotients (division) written in fraction form is that the numerator and denominator don't <em class="emphasis">show</em> parentheses but it is as if they were. The formula might also have been written</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2x^3 + (2x-1)/(x^2+5)\text{.}
+\end{equation*}
+</div>
+<p id="p-267">The product <span class="process-math">\(2x^3\)</span> and the quotient <span class="process-math">\((2x-1)/(x^2+5)\)</span> both have higher priority than the addition that joins them. So the last operation is the addition:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\boxed{2x^3} + \boxed{\frac{2x-1}{x^2+5}}\text{.}
+\end{equation*}
+</div>
+<p id="p-268">We say the expression is a <dfn class="terminology">sum</dfn> of the simpler expressions <span class="process-math">\(2x^3\)</span> and <span class="process-math">\(\displaystyle \frac{2x-1}{x^2+5}\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-269">Examples of compositions might include:</p>
+<ul class="disc">
+<li id="li-31"><p id="p-270"><span class="process-math">\(\sqrt{x^2+3x}\text{:}\)</span> The last operation is the square root acting on a formula. So this is a <dfn class="terminology">composition</dfn> <span class="process-math">\(f \circ g(x)\)</span> of outer function <span class="process-math">\(f(x)=\sqrt{x}\)</span> with inner function <span class="process-math">\(g(x)=x^2+3x\text{.}\)</span></p></li>
+<li id="li-32"><p id="p-271"><span class="process-math">\((\sqrt{x}+3)^4\text{:}\)</span> The last operation is the exponent acting on a formula. So this is also a <dfn class="terminology">composition</dfn> <span class="process-math">\(f \circ g(x)\text{,}\)</span> but with an outer function <span class="process-math">\(f(x)=x^4\)</span> and an inner function <span class="process-math">\(g(x)=\sqrt{x}+3\text{.}\)</span></p></li>
+</ul>
+<p id="p-272">The learning outcome focuses on identifying the structure at multiple layers. Once you have identified the last operation and the two simpler expressions or functions involved, each of those expressions are themselves either elementary or can be further deconstructed. Repeat the process on the individual parts.</p>
+<article class="example example-like" id="ex_fcn_deconstruction_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-6.</span>
+</h4>
+<p id="p-273">Deconstruct the function <span class="process-math">\(f(x)=\sqrt{x^2+3x} - 3x^4(2x+1)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-27" id="solution-27"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-27"><div class="solution solution-like">
+<p id="p-274">The last operation is subtraction:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \boxed{\sqrt{x^2+3x}} - \boxed{3x^4(2x+1)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can label the simpler expressions with subscripts rather than creating new function names:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-32">
+\begin{align*}
+f(x) &amp;= f_1(x) - f_2(x) &amp; \text{difference}\\
+f_1(x) &amp;= \sqrt{x^2+3x}\\
+f_2(x) &amp;= 3x^4(2x+1)
+\end{align*}
+</div>
+<p id="p-275">We need to deconstruct <span class="process-math">\(f_1(x)\)</span> and <span class="process-math">\(f_2(x)\text{.}\)</span> The last operation for <span class="process-math">\(f_1(x)\)</span> is the square root with a formula as its input. So we have a composition:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-33">
+\begin{align*}
+f_1(x) &amp;= f_3 \circ f_4(x) &amp; \text{composition}\\
+f_3(x) &amp;= \sqrt{x}\\
+f_4(x) &amp;= x^2+3x
+\end{align*}
+</div>
+<p class="continuation">The last operation of <span class="process-math">\(f_2(x)\)</span> is multiplication:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-34">
+\begin{align*}
+f_2(x) &amp;= f_5(x) \cdot f_6(x) &amp; \text{product}\\
+f_5(x) &amp;= 3x^4\\
+f_6(x) &amp;= 2x+1
+\end{align*}
+</div>
+<p id="p-276">We would then continue for each of the functions. The function <span class="process-math">\(f_3(x) = \sqrt{x}\)</span> is a simple function acting on <span class="process-math">\(x\text{,}\)</span> so this has no further deconstruction. The function <span class="process-math">\(f_4(x) = x^2 + 3x\)</span> is a sum:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-35">
+\begin{align*}
+f_4(x) &amp;= f_7(x) + f_8(x) &amp; \text{sum}\\
+f_7(x) &amp;= x^2\\
+f_8(x) &amp;= 3x
+\end{align*}
+</div>
+<p class="continuation">Note that <span class="process-math">\(f_7(x)\)</span> is another simple function and requires no further deconstruction, while <span class="process-math">\(f_8(x)\)</span> is a product of elementary expressions <span class="process-math">\(3\)</span> and <span class="process-math">\(x\text{.}\)</span> The function <span class="process-math">\(f_5(x) = 3x^4\)</span> is a product of <span class="process-math">\(f_9(x)=3\)</span> (elementary expression) and <span class="process-math">\(f_{10}(x)=x^4\)</span> (elementary function). And the function <span class="process-math">\(f_6(x)=2x+1\)</span> is a sum of <span class="process-math">\(f_{11}(x)=2x\)</span> (a product) and <span class="process-math">\(f_{12}(x)=1\)</span> (elementary expression).</p>
+</div></div>
+</div></article><p id="p-277">One way to visualize the construction of an expression is with a graphical structure called a <dfn class="terminology">tree</dfn>. The original expression or function is the <dfn class="terminology">root</dfn> of the tree and it is associated with the last operation. Each of the two component expressions that are combined become branches of the tree. We keep branching each branch until we end up at a number, a variable, or an elementary function.</p>
+<figure class="figure figure-like" id="fig_fcn_deconstruction_as_tree"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_deconstruction_as_tree.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.11<span class="period">.</span></span><span class="space"> </span>Tree representation of the deconstruction from <a href="" class="xref" data-knowl="./knowl/ex_fcn_deconstruction_complex.html" title="Example 2.2.10: Learning Objective F-6">Example 2.2.10</a></figcaption></figure></section></section></div></main>
+</div>
+</body>
+</html>

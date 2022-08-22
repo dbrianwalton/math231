@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Sets and Interval Notation</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_prereq_linear.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_prereq_quadratic.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_prereq_linear.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_prereq_quadratic.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="active">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_prereq_sets"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Sets and Interval Notation</span>
+</h2>
+<section class="introduction" id="introduction-3"><p id="p-50">In typical algebra classes, sets are mainly used in describing solutions to equations or inequalities. This will still be true in calculus, but sets will play a more important role than just summarizing solutions. As we learn more about functions, we will learn that functions are defined in terms of sets. In addition, functions will also be described by various attributes (adjectives) that will be characterized by sets. In preparation, we will need to become practiced in describing and working with sets.</p></section><section class="subsection" id="subsec_prereq_intervals"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title"></span>
+</h3>
+<p id="p-51">Sets are collections of objects from some universe of possibilities. In calculus, we primarily focus on sets of real numbers. A set can be a described by listing its members, when that is possible. If a set has a finite number of values (meaning the list has a specific number of values), then we can list the included values inside of curly braces, as in <span class="process-math">\(\{2, 3, 5, 7\}\text{.}\)</span></p>
+<p id="p-52">A set can be assigned a name, such as <span class="process-math">\(P = \{2,3,5,7\}\text{.}\)</span> The number 2 is <em class="emphasis">in</em> <span class="process-math">\(P\text{,}\)</span> which we write <span class="process-math">\(2 \in P\text{.}\)</span> The number 4 is <em class="emphasis">not</em> in <span class="process-math">\(P\text{,}\)</span> which we write <span class="process-math">\(4 \not \in P\text{.}\)</span> A set that is <em class="emphasis">empty</em> would have no values, <span class="process-math">\(\{\}\text{,}\)</span> and sometimes is written with a special symbol <span class="process-math">\(\emptyset\text{.}\)</span></p>
+<p id="p-53">Calculus is more interested in <dfn class="terminology">intervals</dfn>. The real numbers form a <em class="emphasis">continuum</em> of values. Between any two real numbers, there is always another number (e.g., the midpoint). In fact, there are <em class="emphasis">infinitely many</em> numbers. Some of them are <dfn class="terminology">rational numbers</dfn>, meaning a ratio of integers. There are also even more <dfn class="terminology">irrational numbers</dfn>, numbers that can never be written as a ratio of integers.</p>
+<article class="definition definition-like" id="defn_interval"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Intervals.</span>
+</h4>
+<p id="p-54">An interval is a set of real numbers consisting of all numbers between two end-points, possibly including the end-points.</p>
+<ul class="disc">
+<li id="li-5"><p id="p-55"><span class="process-math">\((a,b) = \{x : a \lt x \lt b\}\)</span> is called the <dfn class="terminology">open interval</dfn> and excludes both end-points.</p></li>
+<li id="li-6"><p id="p-56"><span class="process-math">\([a,b] = \{x : a \le x \le b\}\)</span> is called the <dfn class="terminology">closed interval</dfn> and includes both end-points.</p></li>
+<li id="li-7"><p id="p-57"><span class="process-math">\((a,b] = \{x : a \lt x \le b\}\)</span> is neither open nor closed because it excludes <span class="process-math">\(a\)</span> and includes <span class="process-math">\(b\text{.}\)</span></p></li>
+<li id="li-8"><p id="p-58"><span class="process-math">\([a,b) = \{x : a \le x \lt b\}\)</span> is neither open nor closed because it includes <span class="process-math">\(a\)</span> and excludes <span class="process-math">\(b\text{.}\)</span></p></li>
+</ul></article><p id="p-59">What are some important take-away messages about how intervals are defined?</p>
+<p id="p-60">The end-points of the intervals always need to be ordered with the greater value listed second. So <span class="process-math">\((3,5)\)</span> is a valid interval but <span class="process-math">\((5,3)\)</span> is not. If an interval goes on forever, such as <span class="process-math">\(x \gt 2\text{,}\)</span> we use infinity as an end-point, as in <span class="process-math">\((2,\infty)\text{.}\)</span> Similarly, <span class="process-math">\(x \le -1\)</span> would create the interval <span class="process-math">\((-\infty,-1]\)</span> Be aware that infinity is <em class="emphasis">never</em> included as an end-point because it is not actually a real number.</p>
+<p id="p-61">Next, a critical understanding requires recognizing that any non-empty interval has infinitely many different numbers inside. Learners often want to think only in terms of integer (whole-number) values, and this interferes with this understanding. For example, some learners want to think of <span class="process-math">\(0 \lt x \lt 5\)</span> as only including integers <span class="process-math">\(\{1,2,3,4\}\)</span> or think of <span class="process-math">\(0 \lt x \lt 1\)</span> as being empty (since there aren't any integers between 0 and 1). Be sure to think about fractional values. For example, <span class="process-math">\(0.1 \in (0,1)\text{.}\)</span></p>
+<p id="p-62">We can visualize intervals and sets graphically by highlighting the points on a number line. Since the number line itself is a line, we often draw the interval or set as a thicker line over or next to the number line. Individual points are indicated with solid points. End-points that are not included are indicated with open circles or parentheses. It is also helpful to label the locations of the end-points, especially if the number line itself does not have the location clearly marked.</p>
+<article class="example example-like" id="ex_drawing_intervals"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Outcome P-3.</span>
+</h4>
+<p id="p-63">Illustrate the intervals <span class="process-math">\((-4,-\pi]\text{,}\)</span> <span class="process-math">\([0,\sqrt{5})\text{,}\)</span> and <span class="process-math">\([\sqrt{2},\infty)\text{,}\)</span> and, for each interval, identify at least one non-integer real number that is in the interval.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
+<p id="p-64">When thinking about numbers on the number line, it is useful to first identify their approximate decimal representation so that we can correctly find their position. The value <span class="process-math">\(\pi\)</span> has an approximate decimal representation of <span class="process-math">\(\pi \approx 3.14159\text{.}\)</span> When thinking about <span class="process-math">\(-\pi\text{,}\)</span> we need to be careful that we put this <em class="emphasis">to the left</em> of -3 on the number line.</p>
+<p id="p-65">For the other non-integer values, we have <span class="process-math">\(\sqrt{2} \approx 1.41421\)</span> (rounds down) and <span class="process-math">\(\sqrt{5} \approx 2.23607\)</span> (rounds up). I made mention of rounding because this technically means that <span class="process-math">\(\sqrt{2}\)</span> is <em class="emphasis">between</em> 1.41421 and 1.41422, while <span class="process-math">\(\sqrt{5}\)</span> is between 2.23606 and 2.23607.</p>
+<p id="p-66">Once we know where to place the numbers, we can draw our number line. We really only need to include that part of the number line that is useful to illustrate our interval. For example, the interval <span class="process-math">\((-4,-\pi]\)</span> might include a few integers to the left and right of the interval but does not need more than that.</p>
+<figure class="figure figure-like" id="fig_drawing_intervals_1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/drawing_intervals_1.svg" role="img" class="contained" alt="number line from -5 to -2 with interval (-4,-pi]."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.3<span class="period">.</span></span><span class="space"> </span>Illustration of the interval <span class="process-math">\((-4,-\pi]\text{.}\)</span></figcaption></figure><p id="p-67">What numbers are inside the interval? What numbers are outside? You should be able to think about this critically. Because <span class="process-math">\(-\pi \approx -3.14159\text{,}\)</span> you should be able to reason that <span class="process-math">\(-\pi\)</span> is between -3.2 and -3.1. Consequently, -3.2 is <em class="emphasis">inside</em> the interval but -3.1 is <em class="emphasis">outside</em> the interval. Similarly, -3.15 is inside the interval while -3.14 is outside.</p>
+<p id="p-68">The other two intervals are constructed similarly. Be careful about end-points. The value <span class="process-math">\(\sqrt{2}\)</span> is <em class="emphasis">in</em> the interval <span class="process-math">\([\sqrt{2],\infty)\)</span> because the end-point is included. However, if we used a decimal approximation <span class="process-math">\(\sqrt{2} \approx 1.414\text{,}\)</span> the value 1.414 is <em class="emphasis">not</em> in the interval because this is rounding <em class="emphasis">down</em> from the exact value and so is to the left of the actual end-point.</p>
+<figure class="figure figure-like" id="fig_drawing_intervals_2"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/drawing_intervals_2.svg" role="img" class="contained" alt="number line from -1 to 4 with interval [0,sqrt(5)) and [sqrt(2),infinity)."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.4<span class="period">.</span></span><span class="space"> </span>Illustration of the intervals <span class="process-math">\([0,\sqrt{5})\)</span> (blue, top) and <span class="process-math">\([\sqrt{2},\infty)\)</span> (orange, below).</figcaption></figure>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_prereq_compound_sets"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title"></span>
+</h3>
+<p id="p-69">Intervals and singletons (sets with a single value) form the elementary building blocks for more complicated sets. Suppose we were looking at the graph <span class="process-math">\(y=x^2-1\)</span> and wanted to describe the set of values <span class="process-math">\(x\)</span> so that the graph had <span class="process-math">\(y \gt 0\text{.}\)</span> There are two <dfn class="terminology">disjoint</dfn> pieces of the graph that have <span class="process-math">\(y \gt 0\text{.}\)</span> One piece is where <span class="process-math">\(x \lt -1\)</span> and the other is where <span class="process-math">\(x \gt 1\text{.}\)</span> This is one set, but it is composed of <em class="emphasis">two</em> disjoint intervals. To make a statement about <span class="process-math">\(x\)</span> being in the set, we would need to say <span class="process-math">\(x \lt -1\)</span> <em class="emphasis">or</em> <span class="process-math">\(x \gt 1\text{.}\)</span> Mathematically, we say that the set is a <dfn class="terminology">union</dfn> of intervals and write <span class="process-math">\((-\infty,-1) \cup (1,\infty)\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_parabola_above_axis"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/parabola_above_axis.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.5<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=x^2-1\)</span> that highlights where <span class="process-math">\(y \gt 0\text{.}\)</span></figcaption></figure><article class="definition definition-like" id="defn_set_union"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Union of Sets.</span>
+</h4>
+<p id="p-70">Given <em class="emphasis">two</em> sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> the <dfn class="terminology">union</dfn> of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> is a new set <span class="process-math">\(A \cup B\)</span> defined as all values <span class="process-math">\(x\)</span> so that <span class="process-math">\(x \in A\)</span> <em class="emphasis">or</em> <span class="process-math">\(x \in B\text{.}\)</span></p>
+<p id="p-71">If we are given <em class="emphasis">more</em> than two sets, the union of the collection is a new set whose values must be in <em class="emphasis">at least one</em> of the sets that were combined.</p></article><p id="p-72">A related concept to union is <dfn class="terminology">intersection</dfn>. An intersection considers where sets <em class="emphasis">overlap</em> and includes <em class="emphasis">shared values</em> from the sets.</p>
+<article class="definition definition-like" id="defn_set_intersection"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Intersection of Sets.</span>
+</h4>
+<p id="p-73">Given <em class="emphasis">two</em> sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> the <dfn class="terminology">intersection</dfn> of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> is a new set <span class="process-math">\(A \cap B\)</span> defined as all values <span class="process-math">\(x\)</span> so that <span class="process-math">\(x \in A\)</span> <em class="emphasis">and</em> <span class="process-math">\(x \in B\text{.}\)</span></p>
+<p id="p-74">If we are given <em class="emphasis">more</em> than two sets, the intersection of the collection is a new set whose values must be in <em class="emphasis">all</em> of the sets that were combined.</p></article><p id="p-75">If we wanted to be careful, we would also need to learn that there is an order of set operations. Intersection is like multiplication and union is like addition. So if we had three sets <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\text{,}\)</span> the notation <span class="process-math">\(A \cup B \cap C\)</span> would mean the union of <span class="process-math">\(A\)</span> with <span class="process-math">\(B \cap C\text{.}\)</span> To avoid worrying about this, we will use parentheses to make things clear. For that example, we would have an unambiguous notation by writing <span class="process-math">\(A \cup (B \cap C)\text{,}\)</span> which is very different from <span class="process-math">\((A \cup B) \cap C\text{,}\)</span> the intersection of <span class="process-math">\(A \cup B\)</span> with <span class="process-math">\(C\text{.}\)</span></p>
+<p id="p-76">When working with sets defined by intervals, it can help greatly to put the sets side by side with a common number line. If you have access to color, that can help you keep track of the sets as well. We will see that if intervals overlap, the union will be a new interval that contains both parts.</p>
+<article class="example example-like" id="ex_union_intersections_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span>
+</h4>
+<p id="p-77">Given sets <span class="process-math">\(A = (-2,1]\text{,}\)</span> <span class="process-math">\(B = [3,5)\)</span> and <span class="process-math">\(C = (0,2)\text{,}\)</span> find the unions <span class="process-math">\(A \cup B\text{,}\)</span> <span class="process-math">\(A \cup C\)</span> and <span class="process-math">\(B \cup C\text{.}\)</span> Then find the intersections <span class="process-math">\(A \cap B\text{,}\)</span> <span class="process-math">\(A \cap C\)</span> and <span class="process-math">\(B \cap C\text{.}\)</span> Write the sets using simplified unions of disjoint sets.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
+<p id="p-78">To visualize this, let us begin by creating a number line and showing each of the three sets <span class="process-math">\(A,B,C\text{.}\)</span> To emphasize that these are being considered as different sets, they are colored differently and placed on different layers.</p>
+<figure class="figure figure-like" id="fig_multiple_intervals_aligned"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/multiple_intervals_aligned.svg" role="img" class="contained" alt="Illustration of multiple intervals aligned with a common number line"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.9<span class="period">.</span></span><span class="space"> </span>Illustration of the sets <span class="process-math">\(A = (-2,1]\)</span> (blue, top), <span class="process-math">\(B=[3,5)\)</span> (orange, middle), and <span class="process-math">\(C=(0,2)\)</span> (purple, bottom).</figcaption></figure><p id="p-79">To find <span class="process-math">\(A \cup B\text{,}\)</span> we need to describe the set of all values that are in <span class="process-math">\(A\)</span> <em class="emphasis">or</em> <span class="process-math">\(B\text{.}\)</span> The two sets do not overlap at all, so the union will consist of the same disjoint intervals, but now combined as a single set,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cup B = (-2,1] \cup [3,5)\text{.}
+\end{equation*}
+</div>
+<p id="p-80">To find <span class="process-math">\(A \cup C\text{,}\)</span> we are interested in values that are in at least one of the sets. Notice that these sets overlap, meaning there are some values that are in <em class="emphasis">both</em> intervals (in their intersection). Consider the boundaries of this overlap. We have <span class="process-math">\(0 \in A\)</span> and <span class="process-math">\(0 \not in C\text{,}\)</span> but it <em class="emphasis">is</em> in at least one set and so <span class="process-math">\(0 \in A \cup C\text{.}\)</span> Similarly, we have <span class="process-math">\(1 \in A\)</span> and <span class="process-math">\(1 \in C\text{.}\)</span> By being in <em class="emphasis">both</em> sets, it is necessarily in at least one and so <span class="process-math">\(1 \in A \cup C\text{.}\)</span> All values between them are in both sets and so are in the union. The union of these overlapping intervals will be a new interval that contains both,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cup C = (-2,2]\text{.}
+\end{equation*}
+</div>
+<p id="p-81">The sets <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> do not overlap and so are disjoint. The union is simply written</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+B \cup C = (0,2] \cup [3,5)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Notice that the order of intervals in the union is reading the number line left-to-right, and does not match the order that <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> were listed in the union. We could have written</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+B \cup C = [3,5) \cup (0,2]\text{,}
+\end{equation*}
+</div>
+<p class="continuation">but this ordering is harder to transfer to a number line and so is not preferred.</p>
+<figure class="figure figure-like" id="fig_intervals_after_union"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/intervals_after_union.svg" role="img" class="contained" alt="Illustration of resulting union sets aligned with a common number line"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.10<span class="period">.</span></span><span class="space"> </span>Illustration of the sets <span class="process-math">\(A \cup B\)</span> (top), <span class="process-math">\(A \cup C\)</span> (middle), and <span class="process-math">\(B \cup C\)</span> (bottom).</figcaption></figure><p id="p-82">The intersections are calculated by finding where the sets overlap (values in both intervals). The only intervals here that overlapped were <span class="process-math">\(A\)</span> and <span class="process-math">\(C\text{.}\)</span> As noted earlier <span class="process-math">\(0 \not in C\text{,}\)</span> so we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cap C = (0,1]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The other two intersections are empty:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-5">
+\begin{gather*}
+A \cap B = \{\}\\
+B \cap C = \{\}
+\end{gather*}
+</div>
+<figure class="figure figure-like" id="fig_intervals_after_intersection"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/intervals_after_intersection.svg" role="img" class="contained" alt="Illustration of resulting intersection"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.11<span class="period">.</span></span><span class="space"> </span>Illustration of the set <span class="process-math">\(A \cap C\text{.}\)</span> Other intersections were empty.</figcaption></figure>
+</div></div>
+</div></article><p id="p-83">To understand union and intersection and to reinforce the interpretation of individual intervals, you should be able to think through the union and intersection of compound sets.</p>
+<article class="example example-like" id="ex_compound_set_operations"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Outcome P-4.</span>
+</h4>
+<p id="p-84">Given the sets <span class="process-math">\(A = (-\infty,-1] \cup (1,4]\)</span> and <span class="process-math">\(B = [-1,1) \cup (3,5)\text{,}\)</span> find <span class="process-math">\(A \cup B\)</span> and <span class="process-math">\(A \cap B\text{,}\)</span> writing them as a union of disjoint sets.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<p id="p-85">The solution follows the same patterns as our example involving individual intervals. The major difference is that we are starting with compound sets. When we graph our representations for <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> we will want to be clear that each set has multiple parts.</p>
+<figure class="figure figure-like" id="fig_compound_sets"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/compound_sets.svg" role="img" class="contained" alt="Illustration of compound sets A and B"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.13<span class="period">.</span></span><span class="space"> </span>Illustration of the sets <span class="process-math">\(A\)</span> (top, blue) and <span class="process-math">\(B\)</span> (bottom, orange).</figcaption></figure><p id="p-86">To find the union, we look for all values that are in <em class="emphasis">at least one</em> of the sets. With the number line representations, we can scan from left to right. The set <span class="process-math">\(A\)</span> includes all values until -1, including that value; the set <span class="process-math">\(B\)</span> immediately begins, also including -1, and continuing until 1. The union must include all of these values. When we look at the value <span class="process-math">\(1\text{,}\)</span> we see <span class="process-math">\(1 \not in A\)</span> and <span class="process-math">\(1 \not in B\text{,}\)</span> so <span class="process-math">\(1 \not in A \cup B\text{.}\)</span> But then <span class="process-math">\(A\)</span> starts up immediately and includes all values until 4. The set <span class="process-math">\(B\)</span> includes all values from 3 until 5. This overlap reduces to a single interval <span class="process-math">\((1,5)\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_compound_set_union"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/compound_set_union.svg" role="img" class="contained" alt="Illustration of the union of sets A and B"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.14<span class="period">.</span></span><span class="space"> </span>Illustration of the union <span class="process-math">\(A \cup B\text{.}\)</span></figcaption></figure><p id="p-87">Altogether, this means</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cup B = (-\infty,1) \cup (1,5)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Notice how the union has a gap of a single value.</p>
+<p id="p-88">The intersection of the sets looks for points that are in both sets. We look at the original sets to see where they overlap. Both sets include -1, but none of the values immediately to the left or right are in both sets. This will be an isolated value in our intersection. The value 1 might also look like it is in both sets, but in fact is in neither set. The next set of values in the intersection is the interval from -3 to 4. Because <span class="process-math">\(-3 \not \in B\text{,}\)</span> it will not be in the intersection. On the other hand, <span class="process-math">\(4 \in A\)</span> and <span class="process-math">\(4 \in B\text{,}\)</span> so it will be in the intersection.</p>
+<figure class="figure figure-like" id="fig_compound_set_intersection"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/compound_set_intersection.svg" role="img" class="contained" alt="Illustration of the intersection of sets A and B"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>Illustration of the intersection <span class="process-math">\(A \cap B\text{.}\)</span></figcaption></figure><p id="p-89">Interpreting our results, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cap B = \{-1\} \cup (3,4]\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

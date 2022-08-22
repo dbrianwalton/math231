@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Derivatives and Tangent Lines</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch_derivatives.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_derivatives.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_derivs_limit_definition.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch_derivatives.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_derivatives.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_derivs_limit_definition.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="active">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_derivs_intuition"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Derivatives and Tangent Lines</span>
+</h2>
+<section class="introduction" id="introduction-18"><p id="p-586">It often helps to understand what we <em class="emphasis">want</em> out of a definition before we actually attempt the actual definition. A derivative is ultimately defined as the limit of an average rate of change over an interval as the width of the interval goes to zero. But to understand why this might make sense, we start by thinking geometrically about <dfn class="terminology">tangent lines</dfn>.</p>
+<p id="p-587">A function having a derivative goes one step further than a function being continuous. Recall that for a function <span class="process-math">\(f\)</span> to be continuous at a point <span class="process-math">\(x=a\)</span> means that <span class="process-math">\(f(a)\)</span> is closely approximated by <span class="process-math">\(f(x)\)</span> as long as <span class="process-math">\(x\)</span> is chosen close enough to <span class="process-math">\(a\text{.}\)</span> A derivative gives us additional information about <em class="emphasis">how close</em> the approximations will be and how much change we should expect. In particular, a function that has a derivative will be smooth enough so that close to <span class="process-math">\(x=a\text{,}\)</span> the graph should behave <em class="emphasis">almost linearly</em>. The line that approximately matches the function is called the <dfn class="terminology">tangent line</dfn>. The derivative is the slope of that line.</p></section><section class="subsection" id="subsec_derivs_tangent_line"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.1.1</span> <span class="title">Finding a Tangent Line</span>
+</h3>
+<p id="p-588">Suppose that we have the graph of a function <span class="process-math">\(y=f(x)\text{.}\)</span> Imagine that we look at the graph around a particular point <span class="process-math">\((a, f(a))\text{.}\)</span> In fact, imagine we draw a small rectangle with this point in the center and that we could zoom into the graph so that this rectangle becomes the new viewing window. On a map, this would be called an <dfn class="terminology">inset</dfn>. For smooth functions, if we make the rectangle small enough, the graph looks like a line, at least within the inset portion of the graph. If we allowed that line to continue outside the inset, no longer paying attention to the original graph, that line would be the tangent line.</p>
+<p id="p-589"><a href="" class="xref" data-knowl="./knowl/fig_derivs_tangent_zoom_inset.html" title="Figure 4.1.1">Figure 4.1.1</a> shows the graph of a function <span class="process-math">\(y=f(x)\)</span> on a subset of the domain <span class="process-math">\((-5,5)\text{.}\)</span> This graph passes through the point <span class="process-math">\((1,-1)\text{.}\)</span> If we look at an inset around this point using a smaller subdomain <span class="process-math">\((0.5,1.5)\text{,}\)</span> the graph is almost linear. If we were to choose an even smaller inset, the linear behavior would be even closer.</p>
+<figure class="figure figure-like" id="fig_derivs_tangent_zoom_inset"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_original.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;">
+\begin{tikzpicture}
+\begin{axis}
+[xmin=0.5, xmax=1.5, ymin=-1.5, ymax=-0.5, grid=both, minor tick num=1]
+\addplot [domain=0.4:1.6, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, thick] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
+\end{axis}
+\end{tikzpicture}
+                </div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.1<span class="period">.</span></span><span class="space"> </span>Graph of a function with an inset surrounding a point showing approximate linear behavior</figcaption></figure><p id="p-590">Now, imagine if we were to take that small inset and treat it like it initiated an actual linear function that could extend beyond the inset. This would create a line that closely approximated the function inside the inset. The line <em class="emphasis">is</em> the <dfn class="terminology">tangent line</dfn>.</p>
+<figure class="figure figure-like" id="fig_derivs_tangent_from_inset"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_from_inset_a.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;">
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [red, dashed] coordinates { (0.5, -1.5) (0.5, -0.5) (1.5, -0.5) (1.5, -1.5) (0.5, -1.5) };
+\addplot [red] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
+\addplot [orange, very thick, domain=-5:5] {-1+-16/9*(x-1)};
+\end{axis}
+\end{tikzpicture}
+                </div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.2<span class="period">.</span></span><span class="space"> </span>Extending a tangent line from an inset of the graph</figcaption></figure><p id="p-591">The idea illustrated above was that a function, when zoomed in far enough, looks like a line, and that if we were to extend that line back out to the original view of the graph, we would get a tangent line. Another way to imagine finding a tangent line is to imagine a line that is anchored to the point of interest <span class="process-math">\((a,f(a))\)</span> but that can rotate. The tangent line is the line that is chosen so that the line most closely matches the graph around the point of interest on both sides. Or you could imagine a ruler is placed at the point to be following the graph (tangent) and you just draw the line following the straight edge of the ruler.</p>
+<p id="p-592">The derivative of <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x=a\)</span> <em class="emphasis">is</em> the slope of the tangent line. The mathematical symbol for the derivative at a point is written <span class="process-math">\(\frac{df}{dx}\Big|_{a}\text{.}\)</span> The <span class="process-math">\(df\)</span> and <span class="process-math">\(dx\)</span> in the fraction are meant to remind us of a slope <span class="process-math">\(\frac{\Delta y}{\Delta x}\text{,}\)</span> where the the <span class="process-math">\(d\)</span> replaces <span class="process-math">\(\Delta\)</span> because we will eventually be using limits. The subscript on the bar indicates the point of interest <span class="process-math">\(x=a\text{.}\)</span></p>
+<p id="p-593">Now that we have an <em class="emphasis">approximation</em> for the graph of the tangent line, we can <em class="emphasis">approximate</em> the derivative by calculating the slope of the line. We can calculate the slope using two points chosen from the line we drew. Look for points that are easily estimated based on the grid used for the graph.</p>
+<figure class="figure figure-like" id="fig_derivs_slope_from_tangent"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/img_derivs_slope_from_tangent.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>Choosing points on tangent line to estimate slope</figcaption></figure><p id="p-594">We know from the graph that <span class="process-math">\((1,-1)\)</span> is one point on the tangent line. From the grid, it looks like <span class="process-math">\((-1,2.5)\)</span> is another point on the line. This is where we have some error—we can't be sure of the location of this point. In fact, it is closer to <span class="process-math">\((-1,2.55)\text{,}\)</span> but we wouldn't be able to eye that much accuracy. Our approximation for the derivative at <span class="process-math">\(x=1\)</span> can now be calculated:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-82">
+\begin{align*}
+\frac{df}{dx}\Big{|}_{1} &amp; \approx \frac{-1 - 2.5}{1--1}\\
+&amp;= \frac{-3.5}{2} = -1.75
+\end{align*}
+</div>
+<p class="continuation">An exact value (using calculus) would have given <span class="process-math">\(-\frac{16}{9} \approx -1.777\text{.}\)</span></p>
+<article class="example example-like" id="ex_derivs_tangent_derivative"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-1.</span>
+</h4>
+<p id="p-595">A graph of <span class="process-math">\(y=f(x)\)</span> is shown below. Draw a tangent line at <span class="process-math">\(x=-2\)</span> and estimate the derivative at this point.</p>
+<figure class="figure figure-like" id="fig_ex_tangent_derivative"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/image-64.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>Extending a tangent line from an inset of the graph</figcaption></figure></article></section></section></div></main>
+</div>
+</body>
+</html>

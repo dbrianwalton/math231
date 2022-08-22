@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>In the first exercise, our function is <span class="process-math">\(f(x)=4x^5+3x^4-7x^2+5x-1\text{.}\)</span> This polynomial is written as a <em class="emphasis">sum</em> of terms that are constants times powers <span class="process-math">\(4x^5\text{,}\)</span> <span class="process-math">\(3x^4\text{,}\)</span> <span class="process-math">\(-7x^2\text{,}\)</span> and a linear term <span class="process-math">\(5x-1\text{.}\)</span> This is exactly the form for which our differentiation process can address.</p>
+<p>The derivatives of the powers will be the same constant multiples times the original power times <span class="process-math">\(x\)</span> raised to a power decreased by one. The derivative of the linear term <span class="process-math">\(5x-1\)</span> will be the slope <span class="process-math">\(5\text{.}\)</span> Putting this together, we write:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{d}{dx}\big[4x^5+3x^4-7x^2+5x-1] &amp;= 4 \cdot 5x^4 + 3 \cdot 4x^3 - 7 \cdot 2x + 5\\
+&amp;= 20x^4 +12x^3 - 14x + 5
+\end{align*}
+</div>
+<p class="continuation">That is, the function <span class="process-math">\(f(x)=4x^5+3x^4-7x^2+5x-1\)</span> has a derivative function <span class="process-math">\(20x^4+12x^3-14x+5\text{.}\)</span></p>
+<p>In the second exercise, our function is <span class="process-math">\(f(x)=(3x^2+2x-5)(4x+7)\text{.}\)</span> We need to be paying attention to the structure of the formula. It is written as a <em class="emphasis">product</em>, so our differentiation process is not designed to address the function in this form. We will need to multiply it out (distribute) in order to <em class="emphasis">rewrite</em> the formula so that it is a sum of terms.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= (3x^2+2x-5)(4x+7)\\
+&amp;= 4x(3x^2+2x-5) + 7(3x^2+2x-5)\\
+&amp;= 12x^3 + 8x^2 -20x + 21 x^2 + 14x - 35\\
+&amp;= 12x^3 +29 x^2 - 6x - 35
+\end{align*}
+</div>
+<p class="continuation">Now that we have rewritten our function, see that it is a sum of constant multiples of powers <span class="process-math">\(12x^3\text{,}\)</span> <span class="process-math">\(29x^2\text{,}\)</span> and a linear term <span class="process-math">\(-6x-35\text{.}\)</span> Using our polynomial differentatiation rule:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{d}{dx}\big[(3x^2+2x-5)(4x+7) &amp;= \frac{d}{dx}\big[12x^3+29x^2-6x-35\big]\\
+&amp;= 12 \cdot 3x^2 + 29 \cdot 2x + -6\\
+&amp;= 36 x^2 + 58 x - 6
+\end{align*}
+</div>
+<p>There is an important observation to make about the notation in the set of equations above. When we <em class="emphasis">rewrote</em> the formula of <span class="process-math">\(f(x)\)</span> from being a product to being a sum, we did not <em class="emphasis">yet</em> use differentiation. So in the notation, you should see that we left the derivative operator alone but changed the formula that appeared <em class="emphasis">as the input</em>. When we actually <em class="emphasis">used</em> differentiation to find derivative terms, we stopped writing <span class="process-math">\(\frac{d}{dx}\text{.}\)</span> These equations are saying in essence, “The derivative of one formula that is a product is equal to the derivative of a rewritten formula that is now a sum and both are equal to a new polynomial given by a particular new formula”. We are <em class="emphasis">not</em> saying that the original function is equal to the final formula that  represents the derivative.</p>
+</div></body>
+</html>

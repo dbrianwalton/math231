@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.2.10.1</span><span class="period">.</span>
+</h4>
+<p>As in the last example, we start by writing down the formula for the slope of a secant line passing through <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\text{.}\)</span> The alternative would be to choose the second point as <span class="process-math">\((x,f(x))\text{,}\)</span> or use any new variable in place of <span class="process-math">\(x\text{.}\)</span> The value for <span class="process-math">\(f(3)\)</span> is <span class="process-math">\(f(3)=2^3 = 8\text{.}\)</span> Using the second point <span class="process-math">\((x,f(x))\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x}\Big|_{3,x} = \frac{f(x)-f(3)}{x-3} = \frac{2^x-8}{x-3}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If we instead used <span class="process-math">\((3+h,f(3+h))\)</span> as the second point, we would use <span class="process-math">\(f(3+h) = 2^{3+h} = 2^3 \cdot 2^h = 8 \cdot 2^h\text{,}\)</span> resulting in a formula for the secant line slope given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{f(3+h)-f(3)}{h} = \frac{2^{3+h} - 8}{h}= \frac{8 \cdot 2^h - 8}{h}\text{.}
+\end{equation*}
+</div>
+<p>Depending on which choice we used for the second point, we either need a limit as <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f'(3) &amp;= \lim_{h \to 0}\frac{f(3+h)-f(3)}{h}\\
+&amp;= \lim_{x \to 3} \frac{f(x)-f(3)}{x-3}
+\end{align*}
+</div>
+<p class="continuation">Notice how we setup the table of values in our approximation. We will choose points closer and closer to <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\)</span> until it is clear that the decimal values are converging. The entire table that shows the convergence is necessary for showing that your approximation is good. We also need to include enough decimal values in our results to see if the convergence is actually happening. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x \to 3\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.9</td>
+<td class="l m b0 r0 l0 t0 lines">5.357361</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.99</td>
+<td class="l m b0 r0 l0 t0 lines">5.526003</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.999</td>
+<td class="l m b0 r0 l0 t0 lines">5.543256</td>
+</tr>
+</table></div> With the data so far, we don't quite see convergence. The values for 2.99 and 2.999 have the first two digits in common of 5.5 for the slope, but the next digit is getting bigger. Sometimes it is easier to discover convergence by checking both sides, this time trying <span class="process-math">\(x \to 3^+\text{.}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x \to 3\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.1</td>
+<td class="l m b0 r0 l0 t0 lines">5.741877</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.01</td>
+<td class="l m b0 r0 l0 t0 lines">5.564440</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.001</td>
+<td class="l m b0 r0 l0 t0 lines">5.547100</td>
+</tr>
+</table></div> The slope values for this table are decreasing. We can see that the value should be <em class="emphasis">between</em> 5.543256 and 5.547100. In fact, once we are close on both sides, the average will usually be quite close to the approximate value:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(3) \approx 5.545178\text{.}
+\end{equation*}
+</div>
+<p>If we did our calculation using the second point as <span class="process-math">\((3+h,f(3+h))\text{,}\)</span> we would have a similar table. This time, we will stay on a single side limit with <span class="process-math">\(h \to 0^+\text{.}\)</span> Because we are not bracketing the value from both sides, we need to use closer and closer values for <span class="process-math">\(h \to 0\)</span> before we obtain a similar degree of approximation. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h \to 0^+\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^{3+h}-8}{h}\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.1</td>
+<td class="l m b0 r0 l0 t0 lines">5.741877</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.01</td>
+<td class="l m b0 r0 l0 t0 lines">5.564440</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.001</td>
+<td class="l m b0 r0 l0 t0 lines">5.547100</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.0001</td>
+<td class="l m b0 r0 l0 t0 lines">5.545369</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.00001</td>
+<td class="l m b0 r0 l0 t0 lines">5.545197</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.000001</td>
+<td class="l m b0 r0 l0 t0 lines">5.545179</td>
+</tr>
+</table></div></p>
+<p>This table has six entries, comparable to the previous calculation. The last three entries had slope values with digits 5.545 in common, and the last two had 5.5451 in common. Without additional entries, this is the degree of approximation that we might trust, and we would say</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(3) \approx 5.5451\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We don't know if the remaining digits are converging or not, and we don't really even know if the digits we wrote down have converged. This is why the two-sided approach is preferred, but for the assessment, either approach properly demonstrates the idea.</p>
+</div>
+<span class="incontext"><a href="sec_derivs_limit_definition.html#solution-49" class="internal">in-context</a></span>
+</body>
+</html>

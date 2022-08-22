@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>The inequality is already written as a relation with zero. We need to find where the numerator equals zero (root of formula) and where the denominator equals zero (discontinuity of formula). These can be found by factoring the two polynomials. As they are both have degrees greater than 2, we will rely on computer assistance.</p>
+<pre class="ptx-sagecell sagecell-sage" id="sage-2"><script type="text/x-sage">var('x')
+numer = x^4 - 3*x^2 +2*x
+show(numer.factor())
+denom = x^3+5*x^2-2*x-10
+show(denom.factor())
+</script></pre>
+<p>We can now rewrite our inequality in factored form:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)} \ge 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The factors in the numerator result in zeros at <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(x=-2\text{,}\)</span> and <span class="process-math">\(x=1\text{.}\)</span> Notice that one factor in the denominator <span class="process-math">\(x^2-2\)</span> is still quadratic and will have two zeros. Using isolation, we find <span class="process-math">\(x=\pm\sqrt{2}\)</span> and <span class="process-math">\(x=-5\)</span> as the three discontinuities for our quotient.</p>
+<p>We put these six numbers on the number line and it creates seven test intervals. Note that we need to make a distinction between the roots (making the formula equal zero) and the discontinuities (making the formula undefined).</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_test_intervals.svg" role="img" class="contained" alt="number line showing roots and discontinuities to be used for test intervals"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.10<span class="period">.</span></span><span class="space"> </span>Test intervals for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p>Looking at the number line and recognizing that <span class="process-math">\(\sqrt{2} \approx 1.414\text{,}\)</span> we might choose test points with the set <span class="process-math">\(\{-6, -3, -1.5, -1, 0.5, 1.2, 2\}\text{.}\)</span> Notice how some of our test points are forced to be non-integers. For each of these <span class="process-math">\(x\)</span>-values, we look at the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}
+\end{equation*}
+</div>
+<p class="continuation">and count how many factors will be negative. Note that <span class="process-math">\((x-1)^2\)</span> is technically two factors <span class="process-math">\((x-1)(x-1)\text{,}\)</span> and so overall will always positive except when <span class="process-math">\(x=1\text{.}\)</span> The table below should help you verify your thinking.</p>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.4.11<span class="period">.</span></span><span class="space"> </span>Evaluation of signs on each test interval</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Test Point</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Negative Factors</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sign</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-6</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-3</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1.5</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.5</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1.2</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+</table></div></figure><p>The sign analysis summary is given below, with the number line drawn out of proportion to make space for our notes.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_sign_analysis.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.12<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p>We <em class="emphasis">interpret</em> the sign analysis to answer the question. We were looking for where the formula was <em class="emphasis">greater than</em> or <em class="emphasis">equal</em> to zero. Our solution set needs to include values that make the formula's value positive (intervals) or equal to zero (points).</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_sign_analysis_interpret.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.13<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p>Notice how only some of the end-points—those where the value equals zero—are included. One of these points is a singleton isolated from the intervals. The solution set is therefore <span class="process-math">\((-5,-2] \cup (-\sqrt{2},0] \cup \{1\} \cup (\sqrt{2},\infty)\text{.}\)</span></p>
+</div></body>
+</html>

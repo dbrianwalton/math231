@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>Notice how we will use the same general steps to find the slope of the secant line joining <span class="process-math">\((x,f(x))\)</span> and <span class="process-math">\((x+h,f(x+h))\text{,}\)</span> simplify that formula to a continuous version, and then evaluate the limit in order to find the derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= \sqrt{4x-1}\\
+f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}\\
+\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}\\
+&amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}\\
+&amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4\cancel{h}}{\cancel{h}}(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}\\
+f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
+&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}
+\end{align*}
+</div>
+<span class="incontext"><a href="sec_derivs_deriv_function.html#p-689" class="internal">in-context</a></span>
+</body>
+</html>

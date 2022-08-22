@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
+</h4>
+<p>Consider <span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{3^x-1}{x}\text{.}\)</span> Clearly, this formula does not allow <span class="process-math">\(x=0\)</span> (division). And it doesn't have any obvious simplifications that might cancel the <span class="process-math">\(x\)</span> in the denominator because the numerator's formula is not algebraic. One strategy to <em class="emphasis">think</em> about such limits is to try values of <span class="process-math">\(x\)</span> that get closer and closer to <span class="process-math">\(x=0\)</span> and see if we can decide what value might be the limit.</p>
+<p>Define <span class="process-math">\(\displaystyle f(x) = \frac{3^x-1}{x}\)</span> and look at the values for a sequence of values of <span class="process-math">\(x\text{:}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.1</td>
+<td class="l m b0 r0 l0 t0 lines">1.16123</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.01</td>
+<td class="l m b0 r0 l0 t0 lines">1.10467</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.001</td>
+<td class="l m b0 r0 l0 t0 lines">1.09922</td>
+</tr>
+</table></div> What might we predict based on this small sample of values? The values of <span class="process-math">\(f(x)\)</span> are decreasing. We might want to assume that the limit goes to something nice that is below 1.099, and a graph might suggest trying <span class="process-math">\(f(x) \to 1.09\text{.}\)</span></p>
+<p>Let us now look at what the definition of a limit would require for us to say <span class="process-math">\(\displaystyle \lim_{x \to 0} f(x) = 1.09\text{.}\)</span> For <em class="emphasis">any</em> value of <span class="process-math">\(\epsilon \gt 0\)</span> that we are given, it must be possible to find <span class="process-math">\(\delta \gt 0\)</span> so that whenever <span class="process-math">\(0 \lt |x-0| \lt \delta\text{,}\)</span> it follows that <span class="process-math">\(|f(x)-1.09| \lt \epsilon\text{.}\)</span></p>
+<p>Visualize this in terms of a graph. We will plot <span class="process-math">\(y=f(x)\)</span> and the two threshold lines <span class="process-math">\(y=L-\epsilon\)</span> and <span class="process-math">\(y=L+\epsilon\text{.}\)</span> We want to identify the set of <span class="process-math">\(x\)</span>-values so that <span class="process-math">\(L-\epsilon \lt f(x) \lt L+\epsilon\text{.}\)</span> This set needs to include an interval surrounding but excluding <span class="process-math">\(x=0\)</span> (called a <em class="emphasis">punctured neighborhood</em>). Looking at <a href="" class="xref" data-knowl="./knowl/fig_lim_thresholds_bad_limit.html" title="Figure 3.5.3">Figure 3.5.3</a>, everything looks good when we use <span class="process-math">\(\epsilon = 0.1\)</span> (left image). If we zoom in further and use <span class="process-math">\(\epsilon = 0.01\)</span> (right image), the interval barely extends to the right of <span class="process-math">\(x=0\text{.}\)</span> It is clear that if we choose a smaller value of <span class="process-math">\(\epsilon\text{,}\)</span> the set of points between the thresholds will be entirely to the left of <span class="process-math">\(x=0\text{.}\)</span> This is because the limit is not 1.09 but some value slightly greater.</p>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_lim_thresholds_bad_limit_a.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/graph_lim_thresholds_bad_limit_b.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>Illustration of proposed limit <span class="process-math">\(L=1.09\)</span> and thresholds for <span class="process-math">\(\epsilon=0.1\)</span> (left) and <span class="process-math">\(\epsilon=0.01\)</span> (right)</figcaption></figure><p>The actual limit for this question is an irrational number whose decimal representation begins <span class="process-math">\(L=1.098612\ldots\text{.}\)</span></p></article><span class="incontext"><a href="sec_limits_reasoning.html#ex_lim_bad_limit" class="internal">in-context</a></span>
+</body>
+</html>

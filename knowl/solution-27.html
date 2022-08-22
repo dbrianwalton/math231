@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.2.10.1</span><span class="period">.</span>
+</h4>
+<p>The last operation is subtraction:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \boxed{\sqrt{x^2+3x}} - \boxed{3x^4(2x+1)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can label the simpler expressions with subscripts rather than creating new function names:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= f_1(x) - f_2(x) &amp; \text{difference}\\
+f_1(x) &amp;= \sqrt{x^2+3x}\\
+f_2(x) &amp;= 3x^4(2x+1)
+\end{align*}
+</div>
+<p>We need to deconstruct <span class="process-math">\(f_1(x)\)</span> and <span class="process-math">\(f_2(x)\text{.}\)</span> The last operation for <span class="process-math">\(f_1(x)\)</span> is the square root with a formula as its input. So we have a composition:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f_1(x) &amp;= f_3 \circ f_4(x) &amp; \text{composition}\\
+f_3(x) &amp;= \sqrt{x}\\
+f_4(x) &amp;= x^2+3x
+\end{align*}
+</div>
+<p class="continuation">The last operation of <span class="process-math">\(f_2(x)\)</span> is multiplication:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f_2(x) &amp;= f_5(x) \cdot f_6(x) &amp; \text{product}\\
+f_5(x) &amp;= 3x^4\\
+f_6(x) &amp;= 2x+1
+\end{align*}
+</div>
+<p>We would then continue for each of the functions. The function <span class="process-math">\(f_3(x) = \sqrt{x}\)</span> is a simple function acting on <span class="process-math">\(x\text{,}\)</span> so this has no further deconstruction. The function <span class="process-math">\(f_4(x) = x^2 + 3x\)</span> is a sum:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f_4(x) &amp;= f_7(x) + f_8(x) &amp; \text{sum}\\
+f_7(x) &amp;= x^2\\
+f_8(x) &amp;= 3x
+\end{align*}
+</div>
+<p class="continuation">Note that <span class="process-math">\(f_7(x)\)</span> is another simple function and requires no further deconstruction, while <span class="process-math">\(f_8(x)\)</span> is a product of elementary expressions <span class="process-math">\(3\)</span> and <span class="process-math">\(x\text{.}\)</span> The function <span class="process-math">\(f_5(x) = 3x^4\)</span> is a product of <span class="process-math">\(f_9(x)=3\)</span> (elementary expression) and <span class="process-math">\(f_{10}(x)=x^4\)</span> (elementary function). And the function <span class="process-math">\(f_6(x)=2x+1\)</span> is a sum of <span class="process-math">\(f_{11}(x)=2x\)</span> (a product) and <span class="process-math">\(f_{12}(x)=1\)</span> (elementary expression).</p>
+</div>
+<span class="incontext"><a href="sec_fcn_construction.html#solution-27" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>Here are the steps for this problem. First, find the <span class="process-math">\(y\)</span>-values for the two points on the secant line.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+g(x) &amp;= x^2 -2x\\
+g(x+h) &amp;= (x+h)^2 - 2(x+h)\\
+&amp;= (x+h)(x+h) - 2(x+h)\\
+&amp;= x^2+2xh+h^2 - 2x - 2h
+\end{align*}
+</div>
+<p class="continuation">Second, write down the formula for the <em class="emphasis">slope</em> of the secant line and then simplify the result.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{\Delta g}{\Delta x} &amp;= \frac{g(x+h)-g(x)}{h}\\
+&amp;= \frac{(x^2+2xh+h^2 - 2x - 2h) - (x^2-2x)}{h}\\
+&amp;= \frac{\cancel{x^2}+2xh+h^2 - \cancel{2x} - 2h -  \cancel{x^2} + \cancel{2x}}{h}\\
+&amp;= \frac{2xh+h^2 - 2h}{h}
+\end{align*}
+</div>
+<p class="continuation">Notice that each term in the numerator has a common factor of <span class="process-math">\(h\text{.}\)</span> We factor it out in order to cancel:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{\Delta g}{\Delta x} &amp;= \frac{2xh+h^2 - 2h}{h}\\
+&amp;= \frac{\cancel{h}(2x+h-2)}{\cancel{h}}\\
+&amp;= 2x+h-2
+\end{align*}
+</div>
+<p class="continuation">Lastly, the derivative is defined as the <em class="emphasis">limit</em> of this secant line slope as <span class="process-math">\(h \to 0\text{.}\)</span> Because the final formula removed the discontinuity at <span class="process-math">\(h=0\text{,}\)</span> we can use substitution to find the limit.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+g'(x) &amp;= \lim_{h \to 0} \frac{\Delta g}{\Delta x}\\
+&amp;= \lim_{h \to 0} [2x+h - 2]\\
+&amp;=  2x + 0 - 2\\
+&amp;= 2x - 2
+\end{align*}
+</div>
+<p class="continuation">Therefore, we have shown, using the definition of the derivative, that for <span class="process-math">\(g(x)=x^2-2x\text{,}\)</span> we have <span class="process-math">\(g'(x) = 2x-2\text{.}\)</span></p>
+<span class="incontext"><a href="sec_derivs_deriv_function.html#p-666" class="internal">in-context</a></span>
+</body>
+</html>

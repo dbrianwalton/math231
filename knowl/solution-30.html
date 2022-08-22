@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.3.5.1</span><span class="period">.</span>
+</h4>
+<p>Consider the formula <span class="process-math">\(h(h^{-1}(x-1))+1\text{.}\)</span> We can follow the same process as when we wrote a formula as a composition in <a href="" class="xref" data-knowl="./knowl/ex_fcn_find_composition.html" title="Example 2.2.7: Learning Objective F-5">Example 2.2.7</a> to work on Learning Objective F-5. <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(h^{-1}(\boxed{x}-1))+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">find the variable</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(h^{-1}(\boxed{x-1}))+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add -1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(\boxed{h^{-1}(x-1)})+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">composition with <span class="process-math">\(h^{-1}\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{h(h^{-1}(x-1))}+1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">composition with <span class="process-math">\(h\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{h(h^{-1}(x-1))+1}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">add 1</td>
+</tr>
+</table></div> Notice that in one spot we add -1 and in another we add +1. These are inverse operations. However, they were not applied in sequence so they do not cancel at this point.</p>
+<p>On the other hand, the composition with <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\)</span> do occur in sequence after one another and so they cancel to leave the identity function:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+h(h^{-1}(x-1))+1 &amp;= \boxed{h(h^{-1}(x-1))}+1\\
+&amp;= \boxed{\mathrm{id}(x-1)}+1\\
+&amp;= (x-1)+1\\
+&amp;= x
+\end{align*}
+</div>
+<p>When we now consider the second expression, <span class="process-math">\(\frac{1}{2} h(h^{-1}(2x-1))+1\text{,}\)</span> we look for inverse operations that are sequentially in order. We could think through the order of operations as above. Or we can directly look for sequential operations that cancel. There are three potential operations that cancel:</p>
+<ul class="disc">
+<li><p>multiplication by <span class="process-math">\(\frac{1}{2}\)</span> and by 2,</p></li>
+<li><p>addition with <span class="process-math">\(-1\)</span> and <span class="process-math">\(+1\text{,}\)</span></p></li>
+<li><p>composition of <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\text{.}\)</span></p></li>
+</ul>
+<p class="continuation">However, notice that the operations of multiplication by 2 and addition of -1 are <em class="emphasis">inside</em>  the composition with <span class="process-math">\(h^{-1}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{2} h(h^{-1}(\boxed{2x-1}))+1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This prevents them being canceled. However, the composition of <span class="process-math">\(h\)</span> and <span class="process-math">\(h^{-1}\)</span> are back-to-back and cancel to an identity function,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{1}{2} h(\boxed{h^{-1}(2x-1)})+1 &amp;= \frac{1}{2} (\boxed{2x-1})+1\\
+&amp;= \frac{1}{2}(2x-1)+1
+\end{align*}
+</div>
+<p class="continuation">Now we distribute the multiplication by <span class="process-math">\(\frac{1}{2}\)</span> over the addition in <span class="process-math">\(2x-1\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{1}{2}(2x-1)+1 &amp;= \frac{1}{2}(2x) - \frac{1}{2}(1) + 1\\
+&amp;= x - \frac{1}{2} + 1\\
+&amp;= x + \frac{1}{2}.
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec_fcn_inverse.html#solution-30" class="internal">in-context</a></span>
+</body>
+</html>

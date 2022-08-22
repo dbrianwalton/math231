@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>If you previously learned calculus, you might be tempted to use derivative rules for the formula that applies with <span class="process-math">\(x=2\text{.}\)</span> However, because this is a piecewise formula that uses <span class="process-math">\(x=2\)</span> as a boundary between two rules, this is not appropriate. Instead, we need to compare the left- and right-derivatives.</p>
+<p>When using the definition of the derivative <span class="process-math">\(g'(a)\)</span> on a piecewise function, you need to be careful that the value <span class="process-math">\(g(a)\)</span> uses the function value <em class="emphasis">at</em> the point of interest and not the formula from the sides. But when calculating <span class="process-math">\(g(a+h)\text{,}\)</span> we need to consider the different cases for <span class="process-math">\(h \gt 0\)</span> (used for the right-derivative) and for <span class="process-math">\(h \lt 0\)</span> (used for the left-derivative).</p>
+<p>In this example, the function <span class="process-math">\(g(x)\)</span> at <span class="process-math">\(x=2\)</span> uses the formula <span class="process-math">\(x^2-2x\)</span> to give <span class="process-math">\(g(2)=2^2-2(2) = 0\text{.}\)</span> The right-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \gt 0\)</span> so that we use the formula for <span class="process-math">\(x \gt 2\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(2+h) = 2(2+h) = 4+2h\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The left-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \lt 0\)</span> to use <span class="process-math">\(g(x)=x^2-2x\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Once we recognize which formulas and values to use, we calculate the slope of the secant lines and then find the limits.</p>
+<p>We start with the right-derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dg}{dx}\Big|_{2^+} &amp;= \lim_{h \to 0^+} \frac{g(2+h)-g(2)}{h}\\
+&amp;= \lim_{h \to 0^+} \frac{(4+2h) - (0)}{h}\\
+&amp;= \lim_{h \to 0^+} \frac{4+2h}{h}
+\end{align*}
+</div>
+<p class="continuation">Because <span class="process-math">\(h\)</span> is not a factor in the numerator, the limit will have <span class="process-math">\(4+2h \to 4\)</span> and <span class="process-math">\(h \to 0\text{,}\)</span> giving a limit of the form <span class="process-math">\(4/0\text{.}\)</span> Our experience with limits tells us that this will be an <em class="emphasis">infinite</em> limit. We need to test the sign. For small positive <span class="process-math">\(h\text{,}\)</span> the numerator will be close to 4 and the denominator will be a small positive number, so that the quotient will be positive. This means:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dg}{dx}\Big|_{2^+} = +\infty\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In the graphical interpretation, this would mean that the graph has a jump discontinuity that goes up on the right so that the limit of the secant line is a vertical line.</p>
+<p>Next, we compute the left-derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} \frac{g(2+h)-g(2)}{h}\\
+&amp;= \lim_{h \to 0^-} \frac{(2h+h^2) - (0)}{h}\\
+&amp;= \lim_{h \to 0^-} \frac{h(2+h)}{h}\\
+&amp;= \lim_{h \to 0^-} 2+h
+\end{align*}
+</div>
+<p class="continuation">This time the quotient had a common factor of <span class="process-math">\(h\)</span> that could cancel from the denominator. The new formula is continuous so that the limit can be calculated using continuity to give</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} 2+h\\
+&amp;= 2+0 = 2
+\end{align*}
+</div>
+<p class="continuation">The function has a left-tangent line with a slope of 2.</p>
+<p>We finish by comparing the values. The left- and right-derivatives do not have a common value, so the value <span class="process-math">\(g'(2)\)</span> does not exist. The function <span class="process-math">\(g(x)\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=2\text{.}\)</span></p>
+</div></body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Derivative Function</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_derivs_limit_definition.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_derivatives.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_derivs_differentiation.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_derivs_limit_definition.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_derivatives.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_derivs_differentiation.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="active">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_derivs_deriv_function"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">The Derivative Function</span>
+</h2>
+<section class="introduction" id="introduction-20"><p id="p-650">So far, we have talked about the derivative as the slope of the tangent line for a function at a particular point. Because a function theoretically could have a tangent line at <em class="emphasis">each point in the domain</em>, we really should think about the derivative as a <em class="emphasis">function</em>. The most common notation for a derivative of a function is to put a <em class="emphasis">prime</em> on the name of the original function using an apostrophe. For a function named <span class="process-math">\(f\text{,}\)</span> the derivative would be named <span class="process-math">\(f'\text{.}\)</span> For a function named <span class="process-math">\(\mathrm{brian}\text{,}\)</span> the derivative would be named <span class="process-math">\(\mathrm{brian}'\text{.}\)</span></p>
+<p id="p-651">In this section, we focus on three core outcomes related to the idea of a derivative as a function.</p>
+<ul class="disc">
+<li id="li-122"><p id="p-652">Use the definition of the derivative for a <em class="emphasis">variable</em> point to find the derivative for a polynomial.</p></li>
+<li id="li-123"><p id="p-653">Use the definition of the derivative for a <em class="emphasis">variable</em> point to find the derivative for a simple algebraic function involving either a quotient or a square root.</p></li>
+<li id="li-124"><p id="p-654">Based on the graph of a function <span class="process-math">\(y=f(x)\text{,}\)</span> sketch a reasonable graph of the derivative <span class="process-math">\(y=f'(x)\text{.}\)</span></p></li>
+</ul></section><section class="subsection" id="subsec_deriv_definition_function"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.1</span> <span class="title">Derivative Functions and Polynomials</span>
+</h3>
+<p id="p-655">When we used the definition of the derivative to find the derivative at a point (<a href="sec_derivs_limit_definition.html#subsec_derivative_exact" class="internal" title="Subsection 4.2.3: Exact Derivative from Definition">Subsection 4.2.3</a>), we started by identifying the value of <span class="process-math">\(f(a)\)</span> and a formula for <span class="process-math">\(f(a+h)\)</span> in terms of <span class="process-math">\(h\)</span> so that we could write down a formula for the slope of the secant line joining the points. In that approach, the value <span class="process-math">\(a\)</span> referred to a specific number.</p>
+<p id="p-656">When calculating the derivative as a function using the definition, we want to consider an <em class="emphasis">arbitrary</em> value in the domain. Instead of a specific value <span class="process-math">\(a\text{,}\)</span> we will use a variable <span class="process-math">\(x\)</span> as a placeholder for this arbitrary value. We will compute expressions for <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(f(x+h)\)</span> and again calculate a formula for the slope of the secant line joining these points, after which we will work to evaluate the limit as <span class="process-math">\(h \to 0\text{.}\)</span></p>
+<p id="p-657">For polynomials, this calculation is fairly straight forward. The main complication is properly expanding the formula for <span class="process-math">\(f(x+h)\text{,}\)</span> as it is easy for students to forget to multiply out powers properly. The second complication is when you subtract <span class="process-math">\(f(x)\)</span> from <span class="process-math">\(f(x+h)\)</span> that you need to subtract the overall formula. When students forget to write this formula inside grouping parentheses, it is too easy to forget that we need to add the opposite of each term, not just the first term.</p>
+<p id="p-658">We will illustrate this with a typical example.</p>
+<article class="example example-like" id="ex_deriv_function_polynomial"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-5.</span>
+</h4>
+<p id="p-659">Use the definition of the derivative to compute the exact formula <span class="process-math">\(g'(x)\)</span> for <span class="process-math">\(g(x)=x^2-2x\text{.}\)</span> (Note that this formula also appeared in the piecewise function in <a href="" class="xref" data-knowl="./knowl/ex_derivative_exact_piecewise.html" title="Example 4.2.12: Learning Objective D-4">Example 4.2.12</a>.)</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like">
+<p id="p-660">The basic pattern for using the definition of the derivative will be used:</p>
+<ul class="disc">
+<li id="li-125"><p id="p-661">Identify the formula for <span class="process-math">\(g(x)\text{.}\)</span></p></li>
+<li id="li-126"><p id="p-662">Compute <span class="process-math">\(g(x+h)\)</span> using function substitution.</p></li>
+<li id="li-127"><p id="p-663">Write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta g}{\Delta x} = \frac{g(x+h)-g(x)}{h}\text{.}\)</span></p></li>
+<li id="li-128"><p id="p-664">Use algebra to rewrite this in order to cancel away division by <span class="process-math">\(h\)</span> (finding a continuous formula at <span class="process-math">\(h=0\)</span>).</p></li>
+<li id="li-129"><p id="p-665">Use continuity at <span class="process-math">\(h=0\)</span> to evaluate the limit as <span class="process-math">\(h \to 0\)</span> of the slope of the secant line.</p></li>
+</ul>
+<p class="continuation">The resulting formula coming after this limit will <em class="emphasis">be</em> the formula for the derivative function.</p>
+<p id="p-666">Here are the steps for this problem. First, find the <span class="process-math">\(y\)</span>-values for the two points on the secant line.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-92">
+\begin{align*}
+g(x) &amp;= x^2 -2x\\
+g(x+h) &amp;= (x+h)^2 - 2(x+h)\\
+&amp;= (x+h)(x+h) - 2(x+h)\\
+&amp;= x^2+2xh+h^2 - 2x - 2h
+\end{align*}
+</div>
+<p class="continuation">Second, write down the formula for the <em class="emphasis">slope</em> of the secant line and then simplify the result.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-93">
+\begin{align*}
+\frac{\Delta g}{\Delta x} &amp;= \frac{g(x+h)-g(x)}{h}\\
+&amp;= \frac{(x^2+2xh+h^2 - 2x - 2h) - (x^2-2x)}{h}\\
+&amp;= \frac{\cancel{x^2}+2xh+h^2 - \cancel{2x} - 2h -  \cancel{x^2} + \cancel{2x}}{h}\\
+&amp;= \frac{2xh+h^2 - 2h}{h}
+\end{align*}
+</div>
+<p class="continuation">Notice that each term in the numerator has a common factor of <span class="process-math">\(h\text{.}\)</span> We factor it out in order to cancel:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-94">
+\begin{align*}
+\frac{\Delta g}{\Delta x} &amp;= \frac{2xh+h^2 - 2h}{h}\\
+&amp;= \frac{\cancel{h}(2x+h-2)}{\cancel{h}}\\
+&amp;= 2x+h-2
+\end{align*}
+</div>
+<p class="continuation">Lastly, the derivative is defined as the <em class="emphasis">limit</em> of this secant line slope as <span class="process-math">\(h \to 0\text{.}\)</span> Because the final formula removed the discontinuity at <span class="process-math">\(h=0\text{,}\)</span> we can use substitution to find the limit.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-95">
+\begin{align*}
+g'(x) &amp;= \lim_{h \to 0} \frac{\Delta g}{\Delta x}\\
+&amp;= \lim_{h \to 0} [2x+h - 2]\\
+&amp;=  2x + 0 - 2\\
+&amp;= 2x - 2
+\end{align*}
+</div>
+<p class="continuation">Therefore, we have shown, using the definition of the derivative, that for <span class="process-math">\(g(x)=x^2-2x\text{,}\)</span> we have <span class="process-math">\(g'(x) = 2x-2\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-667">The example above showed that for <span class="process-math">\(g(x)=x^2-2x\text{,}\)</span> we have <span class="process-math">\(g'(x)=2x-2\text{.}\)</span> This formula can be used now to find the slope of the tangent line at any point. For example, we have <span class="process-math">\(g'(2) = 2(2)-2 = 2\text{.}\)</span> The tangent line at <span class="process-math">\(x=2\)</span> has slope 2. Similarly, we have <span class="process-math">\(g'(3)=2(3)-2 = 4\text{,}\)</span> so that the tangent line at <span class="process-math">\(x=3\)</span> has slope 4. This one formula allows us to find the slope of <em class="emphasis">any</em> tangent line for <span class="process-math">\(g(x)\text{.}\)</span></p>
+<p id="p-668">To find the equation of the tangent line, we would use the point-slope formula, <span class="process-math">\(y=m(x-a)+b\text{.}\)</span> This requires knowing the point <span class="process-math">\((a,b)\)</span> and the slope <span class="process-math">\(m\text{.}\)</span> The derivative has provided the slope. The original function is used to find the <span class="process-math">\(y\)</span>-value of the point. At <span class="process-math">\(x=2\text{,}\)</span> we have <span class="process-math">\(g(2)=2^2-2(2)=0\text{,}\)</span> so our point would be <span class="process-math">\((2,0)\text{.}\)</span> Using the slope <span class="process-math">\(g'(2)=2\text{,}\)</span> the tangent line would be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=2(x-2)+0 = 2(x-2)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">At <span class="process-math">\(x=3\text{,}\)</span> we have <span class="process-math">\(g(3)=3^2-2(3) = 3\)</span> with a corresponding point <span class="process-math">\((3,3)\)</span> and tangent line</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y=6(x-3)+3\text{.}
+\end{equation*}
+</div>
+<p id="p-669">We will have a learning outcome that uses the tangent line later (D-8).</p></section><section class="subsection" id="subsec_derivs_algebraic"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.2</span> <span class="title">Derivative Functions of Algebraic Formulas</span>
+</h3>
+<p id="p-670">We are almost ready to learn differentiation, a method to find derivative formulas using derivative rules instead of the raw definition of a derivative. However, before we get there, we will look at two additional examples of simple algebraic functions that we can find using the derivative's definition. This way we will be able to compare whether differentiation finds correct formulas for a variety of examples. In addition, the methods used in these additional examples will be used to show why the derivative rules in differentiation are valid.</p>
+<p id="p-671">One of our learning objectives is to apply the definition of a derivative to one of these types of formulas. The setup process is identical. We do need to be careful that we use proper algebra in the context of either roots or quotients before we cancel away <span class="process-math">\(h\)</span> in the slope formula.</p>
+<p id="p-672">The first example is a formula that involves a simple quotient. A <dfn class="terminology">rational function</dfn> is a formula that is the quotient of two polynomials. The main challenge here is (1) writing down the appropriate formula for the slope of the secant line and (2) simplifying the slope quotient by finding a valid common denominator. In addition, it will be helpful to remember that dividing by <span class="process-math">\(h\)</span> is the same as multiplying by <span class="process-math">\(\frac{1}{h}\)</span> in order to express our slope formula as a simple quotient rather than a quotient of a quotient. If those steps are done properly, we should be able to factor out <span class="process-math">\(h\)</span> and cancel it to find a continuous version of the slope formula prior to finding a limit.</p>
+<article class="example example-like" id="ex_deriv_function_rational"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-6 (Rational Functions).</span>
+</h4>
+<p id="p-673">Use the definition of the derivative to compute the exact formula <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(\displaystyle f(x)=\frac{2x}{3x+1}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like">
+<p id="p-674">We will repeat the same steps to find the derivative using the definition as before.</p>
+<ul class="disc">
+<li id="li-130">
+<p id="p-675">Identify the formula for <span class="process-math">\(f(x)\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{2x}{3x+1}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-131"><p id="p-676">Compute <span class="process-math">\(f(x+h)\)</span> using function substitution.</p></li>
+<li id="li-132"><p id="p-677">Write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}\text{.}\)</span></p></li>
+<li id="li-133"><p id="p-678">Use algebra to rewrite this in order to cancel away division by <span class="process-math">\(h\)</span> (finding a continuous formula at <span class="process-math">\(h=0\)</span>).</p></li>
+<li id="li-134"><p id="p-679">Use continuity at <span class="process-math">\(h=0\)</span> to evaluate the limit as <span class="process-math">\(h \to 0\)</span> of the slope of the secant line.</p></li>
+</ul>
+<p id="p-680">First, we compute</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x+h) = \frac{2(x+h)}{3(x+h)+1}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Notice that <em class="emphasis">each</em> instance of <span class="process-math">\(x\)</span> was replaced by <span class="process-math">\((x+h)\text{.}\)</span> We will rewrite this as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x+h) = \frac{2x+2h}{3x+3h+1}\text{.}
+\end{equation*}
+</div>
+<p id="p-681">Next, we write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x} = \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is where we have a quotient of a quotient. We want to rewrite this so that the difference on the top is combined to a single quotient, and instead of dividing by <span class="process-math">\(h\text{,}\)</span> we multiply by <span class="process-math">\(\frac{1}{h}\text{.}\)</span> The first fraction has a denominator of <span class="process-math">\(3x+3h+1\)</span> and the second has a denominator of <span class="process-math">\(3x+1\text{.}\)</span> The <em class="emphasis">temptation</em> is to <em class="emphasis">add</em> <span class="process-math">\(3h\)</span> to get a common denominator, but this is not valid.</p>
+<p id="p-682">The only way we can leave a quotient's value unchanged is to <em class="emphasis">multiply</em> the top and bottom by the same thing. In this case, we will create a new common denominator that is the <em class="emphasis">product</em> of the two original denominators. This is the motivation for writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-96">
+\begin{align*}
+\frac{\Delta f}{\Delta x} &amp;= \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}\\
+&amp;= \frac{1}{h} \cdot \left( \frac{(2x+2h)(3x+1)}{(3x+3h+1)(3x+1)} - \frac{2x(3x+3h+1)}{(3x+1)(3x+3h+1)}\right)\\
+&amp;= \frac{1}{h} \cdot \left( \frac{(6x^2+2x+6xh+2h)-(6x^2+6xh+2x)}{(3x+3h+1)(3x+1)}\right)\\
+&amp;= \frac{1}{h} \cdot \left( \frac{2h}{(3x+3h+1)(3x+1)}\right)
+\end{align*}
+</div>
+<p class="continuation">At this point the factor of <span class="process-math">\(h\)</span> on the right cancels division by <span class="process-math">\(h\)</span> on the left, leaving</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x} = \frac{2}{(3x+3h+1)(3x+1)}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is continuous at <span class="process-math">\(h=0\text{.}\)</span></p>
+<p id="p-683">The derivative <span class="process-math">\(f'(x)\)</span> will be the limit of the slope of the secant line as <span class="process-math">\(h \to 0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-97">
+\begin{align*}
+f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
+&amp;= \lim_{h \to 0} \frac{2}{(3x+3h+1)(3x+1)}\\
+&amp;= \frac{2}{(3x+3(0)+1)(3x+1)}\\
+&amp;= \frac{2}{(3x+1)^2}
+\end{align*}
+</div>
+<p class="continuation">That is, we have found that for <span class="process-math">\(\displaystyle f(x)=\frac{2x}{3x+1}\text{,}\)</span> we have a derivative <span class="process-math">\(\displaystyle f'(x)=\frac{2}{(3x+1)^2}\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-684">Any simple quotient will follow this basic pattern. The other example that we will want to explore occurs with square roots. In this type of problem, our temptation is going to be to try to cancel terms that appear in different square roots. For example, if we have <span class="process-math">\(\sqrt{x+1}-\sqrt{x}\text{,}\)</span> the temptation I am referring to is to think that we can cancel <span class="process-math">\(\sqrt{x}\)</span> from the first term with <span class="process-math">\(\sqrt{x}\)</span> in the second term. But algebra does not allow us to separate the <span class="process-math">\(x+1\)</span> that is inside the square root.</p>
+<p id="p-685">Instead, we will find a new representation, again using multiplication. The process we use is called <dfn class="terminology">rationalization</dfn> using multiplication by a <dfn class="terminology">conjugate</dfn>. The word <dfn class="terminology">conjugate</dfn> refers to expressions that are sums or differences of square roots. You might have learned in algebra about a <em class="emphasis">complex conjugate</em> of a number like <span class="process-math">\(2+3i\)</span> where the coefficient of <span class="process-math">\(i\)</span> (in this case 3) has its sign changed to <span class="process-math">\(2-3i\text{.}\)</span> The symbol <span class="process-math">\(i\)</span> represents <span class="process-math">\(\sqrt{-1}\text{,}\)</span> so we were dealing with a sum/difference involving a square root.</p>
+<p id="p-686">A formula like <span class="process-math">\(\sqrt{x+1} - \sqrt{x}\)</span> can be <em class="emphasis">rewritten</em> by multiplying and dividing by the same expression, in this case the <dfn class="terminology">conjugate</dfn>, which uses the <em class="emphasis">sum</em> of the same terms in the difference:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt{x+1}-\sqrt{x} = \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Why would we do this? Every time we multiply conjugates, we get the <em class="emphasis">difference</em> of the squares of the terms: <span class="process-math">\((a-b)(a+b) = a^2 - b^2\text{.}\)</span> So the numerator of this new formula we have a <em class="emphasis">difference</em> of squares of square roots, meaning the numerator will no longer have any square roots:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-98">
+\begin{align*}
+\sqrt{x+1}-\sqrt{x} &amp;= \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}\\
+&amp;= \frac{(\sqrt{x+1})^2-(\sqrt{x})^2}{\sqrt{x+1}+\sqrt{x}\\
+&amp;= \frac{(x+1)-x}{\sqrt{x+1}+\sqrt{x}\\
+&amp;= \frac{1}{\sqrt{x+1}+\sqrt{x}\text{.}
+\end{align*}
+</div>
+<p class="continuation">That is, we have eliminated the <em class="emphasis">difference</em> of square roots in the numerator by introducing a <em class="emphasis">sum</em> of square roots in the denominator.</p>
+<p id="p-687">This same strategy will be used to simplify the slope of a secant line based on a function involving a square root.</p>
+<article class="example example-like" id="ex_deriv_function_root"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-6 (Square Root Functions).</span>
+</h4>
+<p id="p-688">Use the definition of the derivative to compute the exact formula <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x)=\sqrt{4x-1}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like">
+<p id="p-689">Notice how we will use the same general steps to find the slope of the secant line joining <span class="process-math">\((x,f(x))\)</span> and <span class="process-math">\((x+h,f(x+h))\text{,}\)</span> simplify that formula to a continuous version, and then evaluate the limit in order to find the derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-99">
+\begin{align*}
+f(x) &amp;= \sqrt{4x-1}\\
+f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}\\
+\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}\\
+&amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}\\
+&amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4\cancel{h}}{\cancel{h}}(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}\\
+f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
+&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}
+\end{align*}
+</div>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_deriv_graphing"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.3</span> <span class="title">Graphs of Derivative Functions</span>
+</h3>
+<p id="p-690">Because the derivative function <span class="process-math">\(f'(x)\)</span> measures the slope of tangent lines of another function <span class="process-math">\(f(x)\text{,}\)</span> we can visualize the graph of <span class="process-math">\(f'(x)\)</span> by recognizing how the slope of <span class="process-math">\(f(x)\)</span> itself is changing.</p>
+<p id="p-691">When creating a graph of <span class="process-math">\(f'(x)\text{,}\)</span> we should pay particular attention to the following features:</p>
+<ul class="disc">
+<li id="li-135"><p id="p-692">Where <span class="process-math">\(f(x)\)</span> is <em class="emphasis">horizontal</em>, the slope of the tangent line is zero. At such a point, <span class="process-math">\(f'(x)=0\)</span> so that the graph of <span class="process-math">\(f'(x)\)</span> touches the <span class="process-math">\(x\)</span>-axis.</p></li>
+<li id="li-136"><p id="p-693">Where <span class="process-math">\(f(x)\)</span> has a <em class="emphasis">positive slope</em>, the value of <span class="process-math">\(f'(x)\)</span> itself is positive so the graph of <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">above</em> the <span class="process-math">\(x\)</span>-axis.</p></li>
+<li id="li-137"><p id="p-694">Where <span class="process-math">\(f(x)\)</span> has a <em class="emphasis">negative slope</em>, the value of <span class="process-math">\(f'(x)\)</span> itself is negative and the graph of <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">below</em> the <span class="process-math">\(x\)</span>-axis.</p></li>
+<li id="li-138"><p id="p-695">Where <span class="process-math">\(f(x)\)</span> is concave up, the slope is increasing, so the graph of <span class="process-math">\(f'(x)\)</span> will be an increasing function.</p></li>
+<li id="li-139"><p id="p-696">Where <span class="process-math">\(f(x)\)</span> is concave down, the slope is decreasing, so the graph of <span class="process-math">\(f'(x)\)</span> will be an decreasing function.</p></li>
+<li id="li-140"><p id="p-697">Inflection points where <span class="process-math">\(f(x)\)</span> changes concavity will be local extreme values for <span class="process-math">\(f'(x)\text{.}\)</span></p></li>
+</ul>
+<p id="p-698">Overall, the idea is to imagine going from left to right on the graph of <span class="process-math">\(y=f(x)\)</span> and pay attention to the <em class="emphasis">slope</em> of that graph. At each <span class="process-math">\(x\)</span>-value, we note the value of the slope and record that as the value of <span class="process-math">\(f'(x)\text{.}\)</span> If the <span class="process-math">\(f(x)\)</span> graph is concave up, that means the slope is increasing and our <span class="process-math">\(f'(x)\)</span> function should be rising. If the <span class="process-math">\(f(x)\)</span> graph is concave down, <span class="process-math">\(f'(x)\)</span> should be falling. And the closer the graph of <span class="process-math">\(f(x)\)</span> is to horizontal, the closer the <span class="process-math">\(f'(x)\)</span> graph should be getting to the <span class="process-math">\(x\)</span>-axis (<span class="process-math">\(f'(x)=0\)</span>).</p>
+<p id="p-699">Let us start with a dynamic illustration. The figure below shows a graph of <span class="process-math">\(y=f(x)\)</span> on the left. A point on the graph is draggable, and at that point, the graph also shows the corresponding tangent line. The graph on the left shows the derivative function <span class="process-math">\(f'(x)\text{.}\)</span> As you drag from left to right, more of the graph of <span class="process-math">\(y=f'(x)\)</span> will be shown. Pay attention to how each of the features described above come into play.</p>
+<figure class="figure figure-like" id="fig_derivs_graph_deriv_reveal"><iframe id="derivs_graph_deriv_reveal" width="600" height="360" src="derivs_graph_deriv_reveal-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.4<span class="period">.</span></span><span class="space"> </span>Dynamic illustration of the derivative as a function measuring the slope of the tangent line of <span class="process-math">\(y=f(x)\)</span> (left) as the <em class="emphasis">value</em> of <span class="process-math">\(f'(x)\)</span> (right).</figcaption></figure><p id="p-700">Notice how on the far left and far right edges of the graph, the tangent line is almost horizontal so the <span class="process-math">\(f'(x)\)</span> graph is close to zero on these same edges. Similarly, the graph <span class="process-math">\(y=f(x)\)</span> has horizontal tangents at its local extreme values at <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=2\text{,}\)</span> so the <span class="process-math">\(f'(x)\)</span> graph crosses the axis at these points. On the interval <span class="process-math">\((-\infty,-2)\text{,}\)</span> the graph of <span class="process-math">\(f(x)\)</span> has a tangent line with negative slope, so <span class="process-math">\(f'(x)\)</span> is below the axis on this same interval. You should also notice that the <span class="process-math">\(f'(x)\)</span> graph has its own local minimum at about <span class="process-math">\(x \approx -3.5\text{.}\)</span> This is a consequence of the graph <span class="process-math">\(y=f(x)\)</span> having an inflection point changing from concave down on the far left to concave up. The corresponding point is where the tangent line has the most negative slope.</p>
+<p id="p-701">When doing this by hand, I recommend:</p>
+<ul class="disc">
+<li id="li-141"><p id="p-702">Identify where <span class="process-math">\(f'(x)=0\text{.}\)</span> Mark this on your graph as points <em class="emphasis">on</em> the <span class="process-math">\(x\)</span>-axis.</p></li>
+<li id="li-142"><p id="p-703">Determine the intervals where <span class="process-math">\(f'(x)\)</span> is positive or negative.</p></li>
+<li id="li-143"><p id="p-704">Identify extreme slopes (inflection points). Mark approximate points on your graph giving the approximate slope at these points. These will become extreme values for <span class="process-math">\(f'(x)\text{.}\)</span></p></li>
+<li id="li-144"><p id="p-705">Determine what happens at the edge of your graph. Is the slope becoming unbounded? Or is the slope approaching zero?</p></li>
+<li id="li-145"><p id="p-706">Draw a graph joining the points you created earlier with the correct end behavior and correct signs.</p></li>
+</ul>
+<article class="example example-like" id="ex_draw_graph_derivative"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-7.</span>
+</h4>
+<p id="p-707">Given the graph of <span class="process-math">\(y=f(x)\)</span> shown below, sketch a graph of <span class="process-math">\(y=f'(x)\text{.}\)</span></p>
+<figure class="figure figure-like" id="ex_draw_graph_deriv_originial_fcn"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/draw_graph_deriv_original_fcn.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=f(x)\)</span></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-video" data-refid="hk-solution-54" id="solution-54"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-54"><div class="solution solution-like">
+<p id="p-708">Since this is about <em class="emphasis">drawing</em> a new graph, it is hard to walk through in written text. Here is a video solution walking through the process instead.</p>
+<figure class="figure figure-like" id="fig_draw_graph_derivative_soln_video"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/oqpqDHCed1c?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>Video solution</figcaption></figure>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_derivs_linear_approximation"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.4</span> <span class="title">Tangent Lines and Linear Approximations</span>
+</h3>
+<p id="p-709">In the paragraphs following <a href="" class="xref" data-knowl="./knowl/ex_deriv_function_polynomial.html" title="Example 4.3.1: Learning Objective D-5">Example 4.3.1</a>, we emphasized how the derivative function calculates the slope of a tangent line and introduced the idea of using that information to write down the equation of a line. In this subsection, we want to explore this idea in a little more depth.</p>
+<p id="p-710">Recall that a tangent line is the <em class="emphasis">best</em> linear function to approximate a function through a given point. The derivative is the tool that helps us defined how to get the slope of this linear approximation. The resulting linear function is called <dfn class="terminology">linearization</dfn> of the original function around the point where the tangent line was found. Why do we ever want a linearization?</p>
+<p id="p-711">There are many examples where variables in data are related according to complicated relationships. Finding those formulas might be a very complex task. But if we can find a <em class="emphasis">linearization</em>, which only requires knowing an initial value (the point) and the rate of change (the slope), then at least for nearby points we have a simple formula to make calculated predictions.</p>
+<p id="p-712">In physics, the force of resistance to change provided by an elastic object like a spring is actually a complex nonlinear relation. However, like any differentiable function, for small changes from its equilibrium position, the linearization will be quite close to this nonlinear function. This is why physics typically represents springs using a linear force, known as Hooke's law, <span class="process-math">\(F=-kx\)</span> where <span class="process-math">\(x\)</span> is the <em class="emphasis">displacement from equilibrium</em>. If we represented <span class="process-math">\(x\)</span> as a position and a particular position as equilibrium <span class="process-math">\(x_0\text{,}\)</span> the equation would intead be <span class="process-math">\(F = -k(x-x_0)\text{.}\)</span> The spring constant <span class="process-math">\(k\)</span> is actually the derivative or rate of change of the more complex nonlinear force function with respect to displacement.</p>
+<p id="p-713">Finding a linear approximation is nothing more than repeating Learning Objective P-2 (<a href="" class="xref" data-knowl="./knowl/ex_using_point_slope.html" title="Example 1.1.10: Learning Outcome P-2">Example 1.1.10</a>). The only difference is that now we know where the slope is coming from. It is coming from the derivative. For the purpose of this learning objective, it might be assumed that the derivative formula has already been found and your task is to use the formula.</p>
+<article class="example example-like" id="ex_use_linearization"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-8 (Formula).</span>
+</h4>
+<p id="p-714">Specific heat is a physical quantity measured for many substances. It is actually a derivative <span class="process-math">\(\frac{dQ}{dT}\)</span> of the energy of heat <span class="process-math">\(Q\)</span> (Joules) in a single gram of the substance with respect to the temperature <span class="process-math">\(T\)</span> (degrees Celsius). An engineer has done analysis on some specific heat data for sapphire and has determined that for the values of interest,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dQ}{dT} \approx 0.7180 + 0.0024 T - 0.000005 T^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">After adding <span class="process-math">\(Q=4\)</span> Joules to a gram sapphire, the temperature is now <span class="process-math">\(T=60\)</span> degrees C. Use a linearization of heat with respect to temperature to approximate the value of <span class="process-math">\(Q\)</span> that is needed to reach <span class="process-math">\(T=65\)</span> degrees C.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-55" id="solution-55"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-55"><div class="solution solution-like">
+<p id="p-715">Underneath the discussion about physical variables, we understand from the problem that <span class="process-math">\(Q\)</span> is a function of <span class="process-math">\(T\text{,}\)</span> say <span class="process-math">\(Q=f(T)\text{.}\)</span> The rate of change <span class="process-math">\(\frac{dQ}{dT}\)</span> that is given represents the derivative <span class="process-math">\(f'(T)\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(T) = 0.7180 + 0.0024T - 0.000005 T^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">From the given information, we know that <span class="process-math">\(f(60) = 4\text{.}\)</span> Using the derivative formula, we can also find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(60) = 0.7180 + 0.0024(60) - 0.000005 (60)^2 = 0.844\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The linearization says that for <span class="process-math">\(T\)</span> close to <span class="process-math">\(T=60\text{,}\)</span> we have an approximate relation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q = 4 + 0.844(T-60)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(T=65\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q \approx 4 + 0.844(65-60) = 8.22\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, the total heat added to reach 65 degrees Celsius is approximately 8.22 Joules (from its original state) or 4.22 additional Joules (from its current state).</p>
+<p id="p-716">In this solution, the key features I will be looking for is whether you stated a linearization (the tangent line formula), and then whether you used it to answer the question.</p>
+</div></div>
+</div></article><p id="p-717">Alternatively, you might also be given information about the function and its derivative in other formats. In the following example, information about a function and its derivative are given in a table, and we are asked to use the information to approximate a function value at a point not in the table. Because a linearization gives a good approximation for small deviations from the original point, we choose the closest point to make the linearization.</p>
+<article class="example example-like" id="ex_derivs_linearization_table"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-8 (Data).</span>
+</h4>
+<p id="p-718">A population growing in time is observed every five years to record the population <span class="process-math">\(P\)</span> and the population growth rate <span class="process-math">\(\frac{dP}{dt}\)</span>(birth rate minus death rate). <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(t\)</span> (yr)</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(P\)</span> (thousands)</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\frac{dP}{dt}\)</span> (thousands/yr)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">10.0</td>
+<td class="l m b0 r0 l0 t0 lines">1.9</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">25.0</td>
+<td class="l m b0 r0 l0 t0 lines">4.4</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">56.0</td>
+<td class="l m b0 r0 l0 t0 lines">8.1</td>
+<td class="l m b0 r0 l0 t0 lines">15</td>
+<td class="l m b0 r0 l0 t0 lines">102.8</td>
+<td class="l m b0 r0 l0 t0 lines">10.0</td>
+<td class="l m b0 r0 l0 t0 lines">20</td>
+<td class="l m b0 r0 l0 t0 lines">148.4</td>
+<td class="l m b0 r0 l0 t0 lines">7.7</td>
+</tr>
+</table></div> Use an appropriate linearization to estimate the population size for <span class="process-math">\(t=12\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-56" id="solution-56"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-56"><div class="solution solution-like">
+<p id="p-719">The time <span class="process-math">\(t=12\)</span> is closest to <span class="process-math">\(t=10\)</span> in the table. We will use use <span class="process-math">\(t=10\)</span> for our linearization, at which time we have that <span class="process-math">\(P=56.0\)</span> (thousands of individuals) and <span class="process-math">\(\frac{dP}{dt}=8.1\)</span> (thousands per year). The tangent line formula is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P = 56.0 + 8.1\cdot(t-10)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so that the approximate value at <span class="process-math">\(t=12\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P = 56.0 + 8.1\cdot(12-10) = 72.2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The linearization predicts a population of about 72.2 thousand individuals.</p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

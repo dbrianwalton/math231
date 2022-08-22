@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.5.6.1</span><span class="period">.</span>
+</h4>
+<p>Justifying the limit requires more than just plugging the value into the formula. That would be evaluating the function, not finding the limit, and their equivalence is a consequence of continuity. In fact, limit justification for this example is really justification that the function is continuous. Instead, we need to look at how the function <span class="process-math">\(f(x)=5x^3(x^2+3x)\)</span> is constructed from elementary functions and then use limit rules based on that deconstruction.</p>
+<p>The elementary building blocks for which direct limits are justified are constant functions, the identity function (<span class="process-math">\(x\)</span> all alone), and linear functions. Our formula involves powers of <span class="process-math">\(x\text{.}\)</span> We will need to think of those as repeated multiplication: <span class="process-math">\(x^2 = x \cdot x\)</span> and <span class="process-math">\(x^3 = x \cdot x \cdot x = x^2 \cdot x\text{.}\)</span> In principle, we could create an entire decontruction using a tree.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/lim_deconstruction_tree.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.7<span class="period">.</span></span><span class="space"> </span>Tree representation of the deconstruction of <span class="process-math">\(5x^3(x^2+3x)\)</span></figcaption></figure><p>Each leaf on this tree is an elementary formula (constant, identity or linear function), and we can state their limits as being justified by elementary limit rules. For reference later in our justification, each limit that is justified will be numbered. Constants that will be used in a constant multiple rule or constant sum rule are not required to justify limits separately as the limit rule has that built-in. The two elementary limits that are needed are for <span class="process-math">\(x\)</span> (identity) and <span class="process-math">\(3x\)</span> (linear). <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 2} x = 2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Identity</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 2} 3x = 3 \cdot 2 = 6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Linear Function</td>
+</tr>
+</table></div> Alternatively, we could have used the constant multiple rule since <span class="process-math">\(3x = 3 \cdot x\text{.}\)</span></p>
+<p>We now start justifying limits of intermediate formulas, working from the leaves upward in the tree. Notice that <span class="process-math">\(x^2\)</span> appears twice in this tree, but the limit only needs to be justified once. Then we can build <span class="process-math">\(x^3\)</span> as a product and <span class="process-math">\(x^2+3x\)</span> as a sum. The remaining steps involved in justification are listed below. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x\\
+&amp;= 2 \cdot 2 = 4
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^3 &amp;= \lim_{x \to 2} x \cdot \lim_{x \to 2} x^2\\
+&amp;= 2 \cdot 4 = 8
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} x^2+3x &amp;= \lim_{x \to 2} x^2 + \lim_{x \to 2} 3x\\
+&amp;= 8 + 6 = 14
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Sum</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 &amp;= 5 \cdot \lim_{x \to 2} x^3\\
+&amp;= 5 \cdot 8 = 40
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Constant Multiple</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 2} 5x^3 (x^2+3x) &amp;= \lim_{x \to 2} 5x^3 \cdot \lim_{x \to 2} (x^2+3x)\\
+&amp;= 40 \cdot 14 = 560
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Product</td>
+</tr>
+</table></div></p>
+</div>
+<span class="incontext"><a href="sec_limits_reasoning.html#solution-45" class="internal">in-context</a></span>
+</body>
+</html>

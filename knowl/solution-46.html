@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">3.5.8.1</span><span class="period">.</span>
+</h4>
+<p>Notice that if we use <span class="process-math">\(x=3\)</span> in the denominator <span class="process-math">\(x^2-x-6\)</span> we get <span class="process-math">\(3^2-3-6 = 0\text{.}\)</span> The limit rule for a quotient does not apply when the denominator results in division by zero. This is why we needed to be told <em class="emphasis">separately</em> the value of a limit that had division by zero in the formula.</p>
+<p>In order to use limit rules to justify a limit for this formula, we need to rewrite the formula so that we get a product with <span class="process-math">\(\displaystyle \frac{f(x)}{x-3}\text{.}\)</span> Factoring the denominator, we have <span class="process-math">\(x^2-x-6 = (x-3)(x+2)\text{.}\)</span> The factor <span class="process-math">\(x-3\)</span> can be group with the numerator factor <span class="process-math">\(f(x)\)</span> so that we rewrite our limit in question:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 3} \frac{2f(x)(x^2+1)}{x^2-x-6} = \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The factor on the left has a <em class="emphasis">given</em> limit. We will use limits rules with deconstruction to find the limit of the formula on the right. Then we will use the limit of a product to justify a limit of the entire formula.</p>
+<p>See if you can deconstruct the formula on the right on your own. You should then be able to follow the steps of limit justification shown below. Notice that multiplication by 2 is a constant multiple and adding the constant 1 to <span class="process-math">\(x^2\)</span> is a constant sum, allowing us to avoid needing to find limits of the constants on their own. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Step</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Limit</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Justification</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} = 5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Given</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} x = 3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of Identity</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \lim_{x \to 3} x+2 = 5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Linear Function</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 3} x^2 &amp;= \lim_{x \to 3} x \cdot \lim_{x \to 3} x\\
+&amp;= 3 \cdot 3 = 9
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Product</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 3} x^2+1 &amp;= \left(\lim_{x \to 3} x^2 \right) + 1\\
+&amp;= 9+1 = 10
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Constant Sum</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 3} 2(x^2+1) &amp;= 2 \cdot \left(\lim_{x \to 3} x^2+1 \right)\\
+&amp;= 2 \cdot 10 = 20
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Constant Multiple</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 3} \frac{2(x^2+1)}{x+2} &amp;= \frac{20}{5} = 4
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Quotient</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\displaystyle \lim_{x \to 3} \frac{f(x)}{x-3} \cdot \frac{2(x^2+1)}{x+2} &amp;= 5 \cdot 4 = 20
+\end{align*}
+</div></td>
+<td class="l m b0 r0 l0 t0 lines">Limit of a Product</td>
+</tr>
+</table></div></p>
+</div>
+<span class="incontext"><a href="sec_limits_reasoning.html#solution-46" class="internal">in-context</a></span>
+</body>
+</html>

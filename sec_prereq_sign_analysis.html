@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Sign Analysis to Solve Inequalities</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_prereq_quadratic.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_functions.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_prereq_quadratic.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_functions.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="active">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="sec_prereq_sign_analysis"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Sign Analysis to Solve Inequalities</span>
+</h2>
+<section class="introduction" id="introduction-5"><p id="p-132">When we want to find individual values where something precisely occurs, we solve equations. This typically results in solution sets of isolated points. On the other hand, we are often interested in where a quantity is in a <em class="emphasis">range</em> of possible values. The mathematical question then becomes solving an <dfn class="terminology">inequality</dfn>. The solution set then typically becomes a set consisting of intervals and possibly additional isolated points.</p>
+<p id="p-133">Fortunately, the method of solving an equation can be used to solve inequalities. Equations help us find boundaries of possible regions. An inequality is solved by testing the regions one at a time. This method is commonly called <dfn class="terminology">sign analysis</dfn>.</p></section><section class="subsection" id="subsec_inequality_overview"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.1</span> <span class="title"></span>
+</h3>
+<p id="p-134">An inequality is a logical statement that includes the possibility that one quantity is greater than or less than another inequality. This allows inequalities to answer questions about when a quantity is within a given range of values.</p>
+<p id="p-135">If an inequality has a variable that appears only once, we can use the strategy of isolation to solve the inequality, assuming that the inverse operations we apply are well-behaved.</p>
+<p id="p-136">What could go wrong? The first thing to watch out for is that some operations change the ordering. For example, you should have learned that multiplying by a negative number reverses order. That is, if we start with <span class="process-math">\(u \lt v\)</span> and multiply by -2, we have <span class="process-math">\(-2u \gt -2v\text{.}\)</span> Another example is a reciprocal of two numbers of the same sign. If we start with <span class="process-math">\(0 \lt u \lt v\)</span> (two positive numbers), then since <span class="process-math">\(v\)</span> would be a larger denominator, <span class="process-math">\(0 \lt \frac{1}{v} \lt \frac{1}{u}\text{.}\)</span> Being the same sign is important. If <span class="process-math">\(u \lt 0 \lt v\text{,}\)</span> then <span class="process-math">\(\frac{1}{u} \lt 0 \lt \frac{1}{v}\)</span> because the reciprocal does not change the sign, only the magnitude, of the number.</p>
+<article class="example example-like" id="ex_inequality_isolation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h4>
+<p id="p-137">Find the values <span class="process-math">\(x\)</span> so that <span class="process-math">\(y=3x-5\)</span> is between <span class="process-math">\(y=4\)</span> and <span class="process-math">\(y=5\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-15" id="solution-15"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-15"><div class="solution solution-like">
+<p id="p-138">We start by translating the question into an inequality,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+4 \lt 3x-5 \lt 5\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Technically, this is a compound inequality that <span class="process-math">\(3x-5 \gt 4\)</span> <em class="emphasis">and</em> <span class="process-math">\(3x-5 \lt 5\text{.}\)</span> Normally this would require solving the simpler inequalities individually and then finding the <em class="emphasis">intersection</em> (because <em class="emphasis">and</em> means intersect) of the solutions.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{array}{c c}
+3x-5 \gt 4 &amp; 3x-5 \lt 5 \\
+3x \gt 4+5 &amp; 3x \lt 5+5 \\
+3x \gt 9 &amp; 3x \lt 10 \\
+x \gt 3 &amp; x \lt \frac{10}{3}
+\end{array}
+\end{equation*}
+</div>
+<p class="continuation">The first inequality's solution set is <span class="process-math">\((3,\infty)\text{.}\)</span> The second inequality's solution set is <span class="process-math">\((-\infty, \frac{10}{3})\text{.}\)</span> The intersection of these sets is <span class="process-math">\((3, \frac{10}{3})\text{.}\)</span></p>
+<p id="p-139">For linear formulas, the method of isolation works on the compound inequality together because we only deal with addition and multiplication:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-23">
+\begin{gather*}
+4 \lt 3x-5 \lt 5\\
+4+5 \lt 3x \lt 5+5\\
+9 \lt 3x \lt 10\\
+\frac{1}{3}\cdot 9 \lt x \lt \frac{1}{3} \cdot 10\\
+3 \lt x \lt \frac{10}{3}
+\end{gather*}
+</div>
+<p class="continuation">This is a much easier way to get the interval.</p>
+</div></div>
+</div></article><p id="p-140">The geometric interpretation of solving the inequality of the previous example is helpful. The equation <span class="process-math">\(y=3x-5\)</span> defines a set of points (a line) in the plane. Solving <span class="process-math">\(4 \lt 3x-5 \lt 5\)</span> is finding the <span class="process-math">\(x\)</span>-values of the points that are between <span class="process-math">\(y=4\)</span> and <span class="process-math">\(y=5\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_graph_between_lines"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/graph_between_lines.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.2<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=3x-5\)</span> (dotted) highlighting those points (solid blue) between <span class="process-math">\(y=4\)</span> and <span class="process-math">\(y=5\text{.}\)</span></figcaption></figure><p id="p-141">The boundaries of our solution set exactly correspond to where the graph <span class="process-math">\(y=3x-5\)</span> intersects the threshold values <span class="process-math">\(y=4\)</span> and <span class="process-math">\(y=5\text{.}\)</span> Finding the intersection points corresponds to solving equations <span class="process-math">\(3x-5=4\)</span> and <span class="process-math">\(3x-5=5\text{.}\)</span> Once we know those points, we can just check each of the intervals using these end-points to find our solution set. This is what motivates the strategy of sign analysis to solve inequalities.</p></section><section class="subsection" id="subsec_sign_analysis_polynomial"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.2</span> <span class="title"></span>
+</h3>
+<p id="p-142">The method of <dfn class="terminology">sign analysis</dfn> uses equations to find end-points of test intervals and sign checking inside of intervals as an approach to solve inequalities. The word <em class="emphasis">sign</em> is used because we will be reframing each inequality in terms of comparisons to zero (equal, positive, or negative). By relating to zero, we can take advantage of factoring as a strategy for solving the equations <em class="emphasis">and</em> for testing signs.</p>
+<p id="p-143">Ultimately, the strategy of sign analysis is justified by the idea of continuity, a concept introduced in calculus later. For our purposes, algebraic formulas that we encounter are continuous except where they are not defined due to division by zero.</p>
+<article class="theorem theorem-like" id="thm_sign_change"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Sign Change Locations.</span>
+</h4>
+<p id="p-144">An expression involving a variable <span class="process-math">\(x\)</span> can only change sign at a point where the expression equals zero or is not continuous. That is, if the expression has no zeros or discontinuities between <span class="process-math">\(x=a\)</span> and <span class="process-math">\(x=b\text{,}\)</span> then the sign of the expression can not change inside the interval <span class="process-math">\((a,b)\text{.}\)</span></p></article><p id="p-145">This theorem allows us to find all of the points where an expression equals zero or is not continuous. Using these points as end-points, we create test intervals that can only have one sign on the interval. By choosing a single point from each interval, we can calculate the sign at that point and conclude the sign on the entire interval. Once we know the signs for each interval and point, we can interpret the results to solve an inequality.</p>
+<p id="p-146">The simplest example to demonstrate this principle is for polynomials. Our first step will be to rewrite the inequality of interest as a relation to zero. Polynomials do not involve any division by the variable, so there will be no discontinuities. Roots (zeros) can be determined by the factorization. For polynomials of degree larger than 2, we will use a computer to help us factor.</p>
+<article class="example example-like" id="ex_sign_analysis_polynomial"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective P-6.</span>
+</h4>
+<p id="p-147">Solve the inequality <span class="process-math">\(x^4-x^3-8x^2+2 \lt x^2-2x-6\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like">
+<p id="p-148">A graph will give us intuition. If we graph <span class="process-math">\(y=x^4-x^3-8x^2+2\)</span> and <span class="process-math">\(y=5x^2-x-10\text{,}\)</span> the solution we are looking for is the set of <span class="process-math">\(x\)</span>-values where the first graph is <em class="emphasis">below</em> (less than) the second graph.</p>
+<figure class="figure figure-like" id="fig_polynomial_crossing"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/polynomial_crossing.svg" role="img" class="contained" alt="graph of two curves with region shaded where the first graph is below the second graph"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.5<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=x^4-x^3-8x^2+2\)</span> (solid blue) and <span class="process-math">\(y=x^2-2x-6\)</span> (dashed orange), highlighting where the first graph is below the second.</figcaption></figure><p id="p-149">To solve this question directly, we rewrite the inequality as a relation with zero:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-24">
+\begin{gather*}
+x^4-x^3-8x^2+2 \lt 5x^2-x-10\\
+x^4-x^3-8x^2+2 - 5x^2 + x + 10 \lt 0\\
+x^4-x^3-13x^2+ x + 12 \lt 0
+\end{gather*}
+</div>
+<p id="p-150">At this point we need to factor the polynomial. Because this is degree 4, we will use a computer to solve. One approach would be to go to <a class="external" href="https://wolframalpha.com" target="_blank">WolframAlpha</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 1 </sup></a> and type <code class="code-inline tex2jax_ignore">factor x^4-x^3-9x^2+2x+8</code>. Another would be to use the free tool <a class="external" href="https://sagecell.sagemath.org" target="_blank">SageMath</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 2 </sup></a>, as illustrated below.</p>
+<pre class="ptx-sagecell hidden-sagecell-sage" id="sage-1"><script type="text/x-sage">var('x')
+formula = x^4 - x^3 - 13*x^2 + x + 12
+show(formula.factor())
+</script></pre>
+<p id="p-151">On evaluation of the factoring, we can rewrite our question</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+3)(x+1)(x-1)(x-4) \lt 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Because this is already factored, we can quickly note that the only roots (zeros) occur at four locations: <span class="process-math">\(x=-3\text{,}\)</span> <span class="process-math">\(x=-1\text{,}\)</span> <span class="process-math">\(x=1\text{,}\)</span> and <span class="process-math">\(x=4\text{.}\)</span> Polynomials have no discontinuities, so these are the only possible end-points. Using a number line broken at these points, we find <em class="emphasis">five</em> test intervals: <span class="process-math">\((-\infty,-3)\text{,}\)</span> <span class="process-math">\((-3,-1)\text{,}\)</span> <span class="process-math">\((-1,1)\text{,}\)</span> <span class="process-math">\((1,4)\text{,}\)</span> <span class="process-math">\((4,\infty)\text{.}\)</span></p>
+<p id="p-152">We will test each interval by choosing a single value and calculating the sign of the formula. Because the formula is factored, this can be quickly determined by keeping track of the signs of each factor and then counting the number of negative factors. An odd number of negative factors will result in a negative product. An even number of negative factors will result in a positive product.</p>
+<figure class="table table-like" id="table_polynomial_sign_analysis"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.4.6<span class="period">.</span></span><span class="space"> </span>Evaluation of signs on each test interval</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Interval</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Point</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Formula</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Count Negative</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sign</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-\infty,-3)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">-4</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-4+3)(-4+1)(-4-1)(-4-4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-3,-1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">-2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-2+3)(-2+1)(-2-1)(-2-4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((-1,1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((0+3)(0+1)(0-1)(0-4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((1,4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((2+3)(2+1)(2-1)(2-4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((4,\infty)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((5+3)(5+1)(5-1)(5-4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+</table></div></figure><p id="p-153">The table shows our reasoning. It is usually adequate to summarize the results directly on a number line, creating a <dfn class="terminology">sign analysis summary</dfn>. We create a number line and mark each of the possible end-points by solving the equation. Label the value of the variable below the line and why it was included above the line (either a root or discontinuity). Then for each resulting interval choose a test point (label below the interval) and write the sign of the formula above the line.</p>
+<figure class="figure figure-like" id="fig_polynomial_sign_analysis_summary"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/polynomial_sign_analysis_summary.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.7<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\((x+3)(x+1)(x-1)(x-4)\text{.}\)</span></figcaption></figure><p id="p-154">After we complete the sign analysis, we need to <em class="emphasis">interpret</em> our results. In this question, we were solving for where <span class="process-math">\(x^4-x^3-13x^2+x+12\)</span> was <em class="emphasis">less than</em> zero, meaning it was <em class="emphasis">negative</em>. We select the set of all values on our number linear that created negative values for the formula. Our solution set is <span class="process-math">\((-3,-1) \cup (1,4)\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_polynomial_sign_analysis_interpret"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/polynomial_sign_analysis_interpret.svg" role="img" class="contained" alt="sign analysis summary with interpretation"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.8<span class="period">.</span></span><span class="space"> </span>Sign analysis with identification of intervals resulting in <em class="emphasis">negative</em> values.</figcaption></figure>
+</div></div>
+</div></article><p id="p-155">We should think of sign analysis and the interpretation as separate steps. The previous example involved an inequality with strict inequality. At the end-points, the value of the formula was equal to zero. This is why they were not included in the intervals. If the problem had involved an inequality <span class="process-math">\(\le\)</span> (less than <em class="emphasis">or equal</em>), then each point we found that made the formula equal to zero would also have been included. The sign analysis would be the same; only the interpretation would be different.</p></section><section class="subsection" id="subsec_sign_analysis_rational"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.3</span> <span class="title"></span>
+</h3>
+<p id="p-156"><dfn class="terminology">Rational functions</dfn> are quotients of polynomials. Because division by zero is undefined, discontinuities will happen at each point where the denominator has a value of zero. We can do sign analysis for rational functions just like we do for polynomials, so long as we worry about both roots and discontinuities.</p>
+<article class="example example-like" id="ex_sign_analysis_rational"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective P-7.</span>
+</h4>
+<p id="p-157">Solve the inequality <span class="process-math">\(\displaystyle \frac{x^4 - 3 x^2 + 2 x}{x^3 + 5 x^2 - 2 x - 10} \ge 0\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-17" id="solution-17"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-17"><div class="solution solution-like">
+<p id="p-158">The inequality is already written as a relation with zero. We need to find where the numerator equals zero (root of formula) and where the denominator equals zero (discontinuity of formula). These can be found by factoring the two polynomials. As they are both have degrees greater than 2, we will rely on computer assistance.</p>
+<pre class="ptx-sagecell hidden-sagecell-sage" id="sage-2"><script type="text/x-sage">var('x')
+numer = x^4 - 3*x^2 +2*x
+show(numer.factor())
+denom = x^3+5*x^2-2*x-10
+show(denom.factor())
+</script></pre>
+<p id="p-159">We can now rewrite our inequality in factored form:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)} \ge 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The factors in the numerator result in zeros at <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(x=-2\text{,}\)</span> and <span class="process-math">\(x=1\text{.}\)</span> Notice that one factor in the denominator <span class="process-math">\(x^2-2\)</span> is still quadratic and will have two zeros. Using isolation, we find <span class="process-math">\(x=\pm\sqrt{2}\)</span> and <span class="process-math">\(x=-5\)</span> as the three discontinuities for our quotient.</p>
+<p id="p-160">We put these six numbers on the number line and it creates seven test intervals. Note that we need to make a distinction between the roots (making the formula equal zero) and the discontinuities (making the formula undefined).</p>
+<figure class="figure figure-like" id="fig_rational_test_intervals"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_test_intervals.svg" role="img" class="contained" alt="number line showing roots and discontinuities to be used for test intervals"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.10<span class="period">.</span></span><span class="space"> </span>Test intervals for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p id="p-161">Looking at the number line and recognizing that <span class="process-math">\(\sqrt{2} \approx 1.414\text{,}\)</span> we might choose test points with the set <span class="process-math">\(\{-6, -3, -1.5, -1, 0.5, 1.2, 2\}\text{.}\)</span> Notice how some of our test points are forced to be non-integers. For each of these <span class="process-math">\(x\)</span>-values, we look at the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}
+\end{equation*}
+</div>
+<p class="continuation">and count how many factors will be negative. Note that <span class="process-math">\((x-1)^2\)</span> is technically two factors <span class="process-math">\((x-1)(x-1)\text{,}\)</span> and so overall will always positive except when <span class="process-math">\(x=1\text{.}\)</span> The table below should help you verify your thinking.</p>
+<figure class="table table-like" id="table_rational_sign_analysis"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.4.11<span class="period">.</span></span><span class="space"> </span>Evaluation of signs on each test interval</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Test Point</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Negative Factors</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Sign</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-6</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-3</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1.5</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">0.5</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1.2</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">negative</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">positive</td>
+</tr>
+</table></div></figure><p id="p-162">The sign analysis summary is given below, with the number line drawn out of proportion to make space for our notes.</p>
+<figure class="figure figure-like" id="fig_rational_sign_analysis"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_sign_analysis.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.12<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p id="p-163">We <em class="emphasis">interpret</em> the sign analysis to answer the question. We were looking for where the formula was <em class="emphasis">greater than</em> or <em class="emphasis">equal</em> to zero. Our solution set needs to include values that make the formula's value positive (intervals) or equal to zero (points).</p>
+<figure class="figure figure-like" id="fig_rational_sign_analysis_interpret"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/rational_sign_analysis_interpret.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.13<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle \frac{x(x+2)(x-1)^2}{(x^2-2)(x+5)}\text{.}\)</span></figcaption></figure><p id="p-164">Notice how only some of the end-points—those where the value equals zero—are included. One of these points is a singleton isolated from the intervals. The solution set is therefore <span class="process-math">\((-5,-2] \cup (-\sqrt{2},0] \cup \{1\} \cup (\sqrt{2},\infty)\text{.}\)</span></p>
+</div></div>
+</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">wolframalpha.com</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn"><code class="code-inline tex2jax_ignore">sagecell.sagemath.org</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

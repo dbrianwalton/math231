@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Intuition about Limits and Continuity</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch_limits.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_limits_piecewise.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch_limits.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_limits.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_limits_piecewise.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="active">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_limits_intuition"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Intuition about Limits and Continuity</span>
+</h2>
+<section class="introduction" id="introduction-12"><p id="p-397">When we graph a function defined piecewise, the graph has different segments on different subsets of the domain. Because the domains of functions we are interested in studying involve a continuum of values on the number line, the end-point plays an interesting role. If the end-point of an interval subset of the restricted domain is <em class="emphasis">not</em> included, there are still infinitely many values in the interval that get infinitely close to the end-point that <em class="emphasis">are</em> in the domain. We usually graph that restricted piece of the function with a curve and put an <em class="emphasis">open</em> point on the graph to illustrate that <em class="emphasis">that</em> value is not used, but the graph uses all values to the side that <em class="emphasis">approach</em> that point. This is, in essence, the idea of a limit. A function is <dfn class="terminology">continuous</dfn> the graph to the left and the right of a point both approach the actual value of the function.</p>
+<p id="p-398">This section focuses on applying these ideas to calculate limits of piecewise functions, defined graphically or with piecewise formulas, and then using these limits to provide reasoning for whether the function is or is not continuous.</p></section><section class="subsection" id="subsec_lim_graph_intuition"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Limit Intuition from Graphs</span>
+</h3>
+<p id="p-399">When a graph is shown with a segment of the graph ending in a point, that point might be either open (hollow) or closed (filled in). A closed end-point means that the point is <em class="emphasis">included</em> in the graph. An open end-point means that the point is <em class="emphasis">not included</em> in the graph but that the adjacent segment of the graph <em class="emphasis">approaches</em> that point.</p>
+<figure class="figure figure-like" id="fig_demo_piecewise_graph"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/demo_piecewise_graph.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.1<span class="period">.</span></span><span class="space"> </span>Graph of a piecewise function that has both open and closed end-points to segments</figcaption></figure><p id="p-400">In <a href="" class="xref" data-knowl="./knowl/fig_demo_piecewise_graph.html" title="Figure 3.1.1">Figure 3.1.1</a>, the graph of a function, which we will call <span class="process-math">\(f\text{,}\)</span> has a break at <span class="process-math">\(x=-1\text{.}\)</span> There are two points indicated at this break. The point at <span class="process-math">\((-1,2)\)</span> is open while the point at <span class="process-math">\((-1,0)\)</span> is closed.</p>
+<p id="p-401">The open point at <span class="process-math">\((-1,2)\)</span>is <em class="emphasis">not</em> associated with the value of the function at <span class="process-math">\(x=-1\text{,}\)</span> but is instead associated with the segment of the graph with domain restriction <span class="process-math">\((-\infty,-1)\text{.}\)</span> It means that the closer values <span class="process-math">\(x \lt -1\)</span> are to <span class="process-math">\(x=-1\text{,}\)</span> the closer the values of <span class="process-math">\(f(x)\)</span> will be to the <span class="process-math">\(y\)</span>-value of <span class="process-math">\(y=2\text{.}\)</span> We write a <dfn class="terminology">limit</dfn> to represent this idea:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\substack{x \rightarrow -1 \\ x \lt -1}} f(x) = 2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Alternatively, below the “lim” operator, we usually just write <span class="process-math">\(x \to -1^-\text{,}\)</span> where the superscript <code class="code-inline tex2jax_ignore">-</code> indicates we are on the <em class="emphasis">left</em> of <span class="process-math">\(x=-1\text{,}\)</span> to write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \rightarrow -1^-} f(x) = 2\text{.}
+\end{equation*}
+</div>
+<p id="p-402">The <em class="emphasis">closed</em> point represents the actual value of the function, <span class="process-math">\(f(-1)=0\text{.}\)</span> The fact that the point is <em class="emphasis">also</em> connected to the graph segment to the right means that it can also be used as a limit. The closer values <span class="process-math">\(x \gt -1\)</span> are to <span class="process-math">\(x=-1\text{,}\)</span> the closer the values of <span class="process-math">\(f(x)\)</span> will be to the <span class="process-math">\(y\)</span>-value of <span class="process-math">\(y=0\text{.}\)</span> That is, we have another limit:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\substack{x \rightarrow -1 \\ x \gt -1}} f(x) = 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which could also be written with a superscript on the limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \rightarrow -1^+} f(x) = 0\text{.}
+\end{equation*}
+</div>
+<p id="p-403">In <a href="" class="xref" data-knowl="./knowl/fig_demo_piecewise_graph.html" title="Figure 3.1.1">Figure 3.1.1</a>, the limit on the left and the limit on the right had different values. This happens whenever the segments lead to different points. We say that the <dfn class="terminology">two-sided limit</dfn> <span class="process-math">\(\displaystyle \lim_{x \to -1} f(x)\)</span> does not exist. This is two-sided because the limit does not specify <span class="process-math">\(x \lt -1\)</span> or <span class="process-math">\(x \gt -1\text{.}\)</span> When segments on both sides of a point approach the same point, whether it is included or not, the two-sided limit would equal that common value.</p>
+<p id="p-404">Now, the phrasing that was used involving the idea of “closer” was not quite stated precisely. It is not required that closer values of <span class="process-math">\(x\)</span> cause the <span class="process-math">\(y\)</span> values to be progressivly closer. Rather, it is about being able to <em class="emphasis">guarantee</em> closeness. A limit is really about <span class="process-math">\(y\)</span>-values being guaranteed to be close to the value of the limit so long as the <span class="process-math">\(x\)</span>-values are <em class="emphasis">close enough</em>. Typically, smaller allowable errors for <span class="process-math">\(y\)</span> will require smaller deviations for <span class="process-math">\(x\text{.}\)</span> However, it is typical to use a phrase like “the value of <span class="process-math">\(f(x)\)</span> approaches <span class="process-math">\(L\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(c\)</span>” when stating a limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to c} f(x) = L\text{.}
+\end{equation*}
+</div>
+<article class="example example-like" id="ex_limits_from_graph"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-1.</span>
+</h4>
+<p id="p-405">Given the graph of <span class="process-math">\(g(x)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_limit_graph_piecewise.html" title="Figure 3.1.3">Figure 3.1.3</a>, determine each of the following values. If a value does not exist, explain why.</p>
+<ol class="decimal">
+<li id="li-59"><p id="p-406"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to -1^-} f(x)\)</span></p></li>
+<li id="li-60"><p id="p-407"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to -1^+} f(x)\)</span></p></li>
+<li id="li-61"><p id="p-408"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to -1} f(x)\)</span></p></li>
+<li id="li-62"><p id="p-409"><span class="process-math">\(\displaystyle \displaystyle f(-1)\)</span></p></li>
+<li id="li-63"><p id="p-410"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to 2^-} f(x)\)</span></p></li>
+<li id="li-64"><p id="p-411"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to 2^+} f(x)\)</span></p></li>
+<li id="li-65"><p id="p-412"><span class="process-math">\(\displaystyle \displaystyle \lim_{x \to 2} f(x)\)</span></p></li>
+<li id="li-66"><p id="p-413"><span class="process-math">\(\displaystyle \displaystyle f(2)\)</span></p></li>
+</ol>
+<figure class="figure figure-like" id="fig_limit_graph_piecewise"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/limit_graph_piecewise.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.3<span class="period">.</span></span><span class="space"> </span>Graph of a function defined piecewise</figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-37" id="solution-37"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-37"><div class="solution solution-like">
+<p id="p-414">The first four values are associated with <span class="process-math">\(x=-1\)</span> or <span class="process-math">\(x \to -1\text{.}\)</span> Because there is a closed point at <span class="process-math">\((-1,1)\text{,}\)</span> this value is associated with the value of the function <em class="emphasis">at</em> the point <span class="process-math">\(x=-1\text{.}\)</span> We have <span class="process-math">\(f(-1) = 1\text{.}\)</span> The limits are based on the end-points of the segments to the left and right of <span class="process-math">\(x=-1\text{.}\)</span> To the <em class="emphasis">left</em>, we follow the decreasing linear graph to its end-point, illustrated by the <em class="emphasis">open</em> end-point at <span class="process-math">\((-1,-1)\text{.}\)</span> The <span class="process-math">\(y\)</span>-value of this point is the limit of the function using this left segment, and we write:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -1^-} f(x) = -1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">To the <em class="emphasis">right</em> of <span class="process-math">\(x=-1\text{,}\)</span> the graph uses the <em class="emphasis">increasing</em> linear segment. Again, the end-point of this segment at <span class="process-math">\(x=-1\)</span> is <span class="process-math">\((-1,-1)\text{,}\)</span> so that we know</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -1^+} f(x) = -1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Because both segments terminate at the same point, this will be the value of the two-sided limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -1} f(x) = -1\text{.}
+\end{equation*}
+</div>
+<p id="p-415">The second four values are associated with <span class="process-math">\(x=2\)</span> or <span class="process-math">\(x \to 2\text{.}\)</span> The closed point at <span class="process-math">\((2,2)\)</span> gives the <em class="emphasis">value</em> of the function. The end-points of the segments of the graph to the left and right of <span class="process-math">\(x=2\)</span> give the <em class="emphasis">limits</em> of the function from the sides. We have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-52">
+\begin{gather*}
+f(2)=2\\
+\lim_{x \to 2^-} f(x) = 2\\
+\lim_{x \to 2^+} f(x) = 1
+\end{gather*}
+</div>
+<p class="continuation">Because the left and right segments do not terminate at the same point, the <em class="emphasis">two-sided</em> limit <em class="emphasis">does not exist</em>. This is sometimes written in an abbreviated form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 2} f(x) \text{ d.n.e.}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">(Notice there is no equality here.)</p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_lim_continuity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Continuity</span>
+</h3>
+<p id="p-416">As mentioned in the introduction, <dfn class="terminology">continuity</dfn> is a mathematical idea that on one hand captures the idea of connectedness. However, it is more importantly about how the values of the function change near a point.</p>
+<p id="p-417">Suppose we want to know the value of a function <span class="process-math">\(M\)</span> (for mystery) at a point <span class="process-math">\(x=0\text{,}\)</span> but the rule we have for evaluating the function has not <em class="emphasis">yet</em> been worked out for that particular value. What might we try to do? If the function is <em class="emphasis">nice</em>, we might try evaluating <span class="process-math">\(M(0.1)\)</span> thinking that because <span class="process-math">\(x=0.1\)</span> is close to <span class="process-math">\(x=0\text{,}\)</span> then <span class="process-math">\(M(0.1)\)</span> should be close to <span class="process-math">\(M(0)\text{.}\)</span> <em class="emphasis">That</em> is what continuity is about.</p>
+<p id="p-418">Now <span class="process-math">\(x=0.1\)</span> might not be close enough to <span class="process-math">\(x=0\)</span> to create a good approximation. Maybe <span class="process-math">\(x=0.01\)</span> or <span class="process-math">\(x=0.001\)</span> would be better. Or maybe we need to go even closer before the approximation works out well. It might be that none of <span class="process-math">\(M(0.1)\text{,}\)</span> <span class="process-math">\(M(0.01)\)</span> or <span class="process-math">\(M(0.001)\)</span> are individually close enough (by our judgment) to the value of <span class="process-math">\(M(0)\text{,}\)</span> but we want to have assurances that if we just kept getting closer to <span class="process-math">\(x=0\text{,}\)</span> we would <em class="emphasis">eventually</em> get good enough approximations. This is where the need for a limit comes from.</p>
+<article class="definition definition-like" id="defn_lim_continuity"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Continuity at a Point.</span>
+</h4>
+<p id="p-419">Suppose <span class="process-math">\(f\)</span> is a function. “<span class="process-math">\(f\)</span> is <dfn class="terminology">continuous at a point</dfn> <span class="process-math">\(x=a\)</span>” means:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} f(x) = f(a)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Note that this requires <span class="process-math">\(f(a)\)</span> is defined, the limit exists, and the limit and value of the function are the same.</p>
+<p id="p-420">There are one-sided versions:</p>
+<ol class="decimal">
+<li id="li-67">
+<p id="p-421"><span class="process-math">\(f\)</span> is <dfn class="terminology">left-continuous</dfn> at <span class="process-math">\(x=a\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a^-} f(x) = f(a)\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-68">
+<p id="p-422"><span class="process-math">\(f\)</span> is <dfn class="terminology">right-continuous</dfn> at <span class="process-math">\(x=a\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a^+} f(x) = f(a)\text{.}
+\end{equation*}
+</div>
+</li>
+</ol>
+<p class="continuation">A function that is continuous will be both left-continuous and right-continuous.</p></article><p id="p-423">Notice how the natural idea of connectedness is related to continuity. A piecewise function that is disconnected has a break or jump. On one side or the other (or both), the value of the function won't agree with the limit because the segments of the graph don't both meet at the value of the function.</p>
+<p id="p-424">To <em class="emphasis">verify</em> that a function is continuous, we need to show that the defining statement (the equation) is <em class="emphasis">true</em>. That is, we need to know <span class="process-math">\(\displaystyle \lim_{x \to a} f(x)\)</span> and <span class="process-math">\(f(a)\)</span> and show that they are the same value. To verify that a function is <em class="emphasis">not</em> continuous, we need to show that the defining statement is <em class="emphasis">false</em>. Either the limit or the value of the function fail to exist or they have different values. This type of exercise is a practice in calculation <em class="emphasis">and</em> communication.</p>
+<article class="example example-like" id="fcn_lim_graph_continuity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective L-2.</span>
+</h4>
+<p id="p-425">Consider the graph of the function from <a href="" class="xref" data-knowl="./knowl/ex_limits_from_graph.html" title="Example 3.1.2: Learning Objective L-1">Example 3.1.2</a> shown again in <a href="" class="xref" data-knowl="./knowl/fig_limit_graph_continuity.html" title="Figure 3.1.6">Figure 3.1.6</a>. Determine whether the function is continuous at <span class="process-math">\(x=-1\text{,}\)</span> <span class="process-math">\(x=1\text{,}\)</span> and <span class="process-math">\(x=2\text{,}\)</span> justifying your reasoning in terms of the definition of continuity.</p>
+<figure class="figure figure-like" id="fig_limit_graph_continuity"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/../generated/latex-image/limit_graph_piecewise.svg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.6<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(f(x)\)</span></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-38" id="solution-38"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-38"><div class="solution solution-like">
+<p id="p-426">Much of the computational work was done earlier in <a href="" class="xref" data-knowl="./knowl/ex_limits_from_graph.html" title="Example 3.1.2: Learning Objective L-1">Example 3.1.2</a>. We know:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_limits_from_graph.html" id="md-53">
+\begin{gather*}
+\lim_{x \to -1} f(x) = -1\\
+f(-1) = 1
+\end{gather*}
+</div>
+<p class="continuation">Because <span class="process-math">\(\displaystyle \lim_{x \to -1} f(x) \ne f(-1)\text{,}\)</span> we know that <span class="process-math">\(f(x)\)</span> is <em class="emphasis">not</em> continuous at <span class="process-math">\(x=-1\text{.}\)</span> We know:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_limits_from_graph.html" id="md-54">
+\begin{gather*}
+\lim_{x \to 2^-} f(x) = 2\\
+\lim_{x \to 2^+} f(x) = 1\\
+f(2) = 2
+\end{gather*}
+</div>
+<p class="continuation">Because <span class="process-math">\(\displaystyle \lim_{x \to 2^-} f(x) \ne \lim_{x \to 2^+} f(x)\text{,}\)</span> we know <span class="process-math">\(\displaystyle \lim_{x \to 2} f(x)\)</span> does not exist and thus can not equal <span class="process-math">\(f(2)\text{,}\)</span> so <span class="process-math">\(f(x)\)</span> is not continuous at <span class="process-math">\(x=2\text{.}\)</span> Note that <span class="process-math">\(f(x)\)</span> <em class="emphasis">is</em> left-continuous at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p id="p-427">The previous example did not do any calculations for <span class="process-math">\(x=1\text{.}\)</span> The graph shows it is smoothly connected here, in the middle of a continuous segment. That is, we can read from the graph <span class="process-math">\(f(1)=1\text{,}\)</span> and because the graph is connected from the left and the right at this point, we also have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-55">
+\begin{gather*}
+\lim_{x \to 1^-} f(x) = 1\\
+\lim_{x \to 1^+} f(x) = 1
+\end{gather*}
+</div>
+<p class="continuation">so that <span class="process-math">\(\displaystyle \lim_{x \to 1} f(x) = 1\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-428">The last calculation in the example, testing the continuity at <span class="process-math">\(x=1\text{,}\)</span> feels like circular logic. We wanted to show it is continuous and then used the idea that it was continuous to find the limits required to show continuity. Ultimately, the circularity depends on how you think through it. If you say, “The graph is obviously continuous, so all the values are the same”, then that <em class="emphasis">is</em> circular and bypasses some of the understanding. If instead you say, “To find the limit from the left, I need to look at the segment <em class="emphasis">to the left of</em> <span class="process-math">\(x=1\)</span> and see where it approaches as we go back to <span class="process-math">\(x=1\)</span>”, and it naturally goes back to <span class="process-math">\(f(1)\text{,}\)</span> then you are thinking through the <em class="emphasis">idea</em> of a limit rather than just relying on broken vs unbroken graphs.</p>
+<p id="p-429">Ultimately, most limits that we evaluate will fall back to the idea of continuity. That is, given a limit of interest, we find a <em class="emphasis">continuous function</em> that will have the same limit and evaluate that function at the point of interest. This makes it feel like limits are just a complicated version of <em class="emphasis">plugging in the value</em>. Try to keep in mind that a limit is about coming from the left or right and seeing what those values approach, and that continuity means this is the same as the value <em class="emphasis">at</em> the point.</p></section></section></div></main>
+</div>
+</body>
+</html>

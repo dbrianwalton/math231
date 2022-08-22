@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Solving Quadratic Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_prereq_sets.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_prereq_sign_analysis.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_prereq_sets.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_prerequisites.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_prereq_sign_analysis.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="active">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_prereq_quadratic"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Solving Quadratic Equations</span>
+</h2>
+<section class="introduction" id="introduction-4"><p id="p-90">When we need to <em class="emphasis">find</em> values where things of interest occur, we create and solve equations. There are a few key strategies that we can use to solve equations. Quadratic equations provide a good example to illustrate and practice several of these methods. In particular, we will explore methods of isolation, factoring, and the quadratic formula. You should be able to recognize which method is most appropriate for a given problem.</p></section><section class="subsection" id="subsec_solving_isolation"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.1</span> <span class="title"></span>
+</h3>
+<p id="p-91">Isolation is a method where we work to get the unknown variable alone on one side of an equation so that the other side of the equation states the solution. This method is ideal when the equation only has one instance of the variable. Sometimes, when the variable appears more than once, we can group terms in a way that the equation can be rewritten with a single instance.</p>
+<p id="p-92">We isolate the variable by apply a sequence of inverse operations to both sides of the equation in a way that expressions reduce to make the variable on its own. To identify a needed inverse operation, we identify the last operation in the expression involving the variable. That operation's inverse will generally be the most appropriate choice.</p>
+<p id="p-93">We illustrate the method first with some equations that are or reduce to simple linear equations.</p>
+<article class="example example-like" id="ex_linear_isolation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h4>
+<p id="p-94">Use the method of isolation to solve the equation <span class="process-math">\(2(3x-1)+4 = 8\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
+<p id="p-95">Isolation is a good method for this problem because the variable <span class="process-math">\(x\)</span> appears in exactly one location, as part of the expression <span class="process-math">\(2(3x-1)+4\text{.}\)</span> To use isolation, we look at this expression and identify the <em class="emphasis">last</em> operation (according to the order of operations). The expression involves multiplication by 2 and addition of 4.</p>
+<p id="p-96">Addition occurs <em class="emphasis">after</em> multiplication, so the last operation is the addition of 4. What will cancel adding 4? Subtracting 4, or more precisely, adding -4. Our first step in isolation is to add -4 to both sides of the equation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-6">
+\begin{align*}
+2(3x-1)+4 &amp;= 8\\
+2(3x-1) &amp;= 8 + -4 = 4
+\end{align*}
+</div>
+<p class="continuation">We now have a <em class="emphasis">new</em> (and simpler) equation that is guaranteed to have the same solutions. We say these equations are <dfn class="terminology">equivalent</dfn>.</p>
+<p id="p-97">The new expression still containing <span class="process-math">\(x\)</span> is <span class="process-math">\(2(3x-1)\text{.}\)</span> The last operation is multiplication of <span class="process-math">\(3x-1\)</span> by 2. The inverse operation is to multiply both sides by <span class="process-math">\(\frac{1}{2}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-7">
+\begin{align*}
+2(3x-1) &amp;= 4\\
+3x-1 &amp;= \frac{1}{2}(4) = 2
+\end{align*}
+</div>
+<p class="continuation">The new last operation is adding -1, so the inverse step is adding +1.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-8">
+\begin{align*}
+3x-1 &amp;= 2\\
+3x &amp;= 2+1 = 3
+\end{align*}
+</div>
+<p class="continuation">The only operation left is multiplication by 3, and its inverse is multiplication by <span class="process-math">\(\frac{1}{3}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-9">
+\begin{align*}
+3x &amp;= 3\\
+x &amp;= \frac{1}{3}(3) = 1
+\end{align*}
+</div>
+<p id="p-98">If we were to rewrite the steps without the explanatory sentences, we would have:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-10">
+\begin{align*}
+2(3x-1)+4 &amp;= 8\\
+2(3x-1) &amp;= 4\\
+3x-1 &amp;= 2\\
+3x &amp;= 3\\
+x &amp;= 1
+\end{align*}
+</div>
+<p class="continuation">There is a single solution, <span class="process-math">\(x=1\text{.}\)</span></p>
+</div></div>
+</div></article><article class="example example-like" id="ex_rational_isolation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+</h4>
+<p id="p-99">Use the method of isolation to solve the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{2}{3x-1}+4 = 8\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
+<p id="p-100">This is essentially the same as the previous problem, even though the equation is more complex with the variable in a fraction. Once we have the fraction itself isolated, we will use the reciprocal operation on both sides to transform the equation to a simpler form.</p>
+<p id="p-101">As you follow this example, think about what the last operation is at each step and what inverse operation will eliminate it.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-11">
+\begin{align*}
+\frac{2}{3x-1}+4 &amp;= 8\\
+\frac{2}{3x-1} &amp;= 8+-4 = 4
+\end{align*}
+</div>
+<p class="continuation">The fraction (quotient) is isolated, so we will apply the reciprocal to both sides, reversing what is divided:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-12">
+\begin{align*}
+\frac{2}{3x-1} &amp;= 4\\
+\div \frac{2}{3x-1} &amp;= \div 4\\
+\frac{3x-1}{2} &amp;= \frac{1}{4}
+\end{align*}
+</div>
+<p class="continuation">We can now proceed with isolation as before:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-13">
+\begin{align*}
+\frac{3x-1}{2} &amp;= \frac{1}{4}\\
+3x-1 &amp;= 2 \cdot \frac{1}{4} = \frac{1}{2}\\
+3x &amp;= \frac{1}{2} + 1 = \frac{3}{2}\\
+x &amp;= \frac{1}{3} \cdot \frac{3}{2} = \frac{1}{2}
+\end{align*}
+</div>
+<p class="continuation">Thus, our solution is <span class="process-math">\(x = \frac{1}{2}\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-102">Isolation works with quadratic equations most simply, as noted above, when the unknown variable is present exactly once. If you ever learned the method of completing a square, this basically creates exactly this situation. The only new concern is that there will be a step where the last operation is the square (raising a term to the power 2). The inverse operation is the square root, except that it is not a true inverse. Every positive number has two roots, one positive and one negative. The square root only calculates the positive root. When we apply the square root to both sides, it is our responsibility to track both possibilities.</p>
+<article class="example example-like" id="ex_quadratic_isolate_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
+</h4>
+<p id="p-103">Solve the equation <span class="process-math">\(2x^2-1=5\)</span> using the method of isolation.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like">
+<p id="p-104">As we work through the operations to isolate the square, we need to remember that the order of operations have powers prioritized before multiplication and addition. Our goal will be to isolate the squared value and then apply the square root to both sides.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-14">
+\begin{align*}
+2x^2 - 1 &amp;= 5\\
+2x^2 &amp;= 5 + 1 = 6\\
+x^2 &amp;= \frac{1}{2} \cdot 6 = 3
+\end{align*}
+</div>
+<p class="continuation">At this point, using the square root will give two roots: <span class="process-math">\(\pm \sqrt{3}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-15">
+\begin{align*}
+x^2 &amp; = 3\\
+x &amp; = \pm \sqrt{3}
+\end{align*}
+</div>
+<p class="continuation">Our equation has <em class="emphasis">two</em> solutions, <span class="process-math">\(x=+\sqrt{3}\)</span> and <span class="process-math">\(x=-\sqrt{3}\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-105">A more complex, and more typical example occurs when there is a formula that is squared.</p>
+<article class="example example-like" id="ex_quadratic_isolate_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective P-5 (Isolation).</span>
+</h4>
+<p id="p-106">Solve the equation <span class="process-math">\(3(3x-1)^2+4=10\)</span> using the method of isolation.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like">
+<p id="p-107">We will try to isolate the squared formula, apply a square root, and then finish isolating <span class="process-math">\(x\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-16">
+\begin{align*}
+3(3x-1)^2+4 &amp;= 10\\
+3(3x-1)^2 &amp;= 10 - 4 = 6\\
+(3x-1)^2 &amp;= \frac{1}{3}\cdot 6 = 2\\
+3x-1 &amp;= \pm \sqrt{2}
+\end{align*}
+</div>
+<p class="continuation">At this point, there are actually two different equations <span class="process-math">\(3x-1=\sqrt{2}\)</span> and <span class="process-math">\(3x-1 = -\sqrt{2}\text{.}\)</span> Because we will use the very same remaining operations to both equations, we will continue to solve the equation but show the two options as we go.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-17">
+\begin{align*}
+3x-1 &amp;= \pm \sqrt{2}\\
+3x &amp;= \pm \sqrt{2} + 1\\
+x &amp;= \frac{1}{3}( \pm \sqrt{2} + 1) = \frac{1 \pm \sqrt{2}}{3}
+\end{align*}
+</div>
+<p class="continuation">The two solutions are <span class="process-math">\(x=\frac{1}{3} + \frac{\sqrt{2}}{3}\)</span> and <span class="process-math">\(x=\frac{1}{3} - \frac{\sqrt{2}}{3}\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-108">At the step where we apply the square root, we should pay attention to the value opposite the square. If that value is positive, we will have two roots. If that value is zero, the square root will have only one value—zero. But if the value is negative, there are no real solutions because the square root will necessarily be an imaginary number.</p></section><section class="subsection" id="subsec_solving_factoring"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.2</span> <span class="title"></span>
+</h3>
+<p id="p-109">The second major method for solving equations, and the one we will use most frequently, is factoring. Factoring is useful when we have an equation that is factored on one side and zero on the other. This is because the only way for two numbers to multiply together and give zero is if at least one of the numbers was zero to begin with.</p>
+<article class="theorem theorem-like" id="thm_factor_equal_zero"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span>
+</h4>
+<p id="p-110">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> represent any numerical values or expressions. <span class="process-math">\(AB = 0\)</span> can only occur if <span class="process-math">\(A=0\)</span> or <span class="process-math">\(B=0\text{.}\)</span> More generally, a product of any number of factors can equal zero only if at least one of the factors is equal to zero.</p></article><p id="p-111">Quadratic polynomials are the simplest polynomial that we learn to factor. So it is natural that we use quadratic equations to demonstrate this strategy. Polynomials of higher degree involve more complex factoring methods, and we will typically let a computer do that work for us. In all such problems, we must first ensure we are working with an equation that has zero on one side. Otherwise, factoring does not help us at all.</p>
+<p id="p-112">Factoring quadratics is also called factoring <dfn class="terminology">trinomials</dfn> because a typical quadratic has three terms. The standard form of a quadratic is <span class="process-math">\(ax^2+bx+c = 0\text{,}\)</span> where <span class="process-math">\(a,b,c\)</span> are constants known as the coefficients. A useful strategy to factor a trinomial quadratic with <em class="emphasis">integer</em> coefficients is to multiply the leading coefficient <span class="process-math">\(a\)</span> by the constant coefficient <span class="process-math">\(c\)</span> to get a number. We want to find numerical factors of that product <span class="process-math">\(ac\)</span> that <em class="emphasis">add</em> to give the coefficient <span class="process-math">\(b\text{.}\)</span> In doing this, we need to remember that possible factors can be positive or negative.</p>
+<p id="p-113">Once we find these factors <span class="process-math">\(pq = ac\)</span> with <span class="process-math">\(p+q=b\text{,}\)</span> we will rewrite the quadratic as <em class="emphasis">four</em> terms, <span class="process-math">\(ax^2+px+qx+c\)</span> because <span class="process-math">\(bx = (p+q)x = px+qx\text{.}\)</span> Because <span class="process-math">\(pq=ac\text{,}\)</span> the groups <span class="process-math">\(ax^2+px\)</span> and <span class="process-math">\(qx+c\)</span> are guaranteed to have a common factor.</p>
+<p id="p-114">We will illustrate with a few examples.</p>
+<article class="example example-like" id="ex_quadratic_factor_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span>
+</h4>
+<p id="p-115">Solve the equation <span class="process-math">\(x^2-4x=12\)</span> using factoring.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like">
+<p id="p-116">Recall that to use factoring, the equation must have a zero on one side. We need to eliminate the 12:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-18">
+\begin{align*}
+x^2-4x &amp;= 12\\
+x^2-4x -12 &amp;= 0
+\end{align*}
+</div>
+<p class="continuation">We can now identify <span class="process-math">\(a=1\text{,}\)</span> <span class="process-math">\(b=-4\text{,}\)</span> and <span class="process-math">\(c=-12\text{.}\)</span> Notice how we must include the signs as part of the coefficients.</p>
+<p id="p-117">The product <span class="process-math">\(ac=1(-12) = -12\)</span> needs to be factored. If you can think through factors in your head, that is great. Otherwise, it can be helpful to create a table of possible factors. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(p\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(q\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(p+q\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">11</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-2</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-3</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-4</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">-1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-6</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">-4</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">-12</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">-11</td>
+</tr>
+</table></div> Because <span class="process-math">\(b=-4\text{,}\)</span> we want to use <span class="process-math">\(p=-6\)</span> and <span class="process-math">\(q=2\text{.}\)</span></p>
+<p id="p-118">We will now rewrite the trinomial using four terms and group the resulting pairs, which we use to look for common factors:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-19">
+\begin{align*}
+x^2-4x -12 &amp;= 0\\
+x^2-6x + 2x -12 &amp;= 0\\
+(x^2-6x) + (2x -12) &amp;= 0\\
+x(x-6) + 2(x -6) &amp;= 0
+\end{align*}
+</div>
+<p class="continuation">We see that each pair has the common factor <span class="process-math">\(x-6\text{.}\)</span> Factoring this out, we have our factorization.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-20">
+\begin{align*}
+x(x-6) + 2(x -6) &amp;= 0\\
+(x+2)(x-6) &amp;= 0
+\end{align*}
+</div>
+<p id="p-119">Once the equation is factored, we can consider each factor separately. One possibility is that <span class="process-math">\(x+2=0\text{,}\)</span> which has a solution <span class="process-math">\(x=-2\text{.}\)</span> The other possibility is that <span class="process-math">\(x-6=0\text{,}\)</span> which has a solution <span class="process-math">\(x=6\text{.}\)</span> The factoring theorem guarantees that these are the only possible solutions.</p>
+</div></div>
+</div></article><p id="p-120">The same method will work (assuming there is an integer factorization) even if <span class="process-math">\(a \ne 1\text{.}\)</span></p>
+<article class="example example-like" id="ex_quadratic_factor_complex"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective P-5 (Factoring).</span>
+</h4>
+<p id="p-121">Solve the equation <span class="process-math">\(3x^2 -2x -8 = 0\)</span> using factoring.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-13" id="solution-13"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-13"><div class="solution solution-like">
+<p id="p-122">The quadratic is already in standard form, so we can identify our coefficients <span class="process-math">\(a=3\text{,}\)</span> <span class="process-math">\(b=-2\text{,}\)</span> and <span class="process-math">\(c=-8\text{.}\)</span> The product of the quadratic and constant coefficients is <span class="process-math">\(ac=-24\text{.}\)</span> We are looking for factors of -24, <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{,}\)</span> so that <span class="process-math">\(pq=-24\)</span> and <span class="process-math">\(p+q = -2\text{.}\)</span> Thinking through these factors, we find <span class="process-math">\(p=-6\)</span> and <span class="process-math">\(q=4\)</span> meet this requirement.</p>
+<p id="p-123">Rewriting the quadratic, grouping terms, and factoring out common factors leads us to our factorization:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-21">
+\begin{align*}
+3x^2-2x-8 &amp;= 0\\
+3x^2 -6x + 4x -8 &amp;= 0\\
+(3x^2 -6x) + (4x -8) &amp;= 0\\
+3x(x - 2) + 4(x -2) &amp;= 0\\
+(3x+4)(x - 2) &amp;= 0
+\end{align*}
+</div>
+<p id="p-124">The solutions can only be values that make each factor equal to zero. The first factor's equation <span class="process-math">\(3x+4 = 0\)</span> has a solution <span class="process-math">\(x=\frac{-4}{3}\text{.}\)</span> The other equation is <span class="process-math">\(x-2=0\text{,}\)</span> which has a solution <span class="process-math">\(x=2\text{.}\)</span></p>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_quadratic_formula"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.3</span> <span class="title"></span>
+</h3>
+<p id="p-125">The methods of isolation and factoring are the preferred methods because they are more generalizable to other problems and tend to result in simplified answers. The method illustrated for factoring a quadratic might break down if we can not find factors <span class="process-math">\(p,q\)</span> so that <span class="process-math">\(pq=ac\)</span> and <span class="process-math">\(p+q=b\text{.}\)</span> In that case, we can use the method of the quadratic formula.</p>
+<p id="p-126">The quadratic formula is justified by knowing that any quadratic <em class="emphasis">can</em> be rewritten so that isolation can be applied. However, once the equation is written in standard form and we know the coefficients <span class="process-math">\(a,b,c\text{,}\)</span> the calculation from that point is always the same. Beware, however, that this is specific to quadratic equations.</p>
+<article class="theorem theorem-like" id="thm_quadratic_formula"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic Formula.</span>
+</h4>
+<p id="p-127">The solutions to <span class="process-math">\(ax^2+bx+c = 0\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}\text{.}
+\end{equation*}
+</div></article><p id="p-128">Just as when doing isolation the step involving the square root can have two, one, or zero solutions, the quadratic formula has the same issue. If <span class="process-math">\(b^2-4ac \lt 0\text{,}\)</span> the solutions are complex numbers and the equation has no real solutions.</p>
+<article class="example example-like" id="ex_quadratic_formula_solution"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective P-5 (Quadratic Formula).</span>
+</h4>
+<p id="p-129">Solve the equation <span class="process-math">\(3x^2 -3x -8 = 0\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-14" id="solution-14"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-14"><div class="solution solution-like">
+<p id="p-130">The quadratic is already in standard form, so we can identify our coefficients <span class="process-math">\(a=3\text{,}\)</span> <span class="process-math">\(b=-3\text{,}\)</span> and <span class="process-math">\(c=-8\text{.}\)</span> The product of the quadratic and constant coefficients is <span class="process-math">\(ac=-24\text{.}\)</span> There are no factors <span class="process-math">\(p,q\)</span> so that <span class="process-math">\(pq=-24\)</span> and <span class="process-math">\(p+q = -3\text{,}\)</span> as illustrated by the partial factoring table below. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(p\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(q\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(p+q\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">-12</td>
+<td class="l m b0 r0 l0 t0 lines">-10</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">-8</td>
+<td class="l m b0 r0 l0 t0 lines">-5</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">-6</td>
+<td class="l m b0 r0 l0 t0 lines">-2</td>
+</tr>
+</table></div> Consequently, factoring won't work.</p>
+<p id="p-131">We are left using the quadratic formula:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-22">
+\begin{gather*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\\
+x = \frac{-(-3) \pm \sqrt{(-3)^2 - 4(3)(-8)}}{2(3)}\\
+x = \frac{3 \pm \sqrt{9 + 96}}{6}\\
+x = \frac{3 \pm \sqrt{105}}{6}
+\end{gather*}
+</div>
+<p class="continuation">We find the solutions <span class="process-math">\(x = \frac{3 + \sqrt{105}}{6}\)</span> and <span class="process-math">\(x = \frac{3 - \sqrt{105}}{6}\text{.}\)</span></p>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

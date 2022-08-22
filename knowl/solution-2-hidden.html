@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>How do we approach this type of question? Instead of being given two points, we are given a text description of some data. We don't even know what the variables are. A useful strategy for solution is to read the problem to identify what is wanted.</p>
+<p>The example asks us to “<em class="emphasis">Find</em> the average rate of change of the biomass with respect to the trunk diameter”. The key phrase <em class="emphasis">with respect to</em> helps us identify what are being consider the independent and dependent variables. The main quantity of interest is the <em class="emphasis">biomass</em> and that will be the <em class="emphasis">dependent</em> variable (<span class="process-math">\(y\)</span>-like). The quantity identified <em class="emphasis">after</em> the phrase <em class="emphasis">with respect to</em> is the <em class="emphasis">independent variable</em>. That is, we think of the independent variable as <em class="emphasis">controlling</em> or <em class="emphasis">influencing</em> the dependent variable.</p>
+<p>To visualize the data, we could graph two points. If it is not clear what points we should use, it can be useful to first make a table from the data and then identify the points. We will create a table with columns for the trunk diameter and the tree biomass. For consistency in our identification of the independent and dependent variables, it might be useful to list the diameter first and the biomass second. The rows of the table correspond to paired observations. That is, trees with 12 cm diameter at breast height are the same trees that had an average biomass of 38 kg.</p>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.5<span class="period">.</span></span><span class="space"> </span>Tree diameter and biomass</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">trunk diameter (cm)</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">total biomass (kg)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">38</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">14</td>
+<td class="l m b0 r0 l0 t0 lines">56</td>
+</tr>
+</table></div></figure><p>Next, for scientific communication, it is better to use variable names that have a connection to the data they represent than always using <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> For this data set, we might choose <span class="process-math">\(D\)</span> as our variable representing the <em class="emphasis">diameter</em> of the trees and <span class="process-math">\(M\)</span> as our variable representing the total biomass. Consequently, our data correspond to two points: <span class="process-math">\((D,M)=(12,38)\)</span> and <span class="process-math">\((D,M)=(14,56)\text{.}\)</span></p>
+<p>Physical measurements are always associated with a unit scale. That is, it doesn't make sense to a length measured 4; we need to say the unit used in the measurement. Notice that <span class="process-math">\(D\)</span> has associated units of cm (a length) while <span class="process-math">\(M\)</span> has units of kg (a mass). The increments of change between the two points are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\Delta D &amp;= D_2 - D_1 = 14-12 = 2 \, \text{cm}\\
+\Delta M &amp;= M_2 - M_1 = 56-38 = 18 \, \text{kg}
+\end{align*}
+</div>
+<p>The average rate of change is the slope of the line joining these points. The units of rate of change is the ratio of the units of the corresponding variables. The average rate of change of <em class="emphasis">biomass</em> with respect to <em class="emphasis">trunk diameter</em> will therefore have units of kg/cm. The value is calculated as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta M}{\Delta D} = \frac{18 \, \text{kg}}{2 \, \text{cm}} = 9 \, \text{kg/cm}\text{.}
+\end{equation*}
+</div>
+<p>Does this make sense? The increments are both positive. Changing from the first point <span class="process-math">\((D,M)=(12,38)\)</span> to <span class="process-math">\((D,M)=(14,56)\text{,}\)</span> both the diameter and the biomass increased. This corresponds to both increments being positive and the resulting slope being a positive number. A graph of the points reinforces this, showing that the line would have a positive slope.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/graph_slope_from_tree_data.svg" role="img" class="contained" alt="graph of a tree data points and corresponding line"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.6<span class="period">.</span></span><span class="space"> </span>Graph of the line joining points <span class="process-math">\((1.8,5)\)</span> and <span class="process-math">\((3.2,-2)\text{.}\)</span></figcaption></figure>
+</div></body>
+</html>

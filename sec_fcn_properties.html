@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Function Properties</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_fcn_inverse.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_limits.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_fcn_inverse.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_limits.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="active">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_fcn_properties"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Function Properties</span>
+</h2>
+<section class="introduction" id="introduction-10"><p id="p-321">Mathematics, as a field of study, examines many different types of objects and the patterns that they follow. In order to communicate consistently about these patterns, language is <em class="emphasis">created</em> to describe specific attributes and properties. Words in the context of mathematics are associated with specific definitions. Recall how the idea of inverse functions had a conceptual idea of undoing the operations of one another <em class="emphasis">and</em> a formal definition. The definition was a precise logical statement that we had to precisely verify in order to formally <em class="emphasis">know</em> that our functions were inverses.</p>
+<p id="p-322">This pattern will apply to the properties of other objects in mathematics. We will try to create a common understanding of properties but we will also create formal definitions. The logical consequences for how different properties are related will need to follow based on how the definitions are created. Consequently, definitions can feel cumbersome because they are created as much to facilitate the reasoning in this deductive process as they are to capture natural intuition.</p>
+<p id="p-323">In this section, we will focus on learning the intuitive ideas behind definitions for some of the properties of functions, specifically those properties that are used to describe the shapes of function graphs. Most properties are associated with subsets of the domain. Some properties describe what happens at individual points, and we say those properties occur <em class="emphasis">at</em> a given point. Other properties describe what happens over a subset of the domain, and we say those properties occur <em class="emphasis">on</em> a given set.</p>
+<p id="p-324">The learning outcomes represented in this section focus on developing this skill.</p>
+<ul class="disc">
+<li id="li-43"><p id="p-325">Describe the graph of a function using mathematical language to characterize where the function is increasing, decreasing, concave up, and concave down, and where the function has extreme values and inflection points.</p></li>
+<li id="li-44"><p id="p-326">Sketch the graph of a function that is consistent with a provided description based on monotonicity and concavity.</p></li>
+</ul></section><section class="subsection" id="subsec_fcn_monotonicity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.1</span> <span class="title">Increasing, Decreasing, or Constant</span>
+</h3>
+<p id="p-327">The first group of attributes are classified as describing the <dfn class="terminology">monotonicity</dfn> of a function. The attributes of interest are <dfn class="terminology">increasing</dfn>, <dfn class="terminology">decreasing</dfn>, and <dfn class="terminology">constant</dfn>, and they are properties that a function has <em class="emphasis">on a set</em>. An intuitive understanding of these attributes can come by thinking about moving along a graph of the function restricted to the set in question from left to right. The function is <dfn class="terminology">increasing on the set</dfn> if the <span class="process-math">\(y\)</span>-values of the graph always go up as you move left to right. The function is <dfn class="terminology">decreasing on the set</dfn> if the <span class="process-math">\(y\)</span>-values go down. The function is <dfn class="terminology">constant on the set</dfn> if all <span class="process-math">\(y\)</span>-values are the same.</p>
+<p id="p-328">When functions are smooth, we can think about the graph as having a definite slope at each point (the <dfn class="terminology">derivative</dfn>). One of the major goals in a first-semester of calculus is to make a connection between the derivative and monotonicity. We can associate <em class="emphasis">positive slopes</em> with <em class="emphasis">increasing</em> functions, <em class="emphasis">negative slopes</em> with <em class="emphasis">decreasing</em> functions, and <em class="emphasis">zero slopes</em> with <em class="emphasis">constant</em> functions, but only when these properties are on <em class="emphasis">intervals</em> and not at individual points. The reasoning behind this connection will come later. We are trying to build a sense of how to <em class="emphasis">think</em> about the properties before we get too far into the details.</p>
+<p id="p-329">The formal definition of monotonicity creates a mathematical statement about our intuition of what happens to a <span class="process-math">\(y\)</span>-value as we move left-to-right.</p>
+<article class="definition definition-like" id="defn_fcn_monotonicity"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Monotonicity of Functions.</span>
+</h4>
+<p id="p-330">Let <span class="process-math">\(f\)</span> be a function with domain <span class="process-math">\(D\text{,}\)</span> and let <span class="process-math">\(S\)</span> be a subset of <span class="process-math">\(D\)</span> (usually an interval).</p>
+<ul class="disc"><li id="li-45">
+<p id="p-331">“<span class="process-math">\(f\)</span> is <dfn class="terminology">increasing</dfn> on <span class="process-math">\(S\)</span>” means: For any <span class="process-math">\(a,b \in S\)</span> with <span class="process-math">\(a \lt b\text{,}\)</span> <span class="process-math">\(f(b) \gt f(a)\text{.}\)</span></p>
+<p id="p-332">“<span class="process-math">\(f\)</span> is <dfn class="terminology">decreasing</dfn> on <span class="process-math">\(S\)</span>” means: For any <span class="process-math">\(a,b \in S\)</span> with <span class="process-math">\(a \lt b\text{,}\)</span> <span class="process-math">\(f(b) \lt f(a)\text{.}\)</span></p>
+<p id="p-333">“<span class="process-math">\(f\)</span> is <dfn class="terminology">constant</dfn> on <span class="process-math">\(S\)</span>” means: For any <span class="process-math">\(a,b \in S\text{,}\)</span> <span class="process-math">\(f(a) = f(b)\text{.}\)</span></p>
+</li></ul>
+<p id="p-334">If no set is included (e.g., <span class="process-math">\(f\)</span> is increasing), then it is understood to apply to the entire domain. If <span class="process-math">\(f\)</span> is increasing or <span class="process-math">\(f\)</span> is decreasing (on the domain), we say <span class="process-math">\(f\)</span> is <dfn class="terminology">monotone</dfn>.</p></article><article class="example example-like" id="ex_fcn_monotonicity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
+</h4>
+<p id="p-335">The following figures illustrate the basic ideas.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig_fcn_monotone_example_left"><img src="generated/latex-image/graph_fcn_monotone_example_left.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>Graph of a continuous function that is increasing on <span class="process-math">\((-\infty,-1]\)</span> and on <span class="process-math">\([2,\infty)\)</span> and decreasing on <span class="process-math">\([-1,2]\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig_fcn_monotone_example_right"><img src="generated/latex-image/graph_fcn_monotone_example_right.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.4<span class="period">.</span></span><span class="space"> </span>Graph of a discontinuous function that is increasing on <span class="process-math">\((-\infty,-1)\)</span> and on <span class="process-math">\((1,2)\)</span> and decreasing on <span class="process-math">\([2,4]\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="p-336">In <a href="" class="xref" data-knowl="./knowl/fig_fcn_monotone_example_left.html" title="Figure 2.4.3">Figure 2.4.3</a>, we can imagine moving from left-to-right in the domain. As we move along the graph, the <span class="process-math">\(y\)</span>-values steadily rise until we reach <span class="process-math">\(x=-1\text{.}\)</span> Immediately after this point, the graph starts to decrease, so we say the function is <dfn class="terminology">increasing on</dfn> <span class="process-math">\((-\infty,-1]\text{.}\)</span> The end-point is included because <span class="process-math">\(f(-1)\)</span> is greater than all values to the left.</p>
+<p id="p-337">Now, starting at <span class="process-math">\(x=-1\)</span> and continuing to the right, the graph continues to drop until <span class="process-math">\(x=2\text{.}\)</span> The sudden change in slope at <span class="process-math">\(x=0\)</span> is irrelevant. We say that the function is <dfn class="terminology">decreasing on</dfn> <span class="process-math">\([-1,2]\text{.}\)</span> Again, both end-points are <em class="emphasis">included</em> because even when the graph is highest at <span class="process-math">\(x=-1\)</span> and lowest at <span class="process-math">\(x=2\)</span> and decreasing everywhere in between.</p>
+<p id="p-338">Finally, starting at <span class="process-math">\(x=2\)</span> and continuing to the right, the graph is now rising apparently forever (based on the trend as the graph leaves the viewing window). We say that the function is <dfn class="terminology">increasing on</dfn> <span class="process-math">\([2,\infty)\text{.}\)</span></p>
+<p id="p-339">In <a href="" class="xref" data-knowl="./knowl/fig_fcn_monotone_example_right.html" title="Figure 2.4.4">Figure 2.4.4</a>, we again imagine moving from left-to-right in the domain. As we move along the graph, the <span class="process-math">\(y\)</span>-values steadily rise until we reach <span class="process-math">\(x=-1\text{.}\)</span> However, this function has a break or discontinuity. The <span class="process-math">\(y\)</span>-value at <span class="process-math">\(x=-1\)</span> is <em class="emphasis">below</em> the values immediately to the left. Consequently, we say the function is increasing on <span class="process-math">\((-\infty,-1)\text{,}\)</span> not including the end-point.</p>
+<p id="p-340">Starting at <span class="process-math">\(x=-1\text{,}\)</span> the graph immediately jumps down to a curve which is then rising. We ignore the point at <span class="process-math">\(x=-1\text{,}\)</span> but continue to the right until <span class="process-math">\(x=2\)</span> where the graph has another break. The value at <span class="process-math">\(x=2\)</span> is below the points immediately to the left, so we must not include <span class="process-math">\(x=2\)</span> in the set where the function is increasing. The function is increasing on <span class="process-math">\((-1,2)\text{.}\)</span></p>
+<p id="p-341">Now we start at <span class="process-math">\(x=2\text{.}\)</span> The graph immediately drops to a curve, which then continues to decrease. Since <span class="process-math">\(f(2)\)</span> is greater than all of these values <span class="process-math">\(f(x)\)</span> with <span class="process-math">\(x \gt 2\text{,}\)</span> we will <em class="emphasis">include</em> the end-point at 2 in our interval for decreasing. The graph continues to decrease until the graph stops at <span class="process-math">\(x=5\text{.}\)</span> The value at <span class="process-math">\(x=5\)</span> is lower than points to its left, so this point will also be included. The function is decreasing on <span class="process-math">\([2,5]\text{.}\)</span></p></article></section><section class="subsection" id="subsec_fcn_concavity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Concavity</span>
+</h3>
+<p id="p-342">While the monotonicity of a function describes how it rises or falls, <dfn class="terminology">concavity</dfn> describes how a function's graph bends or curves. A straight line has no concavity. If a curve bends upward, we say the graph is <dfn class="terminology">concave up</dfn>. If a curve bends downward, we say the graph is <dfn class="terminology">concave down</dfn>.</p>
+<p id="p-343">One way to think about concavity is about a tangent line at a point. The tangent line captures the rate of change of the function at that point. If we took a short segment of the tangent line centered at the point of contact, and this segment would be <em class="emphasis">above</em> the graph immediately to the left <em class="emphasis">and</em> to the right, we would have to <em class="emphasis">bend the segment downward</em> to match our graph. This captures the idea of locally being <dfn class="terminology">concave down</dfn>. If the short segment was <em class="emphasis">below</em> the graph immediately to the left and right, we would have to <em class="emphasis">bend the segment upward</em> to match the graph. This captures the idea of locally being <dfn class="terminology">concave up</dfn>. We just need to see how big we can make an interval to include all the points that locally have such a property.</p>
+<p id="p-344">Another way to think about concavity in terms of a tangent line is by thinking about how the slope of the tangent line changes as you consider points going from left to right. The slope of a function <span class="process-math">\(f(x)\)</span> at a point <span class="process-math">\(x=a\)</span> is represented by the symbol <span class="process-math">\(\frac{df}{dx}\Big|_{a}\text{.}\)</span> Because this slope changes as we consider different points, this defines a new function <span class="process-math">\(f'(x)\)</span> called the derivative function. We will define these objects more carefully later.</p>
+<p id="p-345">A function is concave up if its slope is <em class="emphasis">increasing</em>, and it is concave down if its slope is <em class="emphasis">decreasing</em>. In calculus, this actually serves as our basic definition. We will only define concavity on intervals so that we are dealing with connected sets.</p>
+<article class="definition definition-like" id="defn_fcn_concavity"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Concavity of a Function.</span>
+</h4>
+<p id="p-346">Let <span class="process-math">\(f(x)\)</span> be a function, let <span class="process-math">\(S\)</span> be an <em class="emphasis">interval</em> that is a subset of the domain of <span class="process-math">\(f\text{,}\)</span> and suppose <span class="process-math">\(f'(x)\)</span> is defined on <span class="process-math">\(S\)</span> (there is a clear sense of slope on <span class="process-math">\(S\)</span>).</p>
+<ul class="disc">
+<li id="li-46"><p id="p-347">“<span class="process-math">\(f\)</span> is <dfn class="terminology">concave up</dfn> on <span class="process-math">\(S\)</span>” means the slope (<span class="process-math">\(f'(x)\)</span>) is <em class="emphasis">increasing</em> on <span class="process-math">\(S\text{.}\)</span></p></li>
+<li id="li-47"><p id="p-348">“<span class="process-math">\(f\)</span> is <dfn class="terminology">concave down</dfn> on <span class="process-math">\(S\)</span>” means the slope (<span class="process-math">\(f'(x)\)</span>) is <em class="emphasis">decreasing</em> on <span class="process-math">\(S\text{.}\)</span></p></li>
+<li id="li-48"><p id="p-349">“<span class="process-math">\(f\)</span> is <dfn class="terminology">linear</dfn> on <span class="process-math">\(S\)</span>” means the slope (<span class="process-math">\(f'(x)\)</span>) is <em class="emphasis">constant</em> on <span class="process-math">\(S\text{.}\)</span></p></li>
+</ul></article><p id="p-350">We will return to the definition near the end of the semester when we have defined exactly what <span class="process-math">\(f'(x)\)</span> means and how to calculate it. For our purposes, we will focus on the interpretation of which direction the curve is bending. An interval of concavity must end as soon as the bending direction switches. We will also only consider intervals on which the graph itself is connected, because we will later learn that <span class="process-math">\(f'(x)\)</span> can not be defined at a discontinuity. We will also not include points where the slope suddenly changes, again because <span class="process-math">\(f'(x)\)</span> won't exist at these points.</p>
+<article class="definition definition-like" id="defn_fcn_inflection_point"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Inflection Point.</span>
+</h4>
+<p id="p-351">Let <span class="process-math">\(f\)</span> be a function. “<span class="process-math">\(f\)</span> has an <dfn class="terminology">inflection point</dfn> at <span class="process-math">\(x=a\)</span>” means that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(x=a\)</span> (not broken), has a tangent line, and the concavity changes at <span class="process-math">\(x=a\text{.}\)</span></p></article><article class="example example-like" id="ex_fcn_concavity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
+</h4>
+<p id="p-352">The following figures illustrate the basic ideas.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig_fcn_concavity_example_left"><img src="generated/latex-image/graph_fcn_concavity_example_left.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.8<span class="period">.</span></span><span class="space"> </span>Graph of a continuous function that is increasing on <span class="process-math">\((-\infty,-1]\)</span> and on <span class="process-math">\([2,\infty)\)</span> and decreasing on <span class="process-math">\([-1,2]\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig_fcn_concavity_example_right"><img src="generated/latex-image/graph_fcn_concavity_example_right.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.9<span class="period">.</span></span><span class="space"> </span>Graph of a discontinuous function that is increasing on <span class="process-math">\((-\infty,-1)\)</span> and on <span class="process-math">\((1,2)\)</span> and decreasing on <span class="process-math">\([2,4]\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="p-353">The function in <a href="" class="xref" data-knowl="./knowl/fig_fcn_concavity_example_left.html" title="Figure 2.4.8">Figure 2.4.8</a> illustrates several intervals of concavity. We start going left to right. When we first encounter the graph around <span class="process-math">\(x=-5\text{,}\)</span> we can see that the graph is locally bending upwards. That is, the graph is above a tangent line on both sides. The curve continues to bend upward until the corner at <span class="process-math">\(x=-1\text{.}\)</span> Assuming the graph has a similar behavior to the left of the viewing window, we would say <span class="process-math">\(f\)</span> is <dfn class="terminology">concave up on</dfn> <span class="process-math">\((-\infty,-1)\text{.}\)</span> The point <span class="process-math">\(x=-1\)</span> is not included because there is no well-defined slope at <span class="process-math">\(x=-1\text{.}\)</span></p>
+<p id="p-354">Going from <span class="process-math">\(x=-1\)</span> to <span class="process-math">\(x=0\text{,}\)</span> the graph is a straight line. That is, <span class="process-math">\(f\)</span> has no concavity on <span class="process-math">\((-1,0)\text{.}\)</span> Instead, we say <span class="process-math">\(f\)</span> is <em class="emphasis">linear</em> on <span class="process-math">\([-1,0]\text{.}\)</span></p>
+<p id="p-355">Now, starting at <span class="process-math">\(x=0\)</span> and going to the right, we see the function is curving downward. Far to the right, however, we see that the curve begins to curve back upward. We need to identify the point where the curving direction switches. In this example, it occurs at <span class="process-math">\(x=4\text{.}\)</span> If we could draw a tangent line at <span class="process-math">\(x=4\text{,}\)</span> the graph is <em class="emphasis">below</em> the tangent line for <span class="process-math">\(x \lt 4\)</span> and <em class="emphasis">above</em> the tangent line for <span class="process-math">\(x \gt 4\text{.}\)</span> Consequently, we say <span class="process-math">\(f\)</span> is <dfn class="terminology">concave down</dfn> on <span class="process-math">\((0,4]\)</span> and <dfn class="terminology">concave up</dfn> on <span class="process-math">\([4,\infty)\)</span> (assuming the shape pattern continues outside the window).</p>
+<p id="p-356">The function in <a href="" class="xref" data-knowl="./knowl/fig_fcn_concavity_example_right.html" title="Figure 2.4.9">Figure 2.4.9</a> provides an additional example. On the far left, the graph is bending upwards, so we know there will be an interval that is concave up. Looking at the graph at <span class="process-math">\(x=-2\text{,}\)</span> we can see the graph is now bending downwards, so there will be an interval that is concave down.</p>
+<p id="p-357">We check between these points to identify the inflection point. From a graph, we can only give a reasonable guess. The graph appears to be roughly straight for <span class="process-math">\(x\)</span>-values close to <span class="process-math">\(x=3\text{.}\)</span> A tangent line at <span class="process-math">\(x=3\)</span> appears consistent with having the graph <em class="emphasis">above</em> the line on the left and <em class="emphasis">below</em> the line on the right. So <span class="process-math">\(x=3\)</span> being the inflection point is a reasonable guess. We conclude that <span class="process-math">\(f\)</span> is <dfn class="terminology">concave up</dfn> on <span class="process-math">\((-\infty,3]\text{.}\)</span></p>
+<p id="p-358">We earlier noted that the graph is concave down around <span class="process-math">\(x=2\text{.}\)</span> Looking further to the right, we should notice that the graph is concave up around <span class="process-math">\(x=0\text{.}\)</span> It appears that an inflection point is at or near <span class="process-math">\(x=-1\text{.}\)</span> So we conclude <span class="process-math">\(f\)</span> is <dfn class="terminology">concave down</dfn> on <span class="process-math">\([-3,-1]\text{.}\)</span></p>
+<p id="p-359">Using similar reasoning, we decide there are inflection points at <span class="process-math">\(x=1\)</span> and at <span class="process-math">\(x=3\text{.}\)</span> We further conclude that <span class="process-math">\(f\)</span> is concave up on <span class="process-math">\([-1,1]\text{,}\)</span> concave down on <span class="process-math">\([1,3]\text{,}\)</span> and concave up on <span class="process-math">\([3,\infty)\text{.}\)</span></p></article></section><section class="subsection" id="subsec_fcn_extreme_values"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.3</span> <span class="title">Extreme Values</span>
+</h3>
+<p id="p-360">We introduced inflection points as places where a continuous function with a tangent line change concavity. There should be a similar idea for where a function changes monotonicity. Suppose a function is increasing and then at a point <span class="process-math">\(x=a\)</span> changes to decreasing. If we were to draw that picture, we would realize that <span class="process-math">\(f(a)\)</span> must be <em class="emphasis">greater</em> than the values to the left (because it is increasing), but also <em class="emphasis">greater</em> than the values to the right (because it is decreasing). That makes the point a <dfn class="terminology">maximum</dfn> value on an interval that extends to the left and right of <span class="process-math">\(x=a\)</span> (a <dfn class="terminology">neighborhood</dfn> of <span class="process-math">\(x=a\)</span>).</p>
+<p id="p-361">Continuous functions that change monotonicity have reached an extreme value. However, this value is only guaranteed to be a maximum or minimum on an interval subset of the domain. We call such points <dfn class="terminology">local extreme values</dfn>. They are the peaks or valleys of the function. The mathematical definition focuses only on the function reaching the highest or lowest value within an interval rather than requiring monotonicity.</p>
+<article class="definition definition-like" id="defn_fcn_local_extreme"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">Local Extreme Values (Relative Extreme Values).</span>
+</h4>
+<p id="p-362">Let <span class="process-math">\(f\)</span> represent a function and suppose there is some neighborhood of <span class="process-math">\(x=a\text{,}\)</span> an interval <span class="process-math">\((a-\delta, a+\delta)\)</span> with <span class="process-math">\(\delta \gt 0\text{,}\)</span> that is a subset of the domain of <span class="process-math">\(f\text{.}\)</span></p>
+<ul class="disc">
+<li id="li-49"><p id="p-363">“<span class="process-math">\(f\)</span> has a <dfn class="terminology">local (relative) maximum</dfn> at <span class="process-math">\(x=a\)</span>” means for each <span class="process-math">\(x \in (a-\delta, a+\delta)\text{,}\)</span> <span class="process-math">\(f(a) \ge f(x)\text{.}\)</span> (The highest value of <span class="process-math">\(f\)</span> in the neighborhood occurs at <span class="process-math">\(x=a\text{.}\)</span>)</p></li>
+<li id="li-50"><p id="p-364">“<span class="process-math">\(f\)</span> has a <dfn class="terminology">local (relative) minimum</dfn> at <span class="process-math">\(x=a\)</span>” means for each <span class="process-math">\(x \in (a-\delta, a+\delta)\text{,}\)</span> <span class="process-math">\(f(a) \le f(x)\text{.}\)</span> (The lowest value of <span class="process-math">\(f\)</span> in the neighborhood occurs at <span class="process-math">\(x=a\text{.}\)</span>)</p></li>
+</ul></article><p id="p-365">We are also interested in the most extreme values across the entire domain. These extreme values are called <dfn class="terminology">global extreme values</dfn> or <dfn class="terminology">absolute extreme values</dfn>.</p>
+<article class="definition definition-like" id="defn_fcn_global_extreme"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.11</span><span class="period">.</span><span class="space"> </span><span class="title">Global Extreme Values (Absolute Extreme Values).</span>
+</h4>
+<p id="p-366">Let <span class="process-math">\(f\)</span> represent a function with a domain <span class="process-math">\(D\text{.}\)</span></p>
+<ul class="disc">
+<li id="li-51"><p id="p-367">“<span class="process-math">\(f\)</span> has a <dfn class="terminology">global (absolute) maximum</dfn> at <span class="process-math">\(x=a\)</span>” means for each <span class="process-math">\(x \in D\text{,}\)</span> <span class="process-math">\(f(a) \ge f(x)\text{.}\)</span></p></li>
+<li id="li-52"><p id="p-368">“<span class="process-math">\(f\)</span> has a <dfn class="terminology">global (absolute) minimum</dfn> at <span class="process-math">\(x=a\)</span>” means for each <span class="process-math">\(x \in D\text{,}\)</span> <span class="process-math">\(f(a) \le f(x)\text{.}\)</span></p></li>
+</ul></article></section><section class="subsection" id="subsec_fcn_shape"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.4</span> <span class="title">Describing the Shape</span>
+</h3>
+<p id="p-369">A description of the graph of a function includes identifying the monotonicity and concavity of the function, the inflection points and extreme values, and other important features of the graph. These other features might include characterizing discontinuities or asymptotes, ideas we will encounter later when we discuss limits.</p>
+<p id="p-370">Our learning objectives focus on how we communicate about mathematical objects. Communication occurs in sentences, so we need to practice writing complete sentences that properly use mathematical language in their context. The functions are the objects under study, so they will play the role of the nouns in our sentences. When discussing monotonicity or concavity, the definitions are in terms of subsets of the domain, so the sentences should use a prepositional phrase involving <em class="emphasis">on</em> a set. When discussing inflection points or extreme values, the definitions are in terms of individual points, so the sentences should use a prepositional phrase involving <em class="emphasis">at</em> a value.</p>
+<article class="example example-like" id="ex_fcn_describe_function_graph"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.12</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-10.</span>
+</h4>
+<p id="p-371">The graph of a function <span class="process-math">\(g(x)\)</span> is illustrated in the figure below. Assume that behavior at the edge of the viewing window continues indefinitely. Describe <span class="process-math">\(g(x)\text{,}\)</span> using separate sentences to describe monotonicity and concavity on intervals chosen as large as appropriate. Estimate the location of inflection points and extreme values if not obvious.</p>
+<figure class="figure figure-like" id="fig_fcn_needs_description"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/image-35.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.13<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(g(x)\)</span> for <a href="" class="xref" data-knowl="./knowl/ex_fcn_describe_function_graph.html" title="Example 2.4.12: Learning Objective F-10">Example 2.4.12</a></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-34" id="solution-34"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-34"><div class="solution solution-like">
+<p id="p-372">First, we describe the monotonicity. Looking at the graph, we see it rises, falls, and rises, so we will have three intervals. The function <span class="process-math">\(g\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([-4,0]\text{,}\)</span> <em class="emphasis">decreasing</em> on <span class="process-math">\([0,2]\text{,}\)</span> and increasing on <span class="process-math">\([2,\infty)\text{.}\)</span> End-points were all included because the function values at those points were the lowest or highest value on their intervals.</p>
+<p id="p-373"><span class="process-math">\(g\)</span> has a global minimum at <span class="process-math">\(x=-4\)</span> and a global maximum at <span class="process-math">\(x=0\)</span> because it appears the right-edge of the graph is leveling out fast enough that the <span class="process-math">\(y\)</span>-value will not get higher than <span class="process-math">\(y=4\text{.}\)</span> <span class="process-math">\(g\)</span> also has a local minimum at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p id="p-374">Second, we describe the concavity. On the far left, the graph starts concave up to the right of <span class="process-math">\(x=-4\text{.}\)</span> To the left of <span class="process-math">\(x=0\text{,}\)</span> the graph is concave down. We can estimate an inflection point at <span class="process-math">\(x=-2\text{.}\)</span> So <span class="process-math">\(g\)</span> is concave up on <span class="process-math">\((-4,-2]\)</span> and concave down on <span class="process-math">\([-2,0)\text{.}\)</span> End-points are not included because the functions does not have clear tangent lines at those points.</p>
+<p id="p-375">The graph is clearly concave up around <span class="process-math">\(x=2\text{.}\)</span> This extends leftward to <span class="process-math">\(x=0\text{.}\)</span> By the time we get to <span class="process-math">\(x=4\text{,}\)</span> the graph is concave down. An inflection point can be estimated to be at <span class="process-math">\(x=3\text{.}\)</span> So <span class="process-math">\(g\)</span> is concave up on <span class="process-math">\((0,3]\)</span> and concave down on <span class="process-math">\([3,\infty)\text{.}\)</span></p>
+</div></div>
+</div></article><p id="p-376">The reverse skill is also important. Given a description of the behavior of a function, you should be able to sketch a graph of a function that matches that behavior. There are multiple ways to think about creating a graph. See if the following suggestions help or if you can think of other ways.</p>
+<p id="p-377">One perpective is to think about monotonicity and concavity as pairs of information. There are four basic pairs: increasing and concave up, increasing and concave down, decreasing and concave up, and decreasing and concave down. Each pair corresponds to the shape of the four quadrants of a circle.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:25%;"><figure class="figure figure-like" id="fig_shape_increase_concave_down"><img src="generated/latex-image/shape_increase_concave_down.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.14<span class="period">.</span></span><span class="space"> </span>Increasing and concave down</figcaption></figure></div>
+<div class="sbspanel top" style="width:25%;"><figure class="figure figure-like" id="fig_shape_decrease_concave_down"><img src="generated/latex-image/shape_decrease_concave_down.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.15<span class="period">.</span></span><span class="space"> </span>Decreasing and concave down</figcaption></figure></div>
+<div class="sbspanel top" style="width:25%;"><figure class="figure figure-like" id="fig_shape_decrease_concave_up"><img src="generated/latex-image/shape_decrease_concave_up.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.16<span class="period">.</span></span><span class="space"> </span>Decreasing and concave up</figcaption></figure></div>
+<div class="sbspanel top" style="width:25%;"><figure class="figure figure-like" id="fig_shape_increase_concave_up"><img src="generated/latex-image/shape_increase_concave_up.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.17<span class="period">.</span></span><span class="space"> </span>Increasing and concave up</figcaption></figure></div>
+</div></div>
+<p id="p-378">Using the information about monotonicity and concavity, we can identify intervals with these pairs of shape information. If there are intervals with constant or linear graphs, we add those as well. We can then construct a graph by joining small arcs of graph shapes together, with each arc matching the shape pair information. If the graph is continuous, the arcs need to join together at their end-points. Otherwise, there could be breaks in the graph.</p>
+<article class="example example-like" id="ex_fcn_draw_graph_shape_1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.18</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-11.</span>
+</h4>
+<p id="p-379">A function <span class="process-math">\(f\)</span> is increasing on <span class="process-math">\((-\infty,-2]\text{,}\)</span> on <span class="process-math">\([0,2]\text{,}\)</span> and on <span class="process-math">\([4,\infty)\text{.}\)</span> The function is decreasing on <span class="process-math">\([-2,0]\)</span> and on <span class="process-math">\([2,4]\text{.}\)</span> <span class="process-math">\(f\)</span> is concave up on <span class="process-math">\((-\infty,-1]\)</span> and on <span class="process-math">\([3,\infty)\)</span> and concave down on <span class="process-math">\([-1,3]\text{.}\)</span> Draw a graph of a continuous function consistent with this information.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-35" id="solution-35"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-35"><div class="solution solution-like">
+<p id="p-380">The first two sentences give us information about monotonicity, and the last sentence gives us information about concavity. We need to identify intervals of the paired information. One way to get this paired information is to create adjacent number line information showing monotonicity and concavity.</p>
+<figure class="figure figure-like" id="fig_paired_shape_information_lines"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/paired_shape_information_lines.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.19<span class="period">.</span></span><span class="space"> </span>Paired number line information showing monotonicity and concavity.</figcaption></figure><p id="p-381">Reading this paired information from left-to-right, we can identify intervals of basic shapes.</p>
+<ul class="disc">
+<li id="li-53"><p id="p-382"><span class="process-math">\((-\infty,-2]\text{:}\)</span> increasing and concave down</p></li>
+<li id="li-54"><p id="p-383"><span class="process-math">\([-2,-1]\text{:}\)</span> decreasing and concave down</p></li>
+<li id="li-55"><p id="p-384"><span class="process-math">\([-1,0]\text{:}\)</span> decreasing and concave up</p></li>
+<li id="li-56"><p id="p-385"><span class="process-math">\([0,1]\text{:}\)</span> increasing and concave up</p></li>
+<li id="li-57"><p id="p-386"><span class="process-math">\([1,2]\text{:}\)</span> increasing and concave down</p></li>
+<li id="li-58"><p id="p-387"><span class="process-math">\([2,\infty)\text{:}\)</span> decreasing and concave down</p></li>
+</ul>
+<p class="continuation">We might just draw the corresponding shapes below our earlier number line.</p>
+<figure class="figure figure-like" id="fig_paired_shape_information_shapes"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/paired_shape_information_shapes.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.20<span class="period">.</span></span><span class="space"> </span>Paired number line information showing monotonicity and concavity.</figcaption></figure><p id="p-388">Once we know the individual shapes, we can draw the full graph. Because we were told to draw a graph of a continuous function, we will join the shapes together at the points of change. At <span class="process-math">\(x=-2\text{,}\)</span> we reach a local maximum; at <span class="process-math">\(x=0\text{,}\)</span> we reach a local minimum; and at <span class="process-math">\(x=2\text{,}\)</span> we reach another local maximum. At <span class="process-math">\(x=-1\)</span> and at <span class="process-math">\(x=1\text{,}\)</span> we have inflection points because the concavity changes. None of our given information tells us about <span class="process-math">\(y\)</span>-values of the graph, so we will not show a vertical scale.</p>
+<figure class="figure figure-like" id="fig_graph_from_shape_information"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/graph_from_shape_information.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.21<span class="period">.</span></span><span class="space"> </span>Graph of a continuous function consistent with shape information</figcaption></figure>
+</div></div>
+</div></article><p id="p-389">A second approach to creating such a graph is to focus first on the monotonicity information to create proposed locations of extreme values. We might imagine a graph consisting of only linear segments for this. Then, we add concavity information by identifying intervals on the subdomain in which we need to add curvature. We replace the linear segments with curved arcs that preserve the monotonicity we originally found.</p>
+<p id="p-390">We repeat the previous example using this alternative approach.</p>
+<article class="example example-like" id="ex_fcn_draw_graph_shape_2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.22</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective F-11.</span>
+</h4>
+<p id="p-391">A function <span class="process-math">\(f\)</span> is increasing on <span class="process-math">\((-\infty,-2]\text{,}\)</span> on <span class="process-math">\([0,2]\text{,}\)</span> and on <span class="process-math">\([4,\infty)\text{.}\)</span> The function is decreasing on <span class="process-math">\([-2,0]\)</span> and on <span class="process-math">\([2,4]\text{.}\)</span> <span class="process-math">\(f\)</span> is concave up on <span class="process-math">\((-\infty,-1]\)</span> and on <span class="process-math">\([3,\infty)\)</span> and concave down on <span class="process-math">\([-1,3]\text{.}\)</span> Draw a graph of a continuous function consistent with this information.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like">
+<p id="p-392">We use the monotonicity information first. The graph is increasing on <span class="process-math">\((-\infty,-2]\text{,}\)</span> so our preliminary graph will use an increasing line that stops at <span class="process-math">\(x=-2\text{.}\)</span> This point will become our local maximum. The graph the decreases on <span class="process-math">\([-2,0]\text{,}\)</span> so we add a new line segment that is decreasing until <span class="process-math">\(x=0\)</span> for a local minimum. We then draw an increasng line segment between <span class="process-math">\(x=0\)</span> and <span class="process-math">\(x=2\)</span> to give a second local maximum. Finishing the preliminary graph, we draw a decreasing line extending to the right from <span class="process-math">\(x=2\text{.}\)</span> On a paper solution, we might only have drawn the locations of the local extrema.</p>
+<figure class="figure figure-like" id="fig_preliminary_graph_monotonicity"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/preliminary_graph_monotonicity.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.23<span class="period">.</span></span><span class="space"> </span>A piecewise linear graph that matches the provided monotonicity information</figcaption></figure><p id="p-393">Now, we turn our attention to concavity. The function needs to be concave down on <span class="process-math">\((-\infty,-1]\text{.}\)</span> At <span class="process-math">\(x=-1\text{,}\)</span> our preliminary graph is using the decreasing line. We will identify a <span class="process-math">\(y\)</span>-value between the maximum at <span class="process-math">\(x=-2\)</span> and the minimum at <span class="process-math">\(x=0\)</span> as the location of our inflection point. It can often be chosen to be on the line itself, but it does not need to be. To the left of this point, our preliminary graph is increasing and then decreasing. We convert this to a curved arc that is concave down.</p>
+<p id="p-394">Next, the graph is concave up on <span class="process-math">\([-1,1]\text{.}\)</span> So we find another point at <span class="process-math">\(x=1\)</span> between the minimum at <span class="process-math">\(x=0\)</span> and maximum at <span class="process-math">\(x=2\text{.}\)</span> The preliminary graph is piecewise linear, decreasing on <span class="process-math">\([-1,0]\)</span> and increasing on <span class="process-math">\([0,1]\text{.}\)</span> We convert this to a curved arc that is concave up. To the right of this, the graph is concave down on <span class="process-math">\([-1,\infty)\text{.}\)</span> The preliminary graph is piecewise linear that we need to convert to a curved arc.</p>
+<figure class="figure figure-like" id="fig_updated_graph_with_concavity"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/updated_graph_with_concavity.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.24<span class="period">.</span></span><span class="space"> </span>Updated graph that incorporates concavity</figcaption></figure>
+</div></div>
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>
