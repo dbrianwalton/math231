@@ -31,6 +31,7 @@
     <xi:include href="./ch_functions.ptx" />
     <xi:include href="./ch_limits.ptx" />
     <xi:include href="./ch_derivatives.ptx" />
+    <xi:include href="./ch_applications.ptx" />
 
     <!-- Finaly we place the backmatter in its own file and inlcude-->
     <xi:include href="./meta_backmatter.ptx" />

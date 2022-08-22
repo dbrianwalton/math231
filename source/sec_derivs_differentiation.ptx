@@ -20,7 +20,7 @@
             This section focuses on how we differentiate formulas, the rules of derivatives, and how to think through the steps of identifying which rules apply in different circumstances.
         </p>
     </introduction>
-    <subsection xml:id="subsec_deriv_definition_function">
+    <subsection xml:id="subsec_deriv_polynomials">
         <title>Derivative Functions and Polynomials</title>
         <p>
             Polynomials are often used to illustrate that patterns occur in differentiation.
@@ -301,6 +301,231 @@
                     In addition, the function involves a square root.
                     To proceed with this problem, we need to recognize that a square root corresponds to a power of <m>\frac{1}{2}</m>.
                     In addition, we need to multiply out the terms in order to have a formula in the standard representation.
+                </p>
+                <p>
+                    Our first step is to rewrite the original function so that the process of differentiation of generalized polynomials applies (first three lines).
+                    Then we can apply the power rule to each term.
+                    <md>
+                        <mrow>\frac{d}{dx}\big[ 5\sqrt{x} (x^2 + 2x - 5)\big] 
+                            &amp; = \frac{d}{dx}\big[ 5 x^{1/2}(x^2 + 2x - 5) \big]</mrow>
+                        <mrow> &amp;= \frac{d}{dx}\big[ 5x^{5/2} + 10 x^{3/2} - 25 x^{1/2} \big]</mrow>
+                        <mrow> &amp;= \frac{d}{dx}\big[ 5x^{5/2} + 10 x^{3/2} - 25 x^{1/2} \big]</mrow>
+                        <mrow> &amp;= 5 \cdot \frac{5}{2}x^{3/2} + 10 \cdot \frac{3}{2} x^{1/2} - 25 \cdot \frac{1}{2} x^{-1/2}</mrow>
+                        <mrow> &amp;= \frac{25}{2}x^{3/2} + 15 x^{1/2} - \frac{25}{2} x^{-1/2}</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_derivs_derivative_rules">
+        <title>Derivative Rules</title>
+        <p>
+            The definition of the derivative is in terms of limits.
+            Limits have rules based on the structure of the function.
+            These limit rules allow us to create derivative rules that are similarly based on the structure of the function's formula.
+        </p>
+        <assemblage xml:id="asmbl_deriv_rules">
+            <title>Derivative Rules</title>
+            <p>
+                Suppose that a function is constructed from simpler functions, each of which has a known derivative or differentiation rule. In particular, we will assume that <m>f(x)</m> and <m>g(x)</m> stand for differentiable functions and that <m>k</m> stands for some constant.
+                <md>
+                    <mrow>&amp; \frac{d}{dx}\big[f(x) + k\big] = f'(x) &amp; \text{Constant Sum Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\big[k \cdot f(x)\big] = k \cdot f'(x) &amp; \text{Constant Multiple Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\big[ f(x) + g(x) \big] = f'(x) + g'(x) &amp; \text{Sum Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\big[ f(x) - g(x) \big] = f'(x) - g'(x) &amp; \text{Difference Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\big[ f(x) \cdot g(x) \big] = f'(x) g(x) + f(x) g'(x) &amp; \text{Prodcut Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\left[ \frac{f(x)}{g(x)} \right] = \frac{f'(x) g(x) - f(x) g'(x)}{(g(x))^2} &amp; \text{Quotient Rule}</mrow>
+                    <mrow>&amp; \frac{d}{dx}\left[ f \circ g(x) \right] = \frac{d}{dx}\left[ f\big(g(x)\big) \right]
+                        = f'\big( g(x) \big) \cdot g'(x) &amp; \text{Chain Rule}</mrow>
+                </md>
+            </p>
+        </assemblage>
+        <p>
+            In many instances, <em>doing calculus</em> is code for using these rules.
+            The differentiation of polynomials that we explored earlier was an example of using the constant multiple rule along with the sum rule on individual terms that were powers.
+            The power functions were the elementary functions whose derivatives were known.
+            These rules for constructed functions justify why we can treat terms separately.
+        </p>
+        <p>
+            We have multiple learning objectives relating to the proper use of these rules.
+            <ul>
+                <li><p>
+                    <em>Learning Objective D-10</em>: Using the quotient rule to find a derivative of a rational function.
+                </p></li>
+                <li><p>
+                    <em>Learning Objective D-11</em>: Using the chain rule to find a derivative for a composition involving a power.
+                </p></li>
+                <li><p>
+                    <em>Learning Objective D-12</em>: Using all of the derivative rules in an abstract setting.
+                </p></li>
+            </ul>
+        </p>
+        <example xml:id="ex_derivs_rational_function">
+            <title>Learning Objective D-10</title>
+            <statement>
+                <p>
+                    For <m>\displaystyle R(x) = \frac{x^2+2x}{2x^2+1}</m>, find all points where the graph has horizontal tangents.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    A horizontal tangent corresponds to a slope that is zero.
+                    We need to find the derivative function <m>R'(x)</m> and determine values so that <m>R'(x)=0</m>.
+                    The function <m>R(x)</m> is a rational function because it is a <em>quotient</em> of two polynomials.
+                </p>
+                <p>
+                    To find <m>R'(x)</m>, we need to use the <em>quotient rule</em> because <m>R(x)</m> itself is a quotient.
+                    <md>
+                        <mrow>R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} </mrow>
+                        <mrow> &amp;= \frac{\frac{d}{dx}[x^2+2x] \cdot (2x^2+1) - (x^2+2x) \cdot \frac{d}{dx}[2x^2+1]}{(2x^2+1)^2} </mrow>
+                        <mrow> &amp;= \frac{(2x+2)(2x^2+1) - (x^2+2x)(4x)}{(2x^2+1)^2} </mrow>
+                        <mrow> &amp;= \frac{(4x^3+4x^2+2x+2) - (4x^3+8x^2)}{(2x^2+1)^2} </mrow>
+                        <mrow> &amp;= \frac{4x^3+4x^2+2x+2 - 4x^3 - 8x^2}{(2x^2+1)^2} </mrow>
+                        <mrow> &amp;= \frac{-4x^2+2x+2}{(2x^2+1)^2} </mrow>
+                    </md>
+                    Experience has shown me that we <em>always</em> want to rewrite the numerator in hopes of factoring in the future, but <em>almost never</em> want to rewrite the denominator since it is already factored.
+                </p>
+                <p>
+                    Once we know <m>R'(x)</m>, we create and solve the equation <m>R'(x)=0</m>.
+                    Because <m>R'(x) = \frac{-4x^2+2x+2}{(2x^2+1)^2}</m> is itself a quotient, <m>R'(x)= 0</m> is solved by determining where the <em>numerator</em> equals zero.
+                    In this case, we can factor that resulting polynomial.
+                    <md>
+                        <mrow>R'(x) = 0</mrow>
+                        <mrow>\frac{-4x^2+2x+2}{(2x^2+1)^2} = 0</mrow>
+                        <mrow>-4x^2+2x+2 = 0</mrow>
+                        <mrow>-2(2x^2-x-1) = 0</mrow>
+                        <mrow>-2(2x+1)(x-1) = 0</mrow>
+                    </md>
+                    So <m>R'(x)=0</m> at <m>x=-\frac{1}{2}</m> and at <m>x=1</m>.
+                    We can verify whether these values make sense by looking at a graph of <m>R(x)</m>.
+                </p>
+                <figure xml:id="fig_horiz_tangents_of_rational">
+                    <caption>Graph of <m>\displaystyle R(x) = \frac{x^2+2x}{2x^2+1}</m> showing horizontal tangents at <m>x=-\frac{1}{2}</m> and at <m>x=1</m>.</caption>
+                    <image xml:id="graph_horiz_tangents_of_rational" width="40%">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \begin{axis}
+                            [ xmin=-4.5, xmax=4.5, ymin=-3, ymax=3, grid=both, minor tick num=1 ]
+                            \addplot [domain=-5:5, samples=200, very thick, blue] {(x^2+2*x)/(2*x^2+1)};
+                            \addplot [samples at={-0.5, 1}, only marks, blue] {(x^2+2*x)/(2*x^2+1)};
+                            \end{axis}
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        <example xml:id="derivs_general_power_rule">
+            <title>Learning Objective D-11</title>
+            <statement>
+                <p>
+                    Find <m>\displaystyle \frac{d}{dx}\left[ \frac{2}{5(x^2+3x)^6}\right]</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    As written, this function is a quotient.
+                    We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.
+                    <md>
+                        <mrow>f(x) &amp;= \frac{2}{5(x^2+3x)^6}</mrow>
+                        <mrow> &amp;= \frac{2}{5} (x^2+3x)^{-6}</mrow>
+                    </md>
+                    Our function <m>y=f(x)</m> is now the composition (or chain)
+                    <me>
+                        \begin{cases}
+                        y = \frac{2}{5} u^{-6} \\
+                        u = x^2+3x
+                        \end{cases}
+                    </me>
+                    We can compute the derivatives of each stage of the composition:
+                    <me>
+                        \begin{cases}
+                        \frac{dy}{du} = \frac{2}{5} \cdot -6 u^{-7} = \frac{-12}{5} u^{-7}\\
+                        \frac{du}{dx} = 2x+3
+                        \end{cases}
+                    </me>
+                    The chain rule says that the derivative of a composition (chain) is the product of the derivatives of each stage:
+                    <me>f'(x) = \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = \frac{-12}{5} u^{-7} \cdot (2x+3)</me>
+                    We finish by substituting back in the formula for <m>u</m>:
+                    <me>
+                        f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}
+                    </me>.
+                </p>
+            </solution>
+        </example>
+        <example xml:id="ex_derivs_abstract_rules">
+            <title>Learning Objective D-12</title>
+            <statement>
+                <p>
+                    Given <m>\displaystyle h(x) = 2x f(x^2) - \frac{1}{g^3(x)}</m>, find <m>h'(x)</m> and then calculate <m>h'(2)</m> using the data in the table.
+                    <tabular>
+                        <row header="yes">
+                            <cell><m>x</m></cell>
+                            <cell><m>f(x)</m></cell>
+                            <cell><m>f'(x)</m></cell>
+                            <cell><m>g(x)</m></cell>
+                            <cell><m>g'(x)</m></cell>
+                        </row>
+                        <row>
+                            <cell>2</cell>
+                            <cell>4</cell>
+                            <cell>-2</cell>
+                            <cell>-3</cell>
+                            <cell>2</cell>
+                        </row>
+                        <row>
+                            <cell>4</cell>
+                            <cell>1</cell>
+                            <cell>2</cell>
+                            <cell>4</cell>
+                            <cell>-2</cell>
+                        </row>
+                        <row>
+                            <cell>8</cell>
+                            <cell>3</cell>
+                            <cell>-1</cell>
+                            <cell>2</cell>
+                            <cell>-3</cell>
+                        </row>
+                    </tabular>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The idea behind this learning objective exercise is for you to recognize the structure of the formula and then use the appropriate derivative rules based on that structure.
+                    The functions <m>f</m> and <m>g</m> are placeholders for functions that we know derivative values so that we don't rely on just the power rule as the example application.
+                </p>
+                <p>
+                    The overall function is a <em>difference</em> of two formulas, <m>2x f(x^2)</m> and <m>\frac{1}{g^3(x)}</m>.
+                    The first of these is a <em>product</em> of <m>2x</m> and <m>f(x^2)</m>.
+                    We know how to find the derivative of <m>2x</m> (a linear function) and <m>f(x^2)</m> is a <em>composition</em> of <m>f</m> with an inner function <m>x^2</m>.
+                    The second term can be rewritten as <m>(g(x))^-3</m>, which is itself now a composition of <m>u^{-3}</m> with <m>u=g(x)</m>.
+                </p>
+                <p>
+                    When we use the derivative rules for a difference, we just subtract the derivatives of the terms separately.
+                    The product will require the product rule.
+                    We work through the rules in turn to find the final answer.
+                    <md>
+                        <mrow>h'(x) &amp;= \frac{d}{dx}\left[ 2x f(x^2) - \frac{1}{g^3(x)} \right]</mrow>
+                        <mrow> &amp;= \frac{d}{dx}\left[ 2x f(x^2) \right] - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]</mrow>
+                        <mrow> &amp;= \frac{d}{dx}\left[ 2x \right] \cdot f(x^2) + 2x \cdot \frac{d}{dx}\left[ f(x^2) \right]  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]</mrow>
+                        <mrow> &amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]</mrow>
+                        <mrow> &amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - (-3u^{-4}) \cdot \frac{du}{dx} \Big|_{u=g(x)}</mrow>
+                        <mrow> &amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + 3(g(x))^{-4} \cdot g'(x)</mrow>
+                        <mrow> &amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + \frac{3g'(x)}{(g(x))^{4}}</mrow>
+                    </md>
+                </p>
+                <p>
+                    Now that we have a <em>formula</em> for <m>h'(x)</m>, we can calculate <m>h'(2)</m> using the provided information.
+                    First, we just substitute <m>x=2</m> into the formula:
+                    <me>h'(2) = 2 \cdot f(2^2) + 4\cdot 2^2 \cdot f'(2^2) + \frac{3g'(2)}{(g(2))^{4}}</me>
+                    Then we find the values of these terms:
+                    <md>
+                        <mrow>h'(2) &amp;= 2 f(4) + 16 f'(4) + \frac{3g'(2)}{(g(2))^4}</mrow>
+                        <mrow> &amp;= 2 \cdot 1 + 16 \cdot 2 + \frac{3\cdot 2}{(-3)^4</mrow>
+                        <mrow> &amp;= 2 + 32 + \frac{6}{81}</mrow>
+                        <mrow> &amp;= 34 + \frac{2}{27}</mrow>
+                    </md>
                 </p>
             </solution>
         </example>
