@@ -49,6 +49,7 @@
                     </latex-image>
                 </image>
                 <image xml:id="img_derivs_tangent_zoom_inset">
+                    <latex-image>
 \begin{tikzpicture}
 \begin{axis}
 [xmin=0.5, xmax=1.5, ymin=-1.5, ymax=-0.5, grid=both, minor tick num=1]
@@ -56,6 +57,7 @@
 \addplot [red, thick] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
 \end{axis}
 \end{tikzpicture}
+                    </latex-image>
                 </image>
             </sidebyside>
         </figure>
@@ -81,6 +83,7 @@
                     </latex-image>
                 </image>
                 <image xml:id="img_derivs_tangent_from_inset_b">
+                    <latex-image>
 \begin{tikzpicture}
 \begin{axis}
 [xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
@@ -90,6 +93,7 @@
 \addplot [orange, very thick, domain=-5:5] {-1+-16/9*(x-1)};
 \end{axis}
 \end{tikzpicture}
+                    </latex-image>
                 </image>
             </sidebyside>
         </figure>
@@ -118,8 +122,8 @@
 \begin{axis}
 [xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
 \addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
-\addplot [orange, very thick, domain=0.9:1.1] {-1+-16/9*(x-1)};
-\addplot [orange, only marks] coordinates {(1,-1) (-1,-4.555)};
+\addplot [orange, very thick, domain=-5:5] {-1+-16/9*(x-1)};
+\addplot [orange, only marks] coordinates {(1,-1) (-1,2.5)};
 \end{axis}
 \end{tikzpicture}
                 </latex-image>
@@ -144,12 +148,12 @@
                     A graph of <m>y=f(x)</m> is shown below. Draw a tangent line at <m>x=-2</m> and estimate the derivative at this point.
                 </p>
                 <figure xml:id="fig_ex_tangent_derivative">
-                    <caption>Extending a tangent line from an inset of the graph</caption>
-                    <image width="40%">
+                    <caption>Graph for which you create a tangent line.</caption>
+                    <image width="75%">
                         <latex-image>
 \begin{tikzpicture}
 \begin{axis}
-[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=4]
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=3]
 \addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
 \end{axis}
 \end{tikzpicture}
@@ -157,6 +161,38 @@
                     </image>
                 </figure>
             </statement>
+            <solution>
+                <p>
+                    Start by marking the point on the graph at <m>x=-2</m>.
+                    The point approximately looks like <m>(-2,-2.7)</m>.
+                    We draw a tangent line through this point to match the slope on a very small interval here.
+                    You should get a graph that looks something like the following.
+                </p>
+                <image width="75%">
+                    <latex-image>
+\begin{tikzpicture}
+\begin{axis}
+[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=3]
+\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
+\addplot [domain=-5:5, samples=200, orange, very thick] { 8/9*(x+2)-2.66666};
+\addplot [only marks, orange, fill=orange] coordinates { (-2,-2.66666) (1,0) };
+\end{axis}
+\end{tikzpicture}
+                    </latex-image>
+                </image>
+                <p>
+                    We look for another point on the line that might be easy to estimate, and discover that the line passes through <m>(1,0)</m>.
+                    Using these two points from the tangent line, we can calculate the approximate slope of the tangent line, which is the derivative at <m>x=-2</m> of the original graph.
+                    <md>
+                        <mrow>\frac{dy}{dx}\Big|_{-2} &amp;\approx \frac{0--2.7}{1--2}</mrow>
+                        <mrow> &amp;= \frac{2.7}{3} = 0.9</mrow>
+                    </md>
+                </p>
+                <p>
+                    Note again that because we are estimating points visually based on grid lines, these calculations are only estimates.
+                    Any reasonable values based on reasonable approximations of the tangent line will be acceptable.
+                </p>
+            </solution>
         </example>
     </subsection>
 </section>
