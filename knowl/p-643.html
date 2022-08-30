@@ -12,16 +12,24 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>Consider the function <span class="process-math">\(g(x)\)</span> defined piecewise by</p>
+<p>However, <span class="process-math">\(h\)</span> is a common factor in the numerator so that we can rewrite</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-g(x) = \begin{cases}
-x^2 - 2x, &amp; x \le 2, \\
-2x, &amp; x \gt 2.
-\end{cases}
-\end{equation*}
+\begin{align*}
+\frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{7h+h^2}{h}\\
+&amp;= \frac{h(7+h)}{h}\\
+&amp;= 7+h
+\end{align*}
 </div>
-<p class="continuation">Find <span class="process-math">\(g'(2)\)</span> if it exists.</p>
+<p class="continuation">for <span class="process-math">\(h \ne 0\text{.}\)</span> Where the original quotient had a discontinuity, the new formula is continuous and we can find the limit using value substitution.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f'(3) &amp;= \lim_{h \to 0} \frac{f(3+h)-f(3)}{h}\\
+&amp;= \lim_{h \to 0} \frac{7h+h^2}{h}\\
+&amp;= \lim_{h \to 0} [7+h]\\
+&amp;= 7 + 0 = 7
+\end{align*}
+</div>
+<p class="continuation">We <em class="emphasis">replaced</em> the limit in the second to last row by the <em class="emphasis">value</em> of the formula using continuity. So <span class="process-math">\(f'(3) = 7\text{,}\)</span> and this is not an approximation but an exact value as calculated using the definition.</p>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-643" class="internal">in-context</a></span>
 </body>
 </html>

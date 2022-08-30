@@ -11,32 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<p>On a paper version of this problem, you would need to identify points of interest and physically draw the left- and right-tangent lines, or the limits of the secant lines coming from the left and right. As you interact with this graph, imagine how you would do this by hand.</p>
-<p>Move the point <span class="process-math">\(A\)</span> to <span class="process-math">\(x=-2\text{.}\)</span> You should be sure to select the filled in point as the hollow point is just a limit point of the graph. You can now adjust the slider for <span class="process-math">\(h\text{.}\)</span> If you approach <span class="process-math">\(h \to 0^-\)</span> by coming from the left (negative <span class="process-math">\(h\)</span>), you should see a left-tangent line has a slope that is approximately 2. This allows us to state:</p>
+<p>Start by marking the point on the graph at <span class="process-math">\(x=-2\text{.}\)</span> The point approximately looks like <span class="process-math">\((-2,-2.7)\text{.}\)</span> We draw a tangent line through this point to match the slope on a very small interval here. You should get a graph that looks something like the following.</p>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-65.svg" role="img" class="contained"></div>
+<p>We look for another point on the line that might be easy to estimate, and discover that the line passes through <span class="process-math">\((1,0)\text{.}\)</span> Using these two points from the tangent line, we can calculate the approximate slope of the tangent line, which is the derivative at <span class="process-math">\(x=-2\)</span> of the original graph.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{df}{dx}\Big|_{x=-2^-} \approx 2\text{.}
-\end{equation*}
+\begin{align*}
+\frac{dy}{dx}\Big|_{-2} &amp;\approx \frac{0--2.7}{1--2}\\
+&amp;= \frac{2.7}{3} = 0.9
+\end{align*}
 </div>
-<p class="continuation">(Do you see how the tangent line appears like it would go through <span class="process-math">\((-3,0)\text{?}\)</span> If doing this by hand, you would use that point to calculate a slope.)</p>
-<p>If you approach <span class="process-math">\(h \to 0^+\)</span> by coming from the right, you will see the right-tangent line goes vertical. For <span class="process-math">\(h \to 0^+\text{,}\)</span> you should observe that the slope is negative in the limit so that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{df}{dx}\Big|_{x=-2^+} \approx -\infty\text{.}
-\end{equation*}
-</div>
-<p>We now turn our attention to <span class="process-math">\(x=2\text{.}\)</span> Move <span class="process-math">\(A\)</span> to <span class="process-math">\((2,1)\)</span> and check what the left- and right-tangent lines (limits of secant lines) look like. The left-tangent line (using <span class="process-math">\(h \to 0^-\)</span>) appears to go through <span class="process-math">\((1,3)\)</span> so that we can approximate</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{df}{dx}\Big|_{x=2^-} \approx -2\text{.}
-\end{equation*}
-</div>
-<p class="continuation">Similarly, the right-tangent line (using <span class="process-math">\(h \to 0^+\)</span>) appears to go through <span class="process-math">\((3,2)\)</span> so that we can approximate</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{df}{dx}\Big|_{x=2^+} \approx 1\text{.}
-\end{equation*}
-</div>
-<p>Now that we have the left- and right-derivative values, we can interpret the results to say something about differentiability. In both cases, the left- and right-derivatives have <em class="emphasis">different</em> values. So we say that <span class="process-math">\(f\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=-2\)</span> and at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p>Note again that because we are estimating points visually based on grid lines, these calculations are only estimates. Any reasonable values based on reasonable approximations of the tangent line will be acceptable.</p>
 </div></body>
 </html>

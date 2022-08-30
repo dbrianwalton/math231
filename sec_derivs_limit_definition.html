@@ -143,76 +143,76 @@ window.MathJax = {
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_derivs_limit_definition"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Defining the Derivative</span>
 </h2>
-<section class="introduction" id="introduction-19"><p id="p-596">Our intuitive introduction (<a href="sec_derivs_intuition.html" class="internal" title="Section 4.1: Derivatives and Tangent Lines">Section 4.1</a>) to what a derivative measures, the slope of a tangent line, started by imagining that we could find the tangent line as a starting point. This can't be the real starting point. How would we really know which line is the <em class="emphasis">best</em> approximation? Mathematically, we will start by establishing a rule or definition for how to calculate the derivative that is consistent with our intuition and use that to define the tangent line using the derivative's value to know the slope.</p>
-<p id="p-597">Recall that we intuitively found a tangent line by imagining we could zoom in on the function until it looked linear, and then use that short segment to extend to a full tangent line. This idea of zooming in is the essence of using a limiting process. The farther in we zoom, the closer the graph looks like a line. If we use two points from the function's actual graph, the slope between those points will be closer and closer to the slope of the tangent line as we zoom more and more in toward the point.</p>
-<p id="p-598">For a relation between variables, we previously defined the average rate of change in <a href="" class="xref" data-knowl="./knowl/defn_average_rate_of_change_variables.html" title="Definition 1.1.1: Average Rate of Change">Definition 1.1.1</a>. We are now focused on functions as the primary tool to describe relationships between variables, so let us restate this definition in terms of functions.</p>
+<section class="introduction" id="introduction-19"><p id="p-599">Our intuitive introduction (<a href="sec_derivs_intuition.html" class="internal" title="Section 4.1: Derivatives and Tangent Lines">Section 4.1</a>) to what a derivative measures, the slope of a tangent line, started by imagining that we could find the tangent line as a starting point. This can't be the real starting point. How would we really know which line is the <em class="emphasis">best</em> approximation? Mathematically, we will start by establishing a rule or definition for how to calculate the derivative that is consistent with our intuition and use that to define the tangent line using the derivative's value to know the slope.</p>
+<p id="p-600">Recall that we intuitively found a tangent line by imagining we could zoom in on the function until it looked linear, and then use that short segment to extend to a full tangent line. This idea of zooming in is the essence of using a limiting process. The farther in we zoom, the closer the graph looks like a line. If we use two points from the function's actual graph, the slope between those points will be closer and closer to the slope of the tangent line as we zoom more and more in toward the point.</p>
+<p id="p-601">For a relation between variables, we previously defined the average rate of change in <a href="" class="xref" data-knowl="./knowl/defn_average_rate_of_change_variables.html" title="Definition 1.1.1: Average Rate of Change">Definition 1.1.1</a>. We are now focused on functions as the primary tool to describe relationships between variables, so let us restate this definition in terms of functions.</p>
 <article class="definition definition-like" id="defn_average_rate_of_change"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Average Rate of Change.</span>
 </h3>
-<p id="p-599">Given a function <span class="process-math">\(f(x)\)</span> and an interval <span class="process-math">\([a,b]\text{,}\)</span> the “<dfn class="terminology">average rate of change</dfn> of the function over the interval <span class="process-math">\([a,b]\)</span>” is a value given by the ratio of the change in the output relative to the change in the input:</p>
+<p id="p-602">Given a function <span class="process-math">\(f(x)\)</span> and an interval <span class="process-math">\([a,b]\text{,}\)</span> the “<dfn class="terminology">average rate of change</dfn> of the function over the interval <span class="process-math">\([a,b]\)</span>” is a value given by the ratio of the change in the output relative to the change in the input:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{\Delta f}{\Delta x}\Big|_{[a,b]} = \frac{f(b)-f(a)}{b-a}\text{.}
 \end{equation*}
-</div></article><p id="p-600">Suppose we want the derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=a\text{.}\)</span> Then as we zoom, <span class="process-math">\((a,f(a))\)</span> will always be in the inset view. We can choose a second point in the view. That second point will be at <span class="process-math">\(x=a+h\)</span> where <span class="process-math">\(h\)</span> (sometimes written <span class="process-math">\(\Delta x\)</span>) measures the increment of change required to go from <span class="process-math">\(x=a\)</span> to the second point. The line segment joining <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((a+h, f(a+h))\)</span> is called a <dfn class="terminology">chord</dfn> and when that is extended to a line, it creates the <dfn class="terminology">secant line</dfn>. The closer we zoom in, the closer the secant line will be to the tangent line, meaning the <em class="emphasis">limit of the slopes of the secant lines</em> will be the slope of the tangent line. We choose this as our <em class="emphasis">definition</em> of a derivative.</p>
+</div></article><p id="p-603">Suppose we want the derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=a\text{.}\)</span> Then as we zoom, <span class="process-math">\((a,f(a))\)</span> will always be in the inset view. We can choose a second point in the view. That second point will be at <span class="process-math">\(x=a+h\)</span> where <span class="process-math">\(h\)</span> (sometimes written <span class="process-math">\(\Delta x\)</span>) measures the increment of change required to go from <span class="process-math">\(x=a\)</span> to the second point. The line segment joining <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((a+h, f(a+h))\)</span> is called a <dfn class="terminology">chord</dfn> and when that is extended to a line, it creates the <dfn class="terminology">secant line</dfn>. The closer we zoom in, the closer the secant line will be to the tangent line, meaning the <em class="emphasis">limit of the slopes of the secant lines</em> will be the slope of the tangent line. We choose this as our <em class="emphasis">definition</em> of a derivative.</p>
 <article class="definition definition-like" id="defn_derivative_as_limit"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Definition of a Derivative.</span>
 </h3>
-<p id="p-601">Let <span class="process-math">\(f(x)\)</span> be a function so that the domain includes an interval surrounding <span class="process-math">\(x=a\text{.}\)</span> “The derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=a\)</span>” is a numerical value represented by <span class="process-math">\(\frac{df}{dx}\Big|_a\)</span> or <span class="process-math">\(f'(a)\)</span> and is defined by a limit:</p>
+<p id="p-604">Let <span class="process-math">\(f(x)\)</span> be a function so that the domain includes an interval surrounding <span class="process-math">\(x=a\text{.}\)</span> “The derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(x=a\)</span>” is a numerical value represented by <span class="process-math">\(\frac{df}{dx}\Big|_a\)</span> or <span class="process-math">\(f'(a)\)</span> and is defined by a limit:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{df}{dx}\Big|_a = f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}\text{.}
 \end{equation*}
-</div></article><p id="p-602">The immediate learning out comes associated with learning the definition of the derivative focus on conceptualizing and using the limit process associated with formulas or graphs.</p>
+</div></article><p id="p-605">The immediate learning out comes associated with learning the definition of the derivative focus on conceptualizing and using the limit process associated with formulas or graphs.</p>
 <ul class="disc">
-<li id="li-117"><p id="p-603">Apply a visualization of the limit of a secant line to understand how a derivative is calculated.</p></li>
-<li id="li-118"><p id="p-604">Use the visualization of the limit of a secant line to explain differentiability of a function defined graphically involving discontinuities or slope mismatches.</p></li>
-<li id="li-119"><p id="p-605">Apply the definition of a derivative to numerically approximate the derivative of a function.</p></li>
-<li id="li-120"><p id="p-606">Apply the definition of a derivative to use a limit to exactly calculate the derivative of simple algebraic formulas.</p></li>
-<li id="li-121"><p id="p-607">Determine differentiability of a piecewise function by considering left- and right-derivatives at end points of restricted domains.</p></li>
+<li id="li-117"><p id="p-606">Apply a visualization of the limit of a secant line to understand how a derivative is calculated.</p></li>
+<li id="li-118"><p id="p-607">Use the visualization of the limit of a secant line to explain differentiability of a function defined graphically involving discontinuities or slope mismatches.</p></li>
+<li id="li-119"><p id="p-608">Apply the definition of a derivative to numerically approximate the derivative of a function.</p></li>
+<li id="li-120"><p id="p-609">Apply the definition of a derivative to use a limit to exactly calculate the derivative of simple algebraic formulas.</p></li>
+<li id="li-121"><p id="p-610">Determine differentiability of a piecewise function by considering left- and right-derivatives at end points of restricted domains.</p></li>
 </ul></section><section class="subsection" id="subsec_derivs_visualizing_definition"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.1</span> <span class="title">Visualizing the Limit of Secant Lines</span>
 </h3>
-<p id="p-608">A derivative is a numerical value giving the slope of a tangent line to a function at a point <span class="process-math">\(x=a\text{.}\)</span> The definition of the derivative involves introducing an intermediate object, the secant line, by choosing a second point <span class="process-math">\(x=b=a+h\text{,}\)</span> some increment <span class="process-math">\(h\)</span> away from <span class="process-math">\(x=a\text{.}\)</span> This line will be <em class="emphasis">close</em> to the tangent line as long as <span class="process-math">\(h\)</span> is chosen to be sufficiently small. We can <em class="emphasis">visualize</em> the limit by imagining we <em class="emphasis">move</em> the second point closer and closer to <span class="process-math">\(x=a\)</span> and see what the limiting line would be. Some times, this limit won't make any sense, and in that case the derivative just does not exist.</p>
+<p id="p-611">A derivative is a numerical value giving the slope of a tangent line to a function at a point <span class="process-math">\(x=a\text{.}\)</span> The definition of the derivative involves introducing an intermediate object, the secant line, by choosing a second point <span class="process-math">\(x=b=a+h\text{,}\)</span> some increment <span class="process-math">\(h\)</span> away from <span class="process-math">\(x=a\text{.}\)</span> This line will be <em class="emphasis">close</em> to the tangent line as long as <span class="process-math">\(h\)</span> is chosen to be sufficiently small. We can <em class="emphasis">visualize</em> the limit by imagining we <em class="emphasis">move</em> the second point closer and closer to <span class="process-math">\(x=a\)</span> and see what the limiting line would be. Some times, this limit won't make any sense, and in that case the derivative just does not exist.</p>
 <article class="definition definition-like" id="defn_differentiability"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Differentiability.</span>
 </h4>
-<p id="p-609">Let <span class="process-math">\(f\)</span> be a function. “<span class="process-math">\(f\)</span> is <dfn class="terminology">differentiable</dfn> at <span class="process-math">\(x=a\)</span>” means that <span class="process-math">\(\frac{df}{dx}\Big|_a\)</span> exists.</p></article><p id="p-610">Below are some interactive graphs. A function is defined and a point <span class="process-math">\(x=a\)</span> is fixed. A second point <span class="process-math">\(x=b\)</span> is movable by adjusting a slider for <span class="process-math">\(h\)</span> and allows you to follow the graph <span class="process-math">\(y=f(x)\text{.}\)</span> The secant line through <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((b,f(b))\)</span> is shown and the average rate of change <span class="process-math">\(\frac{\Delta f}{\Delta x}\Big|_{[a,b]}\)</span> is calculated and shown.</p>
-<p id="p-611">In each example, adjust the slider for <span class="process-math">\(h\)</span> and watch how the secant line moves. Notice how the secant line approximates the tangent line when <span class="process-math">\(h\)</span> is close to zero. Look at the average rate of change value. Does it appear to be converging to any particular value when <span class="process-math">\(h \to 0\text{?}\)</span> If so, that value would be the derivative.</p>
-<p id="p-612">The first example in <a href="" class="xref" data-knowl="./knowl/fig_secant_quadratic.html" title="Figure 4.2.4">Figure 4.2.4</a> considers a quadratic function <span class="process-math">\(f(x)=x^2\)</span> and looks at the point <span class="process-math">\(x=1\text{.}\)</span> As you explore, can you see why it we might expect <span class="process-math">\(\frac{df}{dx}\big|_1 = 2\text{?}\)</span></p>
-<figure class="figure figure-like" id="fig_secant_quadratic"><iframe id="secant_line_quadratic" width="600" height="360" src="secant_line_quadratic-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.4<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of <span class="process-math">\(f(x)=x^2\)</span> at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-613">The second example in <a href="" class="xref" data-knowl="./knowl/fig_secant_cubic.html" title="Figure 4.2.5">Figure 4.2.5</a> considers a cubic function <span class="process-math">\(f(x)=x^3-4x\)</span> and looks at the point <span class="process-math">\(x=1\text{.}\)</span> As you explore, can you see why it we might expect <span class="process-math">\(\frac{df}{dx}\big|_1 = -1\text{?}\)</span></p>
-<figure class="figure figure-like" id="fig_secant_cubic"><iframe id="secant_line_cubic" width="600" height="360" src="secant_line_cubic-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.5<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of <span class="process-math">\(f(x)=x^3-4x\)</span> at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-614">The third example in <a href="" class="xref" data-knowl="./knowl/fig_secant_cubic.html" title="Figure 4.2.5">Figure 4.2.5</a> considers a piecewise function <span class="process-math">\(f(x)\)</span> made from two different quadratics and looks at the point <span class="process-math">\(x=1\text{.}\)</span> Can you see how the limit appears to be different from the two sides, <span class="process-math">\(h \to 0^-\)</span> vs <span class="process-math">\(h \to 0^+\text{?}\)</span></p>
-<figure class="figure figure-like" id="figure-59"><iframe id="secant_line_piecewise_corner" width="600" height="360" src="secant_line_piecewise_corner-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.6<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of a piecewise function at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-615">The piecewise example illustrates that we can have different limits from the left and right. We define left- and right-derivatives as the corresponding limits of the average rate of change:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-83">
+<p id="p-612">Let <span class="process-math">\(f\)</span> be a function. “<span class="process-math">\(f\)</span> is <dfn class="terminology">differentiable</dfn> at <span class="process-math">\(x=a\)</span>” means that <span class="process-math">\(\frac{df}{dx}\Big|_a\)</span> exists.</p></article><p id="p-613">Below are some interactive graphs. A function is defined and a point <span class="process-math">\(x=a\)</span> is fixed. A second point <span class="process-math">\(x=b\)</span> is movable by adjusting a slider for <span class="process-math">\(h\)</span> and allows you to follow the graph <span class="process-math">\(y=f(x)\text{.}\)</span> The secant line through <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((b,f(b))\)</span> is shown and the average rate of change <span class="process-math">\(\frac{\Delta f}{\Delta x}\Big|_{[a,b]}\)</span> is calculated and shown.</p>
+<p id="p-614">In each example, adjust the slider for <span class="process-math">\(h\)</span> and watch how the secant line moves. Notice how the secant line approximates the tangent line when <span class="process-math">\(h\)</span> is close to zero. Look at the average rate of change value. Does it appear to be converging to any particular value when <span class="process-math">\(h \to 0\text{?}\)</span> If so, that value would be the derivative.</p>
+<p id="p-615">The first example in <a href="" class="xref" data-knowl="./knowl/fig_secant_quadratic.html" title="Figure 4.2.4">Figure 4.2.4</a> considers a quadratic function <span class="process-math">\(f(x)=x^2\)</span> and looks at the point <span class="process-math">\(x=1\text{.}\)</span> As you explore, can you see why it we might expect <span class="process-math">\(\frac{df}{dx}\big|_1 = 2\text{?}\)</span></p>
+<figure class="figure figure-like" id="fig_secant_quadratic"><iframe id="secant_line_quadratic" width="600" height="360" src="secant_line_quadratic-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.4<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of <span class="process-math">\(f(x)=x^2\)</span> at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-616">The second example in <a href="" class="xref" data-knowl="./knowl/fig_secant_cubic.html" title="Figure 4.2.5">Figure 4.2.5</a> considers a cubic function <span class="process-math">\(f(x)=x^3-4x\)</span> and looks at the point <span class="process-math">\(x=1\text{.}\)</span> As you explore, can you see why it we might expect <span class="process-math">\(\frac{df}{dx}\big|_1 = -1\text{?}\)</span></p>
+<figure class="figure figure-like" id="fig_secant_cubic"><iframe id="secant_line_cubic" width="600" height="360" src="secant_line_cubic-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.5<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of <span class="process-math">\(f(x)=x^3-4x\)</span> at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-617">The third example in <a href="" class="xref" data-knowl="./knowl/fig_secant_cubic.html" title="Figure 4.2.5">Figure 4.2.5</a> considers a piecewise function <span class="process-math">\(f(x)\)</span> made from two different quadratics and looks at the point <span class="process-math">\(x=1\text{.}\)</span> Can you see how the limit appears to be different from the two sides, <span class="process-math">\(h \to 0^-\)</span> vs <span class="process-math">\(h \to 0^+\text{?}\)</span></p>
+<figure class="figure figure-like" id="figure-59"><iframe id="secant_line_piecewise_corner" width="600" height="360" src="secant_line_piecewise_corner-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.6<span class="period">.</span></span><span class="space"> </span>Illustration of secant lines to approximate the derivative of a piecewise function at <span class="process-math">\(x=1\text{.}\)</span></figcaption></figure><p id="p-618">The piecewise example illustrates that we can have different limits from the left and right. We define left- and right-derivatives as the corresponding limits of the average rate of change:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-84">
 \begin{gather*}
 \frac{df}{dx}\Big|_{a^-} = \lim_{h \to 0^-} \frac{f(a+h)-f(a)}{h}\\
 \frac{df}{dx}\Big|_{a^+} = \lim_{h \to 0^+} \frac{f(a+h)-f(a)}{h}
 \end{gather*}
 </div>
 <p class="continuation">The derivative will only be defined if these two values both exist and have the same value. Recall that this was required of any limit. The function is <dfn class="terminology">differentiable</dfn> at <span class="process-math">\(x=a\)</span> if the left- and right-derivatives both exist and have the same value.</p>
-<p id="p-616">There will be corresponding left- and right-tangent lines as well. The left-tangent line will be the line (if it exists) that goes through <span class="process-math">\((a,f(a))\)</span> and the limit of points immediately to the left. The right-tangent line will be the line (if it exists) that goes through <span class="process-math">\((a,f(a))\)</span> and the limit of points immediately to the right.</p>
-<p id="p-617">One learning objective we will assess will ask you to take the graph of a piecewise function and illustrate the limiting line from secant lines (from the left and right if they are undefined or different) in order to answer questions about differentiability.</p>
+<p id="p-619">There will be corresponding left- and right-tangent lines as well. The left-tangent line will be the line (if it exists) that goes through <span class="process-math">\((a,f(a))\)</span> and the limit of points immediately to the left. The right-tangent line will be the line (if it exists) that goes through <span class="process-math">\((a,f(a))\)</span> and the limit of points immediately to the right.</p>
+<p id="p-620">One learning objective we will assess will ask you to take the graph of a piecewise function and illustrate the limiting line from secant lines (from the left and right if they are undefined or different) in order to answer questions about differentiability.</p>
 <article class="example example-like" id="ex_derivs_differentiability_piecewise_graph"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-2.</span>
 </h4>
-<p id="p-618">Given the graph of the function <span class="process-math">\(f(x)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_ex_differentiability_piecewise_graph.html" title="Figure 4.2.8">Figure 4.2.8</a>, estimate the one-sided derivatives at <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=2\text{.}\)</span> Explain whether <span class="process-math">\(f\)</span> is differentiable at each of these points.</p>
+<p id="p-621">Given the graph of the function <span class="process-math">\(f(x)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_ex_differentiability_piecewise_graph.html" title="Figure 4.2.8">Figure 4.2.8</a>, estimate the one-sided derivatives at <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=2\text{.}\)</span> Explain whether <span class="process-math">\(f\)</span> is differentiable at each of these points.</p>
 <figure class="figure figure-like" id="fig_ex_differentiability_piecewise_graph"><iframe id="secant_line_piecewise_exercise" width="600" height="360" src="secant_line_piecewise_exercise-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.8<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(f(x)\text{.}\)</span> Note that in this interactive graph, the point <span class="process-math">\(A\)</span> is draggable.</figcaption></figure><div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like">
-<p id="p-619">On a paper version of this problem, you would need to identify points of interest and physically draw the left- and right-tangent lines, or the limits of the secant lines coming from the left and right. As you interact with this graph, imagine how you would do this by hand.</p>
-<p id="p-620">Move the point <span class="process-math">\(A\)</span> to <span class="process-math">\(x=-2\text{.}\)</span> You should be sure to select the filled in point as the hollow point is just a limit point of the graph. You can now adjust the slider for <span class="process-math">\(h\text{.}\)</span> If you approach <span class="process-math">\(h \to 0^-\)</span> by coming from the left (negative <span class="process-math">\(h\)</span>), you should see a left-tangent line has a slope that is approximately 2. This allows us to state:</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like">
+<p id="p-622">On a paper version of this problem, you would need to identify points of interest and physically draw the left- and right-tangent lines, or the limits of the secant lines coming from the left and right. As you interact with this graph, imagine how you would do this by hand.</p>
+<p id="p-623">Move the point <span class="process-math">\(A\)</span> to <span class="process-math">\(x=-2\text{.}\)</span> You should be sure to select the filled in point as the hollow point is just a limit point of the graph. You can now adjust the slider for <span class="process-math">\(h\text{.}\)</span> If you approach <span class="process-math">\(h \to 0^-\)</span> by coming from the left (negative <span class="process-math">\(h\)</span>), you should see a left-tangent line has a slope that is approximately 2. This allows us to state:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{df}{dx}\Big|_{x=-2^-} \approx 2\text{.}
 \end{equation*}
 </div>
 <p class="continuation">(Do you see how the tangent line appears like it would go through <span class="process-math">\((-3,0)\text{?}\)</span> If doing this by hand, you would use that point to calculate a slope.)</p>
-<p id="p-621">If you approach <span class="process-math">\(h \to 0^+\)</span> by coming from the right, you will see the right-tangent line goes vertical. For <span class="process-math">\(h \to 0^+\text{,}\)</span> you should observe that the slope is negative in the limit so that</p>
+<p id="p-624">If you approach <span class="process-math">\(h \to 0^+\)</span> by coming from the right, you will see the right-tangent line goes vertical. For <span class="process-math">\(h \to 0^+\text{,}\)</span> you should observe that the slope is negative in the limit so that</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{df}{dx}\Big|_{x=-2^+} \approx -\infty\text{.}
 \end{equation*}
 </div>
-<p id="p-622">We now turn our attention to <span class="process-math">\(x=2\text{.}\)</span> Move <span class="process-math">\(A\)</span> to <span class="process-math">\((2,1)\)</span> and check what the left- and right-tangent lines (limits of secant lines) look like. The left-tangent line (using <span class="process-math">\(h \to 0^-\)</span>) appears to go through <span class="process-math">\((1,3)\)</span> so that we can approximate</p>
+<p id="p-625">We now turn our attention to <span class="process-math">\(x=2\text{.}\)</span> Move <span class="process-math">\(A\)</span> to <span class="process-math">\((2,1)\)</span> and check what the left- and right-tangent lines (limits of secant lines) look like. The left-tangent line (using <span class="process-math">\(h \to 0^-\)</span>) appears to go through <span class="process-math">\((1,3)\)</span> so that we can approximate</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{df}{dx}\Big|_{x=2^-} \approx -2\text{.}
@@ -224,22 +224,22 @@ window.MathJax = {
 \frac{df}{dx}\Big|_{x=2^+} \approx 1\text{.}
 \end{equation*}
 </div>
-<p id="p-623">Now that we have the left- and right-derivative values, we can interpret the results to say something about differentiability. In both cases, the left- and right-derivatives have <em class="emphasis">different</em> values. So we say that <span class="process-math">\(f\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=-2\)</span> and at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p id="p-626">Now that we have the left- and right-derivative values, we can interpret the results to say something about differentiability. In both cases, the left- and right-derivatives have <em class="emphasis">different</em> values. So we say that <span class="process-math">\(f\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=-2\)</span> and at <span class="process-math">\(x=2\text{.}\)</span></p>
 </div></div>
 </div></article></section><section class="subsection" id="subsec_derivative_at_point"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.2</span> <span class="title">Calculating the Derivative at a Point</span>
 </h3>
-<p id="p-624">We have just considered the definition of the derivative in a graphical setting. That is, we considered what happens to a secant line that is anchored at a point <span class="process-math">\((a,f(a))\)</span> and passes through another point <span class="process-math">\((a+h, f(a+h))\)</span> and then considered the limit of the slope as <span class="process-math">\(h \to 0\text{.}\)</span> We now want to think about this <em class="emphasis">numerically</em>.</p>
-<p id="p-625">In this first setting, we are going to consider numerical approximations of the derivative by looking at the decimal value of the slope of secant lines with progressively smaller values of <span class="process-math">\(h\text{.}\)</span> We want to see how making <span class="process-math">\(h \to 0\)</span> causes the value of the slope of the secant line to converge to some value. That value will be the derivative. Later we will look at examples where the algebra of the formula for the slope of the secant line can simplify and allows us to compute an exact limit.</p>
-<p id="p-626">Our first example will be simpler in that the limit will converge to an easily recognized value.</p>
+<p id="p-627">We have just considered the definition of the derivative in a graphical setting. That is, we considered what happens to a secant line that is anchored at a point <span class="process-math">\((a,f(a))\)</span> and passes through another point <span class="process-math">\((a+h, f(a+h))\)</span> and then considered the limit of the slope as <span class="process-math">\(h \to 0\text{.}\)</span> We now want to think about this <em class="emphasis">numerically</em>.</p>
+<p id="p-628">In this first setting, we are going to consider numerical approximations of the derivative by looking at the decimal value of the slope of secant lines with progressively smaller values of <span class="process-math">\(h\text{.}\)</span> We want to see how making <span class="process-math">\(h \to 0\)</span> causes the value of the slope of the secant line to converge to some value. That value will be the derivative. Later we will look at examples where the algebra of the formula for the slope of the secant line can simplify and allows us to compute an exact limit.</p>
+<p id="p-629">Our first example will be simpler in that the limit will converge to an easily recognized value.</p>
 <article class="example example-like" id="ex_derivative_at_point_simple"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span>
 </h4>
-<p id="p-627">Use numerical approximations to estimate the value of <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=x^2+x\)</span> using the definition of the derivative.</p>
+<p id="p-630">Use numerical approximations to estimate the value of <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=x^2+x\)</span> using the definition of the derivative.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like">
-<p id="p-628">First, recall that <span class="process-math">\(f'(3)\)</span> and <span class="process-math">\(\frac{df}{dx}\Big|_{3}\)</span> are different notations for the same thing. The definition of the derivative tells us we should consider the two points <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\)</span> and compute the slope. We will start by computing the formulas for the function values:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-84">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-49" id="solution-49"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-49"><div class="solution solution-like">
+<p id="p-631">First, recall that <span class="process-math">\(f'(3)\)</span> and <span class="process-math">\(\frac{df}{dx}\Big|_{3}\)</span> are different notations for the same thing. The definition of the derivative tells us we should consider the two points <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\)</span> and compute the slope. We will start by computing the formulas for the function values:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-85">
 \begin{align*}
 f(x) &amp;= x^2 + x\\
 f(3) &amp;= 3^2 + 3 = 12\\
@@ -249,15 +249,15 @@ f(3+h) &amp;=(3+h)^2 + (3+h)\\
 \end{align*}
 </div>
 <p class="continuation">The slope of the <em class="emphasis">secant line</em> will be:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-85">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-86">
 \begin{align*}
 \frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{f(3+h)-f(3)}{h}\\
 &amp;= \frac{(12+7h+h^2)-12}{h}\\
 &amp;= \frac{7h+h^2}{h}
 \end{align*}
 </div>
-<p id="p-629">It is at this point where we would be able to cancel out the factor <span class="process-math">\(h\text{.}\)</span> For the purpose of numerical approximations, however, cancellation is not required. For more advanced examples, it will not be possible. Instead, what we want to do is create a table of values for progressively smaller values of <span class="process-math">\(h\)</span> using this slope formula until we see the value converging to a desired degree of accuracy.</p>
-<p id="p-630">One common choice would be to try decreasing powers of 10. <div class="tabular-box natural-width"><table class="tabular">
+<p id="p-632">It is at this point where we would be able to cancel out the factor <span class="process-math">\(h\text{.}\)</span> For the purpose of numerical approximations, however, cancellation is not required. For more advanced examples, it will not be possible. Instead, what we want to do is create a table of values for progressively smaller values of <span class="process-math">\(h\)</span> using this slope formula until we see the value converging to a desired degree of accuracy.</p>
+<p id="p-633">One common choice would be to try decreasing powers of 10. <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h\)</span></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{\Delta f}{\Delta x}\)</span></th>
@@ -300,16 +300,16 @@ f(3+h) &amp;=(3+h)^2 + (3+h)\\
 <td class="l m b0 r0 l0 t0 lines">6.9999</td>
 </tr>
 </table></div> In both cases, we can see that the slope of the secant line is converging to a value of <span class="process-math">\(7\text{,}\)</span> so we would say <span class="process-math">\(f'(3) \approx 7\text{.}\)</span></p>
-<p id="p-631">Notice that if we did simplify the formula of the slope of the secant line, we would have <span class="process-math">\(\frac{\Delta f}{\Delta x} = 7 + h\text{.}\)</span> Can you see how the values calculated in the table relate to this? And can you see how a limit with <span class="process-math">\(h \to 0\)</span> results in a value of 7?</p>
+<p id="p-634">Notice that if we did simplify the formula of the slope of the secant line, we would have <span class="process-math">\(\frac{\Delta f}{\Delta x} = 7 + h\text{.}\)</span> Can you see how the values calculated in the table relate to this? And can you see how a limit with <span class="process-math">\(h \to 0\)</span> results in a value of 7?</p>
 </div></div>
-</div></article><p id="p-632">For demonstrating the learning outcome, you will be given a function for which the slope of the secant line does not simplify so that you need to rely on the converging values to find your approximation. In the example below, we see that we could use a new variable <span class="process-math">\(x\)</span> in place of <span class="process-math">\(a+h\)</span> and use a limit <span class="process-math">\(x \to a\)</span> in place of <span class="process-math">\(h \to 0\text{.}\)</span></p>
+</div></article><p id="p-635">For demonstrating the learning outcome, you will be given a function for which the slope of the secant line does not simplify so that you need to rely on the converging values to find your approximation. In the example below, we see that we could use a new variable <span class="process-math">\(x\)</span> in place of <span class="process-math">\(a+h\)</span> and use a limit <span class="process-math">\(x \to a\)</span> in place of <span class="process-math">\(h \to 0\text{.}\)</span></p>
 <article class="example example-like" id="ex_derivative_at_point_value"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-3.</span>
 </h4>
-<p id="p-633">Use numerical approximations to estimate the value of <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=2^x\)</span> using the definition of the derivative.</p>
+<p id="p-636">Use numerical approximations to estimate the value of <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=2^x\)</span> using the definition of the derivative.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-49" id="solution-49"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-49"><div class="solution solution-like">
-<p id="p-634">As in the last example, we start by writing down the formula for the slope of a secant line passing through <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\text{.}\)</span> The alternative would be to choose the second point as <span class="process-math">\((x,f(x))\text{,}\)</span> or use any new variable in place of <span class="process-math">\(x\text{.}\)</span> The value for <span class="process-math">\(f(3)\)</span> is <span class="process-math">\(f(3)=2^3 = 8\text{.}\)</span> Using the second point <span class="process-math">\((x,f(x))\text{,}\)</span> we have</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-50" id="solution-50"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-50"><div class="solution solution-like">
+<p id="p-637">As in the last example, we start by writing down the formula for the slope of a secant line passing through <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\text{.}\)</span> The alternative would be to choose the second point as <span class="process-math">\((x,f(x))\text{,}\)</span> or use any new variable in place of <span class="process-math">\(x\text{.}\)</span> The value for <span class="process-math">\(f(3)\)</span> is <span class="process-math">\(f(3)=2^3 = 8\text{.}\)</span> Using the second point <span class="process-math">\((x,f(x))\text{,}\)</span> we have</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{\Delta f}{\Delta x}\Big|_{3,x} = \frac{f(x)-f(3)}{x-3} = \frac{2^x-8}{x-3}\text{.}
@@ -321,8 +321,8 @@ f(3+h) &amp;=(3+h)^2 + (3+h)\\
 \frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{f(3+h)-f(3)}{h} = \frac{2^{3+h} - 8}{h}= \frac{8 \cdot 2^h - 8}{h}\text{.}
 \end{equation*}
 </div>
-<p id="p-635">Depending on which choice we used for the second point, we either need a limit as <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-86">
+<p id="p-638">Depending on which choice we used for the second point, we either need a limit as <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-87">
 \begin{align*}
 f'(3) &amp;= \lim_{h \to 0}\frac{f(3+h)-f(3)}{h}\\
 &amp;= \lim_{x \to 3} \frac{f(x)-f(3)}{x-3}
@@ -368,7 +368,7 @@ f'(3) &amp;= \lim_{h \to 0}\frac{f(3+h)-f(3)}{h}\\
 f'(3) \approx 5.545178\text{.}
 \end{equation*}
 </div>
-<p id="p-636">If we did our calculation using the second point as <span class="process-math">\((3+h,f(3+h))\text{,}\)</span> we would have a similar table. This time, we will stay on a single side limit with <span class="process-math">\(h \to 0^+\text{.}\)</span> Because we are not bracketing the value from both sides, we need to use closer and closer values for <span class="process-math">\(h \to 0\)</span> before we obtain a similar degree of approximation. <div class="tabular-box natural-width"><table class="tabular">
+<p id="p-639">If we did our calculation using the second point as <span class="process-math">\((3+h,f(3+h))\text{,}\)</span> we would have a similar table. This time, we will stay on a single side limit with <span class="process-math">\(h \to 0^+\text{.}\)</span> Because we are not bracketing the value from both sides, we need to use closer and closer values for <span class="process-math">\(h \to 0\)</span> before we obtain a similar degree of approximation. <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h \to 0^+\)</span></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^{3+h}-8}{h}\)</span></th>
@@ -398,7 +398,7 @@ f'(3) \approx 5.545178\text{.}
 <td class="l m b0 r0 l0 t0 lines">5.545179</td>
 </tr>
 </table></div></p>
-<p id="p-637">This table has six entries, comparable to the previous calculation. The last three entries had slope values with digits 5.545 in common, and the last two had 5.5451 in common. Without additional entries, this is the degree of approximation that we might trust, and we would say</p>
+<p id="p-640">This table has six entries, comparable to the previous calculation. The last three entries had slope values with digits 5.545 in common, and the last two had 5.5451 in common. Without additional entries, this is the degree of approximation that we might trust, and we would say</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 f'(3) \approx 5.5451\text{.}
@@ -409,19 +409,19 @@ f'(3) \approx 5.5451\text{.}
 </div></article></section><section class="subsection" id="subsec_derivative_exact"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.2.3</span> <span class="title">Exact Derivative from Definition</span>
 </h3>
-<p id="p-638">We noted in the previous subsection that the formula for the slope of the secant line sometimes can be simplified, and when this happens we can find the exact value of the derivative without the table approximation. This occurs when we can cancel away a factor of <span class="process-math">\(h\)</span> from the numerator and denominator. In the context of our work with limits, the cancellation finds a <em class="emphasis">continuous</em> formula that is equivalent to the original formula for <span class="process-math">\(h \ne 0\text{.}\)</span> With that continuous formula, finding the limit is equivalent to direct calculation of the value (plugging it in).</p>
+<p id="p-641">We noted in the previous subsection that the formula for the slope of the secant line sometimes can be simplified, and when this happens we can find the exact value of the derivative without the table approximation. This occurs when we can cancel away a factor of <span class="process-math">\(h\)</span> from the numerator and denominator. In the context of our work with limits, the cancellation finds a <em class="emphasis">continuous</em> formula that is equivalent to the original formula for <span class="process-math">\(h \ne 0\text{.}\)</span> With that continuous formula, finding the limit is equivalent to direct calculation of the value (plugging it in).</p>
 <article class="example example-like" id="ex_derivative_exact_simple"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span>
 </h4>
-<p id="p-639">Consider the earlier example (<a href="" class="xref" data-knowl="./knowl/ex_derivative_at_point_simple.html" title="Example 4.2.9">Example 4.2.9</a>) of finding <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=x^2+x\text{.}\)</span> In that example, we found the slope of the secant line joining <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h, f(3+h))\)</span> to be</p>
+<p id="p-642">Consider the earlier example (<a href="" class="xref" data-knowl="./knowl/ex_derivative_at_point_simple.html" title="Example 4.2.9">Example 4.2.9</a>) of finding <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x)=x^2+x\text{.}\)</span> In that example, we found the slope of the secant line joining <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h, f(3+h))\)</span> to be</p>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_derivative_at_point_simple.html">
 \begin{equation*}
 \frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{7h+h^2}{h}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This formula has a discontinuity at <span class="process-math">\(h=0\text{,}\)</span> so a limit based on this formula can only be approximated using a numerical table.</p>
-<p id="p-640">However, <span class="process-math">\(h\)</span> is a common factor in the numerator so that we can rewrite</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-87">
+<p id="p-643">However, <span class="process-math">\(h\)</span> is a common factor in the numerator so that we can rewrite</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-88">
 \begin{align*}
 \frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{7h+h^2}{h}\\
 &amp;= \frac{h(7+h)}{h}\\
@@ -429,7 +429,7 @@ f'(3) \approx 5.5451\text{.}
 \end{align*}
 </div>
 <p class="continuation">for <span class="process-math">\(h \ne 0\text{.}\)</span> Where the original quotient had a discontinuity, the new formula is continuous and we can find the limit using value substitution.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-88">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-89">
 \begin{align*}
 f'(3) &amp;= \lim_{h \to 0} \frac{f(3+h)-f(3)}{h}\\
 &amp;= \lim_{h \to 0} \frac{7h+h^2}{h}\\
@@ -437,12 +437,12 @@ f'(3) &amp;= \lim_{h \to 0} \frac{f(3+h)-f(3)}{h}\\
 &amp;= 7 + 0 = 7
 \end{align*}
 </div>
-<p class="continuation">We <em class="emphasis">replaced</em> the limit in the second to last row by the <em class="emphasis">value</em> of the formula using continuity. So <span class="process-math">\(f'(3) = 7\text{,}\)</span> and this is not an approximation but an exact value as calculated using the definition.</p></article><p id="p-641">For the learning outcome associated with this skill, we will combine the calculation of the limit defining a derivative with the idea of differentiability. That is, we will work with a piecewise defined function and calculate the derivative from each side. Our task will be to create the correct limits, calculate each of their values, and interpret differentiability based on the results.</p>
-<p id="p-642">It is helpful to think about the graphical interpretation as we work. Recall that when the slope from the two sides were different because the graph meets at a corner, the function was not differentiable. This will correspond to a calculation where both left- and right-derivatives have values but disagree. We also explored situations where the function had a break (discontinuity). In those cases, at least one of the one-sided derivatives resulted in a limit that was infinite because of a difference between <span class="process-math">\(f(a)\)</span> and the limit of <span class="process-math">\(f(x)\)</span> as <span class="process-math">\(x \to a\text{.}\)</span> We should expect these possibilities in our calculations as well.</p>
+<p class="continuation">We <em class="emphasis">replaced</em> the limit in the second to last row by the <em class="emphasis">value</em> of the formula using continuity. So <span class="process-math">\(f'(3) = 7\text{,}\)</span> and this is not an approximation but an exact value as calculated using the definition.</p></article><p id="p-644">For the learning outcome associated with this skill, we will combine the calculation of the limit defining a derivative with the idea of differentiability. That is, we will work with a piecewise defined function and calculate the derivative from each side. Our task will be to create the correct limits, calculate each of their values, and interpret differentiability based on the results.</p>
+<p id="p-645">It is helpful to think about the graphical interpretation as we work. Recall that when the slope from the two sides were different because the graph meets at a corner, the function was not differentiable. This will correspond to a calculation where both left- and right-derivatives have values but disagree. We also explored situations where the function had a break (discontinuity). In those cases, at least one of the one-sided derivatives resulted in a limit that was infinite because of a difference between <span class="process-math">\(f(a)\)</span> and the limit of <span class="process-math">\(f(x)\)</span> as <span class="process-math">\(x \to a\text{.}\)</span> We should expect these possibilities in our calculations as well.</p>
 <article class="example example-like" id="ex_derivative_exact_piecewise"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-4.</span>
 </h4>
-<p id="p-643">Consider the function <span class="process-math">\(g(x)\)</span> defined piecewise by</p>
+<p id="p-646">Consider the function <span class="process-math">\(g(x)\)</span> defined piecewise by</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 g(x) = \begin{cases}
@@ -453,10 +453,10 @@ x^2 - 2x, &amp; x \le 2, \\
 </div>
 <p class="continuation">Find <span class="process-math">\(g'(2)\)</span> if it exists.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-50" id="solution-50"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-50"><div class="solution solution-like">
-<p id="p-644">If you previously learned calculus, you might be tempted to use derivative rules for the formula that applies with <span class="process-math">\(x=2\text{.}\)</span> However, because this is a piecewise formula that uses <span class="process-math">\(x=2\)</span> as a boundary between two rules, this is not appropriate. Instead, we need to compare the left- and right-derivatives.</p>
-<p id="p-645">When using the definition of the derivative <span class="process-math">\(g'(a)\)</span> on a piecewise function, you need to be careful that the value <span class="process-math">\(g(a)\)</span> uses the function value <em class="emphasis">at</em> the point of interest and not the formula from the sides. But when calculating <span class="process-math">\(g(a+h)\text{,}\)</span> we need to consider the different cases for <span class="process-math">\(h \gt 0\)</span> (used for the right-derivative) and for <span class="process-math">\(h \lt 0\)</span> (used for the left-derivative).</p>
-<p id="p-646">In this example, the function <span class="process-math">\(g(x)\)</span> at <span class="process-math">\(x=2\)</span> uses the formula <span class="process-math">\(x^2-2x\)</span> to give <span class="process-math">\(g(2)=2^2-2(2) = 0\text{.}\)</span> The right-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \gt 0\)</span> so that we use the formula for <span class="process-math">\(x \gt 2\text{,}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like">
+<p id="p-647">If you previously learned calculus, you might be tempted to use derivative rules for the formula that applies with <span class="process-math">\(x=2\text{.}\)</span> However, because this is a piecewise formula that uses <span class="process-math">\(x=2\)</span> as a boundary between two rules, this is not appropriate. Instead, we need to compare the left- and right-derivatives.</p>
+<p id="p-648">When using the definition of the derivative <span class="process-math">\(g'(a)\)</span> on a piecewise function, you need to be careful that the value <span class="process-math">\(g(a)\)</span> uses the function value <em class="emphasis">at</em> the point of interest and not the formula from the sides. But when calculating <span class="process-math">\(g(a+h)\text{,}\)</span> we need to consider the different cases for <span class="process-math">\(h \gt 0\)</span> (used for the right-derivative) and for <span class="process-math">\(h \lt 0\)</span> (used for the left-derivative).</p>
+<p id="p-649">In this example, the function <span class="process-math">\(g(x)\)</span> at <span class="process-math">\(x=2\)</span> uses the formula <span class="process-math">\(x^2-2x\)</span> to give <span class="process-math">\(g(2)=2^2-2(2) = 0\text{.}\)</span> The right-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \gt 0\)</span> so that we use the formula for <span class="process-math">\(x \gt 2\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 g(2+h) = 2(2+h) = 4+2h\text{.}
@@ -469,8 +469,8 @@ g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Once we recognize which formulas and values to use, we calculate the slope of the secant lines and then find the limits.</p>
-<p id="p-647">We start with the right-derivative.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-89">
+<p id="p-650">We start with the right-derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-90">
 \begin{align*}
 \frac{dg}{dx}\Big|_{2^+} &amp;= \lim_{h \to 0^+} \frac{g(2+h)-g(2)}{h}\\
 &amp;= \lim_{h \to 0^+} \frac{(4+2h) - (0)}{h}\\
@@ -484,8 +484,8 @@ g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2\text{.}
 \end{equation*}
 </div>
 <p class="continuation">In the graphical interpretation, this would mean that the graph has a jump discontinuity that goes up on the right so that the limit of the secant line is a vertical line.</p>
-<p id="p-648">Next, we compute the left-derivative.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-90">
+<p id="p-651">Next, we compute the left-derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-91">
 \begin{align*}
 \frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} \frac{g(2+h)-g(2)}{h}\\
 &amp;= \lim_{h \to 0^-} \frac{(2h+h^2) - (0)}{h}\\
@@ -494,14 +494,14 @@ g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2\text{.}
 \end{align*}
 </div>
 <p class="continuation">This time the quotient had a common factor of <span class="process-math">\(h\)</span> that could cancel from the denominator. The new formula is continuous so that the limit can be calculated using continuity to give</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-91">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-92">
 \begin{align*}
 \frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} 2+h\\
 &amp;= 2+0 = 2
 \end{align*}
 </div>
 <p class="continuation">The function has a left-tangent line with a slope of 2.</p>
-<p id="p-649">We finish by comparing the values. The left- and right-derivatives do not have a common value, so the value <span class="process-math">\(g'(2)\)</span> does not exist. The function <span class="process-math">\(g(x)\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p id="p-652">We finish by comparing the values. The left- and right-derivatives do not have a common value, so the value <span class="process-math">\(g'(2)\)</span> does not exist. The function <span class="process-math">\(g(x)\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=2\text{.}\)</span></p>
 </div></div>
 </div></article></section></section></div></main>
 </div>

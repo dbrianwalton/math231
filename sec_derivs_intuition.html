@@ -151,30 +151,12 @@ window.MathJax = {
 <p id="p-589"><a href="" class="xref" data-knowl="./knowl/fig_derivs_tangent_zoom_inset.html" title="Figure 4.1.1">Figure 4.1.1</a> shows the graph of a function <span class="process-math">\(y=f(x)\)</span> on a subset of the domain <span class="process-math">\((-5,5)\text{.}\)</span> This graph passes through the point <span class="process-math">\((1,-1)\text{.}\)</span> If we look at an inset around this point using a smaller subdomain <span class="process-math">\((0.5,1.5)\text{,}\)</span> the graph is almost linear. If we were to choose an even smaller inset, the linear behavior would be even closer.</p>
 <figure class="figure figure-like" id="fig_derivs_tangent_zoom_inset"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
 <div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_original.svg" role="img" class="contained"></div>
-<div class="sbspanel top" style="width:44.4444444444444%;">
-\begin{tikzpicture}
-\begin{axis}
-[xmin=0.5, xmax=1.5, ymin=-1.5, ymax=-0.5, grid=both, minor tick num=1]
-\addplot [domain=0.4:1.6, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
-\addplot [red, thick] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
-\end{axis}
-\end{tikzpicture}
-                </div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_zoom_inset.svg" role="img" class="contained"></div>
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.1<span class="period">.</span></span><span class="space"> </span>Graph of a function with an inset surrounding a point showing approximate linear behavior</figcaption></figure><p id="p-590">Now, imagine if we were to take that small inset and treat it like it initiated an actual linear function that could extend beyond the inset. This would create a line that closely approximated the function inside the inset. The line <em class="emphasis">is</em> the <dfn class="terminology">tangent line</dfn>.</p>
 <figure class="figure figure-like" id="fig_derivs_tangent_from_inset"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
 <div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_from_inset_a.svg" role="img" class="contained"></div>
-<div class="sbspanel top" style="width:44.4444444444444%;">
-\begin{tikzpicture}
-\begin{axis}
-[xmin=-5, xmax=5, ymin=-5, ymax=5, grid=both, minor tick num=1]
-\addplot [domain=-5:5, samples=200, blue, very thick] { (x^2-9)*(x^2-1)/9-1};
-\addplot [red, dashed] coordinates { (0.5, -1.5) (0.5, -0.5) (1.5, -0.5) (1.5, -1.5) (0.5, -1.5) };
-\addplot [red] coordinates { (0.9, -1.2) (0.9, -0.8) (1.1, -0.8) (1.1, -1.2) (0.9, -1.2) };
-\addplot [orange, very thick, domain=-5:5] {-1+-16/9*(x-1)};
-\end{axis}
-\end{tikzpicture}
-                </div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/img_derivs_tangent_from_inset_b.svg" role="img" class="contained"></div>
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.2<span class="period">.</span></span><span class="space"> </span>Extending a tangent line from an inset of the graph</figcaption></figure><p id="p-591">The idea illustrated above was that a function, when zoomed in far enough, looks like a line, and that if we were to extend that line back out to the original view of the graph, we would get a tangent line. Another way to imagine finding a tangent line is to imagine a line that is anchored to the point of interest <span class="process-math">\((a,f(a))\)</span> but that can rotate. The tangent line is the line that is chosen so that the line most closely matches the graph around the point of interest on both sides. Or you could imagine a ruler is placed at the point to be following the graph (tangent) and you just draw the line following the straight edge of the ruler.</p>
 <p id="p-592">The derivative of <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x=a\)</span> <em class="emphasis">is</em> the slope of the tangent line. The mathematical symbol for the derivative at a point is written <span class="process-math">\(\frac{df}{dx}\Big|_{a}\text{.}\)</span> The <span class="process-math">\(df\)</span> and <span class="process-math">\(dx\)</span> in the fraction are meant to remind us of a slope <span class="process-math">\(\frac{\Delta y}{\Delta x}\text{,}\)</span> where the the <span class="process-math">\(d\)</span> replaces <span class="process-math">\(\Delta\)</span> because we will eventually be using limits. The subscript on the bar indicates the point of interest <span class="process-math">\(x=a\text{.}\)</span></p>
@@ -192,8 +174,21 @@ window.MathJax = {
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-1.</span>
 </h4>
 <p id="p-595">A graph of <span class="process-math">\(y=f(x)\)</span> is shown below. Draw a tangent line at <span class="process-math">\(x=-2\)</span> and estimate the derivative at this point.</p>
-<figure class="figure figure-like" id="fig_ex_tangent_derivative"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/image-64.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>Extending a tangent line from an inset of the graph</figcaption></figure></article></section></section></div></main>
+<figure class="figure figure-like" id="fig_ex_tangent_derivative"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-64.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>Graph for which you create a tangent line.</figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like">
+<p id="p-596">Start by marking the point on the graph at <span class="process-math">\(x=-2\text{.}\)</span> The point approximately looks like <span class="process-math">\((-2,-2.7)\text{.}\)</span> We draw a tangent line through this point to match the slope on a very small interval here. You should get a graph that looks something like the following.</p>
+<div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/image-65.svg" role="img" class="contained"></div>
+<p id="p-597">We look for another point on the line that might be easy to estimate, and discover that the line passes through <span class="process-math">\((1,0)\text{.}\)</span> Using these two points from the tangent line, we can calculate the approximate slope of the tangent line, which is the derivative at <span class="process-math">\(x=-2\)</span> of the original graph.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-83">
+\begin{align*}
+\frac{dy}{dx}\Big|_{-2} &amp;\approx \frac{0--2.7}{1--2}\\
+&amp;= \frac{2.7}{3} = 0.9
+\end{align*}
+</div>
+<p id="p-598">Note again that because we are estimating points visually based on grid lines, these calculations are only estimates. Any reasonable values based on reasonable approximations of the tangent line will be acceptable.</p>
+</div></div>
+</div></article></section></section></div></main>
 </div>
 </body>
 </html>

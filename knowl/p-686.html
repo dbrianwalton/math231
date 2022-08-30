@@ -11,23 +11,17 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>A formula like <span class="process-math">\(\sqrt{x+1} - \sqrt{x}\)</span> can be <em class="emphasis">rewritten</em> by multiplying and dividing by the same expression, in this case the <dfn class="terminology">conjugate</dfn>, which uses the <em class="emphasis">sum</em> of the same terms in the difference:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\sqrt{x+1}-\sqrt{x} = \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}\text{.}
-\end{equation*}
-</div>
-<p class="continuation">Why would we do this? Every time we multiply conjugates, we get the <em class="emphasis">difference</em> of the squares of the terms: <span class="process-math">\((a-b)(a+b) = a^2 - b^2\text{.}\)</span> So the numerator of this new formula we have a <em class="emphasis">difference</em> of squares of square roots, meaning the numerator will no longer have any square roots:</p>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>The derivative <span class="process-math">\(f'(x)\)</span> will be the limit of the slope of the secant line as <span class="process-math">\(h \to 0\text{.}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-\sqrt{x+1}-\sqrt{x} &amp;= \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}\\
-&amp;= \frac{(\sqrt{x+1})^2-(\sqrt{x})^2}{\sqrt{x+1}+\sqrt{x}\\
-&amp;= \frac{(x+1)-x}{\sqrt{x+1}+\sqrt{x}\\
-&amp;= \frac{1}{\sqrt{x+1}+\sqrt{x}\text{.}
+f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
+&amp;= \lim_{h \to 0} \frac{2}{(3x+3h+1)(3x+1)}\\
+&amp;= \frac{2}{(3x+3(0)+1)(3x+1)}\\
+&amp;= \frac{2}{(3x+1)^2}
 \end{align*}
 </div>
-<p class="continuation">That is, we have eliminated the <em class="emphasis">difference</em> of square roots in the numerator by introducing a <em class="emphasis">sum</em> of square roots in the denominator.</p>
+<p class="continuation">That is, we have found that for <span class="process-math">\(\displaystyle f(x)=\frac{2x}{3x+1}\text{,}\)</span> we have a derivative <span class="process-math">\(\displaystyle f'(x)=\frac{2}{(3x+1)^2}\text{.}\)</span></p>
 <span class="incontext"><a href="sec_derivs_deriv_function.html#p-686" class="internal">in-context</a></span>
 </body>
 </html>

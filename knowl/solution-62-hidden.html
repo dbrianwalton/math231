@@ -11,34 +11,42 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<p>The idea behind this learning objective exercise is for you to recognize the structure of the formula and then use the appropriate derivative rules based on that structure. The functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are placeholders for functions that we know derivative values so that we don't rely on just the power rule as the example application.</p>
-<p>The overall function is a <em class="emphasis">difference</em> of two formulas, <span class="process-math">\(2x f(x^2)\)</span> and <span class="process-math">\(\frac{1}{g^3(x)}\text{.}\)</span> The first of these is a <em class="emphasis">product</em> of <span class="process-math">\(2x\)</span> and <span class="process-math">\(f(x^2)\text{.}\)</span> We know how to find the derivative of <span class="process-math">\(2x\)</span> (a linear function) and <span class="process-math">\(f(x^2)\)</span> is a <em class="emphasis">composition</em> of <span class="process-math">\(f\)</span> with an inner function <span class="process-math">\(x^2\text{.}\)</span> The second term can be rewritten as <span class="process-math">\((g(x))^-3\text{,}\)</span> which is itself now a composition of <span class="process-math">\(u^{-3}\)</span> with <span class="process-math">\(u=g(x)\text{.}\)</span></p>
-<p>When we use the derivative rules for a difference, we just subtract the derivatives of the terms separately. The product will require the product rule. We work through the rules in turn to find the final answer.</p>
+<p>As written, this function is a quotient. We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-h'(x) &amp;= \frac{d}{dx}\left[ 2x f(x^2) - \frac{1}{g^3(x)} \right]\\
-&amp;= \frac{d}{dx}\left[ 2x f(x^2) \right] - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
-&amp;= \frac{d}{dx}\left[ 2x \right] \cdot f(x^2) + 2x \cdot \frac{d}{dx}\left[ f(x^2) \right]  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
-&amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
-&amp;= 2 \cdot f(x^2) + 2x \cdot f'(x^2) \cdot (2x)  - (-3u^{-4}) \cdot \frac{du}{dx} \Big|_{u=g(x)}\\
-&amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + 3(g(x))^{-4} \cdot g'(x)\\
-&amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + \frac{3g'(x)}{(g(x))^{4}}
+f(x) &amp;= \frac{2}{5(x^2+3x)^6}\\
+&amp;= \frac{2}{5} (x^2+3x)^{-6}
 \end{align*}
 </div>
-<p>Now that we have a <em class="emphasis">formula</em> for <span class="process-math">\(h'(x)\text{,}\)</span> we can calculate <span class="process-math">\(h'(2)\)</span> using the provided information. First, we just substitute <span class="process-math">\(x=2\)</span> into the formula:</p>
+<p class="continuation">Our function <span class="process-math">\(y=f(x)\)</span> is now the composition (or chain)</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-h'(2) = 2 \cdot f(2^2) + 4\cdot 2^2 \cdot f'(2^2) + \frac{3g'(2)}{(g(2))^{4}}
+\begin{cases}
+y = \frac{2}{5} u^{-6} \\
+u = x^2+3x
+\end{cases}
 \end{equation*}
 </div>
-<p class="continuation">Then we find the values of these terms:</p>
+<p class="continuation">We can compute the derivatives of each stage of the composition:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-h'(2) &amp;= 2 f(4) + 16 f'(4) + \frac{3g'(2)}{(g(2))^4}\\
-&amp;= 2 \cdot 1 + 16 \cdot 2 + \frac{3\cdot 2}{(-3)^4\\
-&amp;= 2 + 32 + \frac{6}{81}\\
-&amp;= 34 + \frac{2}{27}
-\end{align*}
+\begin{equation*}
+\begin{cases}
+\frac{dy}{du} = \frac{2}{5} \cdot -6 u^{-7} = \frac{-12}{5} u^{-7}\\
+\frac{du}{dx} = 2x+3
+\end{cases}
+\end{equation*}
+</div>
+<p class="continuation">The chain rule says that the derivative of a composition (chain) is the product of the derivatives of each stage:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = \frac{-12}{5} u^{-7} \cdot (2x+3)
+\end{equation*}
+</div>
+<p class="continuation">We finish by substituting back in the formula for <span class="process-math">\(u\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}\text{.}
+\end{equation*}
 </div>
 </div></body>
 </html>

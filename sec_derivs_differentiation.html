@@ -149,21 +149,21 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_derivs_differentiation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.4</span> <span class="title">Differentiation</span>
 </h2>
-<section class="introduction" id="introduction-21"><p id="p-720">The derivative of a function <span class="process-math">\(f(x)\)</span> at a point <span class="process-math">\(x=a\)</span> is the slope of the tangent line (linearization) of the function. In order to make sense of what that would mean, we needed to define the derivative as the <em class="emphasis">limit</em> of the slope of a secant line passing through the point <span class="process-math">\((a,f(a))\)</span> and another point <span class="process-math">\((a+h, f(a+h))\)</span> as the second point is chosen closer and closer to <span class="process-math">\(x=a\)</span> by using <span class="process-math">\(h \to 0\text{.}\)</span> Because this process could be done, in principle, at <em class="emphasis">any</em> point in the domain, this actually defines a <em class="emphasis">function</em> called the derivative function <span class="process-math">\(f'(x)\text{,}\)</span> defined whenever this limit exists. In certain algebraic cases, we could allow a specific point <span class="process-math">\(a\)</span> to be replaced by a generic variable <span class="process-math">\(x\)</span> and still compute the limit.</p>
-<p id="p-721">The process described above gives the interpretation and justification for the derivative, but it is tedious as a process. Fortunately, there are patterns in the formulas for the derivative function in relation to the formulas for the original function. Rules describing these patterns establish a methodical process for calculating the derivative that does not require a limit. We will see that each of these rules is justified by the definition of the derivative in terms of limits and the use of limit rules that we learned previously.</p>
-<p id="p-722"><dfn class="terminology">Differentiation</dfn> is the process of finding a derivative. This section focuses on how we differentiate formulas, the rules of derivatives, and how to think through the steps of identifying which rules apply in different circumstances.</p></section><section class="subsection" id="subsec_deriv_polynomials"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-21"><p id="p-723">The derivative of a function <span class="process-math">\(f(x)\)</span> at a point <span class="process-math">\(x=a\)</span> is the slope of the tangent line (linearization) of the function. In order to make sense of what that would mean, we needed to define the derivative as the <em class="emphasis">limit</em> of the slope of a secant line passing through the point <span class="process-math">\((a,f(a))\)</span> and another point <span class="process-math">\((a+h, f(a+h))\)</span> as the second point is chosen closer and closer to <span class="process-math">\(x=a\)</span> by using <span class="process-math">\(h \to 0\text{.}\)</span> Because this process could be done, in principle, at <em class="emphasis">any</em> point in the domain, this actually defines a <em class="emphasis">function</em> called the derivative function <span class="process-math">\(f'(x)\text{,}\)</span> defined whenever this limit exists. In certain algebraic cases, we could allow a specific point <span class="process-math">\(a\)</span> to be replaced by a generic variable <span class="process-math">\(x\)</span> and still compute the limit.</p>
+<p id="p-724">The process described above gives the interpretation and justification for the derivative, but it is tedious as a process. Fortunately, there are patterns in the formulas for the derivative function in relation to the formulas for the original function. Rules describing these patterns establish a methodical process for calculating the derivative that does not require a limit. We will see that each of these rules is justified by the definition of the derivative in terms of limits and the use of limit rules that we learned previously.</p>
+<p id="p-725"><dfn class="terminology">Differentiation</dfn> is the process of finding a derivative. This section focuses on how we differentiate formulas, the rules of derivatives, and how to think through the steps of identifying which rules apply in different circumstances.</p></section><section class="subsection" id="subsec_deriv_polynomials"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.4.1</span> <span class="title">Derivative Functions and Polynomials</span>
 </h3>
-<p id="p-723">Polynomials are often used to illustrate that patterns occur in differentiation. Rather than go through the work by hand, we can let a computer do the algebra expansion and simplification and then look for patterns. One free tool that can do this work is SageMath. The cell below provides the steps that SageMath requires to find the derivative using the definition. Push the <code class="code-inline tex2jax_ignore">Evaluate</code> button to find the result.</p>
+<p id="p-726">Polynomials are often used to illustrate that patterns occur in differentiation. Rather than go through the work by hand, we can let a computer do the algebra expansion and simplification and then look for patterns. One free tool that can do this work is SageMath. The cell below provides the steps that SageMath requires to find the derivative using the definition. Push the <code class="code-inline tex2jax_ignore">Evaluate</code> button to find the result.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-4"><script type="text/x-sage">var('x','h')  # Introduce two variables x and h
 f(x) = x^2    # Define the function
 # Calculate and then display the derivative using the definition
 dfdx = limit((f(x+h)-f(x))/h, h, 0)
 show(dfdx)
 </script></pre>
-<p id="p-724">You should have found that for <span class="process-math">\(f(x)=x^2\text{,}\)</span> the derivative is <span class="process-math">\(f'(x)=2x\text{.}\)</span> Now, modify the cell so that <span class="process-math">\(f(x)=x^3\)</span> and re-evaluate. Then try higher and higher powers. Can you see the pattern?</p>
-<p id="p-725">Mathematical notation is often created to reduce repetitive writing. It seems tedious to need to name our function <span class="process-math">\(f(x)\)</span> each time we change the formula so that we can talk about its derivative <span class="process-math">\(f'(x)\text{.}\)</span> We introduce the <dfn class="terminology">derivative operator</dfn> <span class="process-math">\(\frac{d}{dx}\)</span> so that we can focus on the formula.</p>
-<p id="p-726">An <dfn class="terminology">operator</dfn> is like a function in that it has an <em class="emphasis">input</em> and an <em class="emphasis">output</em>. Instead of taking <em class="emphasis">values</em> as the input, an operator takes an <em class="emphasis">expression</em> or <em class="emphasis">function</em>. The derivative operator takes a function as its input and gives the derivative function as the output. Our earlier work showed that for <span class="process-math">\(f(x)=x^2\text{,}\)</span> we have <span class="process-math">\(f'(x)=2x\text{.}\)</span> That is, we think of <span class="process-math">\(x^2\)</span> as the input of the step and <span class="process-math">\(2x\)</span> as the output, and write</p>
+<p id="p-727">You should have found that for <span class="process-math">\(f(x)=x^2\text{,}\)</span> the derivative is <span class="process-math">\(f'(x)=2x\text{.}\)</span> Now, modify the cell so that <span class="process-math">\(f(x)=x^3\)</span> and re-evaluate. Then try higher and higher powers. Can you see the pattern?</p>
+<p id="p-728">Mathematical notation is often created to reduce repetitive writing. It seems tedious to need to name our function <span class="process-math">\(f(x)\)</span> each time we change the formula so that we can talk about its derivative <span class="process-math">\(f'(x)\text{.}\)</span> We introduce the <dfn class="terminology">derivative operator</dfn> <span class="process-math">\(\frac{d}{dx}\)</span> so that we can focus on the formula.</p>
+<p id="p-729">An <dfn class="terminology">operator</dfn> is like a function in that it has an <em class="emphasis">input</em> and an <em class="emphasis">output</em>. Instead of taking <em class="emphasis">values</em> as the input, an operator takes an <em class="emphasis">expression</em> or <em class="emphasis">function</em>. The derivative operator takes a function as its input and gives the derivative function as the output. Our earlier work showed that for <span class="process-math">\(f(x)=x^2\text{,}\)</span> we have <span class="process-math">\(f'(x)=2x\text{.}\)</span> That is, we think of <span class="process-math">\(x^2\)</span> as the input of the step and <span class="process-math">\(2x\)</span> as the output, and write</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{d}{dx}[x^2] = 2x\text{.}
@@ -172,7 +172,7 @@ show(dfdx)
 <article class="example example-like" id="ex_fill_out_deriv_table"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="period">.</span>
 </h4>
-<p id="p-727">Using the SageMath tool provided above, find the derivative of the following functions and write the results using the derivative operator. <div class="tabular-box natural-width"><table class="tabular">
+<p id="p-730">Using the SageMath tool provided above, find the derivative of the following functions and write the results using the derivative operator. <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x)\)</span></th>
@@ -200,7 +200,7 @@ show(dfdx)
 </tr>
 </table></div></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-57" id="solution-57"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-57"><div class="solution solution-like"><p id="p-728">You should have completed the table to see <div class="tabular-box natural-width"><table class="tabular">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-58" id="solution-58"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-58"><div class="solution solution-like"><p id="p-731">You should have completed the table to see <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x)\)</span></th>
@@ -227,60 +227,60 @@ show(dfdx)
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{d}{dx}[x^5] = 5x^4\)</span></td>
 </tr>
 </table></div></p></div></div>
-</div></article><p id="p-729">Can you see the pattern emerging? We want to summarize this pattern as a rule, which we will call the <dfn class="terminology">power rule</dfn>.</p>
+</div></article><p id="p-732">Can you see the pattern emerging? We want to summarize this pattern as a rule, which we will call the <dfn class="terminology">power rule</dfn>.</p>
 <article class="theorem theorem-like" id="deriv_rule_powers"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Power Rule for Derivatives.</span>
 </h4>
-<p id="p-730">For a function of the form <span class="process-math">\(f(x)=x^n\text{,}\)</span> where <span class="process-math">\(n\)</span> is a constant, we have <span class="process-math">\(f'(x)=nx^{n-1}\text{:}\)</span></p>
+<p id="p-733">For a function of the form <span class="process-math">\(f(x)=x^n\text{,}\)</span> where <span class="process-math">\(n\)</span> is a constant, we have <span class="process-math">\(f'(x)=nx^{n-1}\text{:}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{d}{dx}[x^n] = nx^{n-1}\text{.}
 \end{equation*}
-</div></article><p id="p-731">At the moment, we only have looked at a few examples where this pattern holds. If we were the first to notice the pattern, we would call this a <dfn class="terminology">conjecture</dfn> until we could <em class="emphasis">prove</em> that our pattern really worked in all cases. Fortunately, it actually works for any real number as long as the value is defined. (Some powers of negative numbers don't make sense.)</p>
-<p id="p-732">What other patterns can we discover? Well, polynomials are formed by adding different powers together and possibly include multiples of powers. So let's use SageMath to explore examples like that.</p>
-<p id="p-733">First, let's just add some simple powers together.</p>
+</div></article><p id="p-734">At the moment, we only have looked at a few examples where this pattern holds. If we were the first to notice the pattern, we would call this a <dfn class="terminology">conjecture</dfn> until we could <em class="emphasis">prove</em> that our pattern really worked in all cases. Fortunately, it actually works for any real number as long as the value is defined. (Some powers of negative numbers don't make sense.)</p>
+<p id="p-735">What other patterns can we discover? Well, polynomials are formed by adding different powers together and possibly include multiples of powers. So let's use SageMath to explore examples like that.</p>
+<p id="p-736">First, let's just add some simple powers together.</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-5"><script type="text/x-sage">var('x','h')  # Introduce two variables x and h
 f(x) = x^5 + x^3 + x^2   # Define the function
 # Calculate and then display the derivative using the definition
 dfdx = limit((f(x+h)-f(x))/h, h, 0)
 show(dfdx)
 </script></pre>
-<p id="p-734">Try changing which powers are included. What do you notice? What do you wonder?</p>
-<p id="p-735">Now, what happens if the powers are multiplied by a number?</p>
+<p id="p-737">Try changing which powers are included. What do you notice? What do you wonder?</p>
+<p id="p-738">Now, what happens if the powers are multiplied by a number?</p>
 <pre class="ptx-sagecell sagecell-sage" id="sage-6"><script type="text/x-sage">var('x','h')  # Introduce two variables x and h
 f(x) = 3*x^5 + 7*x^3 + 4*x^2   # Define the function
 # Calculate and then display the derivative using the definition
 dfdx = limit((f(x+h)-f(x))/h, h, 0)
 show(dfdx)
 </script></pre>
-<p id="p-736">Again try changing the formulas. What do you notice? What do you wonder?</p>
-<p id="p-737">Polynomials, when written as a sum of constants times simple powers, have a very simple pattern for finding their derivatives. We create a <em class="emphasis">new</em> polynomial for the derivative. We get the same number of terms as the original function, but with terms changing as follows:</p>
+<p id="p-739">Again try changing the formulas. What do you notice? What do you wonder?</p>
+<p id="p-740">Polynomials, when written as a sum of constants times simple powers, have a very simple pattern for finding their derivatives. We create a <em class="emphasis">new</em> polynomial for the derivative. We get the same number of terms as the original function, but with terms changing as follows:</p>
 <ul class="disc">
-<li id="li-146"><p id="p-738">The constant multiple is multiplied by the original power.</p></li>
-<li id="li-147"><p id="p-739">The power on each term goes down by one.</p></li>
-<li id="li-148"><p id="p-740">A <em class="emphasis">linear term</em> in the original polynomial of the form <span class="process-math">\(ax+b\)</span> results in a <em class="emphasis">constant term</em> in the derivative polynomial of the <em class="emphasis">slope</em> <span class="process-math">\(a\text{.}\)</span></p></li>
+<li id="li-146"><p id="p-741">The constant multiple is multiplied by the original power.</p></li>
+<li id="li-147"><p id="p-742">The power on each term goes down by one.</p></li>
+<li id="li-148"><p id="p-743">A <em class="emphasis">linear term</em> in the original polynomial of the form <span class="process-math">\(ax+b\)</span> results in a <em class="emphasis">constant term</em> in the derivative polynomial of the <em class="emphasis">slope</em> <span class="process-math">\(a\text{.}\)</span></p></li>
 </ul>
 <article class="example example-like" id="ex_derivs_polynomial_basic"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span>
 </h4>
-<p id="p-741">Find the following derivatives.</p>
+<p id="p-744">Find the following derivatives.</p>
 <ul class="disc">
-<li id="li-149"><p id="p-742"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ 4x^5 + 3x^4 - 7x^2 + 5x - 1\big]\)</span></p></li>
-<li id="li-150"><p id="p-743"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ (3x^2+2x-5)(4x+7)\big]\)</span></p></li>
+<li id="li-149"><p id="p-745"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ 4x^5 + 3x^4 - 7x^2 + 5x - 1\big]\)</span></p></li>
+<li id="li-150"><p id="p-746"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ (3x^2+2x-5)(4x+7)\big]\)</span></p></li>
 </ul>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-58" id="solution-58"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-58"><div class="solution solution-like">
-<p id="p-744">In the first exercise, our function is <span class="process-math">\(f(x)=4x^5+3x^4-7x^2+5x-1\text{.}\)</span> This polynomial is written as a <em class="emphasis">sum</em> of terms that are constants times powers <span class="process-math">\(4x^5\text{,}\)</span> <span class="process-math">\(3x^4\text{,}\)</span> <span class="process-math">\(-7x^2\text{,}\)</span> and a linear term <span class="process-math">\(5x-1\text{.}\)</span> This is exactly the form for which our differentiation process can address.</p>
-<p id="p-745">The derivatives of the powers will be the same constant multiples times the original power times <span class="process-math">\(x\)</span> raised to a power decreased by one. The derivative of the linear term <span class="process-math">\(5x-1\)</span> will be the slope <span class="process-math">\(5\text{.}\)</span> Putting this together, we write:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-100">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-59" id="solution-59"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-59"><div class="solution solution-like">
+<p id="p-747">In the first exercise, our function is <span class="process-math">\(f(x)=4x^5+3x^4-7x^2+5x-1\text{.}\)</span> This polynomial is written as a <em class="emphasis">sum</em> of terms that are constants times powers <span class="process-math">\(4x^5\text{,}\)</span> <span class="process-math">\(3x^4\text{,}\)</span> <span class="process-math">\(-7x^2\text{,}\)</span> and a linear term <span class="process-math">\(5x-1\text{.}\)</span> This is exactly the form for which our differentiation process can address.</p>
+<p id="p-748">The derivatives of the powers will be the same constant multiples times the original power times <span class="process-math">\(x\)</span> raised to a power decreased by one. The derivative of the linear term <span class="process-math">\(5x-1\)</span> will be the slope <span class="process-math">\(5\text{.}\)</span> Putting this together, we write:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-101">
 \begin{align*}
 \frac{d}{dx}\big[4x^5+3x^4-7x^2+5x-1] &amp;= 4 \cdot 5x^4 + 3 \cdot 4x^3 - 7 \cdot 2x + 5\\
 &amp;= 20x^4 +12x^3 - 14x + 5
 \end{align*}
 </div>
 <p class="continuation">That is, the function <span class="process-math">\(f(x)=4x^5+3x^4-7x^2+5x-1\)</span> has a derivative function <span class="process-math">\(20x^4+12x^3-14x+5\text{.}\)</span></p>
-<p id="p-746">In the second exercise, our function is <span class="process-math">\(f(x)=(3x^2+2x-5)(4x+7)\text{.}\)</span> We need to be paying attention to the structure of the formula. It is written as a <em class="emphasis">product</em>, so our differentiation process is not designed to address the function in this form. We will need to multiply it out (distribute) in order to <em class="emphasis">rewrite</em> the formula so that it is a sum of terms.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-101">
+<p id="p-749">In the second exercise, our function is <span class="process-math">\(f(x)=(3x^2+2x-5)(4x+7)\text{.}\)</span> We need to be paying attention to the structure of the formula. It is written as a <em class="emphasis">product</em>, so our differentiation process is not designed to address the function in this form. We will need to multiply it out (distribute) in order to <em class="emphasis">rewrite</em> the formula so that it is a sum of terms.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-102">
 \begin{align*}
 f(x) &amp;= (3x^2+2x-5)(4x+7)\\
 &amp;= 4x(3x^2+2x-5) + 7(3x^2+2x-5)\\
@@ -289,29 +289,29 @@ f(x) &amp;= (3x^2+2x-5)(4x+7)\\
 \end{align*}
 </div>
 <p class="continuation">Now that we have rewritten our function, see that it is a sum of constant multiples of powers <span class="process-math">\(12x^3\text{,}\)</span> <span class="process-math">\(29x^2\text{,}\)</span> and a linear term <span class="process-math">\(-6x-35\text{.}\)</span> Using our polynomial differentatiation rule:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-102">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-103">
 \begin{align*}
 \frac{d}{dx}\big[(3x^2+2x-5)(4x+7) &amp;= \frac{d}{dx}\big[12x^3+29x^2-6x-35\big]\\
 &amp;= 12 \cdot 3x^2 + 29 \cdot 2x + -6\\
 &amp;= 36 x^2 + 58 x - 6
 \end{align*}
 </div>
-<p id="p-747">There is an important observation to make about the notation in the set of equations above. When we <em class="emphasis">rewrote</em> the formula of <span class="process-math">\(f(x)\)</span> from being a product to being a sum, we did not <em class="emphasis">yet</em> use differentiation. So in the notation, you should see that we left the derivative operator alone but changed the formula that appeared <em class="emphasis">as the input</em>. When we actually <em class="emphasis">used</em> differentiation to find derivative terms, we stopped writing <span class="process-math">\(\frac{d}{dx}\text{.}\)</span> These equations are saying in essence, “The derivative of one formula that is a product is equal to the derivative of a rewritten formula that is now a sum and both are equal to a new polynomial given by a particular new formula”. We are <em class="emphasis">not</em> saying that the original function is equal to the final formula that  represents the derivative.</p>
+<p id="p-750">There is an important observation to make about the notation in the set of equations above. When we <em class="emphasis">rewrote</em> the formula of <span class="process-math">\(f(x)\)</span> from being a product to being a sum, we did not <em class="emphasis">yet</em> use differentiation. So in the notation, you should see that we left the derivative operator alone but changed the formula that appeared <em class="emphasis">as the input</em>. When we actually <em class="emphasis">used</em> differentiation to find derivative terms, we stopped writing <span class="process-math">\(\frac{d}{dx}\text{.}\)</span> These equations are saying in essence, “The derivative of one formula that is a product is equal to the derivative of a rewritten formula that is now a sum and both are equal to a new polynomial given by a particular new formula”. We are <em class="emphasis">not</em> saying that the original function is equal to the final formula that  represents the derivative.</p>
 </div></div>
-</div></article><p id="p-748">Because the power rule <span class="process-math">\(\frac{d}{dx}[x^n] = nx^{n-1}\)</span> is true (we've not yet shown this) for <em class="emphasis">any</em> constant power <span class="process-math">\(n\text{,}\)</span> the same process we used for polynomials to find a derivative will <em class="emphasis">also</em> work for <em class="emphasis">any</em> function that is written as a sum of constants times elementary powers of <span class="process-math">\(x\text{.}\)</span> Polynomials require that the powers are nonnegative integers. When we have a function that is a sum of term with at least one that is a power <em class="emphasis">other</em> than a nonnegative integer (either a negative integer or a rational number), we will call our function a <dfn class="terminology">generalized polynomial</dfn>.</p>
-<p id="p-749">One of our learning outcomes is associated with differentiating generalized polynomials. You should expect that the first step will be to rewrite the formula as a sum so that our procedure is valid. We will soon learn additional derivative rules that allow us to calculate a derivative without this step (product and quotient rules), but this learning outcome focuses on using the generalized polynomial approach.</p>
+</div></article><p id="p-751">Because the power rule <span class="process-math">\(\frac{d}{dx}[x^n] = nx^{n-1}\)</span> is true (we've not yet shown this) for <em class="emphasis">any</em> constant power <span class="process-math">\(n\text{,}\)</span> the same process we used for polynomials to find a derivative will <em class="emphasis">also</em> work for <em class="emphasis">any</em> function that is written as a sum of constants times elementary powers of <span class="process-math">\(x\text{.}\)</span> Polynomials require that the powers are nonnegative integers. When we have a function that is a sum of term with at least one that is a power <em class="emphasis">other</em> than a nonnegative integer (either a negative integer or a rational number), we will call our function a <dfn class="terminology">generalized polynomial</dfn>.</p>
+<p id="p-752">One of our learning outcomes is associated with differentiating generalized polynomials. You should expect that the first step will be to rewrite the formula as a sum so that our procedure is valid. We will soon learn additional derivative rules that allow us to calculate a derivative without this step (product and quotient rules), but this learning outcome focuses on using the generalized polynomial approach.</p>
 <article class="example example-like" id="ex_derivs_generalized_polynomial"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-9.</span>
 </h4>
-<p id="p-750">Find the following derivatives without using the product or quotient rules.</p>
+<p id="p-753">Find the following derivatives without using the product or quotient rules.</p>
 <ul class="disc">
-<li id="li-151"><p id="p-751"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\Big[ \frac{2x^5 - x^3 + 7x - 5}{4x^2}\Big]\)</span></p></li>
-<li id="li-152"><p id="p-752"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ 5\sqrt{x} (x^2 + 2x - 5)\big]\)</span></p></li>
+<li id="li-151"><p id="p-754"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\Big[ \frac{2x^5 - x^3 + 7x - 5}{4x^2}\Big]\)</span></p></li>
+<li id="li-152"><p id="p-755"><span class="process-math">\(\displaystyle \displaystyle \frac{d}{dx}\big[ 5\sqrt{x} (x^2 + 2x - 5)\big]\)</span></p></li>
 </ul>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-59" id="solution-59"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-59"><div class="solution solution-like">
-<p id="p-753">The first example looks at a function that is originally written as a quotient. Because the denominator is a simple power, we can rewrite this in the form of a generalized polynomial.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-103">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
+<p id="p-756">The first example looks at a function that is originally written as a quotient. Because the denominator is a simple power, we can rewrite this in the form of a generalized polynomial.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-104">
 \begin{align*}
 \frac{d}{dx}\left[ \frac{2x^5 - x^3 + 7x - 5}{4x^2} \right] &amp;= \frac{d}{dx}\left[ \frac{2x^5}{4x^2} - \frac{x^3}{4x^2} + \frac{7x}{4x^2} - \frac{5}{4x^2} \right]\\
 &amp;= \frac{d}{dx}\left[ \frac{1}{2} x^3 - \frac{1}{4} x + \frac{7}{4} x^{-1} - \frac{5}{4} x^{-2} \right]\\
@@ -319,10 +319,10 @@ f(x) &amp;= (3x^2+2x-5)(4x+7)\\
 &amp;= \frac{3}{2} x^2 - \frac{1}{4} - \frac{7}{4x^2} + \frac{5}{2x^3}
 \end{align*}
 </div>
-<p id="p-754">Note that for negative powers, when the power drops by 1, it moves <em class="emphasis">away</em> from zero. A common mistake is to reduce the size of the power rather than literally subtracting 1, which is what is required.</p>
-<p id="p-755">The second example looks at a function that is originally written as a product. In addition, the function involves a square root. To proceed with this problem, we need to recognize that a square root corresponds to a power of <span class="process-math">\(\frac{1}{2}\text{.}\)</span> In addition, we need to multiply out the terms in order to have a formula in the standard representation.</p>
-<p id="p-756">Our first step is to rewrite the original function so that the process of differentiation of generalized polynomials applies (first three lines). Then we can apply the power rule to each term.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-104">
+<p id="p-757">Note that for negative powers, when the power drops by 1, it moves <em class="emphasis">away</em> from zero. A common mistake is to reduce the size of the power rather than literally subtracting 1, which is what is required.</p>
+<p id="p-758">The second example looks at a function that is originally written as a product. In addition, the function involves a square root. To proceed with this problem, we need to recognize that a square root corresponds to a power of <span class="process-math">\(\frac{1}{2}\text{.}\)</span> In addition, we need to multiply out the terms in order to have a formula in the standard representation.</p>
+<p id="p-759">Our first step is to rewrite the original function so that the process of differentiation of generalized polynomials applies (first three lines). Then we can apply the power rule to each term.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-105">
 \begin{align*}
 \frac{d}{dx}\big[ 5\sqrt{x} (x^2 + 2x - 5)\big] 
 &amp; = \frac{d}{dx}\big[ 5 x^{1/2}(x^2 + 2x - 5) \big]\\
@@ -336,10 +336,10 @@ f(x) &amp;= (3x^2+2x-5)(4x+7)\\
 </div></article></section><section class="subsection" id="subsec_derivs_derivative_rules"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.4.2</span> <span class="title">Derivative Rules</span>
 </h3>
-<p id="p-757">The definition of the derivative is in terms of limits. Limits have rules based on the structure of the function. These limit rules allow us to create derivative rules that are similarly based on the structure of the function's formula.</p>
+<p id="p-760">The definition of the derivative is in terms of limits. Limits have rules based on the structure of the function. These limit rules allow us to create derivative rules that are similarly based on the structure of the function's formula.</p>
 <article class="assemblage assemblage-like" id="asmbl_deriv_rules"><h4 class="heading"><span class="title">Derivative Rules.</span></h4>
-<p id="p-758">Suppose that a function is constructed from simpler functions, each of which has a known derivative or differentiation rule. In particular, we will assume that <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> stand for differentiable functions and that <span class="process-math">\(k\)</span> stands for some constant.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-105">
+<p id="p-761">Suppose that a function is constructed from simpler functions, each of which has a known derivative or differentiation rule. In particular, we will assume that <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> stand for differentiable functions and that <span class="process-math">\(k\)</span> stands for some constant.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-106">
 \begin{align*}
 &amp; \frac{d}{dx}\big[f(x) + k\big] = f'(x) &amp; \text{Constant Sum Rule}\\
 &amp; \frac{d}{dx}\big[k \cdot f(x)\big] = k \cdot f'(x) &amp; \text{Constant Multiple Rule}\\
@@ -350,22 +350,22 @@ f(x) &amp;= (3x^2+2x-5)(4x+7)\\
 &amp; \frac{d}{dx}\left[ f \circ g(x) \right] = \frac{d}{dx}\left[ f\big(g(x)\big) \right]
 = f'\big( g(x) \big) \cdot g'(x) &amp; \text{Chain Rule}
 \end{align*}
-</div></article><p id="p-759">In many instances, <em class="emphasis">doing calculus</em> is code for using these rules. The differentiation of polynomials that we explored earlier was an example of using the constant multiple rule along with the sum rule on individual terms that were powers. The power functions were the elementary functions whose derivatives were known. These rules for constructed functions justify why we can treat terms separately.</p>
-<p id="p-760">We have multiple learning objectives relating to the proper use of these rules.</p>
+</div></article><p id="p-762">In many instances, <em class="emphasis">doing calculus</em> is code for using these rules. The differentiation of polynomials that we explored earlier was an example of using the constant multiple rule along with the sum rule on individual terms that were powers. The power functions were the elementary functions whose derivatives were known. These rules for constructed functions justify why we can treat terms separately.</p>
+<p id="p-763">We have multiple learning objectives relating to the proper use of these rules.</p>
 <ul class="disc">
-<li id="li-153"><p id="p-761"><em class="emphasis">Learning Objective D-10</em>: Using the quotient rule to find a derivative of a rational function.</p></li>
-<li id="li-154"><p id="p-762"><em class="emphasis">Learning Objective D-11</em>: Using the chain rule to find a derivative for a composition involving a power.</p></li>
-<li id="li-155"><p id="p-763"><em class="emphasis">Learning Objective D-12</em>: Using all of the derivative rules in an abstract setting.</p></li>
+<li id="li-153"><p id="p-764"><em class="emphasis">Learning Objective D-10</em>: Using the quotient rule to find a derivative of a rational function.</p></li>
+<li id="li-154"><p id="p-765"><em class="emphasis">Learning Objective D-11</em>: Using the chain rule to find a derivative for a composition involving a power.</p></li>
+<li id="li-155"><p id="p-766"><em class="emphasis">Learning Objective D-12</em>: Using all of the derivative rules in an abstract setting.</p></li>
 </ul>
 <article class="example example-like" id="ex_derivs_rational_function"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-10.</span>
 </h4>
-<p id="p-764">For <span class="process-math">\(\displaystyle R(x) = \frac{x^2+2x}{2x^2+1}\text{,}\)</span> find all points where the graph has horizontal tangents.</p>
+<p id="p-767">For <span class="process-math">\(\displaystyle R(x) = \frac{x^2+2x}{2x^2+1}\text{,}\)</span> find all points where the graph has horizontal tangents.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
-<p id="p-765">A horizontal tangent corresponds to a slope that is zero. We need to find the derivative function <span class="process-math">\(R'(x)\)</span> and determine values so that <span class="process-math">\(R'(x)=0\text{.}\)</span> The function <span class="process-math">\(R(x)\)</span> is a rational function because it is a <em class="emphasis">quotient</em> of two polynomials.</p>
-<p id="p-766">To find <span class="process-math">\(R'(x)\text{,}\)</span> we need to use the <em class="emphasis">quotient rule</em> because <span class="process-math">\(R(x)\)</span> itself is a quotient.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-106">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
+<p id="p-768">A horizontal tangent corresponds to a slope that is zero. We need to find the derivative function <span class="process-math">\(R'(x)\)</span> and determine values so that <span class="process-math">\(R'(x)=0\text{.}\)</span> The function <span class="process-math">\(R(x)\)</span> is a rational function because it is a <em class="emphasis">quotient</em> of two polynomials.</p>
+<p id="p-769">To find <span class="process-math">\(R'(x)\text{,}\)</span> we need to use the <em class="emphasis">quotient rule</em> because <span class="process-math">\(R(x)\)</span> itself is a quotient.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-107">
 \begin{align*}
 R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} \\
 &amp;= \frac{\frac{d}{dx}[x^2+2x] \cdot (2x^2+1) - (x^2+2x) \cdot \frac{d}{dx}[2x^2+1]}{(2x^2+1)^2} \\
@@ -376,8 +376,8 @@ R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} \\
 \end{align*}
 </div>
 <p class="continuation">Experience has shown me that we <em class="emphasis">always</em> want to rewrite the numerator in hopes of factoring in the future, but <em class="emphasis">almost never</em> want to rewrite the denominator since it is already factored.</p>
-<p id="p-767">Once we know <span class="process-math">\(R'(x)\text{,}\)</span> we create and solve the equation <span class="process-math">\(R'(x)=0\text{.}\)</span> Because <span class="process-math">\(R'(x) = \frac{-4x^2+2x+2}{(2x^2+1)^2}\)</span> is itself a quotient, <span class="process-math">\(R'(x)= 0\)</span> is solved by determining where the <em class="emphasis">numerator</em> equals zero. In this case, we can factor that resulting polynomial.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-107">
+<p id="p-770">Once we know <span class="process-math">\(R'(x)\text{,}\)</span> we create and solve the equation <span class="process-math">\(R'(x)=0\text{.}\)</span> Because <span class="process-math">\(R'(x) = \frac{-4x^2+2x+2}{(2x^2+1)^2}\)</span> is itself a quotient, <span class="process-math">\(R'(x)= 0\)</span> is solved by determining where the <em class="emphasis">numerator</em> equals zero. In this case, we can factor that resulting polynomial.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-108">
 \begin{gather*}
 R'(x) = 0\\
 \frac{-4x^2+2x+2}{(2x^2+1)^2} = 0\\
@@ -393,11 +393,11 @@ R'(x) = 0\\
 </div></article><article class="example example-like" id="derivs_general_power_rule"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-11.</span>
 </h4>
-<p id="p-768">Find <span class="process-math">\(\displaystyle \frac{d}{dx}\left[ \frac{2}{5(x^2+3x)^6}\right]\text{.}\)</span></p>
+<p id="p-771">Find <span class="process-math">\(\displaystyle \frac{d}{dx}\left[ \frac{2}{5(x^2+3x)^6}\right]\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
-<p id="p-769">As written, this function is a quotient. We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-108">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
+<p id="p-772">As written, this function is a quotient. We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-109">
 \begin{align*}
 f(x) &amp;= \frac{2}{5(x^2+3x)^6}\\
 &amp;= \frac{2}{5} (x^2+3x)^{-6}
@@ -437,7 +437,7 @@ f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}\tex
 </div></article><article class="example example-like" id="ex_derivs_abstract_rules"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.8</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective D-12.</span>
 </h4>
-<p id="p-770">Given <span class="process-math">\(\displaystyle h(x) = 2x f(x^2) - \frac{1}{g^3(x)}\text{,}\)</span> find <span class="process-math">\(h'(x)\)</span> and then calculate <span class="process-math">\(h'(2)\)</span> using the data in the table. <div class="tabular-box natural-width"><table class="tabular">
+<p id="p-773">Given <span class="process-math">\(\displaystyle h(x) = 2x f(x^2) - \frac{1}{g^3(x)}\text{,}\)</span> find <span class="process-math">\(h'(x)\)</span> and then calculate <span class="process-math">\(h'(2)\)</span> using the data in the table. <div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x\)</span></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></th>
@@ -468,11 +468,11 @@ f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}\tex
 </tr>
 </table></div></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
-<p id="p-771">The idea behind this learning objective exercise is for you to recognize the structure of the formula and then use the appropriate derivative rules based on that structure. The functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are placeholders for functions that we know derivative values so that we don't rely on just the power rule as the example application.</p>
-<p id="p-772">The overall function is a <em class="emphasis">difference</em> of two formulas, <span class="process-math">\(2x f(x^2)\)</span> and <span class="process-math">\(\frac{1}{g^3(x)}\text{.}\)</span> The first of these is a <em class="emphasis">product</em> of <span class="process-math">\(2x\)</span> and <span class="process-math">\(f(x^2)\text{.}\)</span> We know how to find the derivative of <span class="process-math">\(2x\)</span> (a linear function) and <span class="process-math">\(f(x^2)\)</span> is a <em class="emphasis">composition</em> of <span class="process-math">\(f\)</span> with an inner function <span class="process-math">\(x^2\text{.}\)</span> The second term can be rewritten as <span class="process-math">\((g(x))^-3\text{,}\)</span> which is itself now a composition of <span class="process-math">\(u^{-3}\)</span> with <span class="process-math">\(u=g(x)\text{.}\)</span></p>
-<p id="p-773">When we use the derivative rules for a difference, we just subtract the derivatives of the terms separately. The product will require the product rule. We work through the rules in turn to find the final answer.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-109">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like">
+<p id="p-774">The idea behind this learning objective exercise is for you to recognize the structure of the formula and then use the appropriate derivative rules based on that structure. The functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are placeholders for functions that we know derivative values so that we don't rely on just the power rule as the example application.</p>
+<p id="p-775">The overall function is a <em class="emphasis">difference</em> of two formulas, <span class="process-math">\(2x f(x^2)\)</span> and <span class="process-math">\(\frac{1}{g^3(x)}\text{.}\)</span> The first of these is a <em class="emphasis">product</em> of <span class="process-math">\(2x\)</span> and <span class="process-math">\(f(x^2)\text{.}\)</span> We know how to find the derivative of <span class="process-math">\(2x\)</span> (a linear function) and <span class="process-math">\(f(x^2)\)</span> is a <em class="emphasis">composition</em> of <span class="process-math">\(f\)</span> with an inner function <span class="process-math">\(x^2\text{.}\)</span> The second term can be rewritten as <span class="process-math">\((g(x))^-3\text{,}\)</span> which is itself now a composition of <span class="process-math">\(u^{-3}\)</span> with <span class="process-math">\(u=g(x)\text{.}\)</span></p>
+<p id="p-776">When we use the derivative rules for a difference, we just subtract the derivatives of the terms separately. The product will require the product rule. We work through the rules in turn to find the final answer.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-110">
 \begin{align*}
 h'(x) &amp;= \frac{d}{dx}\left[ 2x f(x^2) - \frac{1}{g^3(x)} \right]\\
 &amp;= \frac{d}{dx}\left[ 2x f(x^2) \right] - \frac{d}{dx}\left[\left(g(x)\right)^{-3} \right]\\
@@ -483,14 +483,14 @@ h'(x) &amp;= \frac{d}{dx}\left[ 2x f(x^2) - \frac{1}{g^3(x)} \right]\\
 &amp;= 2 \cdot f(x^2) + 4x^2 \cdot f'(x^2) + \frac{3g'(x)}{(g(x))^{4}}
 \end{align*}
 </div>
-<p id="p-774">Now that we have a <em class="emphasis">formula</em> for <span class="process-math">\(h'(x)\text{,}\)</span> we can calculate <span class="process-math">\(h'(2)\)</span> using the provided information. First, we just substitute <span class="process-math">\(x=2\)</span> into the formula:</p>
+<p id="p-777">Now that we have a <em class="emphasis">formula</em> for <span class="process-math">\(h'(x)\text{,}\)</span> we can calculate <span class="process-math">\(h'(2)\)</span> using the provided information. First, we just substitute <span class="process-math">\(x=2\)</span> into the formula:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 h'(2) = 2 \cdot f(2^2) + 4\cdot 2^2 \cdot f'(2^2) + \frac{3g'(2)}{(g(2))^{4}}
 \end{equation*}
 </div>
 <p class="continuation">Then we find the values of these terms:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-110">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-111">
 \begin{align*}
 h'(2) &amp;= 2 f(4) + 16 f'(4) + \frac{3g'(2)}{(g(2))^4}\\
 &amp;= 2 \cdot 1 + 16 \cdot 2 + \frac{3\cdot 2}{(-3)^4\\

@@ -12,13 +12,18 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>This table has six entries, comparable to the previous calculation. The last three entries had slope values with digits 5.545 in common, and the last two had 5.5451 in common. Without additional entries, this is the degree of approximation that we might trust, and we would say</p>
+<p>As in the last example, we start by writing down the formula for the slope of a secant line passing through <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\text{.}\)</span> The alternative would be to choose the second point as <span class="process-math">\((x,f(x))\text{,}\)</span> or use any new variable in place of <span class="process-math">\(x\text{.}\)</span> The value for <span class="process-math">\(f(3)\)</span> is <span class="process-math">\(f(3)=2^3 = 8\text{.}\)</span> Using the second point <span class="process-math">\((x,f(x))\text{,}\)</span> we have</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-f'(3) \approx 5.5451\text{.}
+\frac{\Delta f}{\Delta x}\Big|_{3,x} = \frac{f(x)-f(3)}{x-3} = \frac{2^x-8}{x-3}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">We don't know if the remaining digits are converging or not, and we don't really even know if the digits we wrote down have converged. This is why the two-sided approach is preferred, but for the assessment, either approach properly demonstrates the idea.</p>
+<p class="continuation">If we instead used <span class="process-math">\((3+h,f(3+h))\)</span> as the second point, we would use <span class="process-math">\(f(3+h) = 2^{3+h} = 2^3 \cdot 2^h = 8 \cdot 2^h\text{,}\)</span> resulting in a formula for the secant line slope given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x}\Big|_{3,3+h} = \frac{f(3+h)-f(3)}{h} = \frac{2^{3+h} - 8}{h}= \frac{8 \cdot 2^h - 8}{h}\text{.}
+\end{equation*}
+</div>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-637" class="internal">in-context</a></span>
 </body>
 </html>

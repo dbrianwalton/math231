@@ -11,13 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>In this section, we focus on three core outcomes related to the idea of a derivative as a function.</p>
-<ul class="disc">
-<li><p>Use the definition of the derivative for a <em class="emphasis">variable</em> point to find the derivative for a polynomial.</p></li>
-<li><p>Use the definition of the derivative for a <em class="emphasis">variable</em> point to find the derivative for a simple algebraic function involving either a quotient or a square root.</p></li>
-<li><p>Based on the graph of a function <span class="process-math">\(y=f(x)\text{,}\)</span> sketch a reasonable graph of the derivative <span class="process-math">\(y=f'(x)\text{.}\)</span></p></li>
-</ul>
-<span class="incontext"><a href="sec_derivs_deriv_function.html#p-651" class="internal">in-context</a></span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>Next, we compute the left-derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} \frac{g(2+h)-g(2)}{h}\\
+&amp;= \lim_{h \to 0^-} \frac{(2h+h^2) - (0)}{h}\\
+&amp;= \lim_{h \to 0^-} \frac{h(2+h)}{h}\\
+&amp;= \lim_{h \to 0^-} 2+h
+\end{align*}
+</div>
+<p class="continuation">This time the quotient had a common factor of <span class="process-math">\(h\)</span> that could cancel from the denominator. The new formula is continuous so that the limit can be calculated using continuity to give</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dg}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} 2+h\\
+&amp;= 2+0 = 2
+\end{align*}
+</div>
+<p class="continuation">The function has a left-tangent line with a slope of 2.</p>
+<span class="incontext"><a href="sec_derivs_limit_definition.html#p-651" class="internal">in-context</a></span>
 </body>
 </html>

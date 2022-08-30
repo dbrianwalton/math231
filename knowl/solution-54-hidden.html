@@ -11,8 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<p>Since this is about <em class="emphasis">drawing</em> a new graph, it is hard to walk through in written text. Here is a video solution walking through the process instead.</p>
-<figure class="figure figure-like"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/oqpqDHCed1c?&amp;modestbranding=1&amp;rel=0"></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>Video solution</figcaption></figure>
+<p>Notice how we will use the same general steps to find the slope of the secant line joining <span class="process-math">\((x,f(x))\)</span> and <span class="process-math">\((x+h,f(x+h))\text{,}\)</span> simplify that formula to a continuous version, and then evaluate the limit in order to find the derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= \sqrt{4x-1}\\
+f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}\\
+\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}\\
+&amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}\\
+&amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4\cancel{h}}{\cancel{h}}(\sqrt{4x+4h-1}+\sqrt{4x-1})}\\
+&amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}\\
+f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
+&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}\\
+&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}
+\end{align*}
+</div>
 </div></body>
 </html>

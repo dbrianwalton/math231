@@ -12,33 +12,31 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>A population growing in time is observed every five years to record the population <span class="process-math">\(P\)</span> and the population growth rate <span class="process-math">\(\frac{dP}{dt}\)</span>(birth rate minus death rate). <div class="tabular-box natural-width"><table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="l m b0 r0 l0 t0 lines">
-<span class="process-math">\(t\)</span> (yr)</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">
-<span class="process-math">\(P\)</span> (thousands)</th>
-<th scope="col" class="l m b0 r0 l0 t0 lines">
-<span class="process-math">\(\frac{dP}{dt}\)</span> (thousands/yr)</th>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines">0</td>
-<td class="l m b0 r0 l0 t0 lines">10.0</td>
-<td class="l m b0 r0 l0 t0 lines">1.9</td>
-<td class="l m b0 r0 l0 t0 lines">5</td>
-<td class="l m b0 r0 l0 t0 lines">25.0</td>
-<td class="l m b0 r0 l0 t0 lines">4.4</td>
-<td class="l m b0 r0 l0 t0 lines">10</td>
-<td class="l m b0 r0 l0 t0 lines">56.0</td>
-<td class="l m b0 r0 l0 t0 lines">8.1</td>
-<td class="l m b0 r0 l0 t0 lines">15</td>
-<td class="l m b0 r0 l0 t0 lines">102.8</td>
-<td class="l m b0 r0 l0 t0 lines">10.0</td>
-<td class="l m b0 r0 l0 t0 lines">20</td>
-<td class="l m b0 r0 l0 t0 lines">148.4</td>
-<td class="l m b0 r0 l0 t0 lines">7.7</td>
-</tr>
-</table></div> Use an appropriate linearization to estimate the population size for <span class="process-math">\(t=12\text{.}\)</span></p>
+<p>Underneath the discussion about physical variables, we understand from the problem that <span class="process-math">\(Q\)</span> is a function of <span class="process-math">\(T\text{,}\)</span> say <span class="process-math">\(Q=f(T)\text{.}\)</span> The rate of change <span class="process-math">\(\frac{dQ}{dT}\)</span> that is given represents the derivative <span class="process-math">\(f'(T)\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(T) = 0.7180 + 0.0024T - 0.000005 T^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">From the given information, we know that <span class="process-math">\(f(60) = 4\text{.}\)</span> Using the derivative formula, we can also find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(60) = 0.7180 + 0.0024(60) - 0.000005 (60)^2 = 0.844\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The linearization says that for <span class="process-math">\(T\)</span> close to <span class="process-math">\(T=60\text{,}\)</span> we have an approximate relation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q = 4 + 0.844(T-60)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(T=65\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q \approx 4 + 0.844(65-60) = 8.22\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, the total heat added to reach 65 degrees Celsius is approximately 8.22 Joules (from its original state) or 4.22 additional Joules (from its current state).</p>
 <span class="incontext"><a href="sec_derivs_deriv_function.html#p-718" class="internal">in-context</a></span>
 </body>
 </html>

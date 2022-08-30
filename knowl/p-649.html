@@ -12,7 +12,19 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>We finish by comparing the values. The left- and right-derivatives do not have a common value, so the value <span class="process-math">\(g'(2)\)</span> does not exist. The function <span class="process-math">\(g(x)\)</span> is <em class="emphasis">not</em> differentiable at <span class="process-math">\(x=2\text{.}\)</span></p>
+<p>In this example, the function <span class="process-math">\(g(x)\)</span> at <span class="process-math">\(x=2\)</span> uses the formula <span class="process-math">\(x^2-2x\)</span> to give <span class="process-math">\(g(2)=2^2-2(2) = 0\text{.}\)</span> The right-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \gt 0\)</span> so that we use the formula for <span class="process-math">\(x \gt 2\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(2+h) = 2(2+h) = 4+2h\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The left-derivative uses a secant line based on <span class="process-math">\(g(2+h)\)</span> with <span class="process-math">\(h \lt 0\)</span> to use <span class="process-math">\(g(x)=x^2-2x\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(2+h) = (2+h)^2-2(2+h) = 4+4h+h^2-4-2h = 2h+h^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Once we recognize which formulas and values to use, we calculate the slope of the secant lines and then find the limits.</p>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-649" class="internal">in-context</a></span>
 </body>
 </html>

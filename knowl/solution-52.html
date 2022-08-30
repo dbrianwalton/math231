@@ -13,68 +13,53 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.3.2.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.3.1.1</span><span class="period">.</span>
 </h4>
-<p>We will repeat the same steps to find the derivative using the definition as before.</p>
+<p>The basic pattern for using the definition of the derivative will be used:</p>
 <ul class="disc">
-<li>
-<p>Identify the formula for <span class="process-math">\(f(x)\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x) = \frac{2x}{3x+1}\text{.}
-\end{equation*}
-</div>
-</li>
-<li><p>Compute <span class="process-math">\(f(x+h)\)</span> using function substitution.</p></li>
-<li><p>Write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}\text{.}\)</span></p></li>
+<li><p>Identify the formula for <span class="process-math">\(g(x)\text{.}\)</span></p></li>
+<li><p>Compute <span class="process-math">\(g(x+h)\)</span> using function substitution.</p></li>
+<li><p>Write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta g}{\Delta x} = \frac{g(x+h)-g(x)}{h}\text{.}\)</span></p></li>
 <li><p>Use algebra to rewrite this in order to cancel away division by <span class="process-math">\(h\)</span> (finding a continuous formula at <span class="process-math">\(h=0\)</span>).</p></li>
 <li><p>Use continuity at <span class="process-math">\(h=0\)</span> to evaluate the limit as <span class="process-math">\(h \to 0\)</span> of the slope of the secant line.</p></li>
 </ul>
-<p>First, we compute</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x+h) = \frac{2(x+h)}{3(x+h)+1}\text{.}
-\end{equation*}
-</div>
-<p class="continuation">Notice that <em class="emphasis">each</em> instance of <span class="process-math">\(x\)</span> was replaced by <span class="process-math">\((x+h)\text{.}\)</span> We will rewrite this as</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x+h) = \frac{2x+2h}{3x+3h+1}\text{.}
-\end{equation*}
-</div>
-<p>Next, we write down the formula for <span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{\Delta f}{\Delta x} = \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}\text{.}
-\end{equation*}
-</div>
-<p class="continuation">This is where we have a quotient of a quotient. We want to rewrite this so that the difference on the top is combined to a single quotient, and instead of dividing by <span class="process-math">\(h\text{,}\)</span> we multiply by <span class="process-math">\(\frac{1}{h}\text{.}\)</span> The first fraction has a denominator of <span class="process-math">\(3x+3h+1\)</span> and the second has a denominator of <span class="process-math">\(3x+1\text{.}\)</span> The <em class="emphasis">temptation</em> is to <em class="emphasis">add</em> <span class="process-math">\(3h\)</span> to get a common denominator, but this is not valid.</p>
-<p>The only way we can leave a quotient's value unchanged is to <em class="emphasis">multiply</em> the top and bottom by the same thing. In this case, we will create a new common denominator that is the <em class="emphasis">product</em> of the two original denominators. This is the motivation for writing</p>
+<p class="continuation">The resulting formula coming after this limit will <em class="emphasis">be</em> the formula for the derivative function.</p>
+<p>Here are the steps for this problem. First, find the <span class="process-math">\(y\)</span>-values for the two points on the secant line.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-\frac{\Delta f}{\Delta x} &amp;= \frac{\frac{2x+2h}{3x+3h+1}-\frac{2x}{3x+1}}{h}\\
-&amp;= \frac{1}{h} \cdot \left( \frac{(2x+2h)(3x+1)}{(3x+3h+1)(3x+1)} - \frac{2x(3x+3h+1)}{(3x+1)(3x+3h+1)}\right)\\
-&amp;= \frac{1}{h} \cdot \left( \frac{(6x^2+2x+6xh+2h)-(6x^2+6xh+2x)}{(3x+3h+1)(3x+1)}\right)\\
-&amp;= \frac{1}{h} \cdot \left( \frac{2h}{(3x+3h+1)(3x+1)}\right)
+g(x) &amp;= x^2 -2x\\
+g(x+h) &amp;= (x+h)^2 - 2(x+h)\\
+&amp;= (x+h)(x+h) - 2(x+h)\\
+&amp;= x^2+2xh+h^2 - 2x - 2h
 \end{align*}
 </div>
-<p class="continuation">At this point the factor of <span class="process-math">\(h\)</span> on the right cancels division by <span class="process-math">\(h\)</span> on the left, leaving</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\frac{\Delta f}{\Delta x} = \frac{2}{(3x+3h+1)(3x+1)}\text{,}
-\end{equation*}
-</div>
-<p class="continuation">which is continuous at <span class="process-math">\(h=0\text{.}\)</span></p>
-<p>The derivative <span class="process-math">\(f'(x)\)</span> will be the limit of the slope of the secant line as <span class="process-math">\(h \to 0\text{.}\)</span></p>
+<p class="continuation">Second, write down the formula for the <em class="emphasis">slope</em> of the secant line and then simplify the result.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
-&amp;= \lim_{h \to 0} \frac{2}{(3x+3h+1)(3x+1)}\\
-&amp;= \frac{2}{(3x+3(0)+1)(3x+1)}\\
-&amp;= \frac{2}{(3x+1)^2}
+\frac{\Delta g}{\Delta x} &amp;= \frac{g(x+h)-g(x)}{h}\\
+&amp;= \frac{(x^2+2xh+h^2 - 2x - 2h) - (x^2-2x)}{h}\\
+&amp;= \frac{\cancel{x^2}+2xh+h^2 - \cancel{2x} - 2h -  \cancel{x^2} + \cancel{2x}}{h}\\
+&amp;= \frac{2xh+h^2 - 2h}{h}
 \end{align*}
 </div>
-<p class="continuation">That is, we have found that for <span class="process-math">\(\displaystyle f(x)=\frac{2x}{3x+1}\text{,}\)</span> we have a derivative <span class="process-math">\(\displaystyle f'(x)=\frac{2}{(3x+1)^2}\text{.}\)</span></p>
+<p class="continuation">Notice that each term in the numerator has a common factor of <span class="process-math">\(h\text{.}\)</span> We factor it out in order to cancel:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{\Delta g}{\Delta x} &amp;= \frac{2xh+h^2 - 2h}{h}\\
+&amp;= \frac{\cancel{h}(2x+h-2)}{\cancel{h}}\\
+&amp;= 2x+h-2
+\end{align*}
+</div>
+<p class="continuation">Lastly, the derivative is defined as the <em class="emphasis">limit</em> of this secant line slope as <span class="process-math">\(h \to 0\text{.}\)</span> Because the final formula removed the discontinuity at <span class="process-math">\(h=0\text{,}\)</span> we can use substitution to find the limit.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+g'(x) &amp;= \lim_{h \to 0} \frac{\Delta g}{\Delta x}\\
+&amp;= \lim_{h \to 0} [2x+h - 2]\\
+&amp;=  2x + 0 - 2\\
+&amp;= 2x - 2
+\end{align*}
+</div>
+<p class="continuation">Therefore, we have shown, using the definition of the derivative, that for <span class="process-math">\(g(x)=x^2-2x\text{,}\)</span> we have <span class="process-math">\(g'(x) = 2x-2\text{.}\)</span></p>
 </div>
 <span class="incontext"><a href="sec_derivs_deriv_function.html#solution-52" class="internal">in-context</a></span>
 </body>

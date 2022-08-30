@@ -13,21 +13,34 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.3.9.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.3.8.1</span><span class="period">.</span>
 </h4>
-<p>The time <span class="process-math">\(t=12\)</span> is closest to <span class="process-math">\(t=10\)</span> in the table. We will use use <span class="process-math">\(t=10\)</span> for our linearization, at which time we have that <span class="process-math">\(P=56.0\)</span> (thousands of individuals) and <span class="process-math">\(\frac{dP}{dt}=8.1\)</span> (thousands per year). The tangent line formula is given by</p>
+<p>Underneath the discussion about physical variables, we understand from the problem that <span class="process-math">\(Q\)</span> is a function of <span class="process-math">\(T\text{,}\)</span> say <span class="process-math">\(Q=f(T)\text{.}\)</span> The rate of change <span class="process-math">\(\frac{dQ}{dT}\)</span> that is given represents the derivative <span class="process-math">\(f'(T)\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-P = 56.0 + 8.1\cdot(t-10)\text{,}
+f'(T) = 0.7180 + 0.0024T - 0.000005 T^2\text{.}
 \end{equation*}
 </div>
-<p class="continuation">so that the approximate value at <span class="process-math">\(t=12\)</span> is given by</p>
+<p class="continuation">From the given information, we know that <span class="process-math">\(f(60) = 4\text{.}\)</span> Using the derivative formula, we can also find</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-P = 56.0 + 8.1\cdot(12-10) = 72.2\text{.}
+f'(60) = 0.7180 + 0.0024(60) - 0.000005 (60)^2 = 0.844\text{.}
 \end{equation*}
 </div>
-<p class="continuation">The linearization predicts a population of about 72.2 thousand individuals.</p>
+<p class="continuation">The linearization says that for <span class="process-math">\(T\)</span> close to <span class="process-math">\(T=60\text{,}\)</span> we have an approximate relation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q = 4 + 0.844(T-60)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(T=65\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+Q \approx 4 + 0.844(65-60) = 8.22\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, the total heat added to reach 65 degrees Celsius is approximately 8.22 Joules (from its original state) or 4.22 additional Joules (from its current state).</p>
+<p>In this solution, the key features I will be looking for is whether you stated a linearization (the tangent line formula), and then whether you used it to answer the question.</p>
 </div>
 <span class="incontext"><a href="sec_derivs_deriv_function.html#solution-56" class="internal">in-context</a></span>
 </body>

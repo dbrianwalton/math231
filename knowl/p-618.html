@@ -11,8 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>Given the graph of the function <span class="process-math">\(f(x)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig_ex_differentiability_piecewise_graph.html" title="Figure 4.2.8">Figure 4.2.8</a>, estimate the one-sided derivatives at <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=2\text{.}\)</span> Explain whether <span class="process-math">\(f\)</span> is differentiable at each of these points.</p>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The piecewise example illustrates that we can have different limits from the left and right. We define left- and right-derivatives as the corresponding limits of the average rate of change:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{gather*}
+\frac{df}{dx}\Big|_{a^-} = \lim_{h \to 0^-} \frac{f(a+h)-f(a)}{h}\\
+\frac{df}{dx}\Big|_{a^+} = \lim_{h \to 0^+} \frac{f(a+h)-f(a)}{h}
+\end{gather*}
+</div>
+<p class="continuation">The derivative will only be defined if these two values both exist and have the same value. Recall that this was required of any limit. The function is <dfn class="terminology">differentiable</dfn> at <span class="process-math">\(x=a\)</span> if the left- and right-derivatives both exist and have the same value.</p>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-618" class="internal">in-context</a></span>
 </body>
 </html>

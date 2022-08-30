@@ -11,8 +11,54 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>We noted in the previous subsection that the formula for the slope of the secant line sometimes can be simplified, and when this happens we can find the exact value of the derivative without the table approximation. This occurs when we can cancel away a factor of <span class="process-math">\(h\)</span> from the numerator and denominator. In the context of our work with limits, the cancellation finds a <em class="emphasis">continuous</em> formula that is equivalent to the original formula for <span class="process-math">\(h \ne 0\text{.}\)</span> With that continuous formula, finding the limit is equivalent to direct calculation of the value (plugging it in).</p>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>Depending on which choice we used for the second point, we either need a limit as <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f'(3) &amp;= \lim_{h \to 0}\frac{f(3+h)-f(3)}{h}\\
+&amp;= \lim_{x \to 3} \frac{f(x)-f(3)}{x-3}
+\end{align*}
+</div>
+<p class="continuation">Notice how we setup the table of values in our approximation. We will choose points closer and closer to <span class="process-math">\(x \to 3\)</span> or <span class="process-math">\(h \to 0\)</span> until it is clear that the decimal values are converging. The entire table that shows the convergence is necessary for showing that your approximation is good. We also need to include enough decimal values in our results to see if the convergence is actually happening. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x \to 3\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.9</td>
+<td class="l m b0 r0 l0 t0 lines">5.357361</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.99</td>
+<td class="l m b0 r0 l0 t0 lines">5.526003</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.999</td>
+<td class="l m b0 r0 l0 t0 lines">5.543256</td>
+</tr>
+</table></div> With the data so far, we don't quite see convergence. The values for 2.99 and 2.999 have the first two digits in common of 5.5 for the slope, but the next digit is getting bigger. Sometimes it is easier to discover convergence by checking both sides, this time trying <span class="process-math">\(x \to 3^+\text{.}\)</span> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x \to 3\)</span></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\displaystyle \frac{\Delta f}{\Delta x} = \frac{2^x-8}{x-3}\)</span></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.1</td>
+<td class="l m b0 r0 l0 t0 lines">5.741877</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.01</td>
+<td class="l m b0 r0 l0 t0 lines">5.564440</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3.001</td>
+<td class="l m b0 r0 l0 t0 lines">5.547100</td>
+</tr>
+</table></div> The slope values for this table are decreasing. We can see that the value should be <em class="emphasis">between</em> 5.543256 and 5.547100. In fact, once we are close on both sides, the average will usually be quite close to the approximate value:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(3) \approx 5.545178\text{.}
+\end{equation*}
+</div>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-638" class="internal">in-context</a></span>
 </body>
 </html>

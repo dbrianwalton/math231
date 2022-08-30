@@ -12,43 +12,18 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>As written, this function is a quotient. We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.</p>
+<p>To find <span class="process-math">\(R'(x)\text{,}\)</span> we need to use the <em class="emphasis">quotient rule</em> because <span class="process-math">\(R(x)\)</span> itself is a quotient.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-f(x) &amp;= \frac{2}{5(x^2+3x)^6}\\
-&amp;= \frac{2}{5} (x^2+3x)^{-6}
+R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} \\
+&amp;= \frac{\frac{d}{dx}[x^2+2x] \cdot (2x^2+1) - (x^2+2x) \cdot \frac{d}{dx}[2x^2+1]}{(2x^2+1)^2} \\
+&amp;= \frac{(2x+2)(2x^2+1) - (x^2+2x)(4x)}{(2x^2+1)^2} \\
+&amp;= \frac{(4x^3+4x^2+2x+2) - (4x^3+8x^2)}{(2x^2+1)^2} \\
+&amp;= \frac{4x^3+4x^2+2x+2 - 4x^3 - 8x^2}{(2x^2+1)^2} \\
+&amp;= \frac{-4x^2+2x+2}{(2x^2+1)^2} 
 \end{align*}
 </div>
-<p class="continuation">Our function <span class="process-math">\(y=f(x)\)</span> is now the composition (or chain)</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\begin{cases}
-y = \frac{2}{5} u^{-6} \\
-u = x^2+3x
-\end{cases}
-\end{equation*}
-</div>
-<p class="continuation">We can compute the derivatives of each stage of the composition:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\begin{cases}
-\frac{dy}{du} = \frac{2}{5} \cdot -6 u^{-7} = \frac{-12}{5} u^{-7}\\
-\frac{du}{dx} = 2x+3
-\end{cases}
-\end{equation*}
-</div>
-<p class="continuation">The chain rule says that the derivative of a composition (chain) is the product of the derivatives of each stage:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f'(x) = \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = \frac{-12}{5} u^{-7} \cdot (2x+3)
-\end{equation*}
-</div>
-<p class="continuation">We finish by substituting back in the formula for <span class="process-math">\(u\text{:}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}\text{.}
-\end{equation*}
-</div>
+<p class="continuation">Experience has shown me that we <em class="emphasis">always</em> want to rewrite the numerator in hopes of factoring in the future, but <em class="emphasis">almost never</em> want to rewrite the denominator since it is already factored.</p>
 <span class="incontext"><a href="sec_derivs_differentiation.html#p-769" class="internal">in-context</a></span>
 </body>
 </html>

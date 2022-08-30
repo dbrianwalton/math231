@@ -11,25 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>First, recall that <span class="process-math">\(f'(3)\)</span> and <span class="process-math">\(\frac{df}{dx}\Big|_{3}\)</span> are different notations for the same thing. The definition of the derivative tells us we should consider the two points <span class="process-math">\((3,f(3))\)</span> and <span class="process-math">\((3+h,f(3+h))\)</span> and compute the slope. We will start by computing the formulas for the function values:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-f(x) &amp;= x^2 + x\\
-f(3) &amp;= 3^2 + 3 = 12\\
-f(3+h) &amp;=(3+h)^2 + (3+h)\\
-&amp;= 9 + 6h + h^2 + 3 + h\\
-&amp;= 12 + 7h + h^2
-\end{align*}
-</div>
-<p class="continuation">The slope of the <em class="emphasis">secant line</em> will be:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\frac{\Delta f}{\Delta x}\Big|_{3,3+h} &amp;= \frac{f(3+h)-f(3)}{h}\\
-&amp;= \frac{(12+7h+h^2)-12}{h}\\
-&amp;= \frac{7h+h^2}{h}
-\end{align*}
-</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>In this first setting, we are going to consider numerical approximations of the derivative by looking at the decimal value of the slope of secant lines with progressively smaller values of <span class="process-math">\(h\text{.}\)</span> We want to see how making <span class="process-math">\(h \to 0\)</span> causes the value of the slope of the secant line to converge to some value. That value will be the derivative. Later we will look at examples where the algebra of the formula for the slope of the secant line can simplify and allows us to compute an exact limit.</p>
 <span class="incontext"><a href="sec_derivs_limit_definition.html#p-628" class="internal">in-context</a></span>
 </body>
 </html>

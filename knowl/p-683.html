@@ -12,16 +12,18 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>The derivative <span class="process-math">\(f'(x)\)</span> will be the limit of the slope of the secant line as <span class="process-math">\(h \to 0\text{.}\)</span></p>
+<p>First, we compute</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}\\
-&amp;= \lim_{h \to 0} \frac{2}{(3x+3h+1)(3x+1)}\\
-&amp;= \frac{2}{(3x+3(0)+1)(3x+1)}\\
-&amp;= \frac{2}{(3x+1)^2}
-\end{align*}
+\begin{equation*}
+f(x+h) = \frac{2(x+h)}{3(x+h)+1}\text{.}
+\end{equation*}
 </div>
-<p class="continuation">That is, we have found that for <span class="process-math">\(\displaystyle f(x)=\frac{2x}{3x+1}\text{,}\)</span> we have a derivative <span class="process-math">\(\displaystyle f'(x)=\frac{2}{(3x+1)^2}\text{.}\)</span></p>
+<p class="continuation">Notice that <em class="emphasis">each</em> instance of <span class="process-math">\(x\)</span> was replaced by <span class="process-math">\((x+h)\text{.}\)</span> We will rewrite this as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x+h) = \frac{2x+2h}{3x+3h+1}\text{.}
+\end{equation*}
+</div>
 <span class="incontext"><a href="sec_derivs_deriv_function.html#p-683" class="internal">in-context</a></span>
 </body>
 </html>
