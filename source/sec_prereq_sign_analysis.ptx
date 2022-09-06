@@ -189,7 +189,7 @@
                 <p>
                     At this point we need to factor the polynomial.
                     Because this is degree 4, we will use a computer to solve.
-                    One approach would be to go to <url href="https://wolframalpha.com" visual="wolframalpha.com">WolframAlpha</url> and type <c>factor x^4-x^3-9x^2+2x+8</c>.
+                    One approach would be to go to <url href="https://wolframalpha.com" visual="wolframalpha.com">WolframAlpha</url> and type <c>factor x^4-x^3-13x^2+x+12</c>.
                     Another would be to use the free tool <url href="https://sagecell.sagemath.org" visual="sagecell.sagemath.org">SageMath</url>, as illustrated below.
                 </p>
                 <sage>
