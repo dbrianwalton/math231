@@ -232,8 +232,53 @@ window.MathJax = {
 <span class="type">Subsection</span> <span class="codenumber">3.5.2</span> <span class="title">Limit Theorems</span>
 </h3>
 <p id="p-555">For a typical question, relying on the definition of a limit to justify that the value of a limit is valid is much too complex. Theorems provide a connection between calculating limits using various rules and justifying those limits in terms of the definition. Limit theorems start by establishing certain elementary formulas whose limits can be directly justified by the definition. Additional theorems then establish rules about limits based on arithmetic combining those formulas.</p>
-<article class="assemblage assemblage-like" id="asmbl_limits_elementary"><h4 class="heading"><span class="title">Elementary Limits.</span></h4></article><p id="p-560">Algebraic functions are those functions defined by combining these elementary functions using arithmetic operations (sum, difference, product, and quotient), including powers (repeated multiplication). Limit rules for functions constructed from simpler parts are based on the idea that if we know the limits of the parts, then we can guarantee the limit of the combination has a value calculated from those simpler limits.</p>
-<article class="assemblage assemblage-like" id="asmbl_limits_combination_rules"><h4 class="heading"><span class="title">Limit Rules for Combinations.</span></h4></article><p id="p-569">The first three rules that only involve one function are listed separately because using those rules only requires knowing the limit of one function in advance. This simplifies the process of justification in that we don't need to separately make note of the limits of the individual constants involved. Otherwise, to justify a limit using a limit rule, we first show the limits of the parts are separately justified, and then we apply the limit rule to justify the combined limit is justified.</p>
+<article class="assemblage assemblage-like" id="asmbl_limits_elementary"><h4 class="heading"><span class="title">Elementary Limits.</span></h4>
+<p id="p-556">Functions defined by one of the following elementary forms have limits directly justified by the definition of a limit.</p>
+<ul class="disc">
+<li id="li-107">
+<p id="p-557">Constant Functions: <span class="process-math">\(f(x)=c\)</span> for any real number <span class="process-math">\(c\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} c = c\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-108">
+<p id="p-558">Identity Function: <span class="process-math">\(f(x)=x\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} x = a\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="li-109">
+<p id="p-559">Linear Functions: <span class="process-math">\(f(x)=mx+b\)</span> for any real numbers <span class="process-math">\(m,b\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} [mx+b] = ma+b\text{.}
+\end{equation*}
+</div>
+</li>
+</ul>
+<p class="continuation">Ultimately, what these limit rules say is that these elementary functions are continuous.</p></article><p id="p-560">Algebraic functions are those functions defined by combining these elementary functions using arithmetic operations (sum, difference, product, and quotient), including powers (repeated multiplication). Limit rules for functions constructed from simpler parts are based on the idea that if we know the limits of the parts, then we can guarantee the limit of the combination has a value calculated from those simpler limits.</p>
+<article class="assemblage assemblage-like" id="asmbl_limits_combination_rules"><h4 class="heading"><span class="title">Limit Rules for Combinations.</span></h4>
+<p id="p-561">Suppose that <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> are functions with <em class="emphasis">known</em> limits as <span class="process-math">\(x \to a\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-71">
+\begin{gather*}
+\lim_{x \to a} f(x) = L\\
+\lim_{x \to a} g(x) = M
+\end{gather*}
+</div>
+<p class="continuation">The following combinations of formulas also have limits:</p>
+<ul class="disc">
+<li id="li-110"><p id="p-562">Limit of Constant Sum: For any real number <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(\displaystyle \lim_{x \to a} [f(x)+k] = L + k\text{.}\)</span></p></li>
+<li id="li-111"><p id="p-563">Limit of Constant Multiple: For any real number <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L\text{.}\)</span></p></li>
+<li id="li-112"><p id="p-564">Limit of Reciprocal (Multiplicative Inverse): If <span class="process-math">\(M \ne 0\text{,}\)</span> <span class="process-math">\(\displaystyle \lim_{x \to a} [\frac{1}{g(x)}] = \frac{1}{M}\text{.}\)</span></p></li>
+<li id="li-113"><p id="p-565">Limit of Sum: <span class="process-math">\(\displaystyle \lim_{x \to a} [f(x) + g(x)] = L+M\text{.}\)</span></p></li>
+<li id="li-114"><p id="p-566">Limit of Difference: <span class="process-math">\(\displaystyle \lim_{x \to a} [f(x) - g(x)] = L-M\text{.}\)</span></p></li>
+<li id="li-115"><p id="p-567">Limit of Product: <span class="process-math">\(\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M\text{.}\)</span></p></li>
+<li id="li-116"><p id="p-568">Limit of Quotient: If <span class="process-math">\(M \ne 0\text{,}\)</span> <span class="process-math">\(\displaystyle \lim_{x \to a} [\frac{f(x)}{g(x)}] = \frac{L}{M}\text{.}\)</span></p></li>
+</ul></article><p id="p-569">The first three rules that only involve one function are listed separately because using those rules only requires knowing the limit of one function in advance. This simplifies the process of justification in that we don't need to separately make note of the limits of the individual constants involved. Otherwise, to justify a limit using a limit rule, we first show the limits of the parts are separately justified, and then we apply the limit rule to justify the combined limit is justified.</p>
 <p id="p-570">The process of justification of a limit using limit rules starts by thinking through the deconstruction of a formula, as addressed in our earlier learning outcomes in <a href="sec_fcn_construction.html#subsec_fcn_deconstruction" class="internal" title="Subsection 2.2.3: Expression Deconstruction">Subsection 2.2.3</a>. Each operation that combines two formulas to create a slightly more complex formula will correspond to using a limit rule in a limit justification. Once we have the deconstruction, the elementary functions will be the leaves of the tree. We start by justifying the limits of these functions using the elementary limit rules. Then we work our way up the tree, combining branches one at a time using limit rules of combination, until we have the limit of interest. We do need beware that we don't try to combine limits involving division by zero.</p>
 <article class="example example-like" id="ex_lim_justify_basic"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.6</span><span class="period">.</span>
