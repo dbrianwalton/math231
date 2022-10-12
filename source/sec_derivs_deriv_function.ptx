@@ -471,9 +471,17 @@
                         </row>
                         <row>
                             <cell>0</cell><cell>10.0</cell><cell>1.9</cell>
+                        </row>
+                        <row>
                             <cell>5</cell><cell>25.0</cell><cell>4.4</cell>
+                        </row>
+                        <row>
                             <cell>10</cell><cell>56.0</cell><cell>8.1</cell>
+                        </row>
+                        <row>
                             <cell>15</cell><cell>102.8</cell><cell>10.0</cell>
+                        </row>
+                        <row>
                             <cell>20</cell><cell>148.4</cell><cell>7.7</cell>
                         </row>
                     </tabular>
