@@ -252,26 +252,24 @@
         </p>
         <assemblage xml:id="asmbl_limits_elementary">
             <title>Elementary Limits</title>
-            <statement>
-                <p>
-                    Functions defined by one of the following elementary forms have limits directly justified by the definition of a limit.
-                    <ul>
-                        <li><p>
-                            Constant Functions: <m>f(x)=c</m> for any real number <m>c</m>,
-                            <me>\lim_{x \to a} c = c</me>.
-                        </p></li>
-                        <li><p>
-                            Identity Function: <m>f(x)=x</m>,
-                            <me>\lim_{x \to a} x = a</me>.
-                        </p></li>
-                        <li><p>
-                            Linear Functions: <m>f(x)=mx+b</m> for any real numbers <m>m,b</m>,
-                            <me>\lim_{x \to a} [mx+b] = ma+b</me>.
-                        </p></li>
-                    </ul>
-                    Ultimately, what these limit rules say is that these elementary functions are continuous.
-                </p>
-            </statement>
+            <p>
+                Functions defined by one of the following elementary forms have limits directly justified by the definition of a limit.
+                <ul>
+                    <li><p>
+                        Constant Functions: <m>f(x)=c</m> for any real number <m>c</m>,
+                        <me>\lim_{x \to a} c = c</me>.
+                    </p></li>
+                    <li><p>
+                        Identity Function: <m>f(x)=x</m>,
+                        <me>\lim_{x \to a} x = a</me>.
+                    </p></li>
+                    <li><p>
+                        Linear Functions: <m>f(x)=mx+b</m> for any real numbers <m>m,b</m>,
+                        <me>\lim_{x \to a} [mx+b] = ma+b</me>.
+                    </p></li>
+                </ul>
+                Ultimately, what these limit rules say is that these elementary functions are continuous.
+            </p>
         </assemblage>
         <p>
             Algebraic functions are those functions defined by combining these elementary functions using arithmetic operations (sum, difference, product, and quotient), including powers (repeated multiplication).
@@ -279,39 +277,37 @@
         </p>
         <assemblage xml:id="asmbl_limits_combination_rules">
             <title>Limit Rules for Combinations</title>
-            <statement>
-                <p>
-                    Suppose that <m>f(x)</m> and <m>g(x)</m> are functions with <em>known</em> limits as <m>x \to a</m>:
-                    <md>
-                        <mrow>\lim_{x \to a} f(x) = L</mrow>,
-                        <mrow>\lim_{x \to a} g(x) = M</mrow>.
-                    </md>
-                    The following combinations of formulas also have limits:
-                    <ul>
-                        <li><p>
-                            Limit of Constant Sum: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [f(x)+k] = L + k</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Constant Multiple: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Reciprocal (Multiplicative Inverse): If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{1}{g(x)}] = \frac{1}{M}</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Sum: <m>\displaystyle \lim_{x \to a} [f(x) + g(x)] = L+M</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Difference: <m>\displaystyle \lim_{x \to a} [f(x) - g(x)] = L-M</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Product: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.
-                        </p></li>
-                        <li><p>
-                            Limit of Quotient: If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{f(x)}{g(x)}] = \frac{L}{M}</m>.
-                        </p></li>
-                    </ul>
-                </p>
-            </statement>
+            <p>
+                Suppose that <m>f(x)</m> and <m>g(x)</m> are functions with <em>known</em> limits as <m>x \to a</m>:
+                <md>
+                    <mrow>\lim_{x \to a} f(x) = L</mrow>,
+                    <mrow>\lim_{x \to a} g(x) = M</mrow>.
+                </md>
+                The following combinations of formulas also have limits:
+                <ul>
+                    <li><p>
+                        Limit of Constant Sum: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [f(x)+k] = L + k</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Constant Multiple: For any real number <m>k</m>, <m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Reciprocal (Multiplicative Inverse): If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{1}{g(x)}] = \frac{1}{M}</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Sum: <m>\displaystyle \lim_{x \to a} [f(x) + g(x)] = L+M</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Difference: <m>\displaystyle \lim_{x \to a} [f(x) - g(x)] = L-M</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Product: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.
+                    </p></li>
+                    <li><p>
+                        Limit of Quotient: If <m>M \ne 0</m>, <m>\displaystyle \lim_{x \to a} [\frac{f(x)}{g(x)}] = \frac{L}{M}</m>.
+                    </p></li>
+                </ul>
+            </p>
         </assemblage>
         <p>
             The first three rules that only involve one function are listed separately because using those rules only requires knowing the limit of one function in advance.
