@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Foundational Principles</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="ch_applications.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_applications.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_apply_deriv_to_shape.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ch_applications.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_applications.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_apply_deriv_to_shape.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a><ul>
+<li><a href="sec_apply_foundations.html" data-scroll="sec_apply_foundations" class="active">Foundational Principles</a></li>
+<li><a href="sec_apply_deriv_to_shape.html" data-scroll="sec_apply_deriv_to_shape" class="internal">Derivatives Determine Shape</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_apply_foundations"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Foundational Principles</span>
+</h2>
+<section class="introduction" id="introduction-23"><p id="p-780">Applications of the derivative use knowledge about the derivative function to create conclusions about the original function. The derivative is a calculation that is specific to individual points. Most of the applications focus on properties over an interval or possibly the entire domain. We need some additional tools that allow us to cross the bridge between point-wise numerical values to interval-wide behavior. Calculus provides some important and powerful <em class="emphasis">theorems</em> that provide this bridge.</p>
+<p id="p-781">This section introduces these theorems.</p>
+<ul class="disc">
+<li id="li-156"><p id="p-782">Intermediate Value Theorem: Continuous functions pass through intermediate values.</p></li>
+<li id="li-157"><p id="p-783">Extreme Value Theorem: Continuous functions defined on closed intervals have maximum and minimum values.</p></li>
+<li id="li-158"><p id="p-784">Fermat's Theorem: At a local extreme value, a function either has a slope of zero or no derivative at all.</p></li>
+<li id="li-159"><p id="p-785">Mean Value Theorem: A continuous and differentiable function on a closed interval must have an interior point where the instantaneous rate is equal to the average rate of change over the interval as a whole.</p></li>
+</ul>
+<p class="continuation">The other sections in the chapter will look at how these theorems are used in specific applications.</p></section><section class="subsection" id="subsec_foundation_ivt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Intermediate Value Theorem</span>
+</h3>
+<p id="p-786">The <dfn class="terminology">intermediate value theorem</dfn> is a theorem about continuous functions. When we defined continuity, it was a property that functions had at individual points. To extend the idea of point-wise continuity to an interval, we require continuity at each point within the interval. For end points, we require one-sided continuity based on a limit coming from values within the interval.</p>
+<article class="definition definition-like" id="defn_continuity_intervals"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Continuity on Intervals.</span>
+</h4>
+<p id="p-787">A function <span class="process-math">\(f\)</span> is <dfn class="terminology">continuous on an open interval</dfn> <span class="process-math">\((a,b)\)</span> if <span class="process-math">\(f\)</span> is continuous <em class="emphasis">at</em> every point <span class="process-math">\(c \in (a,b)\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to c} f(x) = f(c)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can include the <em class="emphasis">left</em> end point <span class="process-math">\(a\)</span> if <span class="process-math">\(f\)</span> is <em class="emphasis">right-continuous</em> at <span class="process-math">\(a\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a^+} f(x) = f(a)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can include the <em class="emphasis">right</em> end point <span class="process-math">\(b\)</span> if <span class="process-math">\(f\)</span> is <em class="emphasis">left-continuous</em> at <span class="process-math">\(b\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to b^-} f(x) = f(b)\text{.}
+\end{equation*}
+</div></article><p id="p-788">The property of continuity is directly related to a property of connectedness. A function that is continuous on an interval has a graph that is connected. The intermediate value theorem captures this property by looking at how a graph must pass through all intermediate values.</p>
+<article class="theorem theorem-like" id="thm_intermediate_value_theorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Intermediate Value Theorem (IVT).</span>
+</h4>
+<p id="p-789">If a function <span class="process-math">\(f\)</span> is continuous on a <em class="emphasis">closed</em> interval <span class="process-math">\([a,b]\text{,}\)</span> then for <em class="emphasis">every</em> value <span class="process-math">\(L\)</span> between <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{,}\)</span> there exists some <span class="process-math">\(c \in (a,b)\)</span> so that <span class="process-math">\(f(c)=L\text{.}\)</span></p></article><p id="p-790">A visual interpretation of the IVT would be to consider the end points of the function creating points <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((b,f(b))\text{.}\)</span> Now, imagine putting <em class="emphasis">any</em> horizontal line at a height <span class="process-math">\(y=L\)</span> with <span class="process-math">\(L\)</span> between <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{.}\)</span> The IVT guarantees that any possible continuous function <span class="process-math">\(f\)</span> that goes through these two points must cross the horizontal line at some intermediate point.</p>
+<p id="p-791">There are two important applications.</p>
+<p id="p-792">The first is when trying to solve an equation <span class="process-math">\(f(x)=L\text{.}\)</span> In most actual applications, there is not a way to find the exact solution. But if <span class="process-math">\(f\)</span> is continuous on an interval where <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\)</span> are on <em class="emphasis">opposite</em> sides of <span class="process-math">\(L\text{,}\)</span> such as <span class="process-math">\(f(a) \lt L \lt f(b)\text{.}\)</span> The IVT guarantees that a solution exists, and the interval <span class="process-math">\([a,b]\)</span> is said to <em class="emphasis">bracket</em> the solution. If we repeatedly subdivide the interval, always choosing a subinterval that brackets the solution, we may not find the exact solution, but we can find an approximation that is as close as we desire.</p>
+<p id="p-793">The second application results from understanding how a function can cross a particular value. If the function is continuous, it must actually pass through the value of interest. If you know that there is <em class="emphasis">no</em> solution, then it must occur at a discontinuity where the function jumps across the value. This is the justification for doing <dfn class="terminology">sign analysis</dfn>.</p>
+<p id="p-794">Sign analysis is concerned about where a function is <em class="emphasis">positive</em> or <em class="emphasis">negative</em>. These values are separated by the value <span class="process-math">\(L=0\text{.}\)</span> The IVT says that a function can switch from positive to negative only by passing through points where <span class="process-math">\(f(x)=0\)</span> or where <span class="process-math">\(f(x)\)</span> is not continuous. This is why we mark all points on the number line where <span class="process-math">\(f(x)=0\)</span> (roots) or where <span class="process-math">\(f(x)\)</span> is not continuous (such as undefined points).</p>
+<p id="p-795">These points determine intervals inside of which we know there are no additional roots or discontinuities. When we test values of <span class="process-math">\(f(x)\)</span> at individual points inside such an interval, we know that every other point in the same interval must have the same sign as the point we tested.</p></section><section class="subsection" id="subsec_foundation_evt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Extreme Value Theorem</span>
+</h3>
+<p id="p-796">The extreme value theorem is concerned with a function's maximum and minimum values. It is possible for a function not to have any maximum value, such as when it has a vertical asymptote and the function increases without bound. Alternatively, it might be that for every value the function achieves, there is always another value that is even higher. In both cases, the function has no actual maximum value.</p>
+<article class="definition definition-like" id="defn_global_extreme"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Global Extreme Values.</span>
+</h4>
+<p id="p-797">A function <span class="process-math">\(f\)</span> with domain <span class="process-math">\(D\)</span> has a <dfn class="terminology">maximum value</dfn> of <span class="process-math">\(M\)</span> if there is some value <span class="process-math">\(x_M \in D\)</span> with <span class="process-math">\(f(x_M) = M\)</span> and for every other <span class="process-math">\(x \in D\text{,}\)</span> <span class="process-math">\(f(x) \le M\text{.}\)</span></p>
+<p id="p-798">A function <span class="process-math">\(f\)</span> with domain <span class="process-math">\(D\)</span> has a <dfn class="terminology">minimum value</dfn> of <span class="process-math">\(m\)</span> if there is some value <span class="process-math">\(x_m \in D\)</span> with <span class="process-math">\(f(x_m) = m\)</span> and for every other <span class="process-math">\(x \in D\text{,}\)</span> <span class="process-math">\(f(x) \ge m\text{.}\)</span></p></article><p id="p-799">Because not all functions have extreme values, we want some conditions that will guarantee their existence. The extreme value theorem tells us that a function continuous on a closed interval provides such a guarantee.</p>
+<article class="theorem theorem-like" id="thm_extreme_value_theorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Extreme Value Theorem.</span>
+</h4>Suppose a function <span class="process-math">\(f\)</span> is restricted to a domain that is a closed interval <span class="process-math">\([a,b]\text{.}\)</span> If <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> has a minimum <em class="emphasis">and</em> a maximum value on <span class="process-math">\([a,b]\text{.}\)</span></article><p id="p-800">The reason that the interval must be closed is that when an end-point is not included, say the right end point <span class="process-math">\(b\text{,}\)</span> we might have a limit <span class="process-math">\(\displaystyle \lim_{x \to b^-} f(x) = M\)</span> that <em class="emphasis">would</em> be the maximum but the function never actually has that value, <span class="process-math">\(f(x) \lt M\)</span> for all <span class="process-math">\(x\)</span> in the domain.</p></section><section class="subsection" id="subsec_foundation_fermat"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Derivatives at Extreme Values</span>
+</h3>
+<p id="p-801">In addition to considering the highest and lowest value of a function across the entire domain, we are also interested in <dfn class="terminology">local or relative extreme values</dfn>. Rather than considering the entire domain, local extreme values are the highest or lowest values among points immediately to the left or right.</p>
+<article class="definition definition-like" id="defn_local_extreme_values"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Local Extreme Values.</span>
+</h4>
+<p id="p-802">A function <span class="process-math">\(f\)</span> has a <dfn class="terminology">local or relative maximum</dfn> at <span class="process-math">\(x=c\)</span> if there exists <span class="process-math">\(\delta \gt 0\)</span> so that for all <span class="process-math">\(x \in (c-\delta,c+\delta)\text{,}\)</span> <span class="process-math">\(f(x)\)</span> is defined and <span class="process-math">\(f(x) \le f(c)\text{.}\)</span></p>
+<p id="p-803">A function <span class="process-math">\(f\)</span> has a <dfn class="terminology">local or relative minimum</dfn> at <span class="process-math">\(x=c\)</span> if there exists <span class="process-math">\(\delta \gt 0\)</span> so that for all <span class="process-math">\(x \in (c-\delta,c+\delta)\text{,}\)</span> <span class="process-math">\(f(x)\)</span> is defined and <span class="process-math">\(f(x) \ge f(c)\text{.}\)</span></p></article><p id="p-804">Derivatives give us information about slope at a point by finding the limit of slopes connecting nearby points. The consequence of this is that a slope also gives information about those nearby points. The idea of the derivative had started before calculus was formally developed by Newton and Leibniz. Fermat realized a connection between what we now call derivatives and local extremes.</p>
+<article class="theorem theorem-like" id="thm_fermat"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Fermat's Theorem.</span>
+</h4>
+<p id="p-805">If <span class="process-math">\(f(x)\)</span> has a local extreme at <span class="process-math">\(x=c\)</span> and is differentiable at <span class="process-math">\(x=c\text{,}\)</span> then <span class="process-math">\(f'(c)=0\text{.}\)</span></p></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-806">Suppose that <span class="process-math">\(f(x)\)</span> has a local maximum at <span class="process-math">\(x=c\text{.}\)</span> Then for <span class="process-math">\(c-\delta x \lt c\text{,}\)</span> we know <span class="process-math">\(f(x) \lt f(c)\)</span> and <span class="process-math">\(x \lt c\)</span> so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{f(x)-f(c)}{x-c} \gt 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using a limit as <span class="process-math">\(x \to c^-\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{df}{dx}\Big|_{c^-} = \lim_{x \to c^-} \frac{f(x)-f(c)}{x-c} \ge 0
+\end{equation*}
+</div>
+<p class="continuation">or does not exist. Meanwhile <span class="process-math">\(c \lt x \lt c+\delta\text{,}\)</span> we know <span class="process-math">\(f(x) \lt f(c)\)</span> and <span class="process-math">\(x \gt c\)</span> so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{f(x)-f(c)}{x-c} \lt 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using a limit as <span class="process-math">\(x \to c^+\text{,}\)</span> if it exists, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{df}{dx}\Big|_{c^+} = \lim_{x \to c^+} \frac{f(x)-f(c)}{x-c} \le 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(f'(c)\)</span> exists, the one-sided derivatives must agree, which can only occur if <span class="process-math">\(f'(c)=0\text{.}\)</span> If the one-sided derivatives do not exist or if they disagree, then <span class="process-math">\(f'(c)\)</span> itself does not exist.</p></article></div>
+<p id="p-807">Fermat's theorem gives us a way to find all points where a local extreme might occur. We only need to find points where <span class="process-math">\(f'(x)=0\)</span> or where <span class="process-math">\(f'(x)\)</span> does not exist (where <span class="process-math">\(f\)</span> is not differentiable). This is important enough that mathematicians assign these points a special name.</p>
+<article class="definition definition-like" id="defn_critical_point"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Critical Points.</span>
+</h4>
+<p id="p-808">A function <span class="process-math">\(f(x)\)</span> has a critical point at <span class="process-math">\(x=a\)</span> in the domain of <span class="process-math">\(f\)</span> if <span class="process-math">\(f'(a)=0\)</span> or <span class="process-math">\(f'(a)\)</span> does not exist.</p></article><p id="p-809">Notice that the critical point is property of <span class="process-math">\(f(x)\)</span> and is based on the derivative <span class="process-math">\(f'(x)\text{.}\)</span> We don't say critical point of <span class="process-math">\(f'(x)\)</span> unless we are talking about points where <span class="process-math">\(f''(x)=0\)</span> or <span class="process-math">\(f''(x)\)</span> does not exist.</p></section><section class="subsection" id="subsec_foundation_mvt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Mean Value Theorem</span>
+</h3>
+<p id="p-810">The average rate of change measures the slope of a line joining two points at the ends of an interval. The derivative measures the instantaneous rate of change at an individual point. The mean value theorem provides a connection between these two ideas.</p>
+<p id="p-811">Before discussing the mean value theorem, we first consider Rolle's theorem. This theorem considers a function that is continuous and differentiable on a closed interval so that the end points are at the same <span class="process-math">\(y\)</span>-value. Because it is continuous on a closed interval, the extreme value theorem guarantees that this function has both a maximum and a minimum value. If both extremes are at the end points, then the function must be constant on the entire interval. Otherwise, at least one of the extremes must be at an interior point. But at an interior extreme point where the function is differentiable, we must have <span class="process-math">\(f'(x)=0\text{.}\)</span></p>
+<article class="theorem theorem-like" id="thm_rolles_theorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Rolle's Theorem.</span>
+</h4>
+<p id="p-812">Suppose <span class="process-math">\(f(x)\)</span> is a function that is continuous on <span class="process-math">\([a,b]\)</span> and differentiable on <span class="process-math">\((a,b)\text{.}\)</span> If <span class="process-math">\(f(a)=f(b)\text{,}\)</span> then there must exist <span class="process-math">\(c \in (a,b)\)</span> where <span class="process-math">\(f'(c)=0\text{.}\)</span></p></article><p id="p-813">Rolle's theorem is often used to show that <span class="process-math">\(f'(x)\)</span> must have a zero somewhere between two points <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> where <span class="process-math">\(f(a)=f(b)\text{,}\)</span> usually at two roots of <span class="process-math">\(f(x)\text{.}\)</span> If a function leaves a <span class="process-math">\(y\)</span>-value <span class="process-math">\(f(a)\)</span> and later returns to the same <span class="process-math">\(y\)</span>-value at <span class="process-math">\(f(b)\text{,}\)</span> then there must be a point between them where the graph turns around with a horizontal tangent.</p>
+<p id="p-814">The mean value theorem puts Rolle's theorem on a tilt. Instead of guaranteeing a horizontal tangent, the mean value theorem guarantees that there will be a point with a tangent line whose slope matches the slope joining the end-points.</p>
+<article class="theorem theorem-like" id="thm_mean_value_theorem"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Mean Value Theorem.</span>
+</h4>
+<p id="p-815">Suppose <span class="process-math">\(f(x)\)</span> is a function that is continuous on <span class="process-math">\([a,b]\)</span> and differentiable on <span class="process-math">\((a,b)\text{.}\)</span> There must exist <span class="process-math">\(c \in (a,b)\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(c) = \frac{f(b)-f(a)}{b-a}\text{.}
+\end{equation*}
+</div></article></section><section class="conclusion" id="conclusion-1"><p id="p-816">During the semester that COVID disrupted our lives, I decided to try to have some fun with these theorems and wrote a short dramatic piece and recorded it with my family.</p>
+<div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="video-2" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/kRbc33G5kX8?&amp;modestbranding=1&amp;rel=0"></iframe></div></section></section></div></main>
+</div>
+</body>
+</html>

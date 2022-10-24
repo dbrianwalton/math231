@@ -134,7 +134,12 @@ window.MathJax = {
 <li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
 </ul>
 </li>
-<li class="link"><a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a></li>
+<li class="link">
+<a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a><ul>
+<li><a href="sec_apply_foundations.html" data-scroll="sec_apply_foundations" class="internal">Foundational Principles</a></li>
+<li><a href="sec_apply_deriv_to_shape.html" data-scroll="sec_apply_deriv_to_shape" class="internal">Derivatives Determine Shape</a></li>
+</ul>
+</li>
 <li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
 <li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
 <li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
@@ -180,7 +185,14 @@ window.MathJax = {
 <span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Infinite Limits</span>
 </h3>
 <p id="p-497">Now that we know the meaning of limits corresponding to end behavior, we turn our attention to their calculation. The easiest way is to think about extending our view of arithmetic by including calculations <em class="emphasis">with</em> the values of <span class="process-math">\(\pm\infty\text{.}\)</span> In reality, we these calculations are about how limits of a combination is calculated from the limits of the parts, something we call <dfn class="terminology">limit forms</dfn>. The key to this extension is that we must avoid any calculations that would cancel away values that are infinitely big or infinitely small. Such limit forms are called <dfn class="terminology">indeterminate</dfn>.</p>
-<article class="assemblage assemblage-like" id="asmbl_indeterminate"><h4 class="heading"><span class="title">Indeterminate Limit Forms.</span></h4></article><p id="p-503">Otherwise, we can compute limits based on simple rules that combine real limits with infinite limits. Let <span class="process-math">\(L\)</span> represent any <em class="emphasis">non-zero</em> real-valued positive limit.</p>
+<article class="assemblage assemblage-like" id="asmbl_indeterminate"><h4 class="heading"><span class="title">Indeterminate Limit Forms.</span></h4>
+<p id="p-498">Limit forms that are <dfn class="terminology">indeterminate</dfn> can not be calculated from the limits of the individual terms but require rewriting the original formula into a new form. Indeterminate limit forms include limits where it looks like infinitely large or infinitely small things cancel each other:</p>
+<ul class="disc">
+<li id="li-86"><p id="p-499"><span class="process-math">\(\infty - \infty\text{:}\)</span> If <span class="process-math">\(f(x) \to \infty\)</span> and <span class="process-math">\(g(x) \to \infty\text{,}\)</span> then <span class="process-math">\(f(x)-g(x)\)</span> needs to be rewritten to find its limit.</p></li>
+<li id="li-87"><p id="p-500"><span class="process-math">\(0 \cdot \infty\text{:}\)</span> If <span class="process-math">\(f(x) \to 0\)</span> and <span class="process-math">\(g(x) \to \infty\text{,}\)</span> then <span class="process-math">\(f(x) \cdot g(x)\)</span> needs to be rewritten to find its limit.</p></li>
+<li id="li-88"><p id="p-501"><span class="process-math">\(\frac{0}{0}\text{:}\)</span> If <span class="process-math">\(f(x) \to 0\)</span> and <span class="process-math">\(g(x) \to 0\text{,}\)</span> then <span class="process-math">\(f(x) \div g(x)\)</span> needs to be rewritten to find its limit.</p></li>
+<li id="li-89"><p id="p-502"><span class="process-math">\(\frac{\infty}{\infty}\text{:}\)</span> If <span class="process-math">\(f(x) \to \infty\)</span> and <span class="process-math">\(g(x) \to \infty\text{,}\)</span> then <span class="process-math">\(f(x) \div g(x)\)</span> needs to be rewritten to find its limit.</p></li>
+</ul></article><p id="p-503">Otherwise, we can compute limits based on simple rules that combine real limits with infinite limits. Let <span class="process-math">\(L\)</span> represent any <em class="emphasis">non-zero</em> real-valued positive limit.</p>
 <ul class="disc">
 <li id="li-90"><p id="p-504"><span class="process-math">\(\infty \pm L = \infty\)</span> and <span class="process-math">\(-\infty \pm L = -\infty\text{:}\)</span> Adding a real limit to an infinite limit is still infinite.</p></li>
 <li id="li-91"><p id="p-505"><span class="process-math">\(L \cdot \infty = \infty\)</span> and <span class="process-math">\(L \cdot -\infty = -\infty\text{:}\)</span> Multiply a non-zero real limit with an infinite limit is still infinite.</p></li>
@@ -287,8 +299,8 @@ Q(x) &amp;= \frac{x^5}{x^2} \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-68">
 \begin{align*}
 \lim_{x \to -\infty} Q(x) &amp;= \lim_{x \to -\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}\\
-&amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}\\
-&amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}\\
+&amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}\\
+&amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}}\\
 &amp;= -\infty \cdot \frac{2 - 0 - 0}{1 + 0 - 0}\\
 &amp;= -\infty \cdot 2 = -\infty
 \end{align*}
@@ -297,7 +309,7 @@ Q(x) &amp;= \frac{x^5}{x^2} \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-69">
 \begin{align*}
 \lim_{x \to +\infty} Q(x) &amp;= \lim_{x \to +\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}\\
-&amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}\\
+&amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}\\
 &amp;= +\infty \cdot 2 = +\infty
 \end{align*}
 </div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>We use <span class="process-math">\(f'(x)\)</span> to understand where <span class="process-math">\(f(x)\)</span> is increasing or decreasing, and <span class="process-math">\(f''(x)\)</span> to understand where <span class="process-math">\(f(x)\)</span> is concave up or concave down. We start by calculating the derivatives so that we can do sign analysis.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= x^4-12x^2+16x\\
+f'(x) &amp;= 4x^3-24x+16\\
+f''(x) &amp;= 12x^2-24
+\end{align*}
+</div>
+<p class="continuation">To do sign analysis, we need to find the zeros of the functions. If the functions factor, that is the easiest way to accomplish that.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+f(x) &amp;= x(x+4)(x-2)^2\\
+f'(x) &amp;= 4(x-2)(x^2+2x-2)\\
+f''(x) &amp;= 12(x^2-2)
+\end{align*}
+</div>
+<p>To do sign analysis of <span class="process-math">\(f'(x)\text{,}\)</span> we find zeros as solutions of <span class="process-math">\(4=0\)</span> (no solutions), <span class="process-math">\(x-2=0\)</span> at <span class="process-math">\(x=2\text{,}\)</span> and <span class="process-math">\(x^2+2x-2=0\)</span> at <span class="process-math">\(x=-1 \pm \sqrt{3}\text{,}\)</span> approximated by <span class="process-math">\(x \approx -2.732\)</span> and <span class="process-math">\(x \approx 0.732\text{.}\)</span> Putting these on a number line, we can find the intervals we need to test: <span class="process-math">\((-\infty,-1-\sqrt{3})\text{,}\)</span> <span class="process-math">\((-1-\sqrt{3},-1+\sqrt{3})\text{,}\)</span> <span class="process-math">\((-1+\sqrt{3},2)\text{,}\)</span> and <span class="process-math">\((2,\infty)\text{.}\)</span> Evaluating <span class="process-math">\(f'(x)=4(x-2)(x^2+2x-2)\)</span> at a point in each interval, we get the following sign analysis summary.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_shape_firstD_signs.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.12<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f'(x)=4(x-2)(x^2+2x-2)\text{.}\)</span></figcaption></figure><p>From the first derivative, we know that <span class="process-math">\(f(x)\)</span> is decreasing on the intervals <span class="process-math">\((-\infty,-1-\sqrt{3}]\)</span> and <span class="process-math">\([-1+\sqrt{3},2]\)</span> and is increasing on the intervals <span class="process-math">\([-1-\sqrt{3},-1+\sqrt{3}]\)</span> and <span class="process-math">\([2,\infty)\text{.}\)</span></p>
+<p>The second derivative <span class="process-math">\(f''(x) = 12(x^2-2)\)</span> provides information about concavity. The zeros are at <span class="process-math">\(x=-\sqrt{2}\)</span> and <span class="process-math">\(x=\sqrt{2}\text{.}\)</span> A sign analysis summary of <span class="process-math">\(f''(x)\)</span> is given below.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_shape_secondD_signs.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.13<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f''(x)=12(x^2-2)\text{.}\)</span></figcaption></figure><p>The second derivative test for concavity allows us to conclude that <span class="process-math">\(f(x)\)</span> is concave up on the intervals <span class="process-math">\((-\infty,-\sqrt{2}]\)</span> and <span class="process-math">\([\sqrt{2},\infty)\)</span> and is concave down on the interval <span class="process-math">\([-\sqrt{2},\sqrt{2}]\text{.}\)</span></p>
+<p>A graph of <span class="process-math">\(f(x)\)</span> illustrates these behaviors. It has a local minimum at <span class="process-math">\(x=-1-\sqrt{3}\text{,}\)</span> a local maximum at <span class="process-math">\(x=-1+\sqrt{3}\text{,}\)</span> and another local minimum at <span class="process-math">\(x=2\text{.}\)</span> <span class="process-math">\(f(x)\)</span> also has points of inflection at <span class="process-math">\(x=\pm \sqrt{2}\text{.}\)</span> In the graph, the extremes are marked with circular points, while the inflection points are marked as squares.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fcn_shape_graph.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.14<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=f(x)=x^4-12x^2+16x\text{.}\)</span></figcaption></figure>
+</div></body>
+</html>

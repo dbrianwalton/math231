@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Derivatives Determine Shape</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Math 231 Calculus with Functions">
+<meta property="book:author" content="D. Brian Walton">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="walton-math231.html"><span class="title">Math 231 Calculus with Functions:</span> <span class="subtitle">Notes on Core Learning Outcomes</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_apply_foundations.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_applications.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="meta_backmatter.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_apply_foundations.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_applications.html" title="Up">Up</a><a class="next-button button toolbar-item" href="meta_backmatter.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li></ul>
+</li>
+<li class="link">
+<a href="ch_prerequisites.html" data-scroll="ch_prerequisites" class="internal"><span class="codenumber">1</span> <span class="title">Prerequisite Core</span></a><ul>
+<li><a href="sec_prereq_linear.html" data-scroll="sec_prereq_linear" class="internal">Linear Relations</a></li>
+<li><a href="sec_prereq_sets.html" data-scroll="sec_prereq_sets" class="internal">Sets and Interval Notation</a></li>
+<li><a href="sec_prereq_quadratic.html" data-scroll="sec_prereq_quadratic" class="internal">Solving Quadratic Equations</a></li>
+<li><a href="sec_prereq_sign_analysis.html" data-scroll="sec_prereq_sign_analysis" class="internal">Sign Analysis to Solve Inequalities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_functions.html" data-scroll="ch_functions" class="internal"><span class="codenumber">2</span> <span class="title">Functions</span></a><ul>
+<li><a href="sec_fcn_notation.html" data-scroll="sec_fcn_notation" class="internal">Function Notation</a></li>
+<li><a href="sec_fcn_construction.html" data-scroll="sec_fcn_construction" class="internal">Constructing Functions</a></li>
+<li><a href="sec_fcn_inverse.html" data-scroll="sec_fcn_inverse" class="internal">Inverse Functions</a></li>
+<li><a href="sec_fcn_properties.html" data-scroll="sec_fcn_properties" class="internal">Function Properties</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_limits.html" data-scroll="ch_limits" class="internal"><span class="codenumber">3</span> <span class="title">Limits</span></a><ul>
+<li><a href="sec_limits_intuition.html" data-scroll="sec_limits_intuition" class="internal">Intuition about Limits and Continuity</a></li>
+<li><a href="sec_limits_piecewise.html" data-scroll="sec_limits_piecewise" class="internal">Limits with Simple Formulas</a></li>
+<li><a href="sec_limits_simplifying.html" data-scroll="sec_limits_simplifying" class="internal">Replacing Limit Formulas</a></li>
+<li><a href="sec_limits_infinity.html" data-scroll="sec_limits_infinity" class="internal">Limits at Infinity</a></li>
+<li><a href="sec_limits_reasoning.html" data-scroll="sec_limits_reasoning" class="internal">Reasoning About Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_derivatives.html" data-scroll="ch_derivatives" class="internal"><span class="codenumber">4</span> <span class="title">Derivatives</span></a><ul>
+<li><a href="sec_derivs_intuition.html" data-scroll="sec_derivs_intuition" class="internal">Derivatives and Tangent Lines</a></li>
+<li><a href="sec_derivs_limit_definition.html" data-scroll="sec_derivs_limit_definition" class="internal">Defining the Derivative</a></li>
+<li><a href="sec_derivs_deriv_function.html" data-scroll="sec_derivs_deriv_function" class="internal">The Derivative Function</a></li>
+<li><a href="sec_derivs_differentiation.html" data-scroll="sec_derivs_differentiation" class="internal">Differentiation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_applications.html" data-scroll="ch_applications" class="internal"><span class="codenumber">5</span> <span class="title">Applications</span></a><ul>
+<li><a href="sec_apply_foundations.html" data-scroll="sec_apply_foundations" class="internal">Foundational Principles</a></li>
+<li><a href="sec_apply_deriv_to_shape.html" data-scroll="sec_apply_deriv_to_shape" class="active">Derivatives Determine Shape</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="meta_backmatter.html" data-scroll="meta_backmatter" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_apply_deriv_to_shape"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Derivatives Determine Shape</span>
+</h2>
+<section class="introduction" id="introduction-24"><p id="p-817">The behavior of a function is described using the language of monotonicity and concavity. Recall that a function <span class="process-math">\(f(x)\)</span> is <dfn class="terminology">increasing on a set</dfn> <span class="process-math">\(S\)</span> if for any <span class="process-math">\(a,b \in S\text{,}\)</span> if <span class="process-math">\(a \lt b\)</span> then <span class="process-math">\(f(b) \gt f(a)\text{.}\)</span> Similarly, <span class="process-math">\(f(x)\)</span> is <dfn class="terminology">decreasing on a set</dfn> <span class="process-math">\(S\)</span> if for any <span class="process-math">\(a,b \in S\text{,}\)</span> if <span class="process-math">\(a \lt b\)</span> then <span class="process-math">\(f(b) \lt f(a)\text{.}\)</span></p>
+<p id="p-818">The Mean Value Theorem provides a connection between derivatives and the properties of monotonicity. The outcomes presented in this section focus on the use of sign analysis of derivatives to identify intervals of monotonicity and concavity.</p></section><section class="subsection" id="subsec_derivative_monotonicity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.1</span> <span class="title">First Derivatives and Increasing/Decreasing</span>
+</h3>
+<p id="p-819">The inequalities that define the properties of increasing and decreasing are related to the calculation of an average rate of change. For <span class="process-math">\(a \lt b\text{,}\)</span> the inequality <span class="process-math">\(f(b) \gt f(a)\)</span> is equivalent to <span class="process-math">\(f(b) - f(a) \gt 0\text{,}\)</span> which is in turn equivalent to a positive average rate of change <span class="process-math">\(\displaystyle \frac{f(b)-f(a)}{b-a} \gt 0\text{.}\)</span> Similarly, <span class="process-math">\(f(b) \lt f(a)\)</span> is equivalent to having a negative average rate of change <span class="process-math">\(\displaystyle \frac{f(b)-f(a)}{b-a} \lt 0\text{.}\)</span></p>
+<p id="p-820">When a function is differentiable on <span class="process-math">\((a,b)\text{,}\)</span> the mean value theorem connects the average rate of change to a value of <span class="process-math">\(f'(c)\)</span> for some <span class="process-math">\(c \in (a,b)\text{.}\)</span> This connection allows us to use sign analysis of <span class="process-math">\(f'(x)\)</span> to show that <span class="process-math">\(f(x)\)</span> is increasing or decreasing on intervals.</p>
+<article class="theorem theorem-like" id="thm_first_deriv_monotonicity"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">First Derivative Test for Monotonicity.</span>
+</h4>
+<p id="p-821">Suppose <span class="process-math">\(f(x)\)</span> is a function that is continuous on <span class="process-math">\([a,b]\)</span> and differentiable on <span class="process-math">\((a,b)\text{.}\)</span></p>
+<ul class="disc">
+<li id="li-160"><p id="p-822">If <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">positive</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="li-161"><p id="p-823">If <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">negative</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">decreasing</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="li-162"><p id="p-824">If <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">zero</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">constant</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+</ul>
+<p class="continuation">If the continuity of <span class="process-math">\(f(x)\)</span> does not extend to the end-point, then the conclusion for monotonicity may not extend to the end-point either.</p></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><p id="p-825">Suppose we take any two points <span class="process-math">\(x_1,x_2 \in [a,b]\text{,}\)</span> with <span class="process-math">\(x_1 \lt x_2\text{.}\)</span> We know <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([x_1,x_2]\)</span> and differentiable on <span class="process-math">\((x_1,x_2)\)</span> since these intervals are subintervals of <span class="process-math">\([a,b]\text{.}\)</span> By the Mean Value Theorem, we know that there is some $\xi \in (x_1,x_2)$ where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x} = \frac{f(x_2)-f(x_1)}{x_2-x_1} = f'(\xi)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(f'(x) &gt; 0\)</span> for all <span class="process-math">\(x \in (a,b)\text{,}\)</span> then <span class="process-math">\(\frac{\Delta f}{\Delta x} \gt 0\)</span> which means <span class="process-math">\(f(x_2) \gt f(x_1)\text{.}\)</span> Since this is true for <em class="emphasis">any</em> choice of <span class="process-math">\(x_1,x_2\text{,}\)</span> this means <span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([a,b]\text{.}\)</span> By the same reasoning, the other conclusions also hold.</p></article></div>
+<p id="p-826">For actual applications, we calculate (or are given) the function <span class="process-math">\(f'(x)\)</span> and then complete sign analysis. Once we have completely found intervals where <span class="process-math">\(f'(x)\)</span> is positive or negative (or possibly zero), we apply the consequence of the MVT to describe where <span class="process-math">\(f(x)\)</span> is increasing or decreasing (or possibly constant). Note that we need <em class="emphasis">intervals</em> and not isolated points to use this result.</p>
+<article class="example example-like" id="ex_applications_first_deriv_monotonicity_simple"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
+</h4>
+<p id="p-827">Find the intervals on which <span class="process-math">\(f(x)=x^4 - 2x^3 - 4x^2 + 12x\)</span> is increasing and decreasing.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
+<p id="p-828">The properties of increasing and decreasing can be found based on the signs of <span class="process-math">\(f'(x)\text{.}\)</span> The first step, therefore, is to find the formula for <span class="process-math">\(f'(x)\)</span> so that we can complete sign analysis.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-112">
+\begin{align*}
+f(x) &amp;= x^4 - 2x^3 - 4x^2 + 12x\\
+f'(x) &amp;= 4x^3 - 2\cdot 3x^2 - 4 \cdot 2x + 12\\
+&amp;= 4x^3 - 6x^2 - 8x + 12
+\end{align*}
+</div>
+<p id="p-829">The next step is to complete sign analysis. We need to find the factorization. Using either factoring by grouping or technology, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = 2(x^2-2)(2x-3)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The individual factors yield roots at <span class="process-math">\(x=\pm \sqrt{2}\)</span> and <span class="process-math">\(x=\frac{3}{2}\text{.}\)</span> (Don't be distracted by the constant factor 2, since no values of <span class="process-math">\(x\)</span> make <span class="process-math">\(2=0\text{.}\)</span>) We mark these three points on the number line to determine our test intervals <span class="process-math">\((-\infty,-\sqrt{2})\text{,}\)</span> <span class="process-math">\((-\sqrt{2},\sqrt{2}\text{,}\)</span> <span class="process-math">\((\sqrt{2}, \frac{3}{2})\text{,}\)</span> and <span class="process-math">\((\frac{3}{2},\infty)\text{.}\)</span> We need to test the sign of <span class="process-math">\(f'(x)\text{,}\)</span> so we calculate the sign or value of <span class="process-math">\(f'(x)=2(x^2-2)(2x-3)\)</span> at points in each interval.</p>
+<ul class="disc">
+<li id="li-163"><p id="p-830"><span class="process-math">\(f'(-4)=2((-4)^2-2)(2(-4)-3)=2(14)(-11) \lt 0\)</span> (negative)</p></li>
+<li id="li-164"><p id="p-831"><span class="process-math">\(f'(0)=2((0)^2-2)(2(0)-3)=2(-2)(-3) \gt 0\)</span> (positive)</p></li>
+<li id="li-165"><p id="p-832"><span class="process-math">\(f'(1.45)=2((1.45)^2-2)(2(1.45)-3)=2(0.1025)(-0.1) \lt 0\)</span> (negative)</p></li>
+<li id="li-166"><p id="p-833"><span class="process-math">\(f'(2)=2((2)^2-2)(2(2)-3)=2(2)(1) &gt; 0\)</span> (positive)</p></li>
+</ul>
+<p class="continuation">This is shown graphically with a sign analysis summary number line.</p>
+<figure class="figure figure-like" id="fig_firstD_sign_analysis_summary_ex1"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/firstD_sign_analysis_summary_ex1.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.3<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(f'(x)=2(x^2-2)(2x-3)\text{.}\)</span></figcaption></figure><p id="p-834">We finish by interpreting the signs of <span class="process-math">\(f'(x)\)</span> to say something about where <span class="process-math">\(f(x)\)</span> is increasing or decreasing. The original <span class="process-math">\(f(x)\)</span> is continuous, so we can extend the properties of monotonicity to include the end-points.</p>
+<ul class="disc">
+<li id="li-167"><p id="p-835"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">decreasing</em> on <span class="process-math">\((-\infty,-\sqrt{2}]\)</span> (since <span class="process-math">\(f'(x) \lt 0\)</span> on <span class="process-math">\((-\infty,-\sqrt{2})\)</span>)</p></li>
+<li id="li-168"><p id="p-836"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([-\sqrt{2},\sqrt{2}]\)</span> (since <span class="process-math">\(f'(x) \gt 0\)</span> on <span class="process-math">\((-\sqrt{2},\sqrt{2})\)</span>)</p></li>
+<li id="li-169"><p id="p-837"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">decreasing</em> on <span class="process-math">\([\sqrt{2},\frac{3}{2}]\)</span> (since <span class="process-math">\(f'(x) \lt 0\)</span> on <span class="process-math">\((\sqrt{2},\frac{3}{2})\)</span>)</p></li>
+<li id="li-170"><p id="p-838"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([\frac{3}{2},\infty)\)</span> (since <span class="process-math">\(f'(x) \gt 0\)</span> on <span class="process-math">\((\frac{3}{2},\infty)\)</span>)</p></li>
+</ul>
+</div></div>
+</div></article><p id="p-839">Typically, we need to recall all of the rules of differentiation since <span class="process-math">\(f(x)\)</span> is not necessarily a polynomial.</p>
+<article class="example example-like" id="ex_applications_first_deriv_monotonicity"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective A-1.</span>
+</h4>
+<p id="p-840">Find the intervals on which <span class="process-math">\(\displaystyle f(x)=\frac{x^3-2x^2}{2x+5}\)</span> is increasing and decreasing.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like">
+<p id="p-841">We will calculate <span class="process-math">\(f'(x)\text{,}\)</span> which will require using the quotient rule. Then we factor the formula and complete sign analysis. Finally, we interpret the signs of <span class="process-math">\(f'(x)\)</span> in the context of the first derivative test for monotonicity.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-113">
+\begin{align*}
+f(x) &amp;= \frac{x^3-2x^2}{2x+5}\\
+f'(x) &amp;= \frac{(2x+5)(3x^2-4x)-(x^3-2x^2)(2)}{(2x+5)^2}\\
+&amp;= \frac{6x^3 -8x^2+15x^2-20x-2x^3+4x^2}{(2x+5)^2}\\
+&amp;= \frac{4x^3 + 11x^2 - 20x}{(2x+5)^2}\\
+&amp;= \frac{x(4x^2+11x-20)}{(2x+5)^2}\\
+&amp;= \frac{x(4x-5)(x+4)}{(2x+5)^2}
+\end{align*}
+</div>
+<p class="continuation">Notice that we never multiplied out the denominator since that was factored already when we used the quotient rule for derivatives. The zeros of the numerator are <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(x=\frac{5}{4}\text{,}\)</span> and <span class="process-math">\(x=-4\text{,}\)</span> while the single zero fo the denominator is <span class="process-math">\(x=-\frac{5}{2}\text{.}\)</span> We test the signs of this factored formula for <span class="process-math">\(f'(x)\)</span> to get a sign analysis summary shown below.</p>
+<figure class="figure figure-like" id="fig_firstD_sign_analysis_summary_ex2"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/firstD_sign_analysis_summary_ex2.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.5<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f'(x)=\frac{x(4x-5)(x+4)}{(2x+5)^2}\text{.}\)</span></figcaption></figure><p id="p-842">The intervals where <span class="process-math">\(f'(x)\)</span> is negative are where <span class="process-math">\(f(x)\)</span> is decreasing. The intervals where <span class="process-math">\(f'(x)\)</span> is positive are where <span class="process-math">\(f(x)\)</span> is increasing. The function <span class="process-math">\(f(x)\)</span> is not defined at <span class="process-math">\(x=-\frac{5}{2}\)</span> (and so certainly not continuous). When describing its shape, we will not extend the intervals to include that end point.</p>
+<ul class="disc">
+<li id="li-171"><p id="p-843"><span class="process-math">\(f(x)\)</span> is decreasing on <span class="process-math">\((-\infty,-4]\)</span> and on <span class="process-math">\([0,\frac{5}{4}]\text{.}\)</span></p></li>
+<li id="li-172"><p id="p-844"><span class="process-math">\(f(x)\)</span> is increasing on <span class="process-math">\([-4,-\frac{5}{2})\text{,}\)</span> on <span class="process-math">\((-\frac{5}{2},0]\)</span> and on <span class="process-math">\([\frac{5}{4},\infty)\text{.}\)</span></p></li>
+</ul>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_derivative_concavity"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.2</span> <span class="title">Second Derivatives and Concavity</span>
+</h3>
+<p id="p-845">Although we might naturally think about concavity as being about the way a curve bends, a more precise explanation is about how the slope is changing.</p>
+<article class="definition definition-like" id="defn_concavity"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Concavity.</span>
+</h4>
+<p id="p-846">A function <span class="process-math">\(f(x)\)</span> is <dfn class="terminology">concave up</dfn> on an interval <span class="process-math">\(I\)</span> if for any three points <span class="process-math">\(x_1,x_2,x_3 \in I\)</span> with <span class="process-math">\(x_1 \lt x_2 \lt x_3\text{,}\)</span> the average rate of change is increasing:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}
+\end{equation*}
+</div>
+<p id="p-847">A function <span class="process-math">\(f(x)\)</span> is <dfn class="terminology">concave down</dfn> on an interval <span class="process-math">\(I\)</span> if for any three points <span class="process-math">\(x_1,x_2,x_3 \in I\)</span> with <span class="process-math">\(x_1 \lt x_2 \lt x_3\text{,}\)</span> the average rate of change is decreasing:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}
+\end{equation*}
+</div></article><p id="p-848">The Mean Value Theorem gives us a tool to understand this as well. If <span class="process-math">\(f(x)\)</span> is differentiable on <span class="process-math">\(I\text{,}\)</span> then each of the average rates of change will match the value of <span class="process-math">\(f'(x)\)</span> at points <span class="process-math">\(\xi_1 \in (x_1,x_2)\)</span> and <span class="process-math">\(\xi_2 \in (x_2,x_3)\text{.}\)</span> Consequently, if we can show that <span class="process-math">\(f'(x)\)</span> is increasing, the average rates of change must be increasing. Similarly, knowing that <span class="process-math">\(f'(x)\)</span> is decreasing means that average rates of change must decrease.</p>
+<article class="theorem theorem-like" id="thm_concavity_firstD_monotonicity"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.7</span><span class="period">.</span>
+</h4>
+<p id="p-849">The monotonicity of <span class="process-math">\(f'(x)\)</span> determines the concavity of <span class="process-math">\(f(x)\text{.}\)</span></p>
+<ul class="disc">
+<li id="li-173"><p id="p-850">If <span class="process-math">\(f'(x)\)</span> is increasing on <span class="process-math">\(I\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave up</em> on <span class="process-math">\(I\text{.}\)</span></p></li>
+<li id="li-174"><p id="p-851">If <span class="process-math">\(f'(x)\)</span> is decreasing on <span class="process-math">\(I\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave down</em> on <span class="process-math">\(I\text{.}\)</span></p></li>
+<li id="li-175"><p id="p-852">If <span class="process-math">\(f'(x)\)</span> is constant on <span class="process-math">\(I\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">linear</em> on <span class="process-math">\(I\text{.}\)</span></p></li>
+</ul></article><p id="p-853">If <span class="process-math">\(f'(x)\)</span> itself is differentiable, then sign analysis of <span class="process-math">\(f''(x)\)</span> can be used to find intervals of monotonicity of <span class="process-math">\(f'(x)\text{,}\)</span> which in turn are intervals of concavity for <span class="process-math">\(f(x)\text{.}\)</span> That is, sign analysis of <span class="process-math">\(f''(x)\)</span> determines the concavity of <span class="process-math">\(f(x)\text{.}\)</span></p>
+<article class="theorem theorem-like" id="thm_second_deriv_concavity"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Second Derivative Test for Concavity.</span>
+</h4>
+<p id="p-854">Suppose <span class="process-math">\(f(x)\)</span> is a function that is twice-differentiable on <span class="process-math">\((a,b)\)</span> and <span class="process-math">\(f'(x)\)</span> is continuous on <span class="process-math">\([a,b]\text{.}\)</span></p>
+<ul class="disc">
+<li id="li-176"><p id="p-855">If <span class="process-math">\(f''(x)\)</span> is <em class="emphasis">positive</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave up</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="li-177"><p id="p-856">If <span class="process-math">\(f''(x)\)</span> is <em class="emphasis">negative</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave down</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="li-178"><p id="p-857">If <span class="process-math">\(f''(x)\)</span> is <em class="emphasis">zero</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">linear</em> on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+</ul>
+<p class="continuation">If the continuity of <span class="process-math">\(f'(x)\)</span> does not extend to the end-point, then the conclusion for concavity may not extend to the end-point either.</p></article><p id="p-858">Our strategy for learning about concavity will be similar to using the first derivative and sign analysis, except we use the second derivative.</p>
+<article class="example example-like" id=""><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Learning Objective A-2.</span>
+</h4>
+<p id="p-859">Find the intervals on which <span class="process-math">\(\displaystyle f(x)=x^5+2x^4-10x^3-36x^2 + 5x + 10\)</span> is concave up and concave down.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-66" id="solution-66"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-66"><div class="solution solution-like">
+<p id="p-860">Start by finding the second derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-114">
+\begin{align*}
+f(x) &amp;= x^5+2x^4-10x^3-36x^2 + 5x + 10\\
+f'(x) &amp;= 5x^4+8x^3-30x^2-72x+5\\
+f''(x) &amp;= 20x^3+24x^2-60x-72
+\end{align*}
+</div>
+<p class="continuation">Next, factor (either by grouping or technology) to rewrite:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f''(x) = 4(x^2-3)(5x+6)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Setting each factor to zero, we find three points where <span class="process-math">\(f''(x)=0\text{:}\)</span> <span class="process-math">\(x=\pm \sqrt{3}\)</span> and <span class="process-math">\(x=-\frac{6}{5}\text{.}\)</span> We use these points to do sign analysis on the factored version of <span class="process-math">\(f''(x)\text{.}\)</span></p>
+<figure class="figure figure-like" id="fig_secondD_sign_analysis_summary_ex1"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/secondD_sign_analysis_summary_ex1.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.10<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f''(x)=4(x^2-3)(5x+6)\text{.}\)</span></figcaption></figure><p id="p-861">We finish by interpreting. On intervals where <span class="process-math">\(f''(x)\)</span> is positive, the original function <span class="process-math">\(f(x)\)</span> is concave up. On intervals where <span class="process-math">\(f''(x)\)</span> is negative, the function <span class="process-math">\(f(x)\)</span> is concave down. Because <span class="process-math">\(f'(x)\)</span> is defined and continuous everywhere, we can include the end points of the intervals.</p>
+<ul class="disc">
+<li id="li-179"><p id="p-862"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave up</em> on <span class="process-math">\([-\sqrt{3},-\frac{6}{5}]\)</span> and on <span class="process-math">\([\sqrt{3},\infty)\text{.}\)</span></p></li>
+<li id="li-180"><p id="p-863"><span class="process-math">\(f(x)\)</span> is <em class="emphasis">concave down</em> on <span class="process-math">\((-\infty,-\sqrt{3}]\)</span> and on <span class="process-math">\([-\frac{6}{5}, \sqrt{3}]\text{.}\)</span></p></li>
+</ul>
+</div></div>
+</div></article></section><section class="subsection" id="subsec_derivs_shape"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.3</span> <span class="title">Complete Shape Analysis</span>
+</h3>
+<p id="p-864">When we use both the first and second derivatives, we can find intervals for both monotonicity and concavity. This allows us to describe the shape of the graph.</p>
+<article class="example example-like" id="ex_derivs_to_shape"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.11</span><span class="period">.</span>
+</h4>
+<p id="p-865">Describe the behavior of <span class="process-math">\(f(x)=x^4-12x^2+16x\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-67" id="solution-67"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-67"><div class="solution solution-like">
+<p id="p-866">We use <span class="process-math">\(f'(x)\)</span> to understand where <span class="process-math">\(f(x)\)</span> is increasing or decreasing, and <span class="process-math">\(f''(x)\)</span> to understand where <span class="process-math">\(f(x)\)</span> is concave up or concave down. We start by calculating the derivatives so that we can do sign analysis.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-115">
+\begin{align*}
+f(x) &amp;= x^4-12x^2+16x\\
+f'(x) &amp;= 4x^3-24x+16\\
+f''(x) &amp;= 12x^2-24
+\end{align*}
+</div>
+<p class="continuation">To do sign analysis, we need to find the zeros of the functions. If the functions factor, that is the easiest way to accomplish that.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-116">
+\begin{align*}
+f(x) &amp;= x(x+4)(x-2)^2\\
+f'(x) &amp;= 4(x-2)(x^2+2x-2)\\
+f''(x) &amp;= 12(x^2-2)
+\end{align*}
+</div>
+<p id="p-867">To do sign analysis of <span class="process-math">\(f'(x)\text{,}\)</span> we find zeros as solutions of <span class="process-math">\(4=0\)</span> (no solutions), <span class="process-math">\(x-2=0\)</span> at <span class="process-math">\(x=2\text{,}\)</span> and <span class="process-math">\(x^2+2x-2=0\)</span> at <span class="process-math">\(x=-1 \pm \sqrt{3}\text{,}\)</span> approximated by <span class="process-math">\(x \approx -2.732\)</span> and <span class="process-math">\(x \approx 0.732\text{.}\)</span> Putting these on a number line, we can find the intervals we need to test: <span class="process-math">\((-\infty,-1-\sqrt{3})\text{,}\)</span> <span class="process-math">\((-1-\sqrt{3},-1+\sqrt{3})\text{,}\)</span> <span class="process-math">\((-1+\sqrt{3},2)\text{,}\)</span> and <span class="process-math">\((2,\infty)\text{.}\)</span> Evaluating <span class="process-math">\(f'(x)=4(x-2)(x^2+2x-2)\)</span> at a point in each interval, we get the following sign analysis summary.</p>
+<figure class="figure figure-like" id="fig_fcn_shape_firstD_signs"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_shape_firstD_signs.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.12<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f'(x)=4(x-2)(x^2+2x-2)\text{.}\)</span></figcaption></figure><p id="p-868">From the first derivative, we know that <span class="process-math">\(f(x)\)</span> is decreasing on the intervals <span class="process-math">\((-\infty,-1-\sqrt{3}]\)</span> and <span class="process-math">\([-1+\sqrt{3},2]\)</span> and is increasing on the intervals <span class="process-math">\([-1-\sqrt{3},-1+\sqrt{3}]\)</span> and <span class="process-math">\([2,\infty)\text{.}\)</span></p>
+<p id="p-869">The second derivative <span class="process-math">\(f''(x) = 12(x^2-2)\)</span> provides information about concavity. The zeros are at <span class="process-math">\(x=-\sqrt{2}\)</span> and <span class="process-math">\(x=\sqrt{2}\text{.}\)</span> A sign analysis summary of <span class="process-math">\(f''(x)\)</span> is given below.</p>
+<figure class="figure figure-like" id="fig_fcn_shape_secondD_signs"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fcn_shape_secondD_signs.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.13<span class="period">.</span></span><span class="space"> </span>Sign analysis summary for <span class="process-math">\(\displaystyle f''(x)=12(x^2-2)\text{.}\)</span></figcaption></figure><p id="p-870">The second derivative test for concavity allows us to conclude that <span class="process-math">\(f(x)\)</span> is concave up on the intervals <span class="process-math">\((-\infty,-\sqrt{2}]\)</span> and <span class="process-math">\([\sqrt{2},\infty)\)</span> and is concave down on the interval <span class="process-math">\([-\sqrt{2},\sqrt{2}]\text{.}\)</span></p>
+<p id="p-871">A graph of <span class="process-math">\(f(x)\)</span> illustrates these behaviors. It has a local minimum at <span class="process-math">\(x=-1-\sqrt{3}\text{,}\)</span> a local maximum at <span class="process-math">\(x=-1+\sqrt{3}\text{,}\)</span> and another local minimum at <span class="process-math">\(x=2\text{.}\)</span> <span class="process-math">\(f(x)\)</span> also has points of inflection at <span class="process-math">\(x=\pm \sqrt{2}\text{.}\)</span> In the graph, the extremes are marked with circular points, while the inflection points are marked as squares.</p>
+<figure class="figure figure-like" id="fig_fcn_shape_graph"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fcn_shape_graph.svg" role="img" class="contained" alt="sign analysis summary"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.14<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y=f(x)=x^4-12x^2+16x\text{.}\)</span></figcaption></figure>
+</div></div>
+</div></article><p id="p-872">While these examples focused on finding intervals where the function had the properties of increasing, decreasing, concave up and concave down, this information could also be used to create sketches of the function's behavior. This will be investigated further in the next section where we consider the idea of an antiderivative.</p></section></section></div></main>
+</div>
+</body>
+</html>
