@@ -150,17 +150,15 @@
         </p>
         <assemblage xml:id="asmbl_indeterminate">
             <title>Indeterminate Limit Forms</title>
-            <statement>
-                <p>
-                    Limit forms that are <term>indeterminate</term> can not be calculated from the limits of the individual terms but require rewriting the original formula into a new form. Indeterminate limit forms include limits where it looks like infinitely large or infinitely small things cancel each other:
-                    <ul>
-                        <li><p><m>\infty - \infty</m></p></li>
-                        <li><p><m>0 \cdot \infty</m></p></li>
-                        <li><p><m>\frac{0}{0}</m></p></li>
-                        <li><p><m>\frac{\infty}{\infty}</m></p></li>
-                    </ul>
-                </p>
-            </statement>
+            <p>
+                Limit forms that are <term>indeterminate</term> can not be calculated from the limits of the individual terms but require rewriting the original formula into a new form. Indeterminate limit forms include limits where it looks like infinitely large or infinitely small things cancel each other:
+                <ul>
+                    <li><p><m>\infty - \infty</m>: If <m>f(x) \to \infty</m> and <m>g(x) \to \infty</m>, then <m>f(x)-g(x)</m> needs to be rewritten to find its limit.</p></li>
+                    <li><p><m>0 \cdot \infty</m>: If <m>f(x) \to 0</m> and <m>g(x) \to \infty</m>, then <m>f(x) \cdot g(x)</m> needs to be rewritten to find its limit.</p></li>
+                    <li><p><m>\frac{0}{0}</m>: If <m>f(x) \to 0</m> and <m>g(x) \to 0</m>, then <m>f(x) \div g(x)</m> needs to be rewritten to find its limit.</p></li>
+                    <li><p><m>\frac{\infty}{\infty}</m>: If <m>f(x) \to \infty</m> and <m>g(x) \to \infty</m>, then <m>f(x) \div g(x)</m> needs to be rewritten to find its limit.</p></li>
+                </ul>
+            </p>
         </assemblage>
         <p>
             Otherwise, we can compute limits based on simple rules that combine real limits with infinite limits.
@@ -306,15 +304,15 @@
                     End behavior is characterized by the limits <m>\displaystyle \lim_{x \to \pm \infty} Q(x)</m>.
                     <md>
                         <mrow> \lim_{x \to -\infty} Q(x) &amp;= \lim_{x \to -\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
-                        <mrow> &amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}</mrow>
-                        <mrow> &amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}</mrow>
+                        <mrow> &amp;= (-\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}</mrow>
+                        <mrow> &amp;= -\infty \cdot \frac{2 - \frac{3}{-\infty} - \frac{5}{-\infty}}{1 + \frac{2}{-\infty} - \frac{5}{+\infty}}</mrow>
                         <mrow> &amp;= -\infty \cdot \frac{2 - 0 - 0}{1 + 0 - 0}</mrow>
                         <mrow> &amp;= -\infty \cdot 2 = -\infty</mrow>
                     </md>
                     This limit shows that <m>Q(x)</m> has left end behavior <m>y \to -\infty</m> as <m>x \to -\infty</m> (left side branch goes down).
                     <md>
                         <mrow> \lim_{x \to +\infty} Q(x) &amp;= \lim_{x \to +\infty} x^3 \cdot \frac{2 - \frac{3}{x^3} - \frac{7}{x^5}}{1 + \frac{2}{x} - \frac{5}{x^2}}</mrow>
-                        <mrow> &amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}}</mrow>
+                        <mrow> &amp;= (+\infty)^3 \cdot \frac{2 - \frac{3}{(-\infty)^3} - \frac{7}{(\infty)^5}}{1 + \frac{2}{-\infty} - \frac{5}{(-\infty)^2}}</mrow>
                         <mrow> &amp;= +\infty \cdot 2 = +\infty</mrow>
                     </md>
                     This limit shows that <m>Q(x)</m> has right end behavior <m>y \to +\infty</m> as <m>x \to +\infty</m> (right side branch goes up).
