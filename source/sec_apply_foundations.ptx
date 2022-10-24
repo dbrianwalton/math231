@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_apply_foundations" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Foundational Principles</title>
+    <introduction>
+        <p>
+            Applications of the derivative use knowledge about the derivative function to create conclusions about the original function.
+            The derivative is a calculation that is specific to individual points.
+            Most of the applications focus on properties over an interval or possibly the entire domain.
+            We need some additional tools that allow us to cross the bridge between point-wise numerical values to interval-wide behavior.
+            Calculus provides some important and powerful <em>theorems</em> that provide this bridge.
+        </p>
+        <p>
+            This section introduces these theorems.
+            <ul>
+                <li><p>Intermediate Value Theorem: Continuous functions pass through intermediate values.</p></li>
+                <li><p>Extreme Value Theorem: Continuous functions defined on closed intervals have maximum and minimum values.</p></li>
+                <li><p>Fermat's Theorem: At a local extreme value, a function either has a slope of zero or no derivative at all.</p></li>
+                <li><p>Mean Value Theorem: A continuous and differentiable function on a closed interval must have an interior point where the instantaneous rate is equal to the average rate of change over the interval as a whole.</p></li>
+            </ul>
+            The other sections in the chapter will look at how these theorems are used in specific applications.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_foundation_ivt">
+        <title>Intermediate Value Theorem</title>
+        <p>
+            The <term>intermediate value theorem</term> is a theorem about continuous functions. When we defined continuity, it was a property that functions had at individual points. To extend the idea of point-wise continuity to an interval, we require continuity at each point within the interval. For end points, we require one-sided continuity based on a limit coming from values within the interval.
+        </p>
+        <definition xml:id="defn_continuity_intervals">
+            <title>Continuity on Intervals</title>
+            <statement>
+                <p>
+                    A function <m>f</m> is <term>continuous on an open interval</term> <m>(a,b)</m> if <m>f</m> is continuous <em>at</em> every point <m>c \in (a,b)</m>,
+                    <me>\lim_{x \to c} f(x) = f(c)</me>.
+                    We can include the <em>left</em> end point <m>a</m> if <m>f</m> is <em>right-continuous</em> at <m>a</m>,
+                    <me>\lim_{x \to a^+} f(x) = f(a)</me>.
+                    We can include the <em>right</em> end point <m>b</m> if <m>f</m> is <em>left-continuous</em> at <m>b</m>,
+                    <me>\lim_{x \to b^-} f(x) = f(b)</me>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            The property of continuity is directly related to a property of connectedness.
+            A function that is continuous on an interval has a graph that is connected.
+            The intermediate value theorem captures this property by looking at how a graph must pass through all intermediate values.
+        </p>
+        <theorem xml:id="thm_intermediate_value_theorem">
+            <title>Intermediate Value Theorem (IVT)</title>
+            <statement>
+                <p>
+                    If a function <m>f</m> is continuous on a <em>closed</em> interval <m>[a,b]</m>, then for <em>every</em> value <m>L</m> between <m>f(a)</m> and <m>f(b)</m>, there exists some <m>c \in (a,b)</m> so that <m>f(c)=L</m>.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            A visual interpretation of the IVT would be to consider the end points of the function creating points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+            Now, imagine putting <em>any</em> horizontal line at a height <m>y=L</m> with <m>L</m> between <m>f(a)</m> and <m>f(b)</m>.
+            The IVT guarantees that any possible continuous function <m>f</m> that goes through these two points must cross the horizontal line at some intermediate point.
+        </p>
+        <p>
+            There are two important applications.
+        </p>
+        <p>
+            The first is when trying to solve an equation <m>f(x)=L</m>. In most actual applications, there is not a way to find the exact solution. But if <m>f</m> is continuous on an interval where <m>f(a)</m> and <m>f(b)</m> are on <em>opposite</em> sides of <m>L</m>, such as <m>f(a) \lt L \lt f(b)</m>. The IVT guarantees that a solution exists, and the interval <m>[a,b]</m> is said to <em>bracket</em> the solution. If we repeatedly subdivide the interval, always choosing a subinterval that brackets the solution, we may not find the exact solution, but we can find an approximation that is as close as we desire.
+        </p>
+        <p>
+            The second application results from understanding how a function can cross a particular value. If the function is continuous, it must actually pass through the value of interest. If you know that there is <em>no</em> solution, then it must occur at a discontinuity where the function jumps across the value. This is the justification for doing <term>sign analysis</term>.
+        </p>
+        <p>
+            Sign analysis is concerned about where a function is <em>positive</em> or <em>negative</em>. These values are separated by the value <m>L=0</m>. The IVT says that a function can switch from positive to negative only by passing through points where <m>f(x)=0</m> or where <m>f(x)</m> is not continuous. This is why we mark all points on the number line where <m>f(x)=0</m> (roots) or where <m>f(x)</m> is not continuous (such as undefined points).
+        </p>
+        <p>
+            These points determine intervals inside of which we know there are no additional roots or discontinuities. When we test values of <m>f(x)</m> at individual points inside such an interval, we know that every other point in the same interval must have the same sign as the point we tested.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_foundation_evt">
+        <title>Extreme Value Theorem</title>
+        <p>
+            The extreme value theorem is concerned with a function's maximum and minimum values. It is possible for a function not to have any maximum value, such as when it has a vertical asymptote and the function increases without bound. Alternatively, it might be that for every value the function achieves, there is always another value that is even higher. In both cases, the function has no actual maximum value.
+        </p>
+        <definition xml:id="defn_global_extreme">
+            <title>Global Extreme Values</title>
+            <statement>
+                <p>
+                    A function <m>f</m> with domain <m>D</m> has a <term>maximum value</term> of <m>M</m> if there is some value <m>x_M \in D</m> with <m>f(x_M) = M</m> and for every other <m>x \in D</m>, <m>f(x) \le M</m>.
+                </p>
+                <p>
+                    A function <m>f</m> with domain <m>D</m> has a <term>minimum value</term> of <m>m</m> if there is some value <m>x_m \in D</m> with <m>f(x_m) = m</m> and for every other <m>x \in D</m>, <m>f(x) \ge m</m>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Because not all functions have extreme values, we want some conditions that will guarantee their existence. The extreme value theorem tells us that a function continuous on a closed interval provides such a guarantee.
+        </p>
+        <theorem xml:id="thm_extreme_value_theorem">
+            <title>Extreme Value Theorem</title>
+            <statement>
+                Suppose a function <m>f</m> is restricted to a domain that is a closed interval <m>[a,b]</m>. If <m>f</m> is continuous on <m>[a,b]</m>, then <m>f(x)</m> has a minimum <em>and</em> a maximum value on <m>[a,b]</m>.
+            </statement>
+        </theorem>
+        <p>
+            The reason that the interval must be closed is that when an end-point is not included, say the right end point <m>b</m>, we might have a limit <m>\displaystyle \lim_{x \to b^-} f(x) = M</m> that <em>would</em> be the maximum but the function never actually has that value, <m>f(x) \lt M</m> for all <m>x</m> in the domain.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_foundation_fermat">
+        <title>Derivatives at Extreme Values</title>
+        <p>
+            In addition to considering the highest and lowest value of a function across the entire domain, we are also interested in <term>local or relative extreme values</term>. Rather than considering the entire domain, local extreme values are the highest or lowest values among points immediately to the left or right.
+        </p>
+        <definition xml:id="defn_local_extreme_values">
+            <title>Local Extreme Values</title>
+            <statement>
+                <p>
+                    A function <m>f</m> has a <term>local or relative maximum</term> at <m>x=c</m> if there exists <m>\delta \gt 0</m> so that for all <m>x \in (c-\delta,c+\delta)</m>, <m>f(x)</m> is defined and <m>f(x) \le f(c)</m>.
+                </p>
+                <p>
+                    A function <m>f</m> has a <term>local or relative minimum</term> at <m>x=c</m> if there exists <m>\delta \gt 0</m> so that for all <m>x \in (c-\delta,c+\delta)</m>, <m>f(x)</m> is defined and <m>f(x) \ge f(c)</m>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Derivatives give us information about slope at a point by finding the limit of slopes connecting nearby points. The consequence of this is that a slope also gives information about those nearby points. The idea of the derivative had started before calculus was formally developed by Newton and Leibniz. Fermat realized a connection between what we now call derivatives and local extremes.
+        </p>
+        <theorem xml:id="thm_fermat">
+            <title>Fermat's Theorem</title>
+            <statement>
+                <p>
+                    If <m>f(x)</m> has a local extreme at <m>x=c</m> and is differentiable at <m>x=c</m>, then <m>f'(c)=0</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    Suppose that <m>f(x)</m> has a local maximum at <m>x=c</m>. Then for <m>c-\delta x \lt c</m>, we know <m>f(x) \lt f(c)</m> and <m>x \lt c</m> so that
+                    <me>\frac{f(x)-f(c)}{x-c} \gt 0</me>.
+                    Using a limit as <m>x \to c^-</m>, we find
+                    <me>\frac{df}{dx}\Big|_{c^-} = \lim_{x \to c^-} \frac{f(x)-f(c)}{x-c} \ge 0</me>
+                    or does not exist.
+                    Meanwhile <m>c \lt x \lt c+\delta</m>, we know <m>f(x) \lt f(c)</m> and <m>x \gt c</m> so that 
+                    <me>\frac{f(x)-f(c)}{x-c} \lt 0</me>.
+                    Using a limit as <m>x \to c^+</m>, if it exists, we find
+                    <me>\frac{df}{dx}\Big|_{c^+} = \lim_{x \to c^+} \frac{f(x)-f(c)}{x-c} \le 0</me>.
+                    If <m>f'(c)</m> exists, the one-sided derivatives must agree, which can only occur if <m>f'(c)=0</m>.
+                    If the one-sided derivatives do not exist or if they disagree, then <m>f'(c)</m> itself does not exist.
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            Fermat's theorem gives us a way to find all points where a local extreme might occur. We only need to find points where <m>f'(x)=0</m> or where <m>f'(x)</m> does not exist (where <m>f</m> is not differentiable).
+            This is important enough that mathematicians assign these points a special name.
+        </p>
+        <definition xml:id="defn_critical_point">
+            <title>Critical Points</title>
+            <statement>
+                <p>
+                    A function <m>f(x)</m> has a critical point at <m>x=a</m> in the domain of <m>f</m> if <m>f'(a)=0</m> or <m>f'(a)</m> does not exist.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Notice that the critical point is property of <m>f(x)</m> and is based on the derivative <m>f'(x)</m>. We don't say critical point of <m>f'(x)</m> unless we are talking about points where <m>f''(x)=0</m> or <m>f''(x)</m> does not exist.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_foundation_mvt">
+        <title>Mean Value Theorem</title>
+        <p>
+            The average rate of change measures the slope of a line joining two points at the ends of an interval. The derivative measures the instantaneous rate of change at an individual point. The mean value theorem provides a connection between these two ideas.
+        </p>
+        <p>
+            Before discussing the mean value theorem, we first consider Rolle's theorem.
+            This theorem considers a function that is continuous and differentiable on a closed interval so that the end points are at the same <m>y</m>-value. Because it is continuous on a closed interval, the extreme value theorem guarantees that this function has both a maximum and a minimum value. If both extremes are at the end points, then the function must be constant on the entire interval. Otherwise, at least one of the extremes must be at an interior point. But at an interior extreme point where the function is differentiable, we must have <m>f'(x)=0</m>.
+        </p>
+        <theorem xml:id="thm_rolles_theorem">
+            <title>Rolle's Theorem</title>
+            <statement>
+                <p>
+                    Suppose <m>f(x)</m> is a function that is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>. If <m>f(a)=f(b)</m>, then there must exist <m>c \in (a,b)</m> where <m>f'(c)=0</m>.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            Rolle's theorem is often used to show that <m>f'(x)</m> must have a zero somewhere between two points <m>a</m> and <m>b</m> where <m>f(a)=f(b)</m>, usually at two roots of <m>f(x)</m>. If a function leaves a <m>y</m>-value <m>f(a)</m> and later returns to the same <m>y</m>-value at <m>f(b)</m>, then there must be a point between them where the graph turns around with a horizontal tangent.
+        </p>
+        <p>
+            The mean value theorem puts Rolle's theorem on a tilt.
+            Instead of guaranteeing a horizontal tangent, the mean value theorem guarantees that there will be a point with a tangent line whose slope matches the slope joining the end-points.
+        </p>
+        <theorem xml:id="thm_mean_value_theorem">
+            <title>Mean Value Theorem</title>
+            <statement>
+                <p>
+                    Suppose <m>f(x)</m> is a function that is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>. There must exist <m>c \in (a,b)</m> where
+                    <me>f'(c) = \frac{f(b)-f(a)}{b-a}</me>.
+                </p>
+            </statement>
+        </theorem>
+    </subsection>
+    <conclusion>
+        <p>
+            During the semester that COVID disrupted our lives, I decided to try to have some fun with these theorems and wrote a short dramatic piece and recorded it with my family.
+        </p>
+        <video youtube="kRbc33G5kX8"/>
+    </conclusion>
+</section>

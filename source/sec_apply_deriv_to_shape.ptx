@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_apply_deriv_to_shape" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Derivatives Determine Shape</title>
+    <introduction>
+        <p>
+            The behavior of a function is described using the language of monotonicity and concavity. Recall that a function <m>f(x)</m> is <term>increasing on a set</term> <m>S</m> if for any <m>a,b \in S</m>, if <m>a \lt b</m> then <m>f(b) \gt f(a)</m>. Similarly, <m>f(x)</m> is <term>decreasing on a set</term> <m>S</m> if for any <m>a,b \in S</m>, if <m>a \lt b</m> then <m>f(b) \lt f(a)</m>.
+        </p>
+        <p>
+            The Mean Value Theorem provides a connection between derivatives and the properties of monotonicity. The outcomes presented in this section focus on the use of sign analysis of derivatives to identify intervals of monotonicity and concavity.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_derivative_monotonicity">
+        <title>First Derivatives and Increasing/Decreasing</title>
+        <p>
+            The inequalities that define the properties of increasing and decreasing are related to the calculation of an average rate of change. For <m>a \lt b</m>, the inequality <m>f(b) \gt f(a)</m> is equivalent to <m>f(b) - f(a) \gt 0</m>, which is in turn equivalent to a positive average rate of change <m>\displaystyle \frac{f(b)-f(a)}{b-a} \gt 0</m>. Similarly, <m>f(b) \lt f(a)</m> is equivalent to having a negative average rate of change <m>\displaystyle \frac{f(b)-f(a)}{b-a} \lt 0</m>.
+        </p>
+        <p>
+            When a function is differentiable on <m>(a,b)</m>, the mean value theorem connects the average rate of change to a value of <m>f'(c)</m> for some <m>c \in (a,b)</m>. This connection allows us to use sign analysis of <m>f'(x)</m> to show that <m>f(x)</m> is increasing or decreasing on intervals.
+        </p>
+        <theorem xml:id="thm_first_deriv_monotonicity">
+            <title>First Derivative Test for Monotonicity</title>
+            <statement>
+                <p>
+                    Suppose <m>f(x)</m> is a function that is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>.
+                    <ul>
+                        <li><p>If <m>f'(x)</m> is <em>positive</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>increasing</em> on <m>[a,b]</m>.</p></li>
+                        <li><p>If <m>f'(x)</m> is <em>negative</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>decreasing</em> on <m>[a,b]</m>.</p></li>
+                        <li><p>If <m>f'(x)</m> is <em>zero</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>constant</em> on <m>[a,b]</m>.</p></li>
+                    </ul>
+                    If the continuity of <m>f(x)</m> does not extend to the end-point, then the conclusion for monotonicity may not extend to the end-point either.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    Suppose we take any two points <m>x_1,x_2 \in [a,b]</m>, with <m>x_1 \lt x_2</m>. We know <m>f(x)</m> is continuous on <m>[x_1,x_2]</m> and differentiable on <m>(x_1,x_2)</m> since these intervals are subintervals of <m>[a,b]</m>. By the Mean Value Theorem, we know that there is some $\xi \in (x_1,x_2)$ where
+                    <me>\frac{\Delta f}{\Delta x} = \frac{f(x_2)-f(x_1)}{x_2-x_1} = f'(\xi)</me>.
+                    If <m>f'(x) > 0</m> for all <m>x \in (a,b)</m>, then <m>\frac{\Delta f}{\Delta x} \gt 0</m> which means <m>f(x_2) \gt f(x_1)</m>.
+                    Since this is true for <em>any</em> choice of <m>x_1,x_2</m>, this means <m>f(x)</m> is <em>increasing</em> on <m>[a,b]</m>.
+                    By the same reasoning, the other conclusions also hold.
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            For actual applications, we calculate (or are given) the function <m>f'(x)</m> and then complete sign analysis. Once we have completely found intervals where <m>f'(x)</m> is positive or negative (or possibly zero), we apply the consequence of the MVT to describe where <m>f(x)</m> is increasing or decreasing (or possibly constant). Note that we need <em>intervals</em> and not isolated points to use this result.
+        </p>
+        <example xml:id="ex_applications_first_deriv_monotonicity_simple">
+            <statement>
+                <p>
+                    Find the intervals on which <m>f(x)=x^4 - 2x^3 - 4x^2 + 12x</m> is increasing and decreasing.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The properties of increasing and decreasing can be found based on the signs of <m>f'(x)</m>. The first step, therefore, is to find the formula for <m>f'(x)</m> so that we can complete sign analysis.
+                    <md>
+                        <mrow>f(x) &amp;= x^4 - 2x^3 - 4x^2 + 12x</mrow>
+                        <mrow>f'(x) &amp;= 4x^3 - 2\cdot 3x^2 - 4 \cdot 2x + 12</mrow>
+                        <mrow>&amp;= 4x^3 - 6x^2 - 8x + 12</mrow>
+                    </md>
+                </p>
+                <p>
+                    The next step is to complete sign analysis. We need to find the factorization. Using either factoring by grouping or technology, we find
+                    <me>f'(x) = 2(x^2-2)(2x-3)</me>.
+                    The individual factors yield roots at <m>x=\pm \sqrt{2}</m> and <m>x=\frac{3}{2}</m>. (Don't be distracted by the constant factor 2, since no values of <m>x</m> make <m>2=0</m>.)
+                    We mark these three points on the number line to determine our test intervals <m>(-\infty,-\sqrt{2})</m>, <m>(-\sqrt{2},\sqrt{2}</m>, <m>(\sqrt{2}, \frac{3}{2})</m>, and <m>(\frac{3}{2},\infty)</m>.
+                    We need to test the sign of <m>f'(x)</m>, so we calculate the sign or value of <m>f'(x)=2(x^2-2)(2x-3)</m> at points in each interval.
+                    <ul>
+                        <li><p><m>f'(-4)=2((-4)^2-2)(2(-4)-3)=2(14)(-11) \lt 0</m> (negative)</p></li>
+                        <li><p><m>f'(0)=2((0)^2-2)(2(0)-3)=2(-2)(-3) \gt 0</m> (positive)</p></li>
+                        <li><p><m>f'(1.45)=2((1.45)^2-2)(2(1.45)-3)=2(0.1025)(-0.1) \lt 0</m> (negative)</p></li>
+                        <li><p><m>f'(2)=2((2)^2-2)(2(2)-3)=2(2)(1) > 0</m> (positive)</p></li>
+                    </ul>
+                    This is shown graphically with a sign analysis summary number line.
+                </p>
+                <figure xml:id="fig_firstD_sign_analysis_summary_ex1">
+                    <caption>Sign analysis summary for <m>f'(x)=2(x^2-2)(2x-3)</m>.</caption>
+                    <image xml:id="firstD_sign_analysis_summary_ex1" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.75cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (3.2,0);
+\draw [line width=1] (-1.414,-0.1) -- (-1.414,0.1) node [pos=0, below] {$-\sqrt{2}$} node [pos=1, above] {0};
+\draw [line width=1] (1.214,-0.1) -- (1.214,0.1) node [pos=0, below] {$\sqrt{2}$} node [pos=1, above] {0};
+\draw [line width=1] (1.5,-0.1) -- (1.5,0.1) node [pos=0, below] {$\frac{3}{2}$} node [pos=1, above] {0};
+
+\node [below] at (-2,-0.1) {-4};
+\node [above] at (-2,0.1) {$-$};
+
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$+$};
+
+\node [below] at (1.35,-0.1) {1.45};
+\node [above] at (1.35,0.1) {$-$};
+
+\node [below] at (2,-0.1) {2};
+\node [above] at (2,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    We finish by interpreting the signs of <m>f'(x)</m> to say something about where <m>f(x)</m> is increasing or decreasing.
+                    The original <m>f(x)</m> is continuous, so we can extend the properties of monotonicity to include the end-points.
+                    <ul>
+                        <li><p><m>f(x)</m> is <em>decreasing</em> on <m>(-\infty,-\sqrt{2}]</m> (since <m>f'(x) \lt 0</m> on <m>(-\infty,-\sqrt{2})</m>)</p></li>
+                        <li><p><m>f(x)</m> is <em>increasing</em> on <m>[-\sqrt{2},\sqrt{2}]</m> (since <m>f'(x) \gt 0</m> on <m>(-\sqrt{2},\sqrt{2})</m>)</p></li>
+                        <li><p><m>f(x)</m> is <em>decreasing</em> on <m>[\sqrt{2},\frac{3}{2}]</m> (since <m>f'(x) \lt 0</m> on <m>(\sqrt{2},\frac{3}{2})</m>)</p></li>
+                        <li><p><m>f(x)</m> is <em>increasing</em> on <m>[\frac{3}{2},\infty)</m> (since <m>f'(x) \gt 0</m> on <m>(\frac{3}{2},\infty)</m>)</p></li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+        <p>
+            Typically, we need to recall all of the rules of differentiation since <m>f(x)</m> is not necessarily a polynomial.
+        </p>
+        <example xml:id="ex_applications_first_deriv_monotonicity">
+            <title>Learning Objective A-1</title>
+            <statement>
+                <p>
+                    Find the intervals on which <m>\displaystyle f(x)=\frac{x^3-2x^2}{2x+5}</m> is increasing and decreasing.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We will calculate <m>f'(x)</m>, which will require using the quotient rule. Then we factor the formula and complete sign analysis. Finally, we interpret the signs of <m>f'(x)</m> in the context of the first derivative test for monotonicity.
+                    <md>
+                        <mrow>f(x) &amp;= \frac{x^3-2x^2}{2x+5}</mrow>
+                        <mrow>f'(x) &amp;= \frac{(2x+5)(3x^2-4x)-(x^3-2x^2)(2)}{(2x+5)^2}</mrow>
+                        <mrow>&amp;= \frac{6x^3 -8x^2+15x^2-20x-2x^3+4x^2}{(2x+5)^2}</mrow>
+                        <mrow>&amp;= \frac{4x^3 + 11x^2 - 20x}{(2x+5)^2}</mrow>
+                        <mrow>&amp;= \frac{x(4x^2+11x-20)}{(2x+5)^2}</mrow>
+                        <mrow>&amp;= \frac{x(4x-5)(x+4)}{(2x+5)^2}</mrow>
+                    </md>
+                    Notice that we never multiplied out the denominator since that was factored already when we used the quotient rule for derivatives.
+                    The zeros of the numerator are <m>x=0</m>, <m>x=\frac{5}{4}</m>, and <m>x=-4</m>, while the single zero fo the denominator is <m>x=-\frac{5}{2}</m>.
+                    We test the signs of this factored formula for <m>f'(x)</m> to get a sign analysis summary shown below.
+                </p>
+                <figure xml:id="fig_firstD_sign_analysis_summary_ex2">
+                    <caption>Sign analysis summary for <m>\displaystyle f'(x)=\frac{x(4x-5)(x+4)}{(2x+5)^2}</m>.</caption>
+                    <image xml:id="firstD_sign_analysis_summary_ex2" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.0cm]
+\draw [&lt;-&gt;, line width=1] (-6.2,0) -- (3.2,0);
+\draw [line width=1] (-4,-0.1) -- (-4,0.1) node [pos=0, below] {-4} node [pos=1, above] {0};
+\draw [line width=1] (-2.5,-0.1) -- (-2.5,0.1) node [pos=0, below] {$-\frac{5}{2}$} node [pos=1, above] {und};
+\draw [line width=1] (0,-0.1) -- (0,0.1) node [pos=0, below] {0} node [pos=1, above] {0};
+\draw [line width=1] (1.25,-0.1) -- (1.25,0.1) node [pos=0, below] {$\frac{5}{4}$} node [pos=1, above] {0};
+
+\node [below] at (-5,-0.1) {-5};
+\node [above] at (-5,0.1) {$-$};
+\node [below] at (-3,-0.1) {-3};
+\node [above] at (-3,0.1) {$+$};
+\node [below] at (-1,-0.1) {-1};
+\node [above] at (-1,0.1) {$+$};
+\node [below] at (1,-0.1) {1};
+\node [above] at (1,0.1) {$-$};
+\node [below] at (2,-0.1) {2};
+\node [above] at (2,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    The intervals where <m>f'(x)</m> is negative are where <m>f(x)</m> is decreasing. The intervals where <m>f'(x)</m> is positive are where <m>f(x)</m> is increasing. The function <m>f(x)</m> is not defined at <m>x=-\frac{5}{2}</m> (and so certainly not continuous). When describing its shape, we will not extend the intervals to include that end point.
+                    <ul>
+                        <li><p><m>f(x)</m> is decreasing on <m>(-\infty,-4]</m> and on <m>[0,\frac{5}{4}]</m>.</p></li>
+                        <li><p><m>f(x)</m> is increasing on <m>[-4,-\frac{5}{2})</m>, on <m>(-\frac{5}{2},0]</m> and on <m>[\frac{5}{4},\infty)</m>.</p></li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_derivative_concavity">
+        <title>Second Derivatives and Concavity</title>
+        <p>
+            Although we might naturally think about concavity as being about the way a curve bends, a more precise explanation is about how the slope is changing.
+        </p>
+        <definition xml:id="defn_concavity">
+            <title>Concavity</title>
+            <statement>
+                <p>
+                    A function <m>f(x)</m> is <term>concave up</term> on an interval <m>I</m> if for any three points <m>x_1,x_2,x_3 \in I</m> with <m>x_1 \lt x_2 \lt x_3</m>, the average rate of change is increasing:
+                    <me>\frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>
+                </p>
+                <p>
+                    A function <m>f(x)</m> is <term>concave down</term> on an interval <m>I</m> if for any three points <m>x_1,x_2,x_3 \in I</m> with <m>x_1 \lt x_2 \lt x_3</m>, the average rate of change is decreasing:
+                    <me>\frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            The Mean Value Theorem gives us a tool to understand this as well. If <m>f(x)</m> is differentiable on <m>I</m>, then each of the average rates of change will match the value of <m>f'(x)</m> at points <m>\xi_1 \in (x_1,x_2)</m> and <m>\xi_2 \in (x_2,x_3)</m>. Consequently, if we can show that <m>f'(x)</m> is increasing, the average rates of change must be increasing. Similarly, knowing that <m>f'(x)</m> is decreasing means that average rates of change must decrease.
+        </p>
+        <theorem xml:id="thm_concavity_firstD_monotonicity">
+            <statement>
+                <p>
+                    The monotonicity of <m>f'(x)</m> determines the concavity of <m>f(x)</m>.
+                    <ul>
+                        <li><p>If <m>f'(x)</m> is increasing on <m>I</m>, then <m>f(x)</m> is <em>concave up</em> on <m>I</m>.</p></li>
+                        <li><p>If <m>f'(x)</m> is decreasing on <m>I</m>, then <m>f(x)</m> is <em>concave down</em> on <m>I</m>.</p></li>
+                        <li><p>If <m>f'(x)</m> is constant on <m>I</m>, then <m>f(x)</m> is <em>linear</em> on <m>I</m>.</p></li>
+                    </ul> 
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            If <m>f'(x)</m> itself is differentiable, then sign analysis of <m>f''(x)</m> can be used to find intervals of monotonicity of <m>f'(x)</m>, which in turn are intervals of concavity for <m>f(x)</m>.
+            That is, sign analysis of <m>f''(x)</m> determines the concavity of <m>f(x)</m>.
+        </p>
+        <theorem xml:id="thm_second_deriv_concavity">
+            <title>Second Derivative Test for Concavity</title>
+            <statement>
+                <p>
+                    Suppose <m>f(x)</m> is a function that is twice-differentiable on <m>(a,b)</m> and <m>f'(x)</m> is continuous on <m>[a,b]</m>.
+                    <ul>
+                        <li><p>If <m>f''(x)</m> is <em>positive</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>concave up</em> on <m>[a,b]</m>.</p></li>
+                        <li><p>If <m>f''(x)</m> is <em>negative</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>concave down</em> on <m>[a,b]</m>.</p></li>
+                        <li><p>If <m>f''(x)</m> is <em>zero</em> on <m>(a,b)</m>, then <m>f(x)</m> is <em>linear</em> on <m>[a,b]</m>.</p></li>
+                    </ul>
+                    If the continuity of <m>f'(x)</m> does not extend to the end-point, then the conclusion for concavity may not extend to the end-point either.
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            Our strategy for learning about concavity will be similar to using the first derivative and sign analysis, except we use the second derivative.
+        </p>
+        <example xml:id="">
+            <title>Learning Objective A-2</title>
+            <statement>
+                <p>
+                    Find the intervals on which <m>\displaystyle f(x)=x^5+2x^4-10x^3-36x^2 + 5x + 10</m> is concave up and concave down.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Start by finding the second derivative.
+                    <md>
+                        <mrow>f(x) &amp;= x^5+2x^4-10x^3-36x^2 + 5x + 10</mrow>
+                        <mrow>f'(x) &amp;= 5x^4+8x^3-30x^2-72x+5</mrow>
+                        <mrow>f''(x) &amp;= 20x^3+24x^2-60x-72</mrow>
+                    </md>
+                    Next, factor (either by grouping or technology) to rewrite:
+                    <me>f''(x) = 4(x^2-3)(5x+6)</me>.
+                    Setting each factor to zero, we find three points where <m>f''(x)=0</m>: <m>x=\pm \sqrt{3}</m> and <m>x=-\frac{6}{5}</m>.
+                    We use these points to do sign analysis on the factored version of <m>f''(x)</m>.
+                </p>
+                <figure xml:id="fig_secondD_sign_analysis_summary_ex1">
+                    <caption>Sign analysis summary for <m>\displaystyle f''(x)=4(x^2-3)(5x+6)</m>.</caption>
+                    <image xml:id="secondD_sign_analysis_summary_ex1" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.5cm]
+\draw [&lt;-&gt;, line width=1] (-3.2,0) -- (3.2,0);
+\draw [line width=1] (-1.7,-0.1) -- (-1.7,0.1) node [pos=0, below] {$-\sqrt{3}$} node [pos=1, above] {0};
+\draw [line width=1] (-1,-0.1) -- (-1,0.1) node [pos=0, below] {$-\frac{6}{5}$} node [pos=1, above] {0};
+\draw [line width=1] (1.7,-0.1) -- (1.7,0.1) node [pos=0, below] {$\sqrt{3}$} node [pos=1, above] {0};
+
+\node [below] at (-2,-0.1) {-2};
+\node [above] at (-2,0.1) {$-$};
+\node [below] at (-1.3,-0.1) {-1.5};
+\node [above] at (-1.3,0.1) {$+$};
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$-$};
+\node [below] at (2,-0.1) {2};
+\node [above] at (2,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    We finish by interpreting. On intervals where <m>f''(x)</m> is positive, the original function <m>f(x)</m> is concave up. On intervals where <m>f''(x)</m> is negative, the function <m>f(x)</m> is concave down. Because <m>f'(x)</m> is defined and continuous everywhere, we can include the end points of the intervals.
+                    <ul>
+                        <li><p><m>f(x)</m> is <em>concave up</em> on <m>[-\sqrt{3},-\frac{6}{5}]</m> and on <m>[\sqrt{3},\infty)</m>.</p></li>
+                        <li><p><m>f(x)</m> is <em>concave down</em> on <m>(-\infty,-\sqrt{3}]</m> and on <m>[-\frac{6}{5}, \sqrt{3}]</m>.</p></li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_derivs_shape">
+        <title>Complete Shape Analysis</title>
+        <p>
+            When we use both the first and second derivatives, we can find intervals for both monotonicity and concavity. This allows us to describe the shape of the graph.
+        </p>
+        <example xml:id="ex_derivs_to_shape">
+            <statement>
+                <p>
+                    Describe the behavior of <m>f(x)=x^4-12x^2+16x</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We use <m>f'(x)</m> to understand where <m>f(x)</m> is increasing or decreasing, and <m>f''(x)</m> to understand where <m>f(x)</m> is concave up or concave down.
+                    We start by calculating the derivatives so that we can do sign analysis.
+                    <md>
+                        <mrow>f(x) &amp;= x^4-12x^2+16x</mrow>
+                        <mrow>f'(x) &amp;= 4x^3-24x+16</mrow>
+                        <mrow>f''(x) &amp;= 12x^2-24</mrow>
+                    </md>
+                    To do sign analysis, we need to find the zeros of the functions. If the functions factor, that is the easiest way to accomplish that.
+                    <md>
+                        <mrow>f(x) &amp;= x(x+4)(x-2)^2</mrow>
+                        <mrow>f'(x) &amp;= 4(x-2)(x^2+2x-2)</mrow>
+                        <mrow>f''(x) &amp;= 12(x^2-2)</mrow>
+                    </md>
+                </p>
+                <p>
+                    To do sign analysis of <m>f'(x)</m>, we find zeros as solutions of <m>4=0</m> (no solutions), <m>x-2=0</m> at <m>x=2</m>, and <m>x^2+2x-2=0</m> at <m>x=-1 \pm \sqrt{3}</m>, approximated by <m>x \approx -2.732</m> and <m>x \approx 0.732</m>.
+                    Putting these on a number line, we can find the intervals we need to test: <m>(-\infty,-1-\sqrt{3})</m>, <m>(-1-\sqrt{3},-1+\sqrt{3})</m>, <m>(-1+\sqrt{3},2)</m>, and <m>(2,\infty)</m>.
+                    Evaluating <m>f'(x)=4(x-2)(x^2+2x-2)</m> at a point in each interval, we get the following sign analysis summary.
+                </p>
+                <figure xml:id="fig_fcn_shape_firstD_signs">
+                    <caption>Sign analysis summary for <m>\displaystyle f'(x)=4(x-2)(x^2+2x-2)</m>.</caption>
+                    <image xml:id="fcn_shape_firstD_signs" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.25cm]
+\draw [&lt;-&gt;, line width=1] (-4,0) -- (4,0);
+\draw [line width=1] (-2.732,-0.1) -- (-2.732,0.1) node [pos=0, below] {$-1-\sqrt{3}$} node [pos=1, above] {0};
+\draw [line width=1] (0.732,-0.1) -- (0.732,0.1) node [pos=0, below] {$-1+\sqrt{3}$} node [pos=1, above] {0};
+\draw [line width=1] (2,-0.1) -- (2,0.1) node [pos=0, below] {$2$} node [pos=1, above] {0};
+
+\node [below] at (-3,-0.1) {-3};
+\node [above] at (-3,0.1) {$-$};
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$+$};
+\node [below] at (1,-0.1) {0};
+\node [above] at (1,0.1) {$-$};
+\node [below] at (3,-0.1) {3};
+\node [above] at (3,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    From the first derivative, we know that <m>f(x)</m> is decreasing on the intervals <m>(-\infty,-1-\sqrt{3}]</m> and <m>[-1+\sqrt{3},2]</m> and is increasing on the intervals <m>[-1-\sqrt{3},-1+\sqrt{3}]</m> and <m>[2,\infty)</m>.
+                </p>
+                <p>
+                    The second derivative <m>f''(x) = 12(x^2-2)</m> provides information about concavity. The zeros are at <m>x=-\sqrt{2}</m> and <m>x=\sqrt{2}</m>. A sign analysis summary of <m>f''(x)</m> is given below.
+                </p>
+                <figure xml:id="fig_fcn_shape_secondD_signs">
+                    <caption>Sign analysis summary for <m>\displaystyle f''(x)=12(x^2-2)</m>.</caption>
+                    <image xml:id="fcn_shape_secondD_signs" width="75%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+\begin{tikzpicture}[x=1.25cm]
+\draw [&lt;-&gt;, line width=1] (-4,0) -- (4,0);
+\draw [line width=1] (-1.414,-0.1) -- (-1.414,0.1) node [pos=0, below] {$-\sqrt{2}$} node [pos=1, above] {0};
+\draw [line width=1] (1.414,-0.1) -- (1.414,0.1) node [pos=0, below] {$\sqrt{2}$} node [pos=1, above] {0};
+
+\node [below] at (-3,-0.1) {-3};
+\node [above] at (-3,0.1) {$+$};
+\node [below] at (0,-0.1) {0};
+\node [above] at (0,0.1) {$-$};
+\node [below] at (3,-0.1) {3};
+\node [above] at (3,0.1) {$+$};
+\end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    The second derivative test for concavity allows us to conclude that <m>f(x)</m> is concave up on the intervals <m>(-\infty,-\sqrt{2}]</m> and <m>[\sqrt{2},\infty)</m> and is concave down on the interval <m>[-\sqrt{2},\sqrt{2}]</m>.
+                </p>
+                <p>
+                    A graph of <m>f(x)</m> illustrates these behaviors. It has a local minimum at <m>x=-1-\sqrt{3}</m>, a local maximum at <m>x=-1+\sqrt{3}</m>, and another local minimum at <m>x=2</m>.
+                    <m>f(x)</m> also has points of inflection at <m>x=\pm \sqrt{2}</m>. In the graph, the extremes are marked with circular points, while the inflection points are marked as squares.
+                </p>
+                <figure xml:id="fig_fcn_shape_graph">
+                    <caption>Graph of <m>y=f(x)=x^4-12x^2+16x</m>.</caption>
+                    <image xml:id="fcn_shape_graph" width="60%">
+                        <description>sign analysis summary</description>
+                        <latex-image>
+                            \begin{tikzpicture}[x=1.25cm]
+                            \begin{axis}
+                            [xmin=-5, xmax=4, ymin=-100, ymax=50, grid=both, axis lines=center, xlabel=$x$]
+                            \addplot [domain=-5.2:5.2, samples=200, thick, blue] {x^4-12*x^2+16*x};
+                            \addplot [samples at={-2.732,0.732,2}, only marks, blue] {x^4-12*x^2+16*x};
+                            \addplot [samples at={-1.414,1.414}, only marks, mark=square*, solid, blue, fill=blue] {x^4-12*x^2+16*x};
+                            \end{axis}
+                            \end{tikzpicture}       
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        <p>
+            While these examples focused on finding intervals where the function had the properties of increasing, decreasing, concave up and concave down, this information could also be used to create sketches of the function's behavior. This will be investigated further in the next section where we consider the idea of an antiderivative.
+        </p>
+    </subsection>
+</section>

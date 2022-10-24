@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_apply_antiderivatives" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Antiderivatives</title>
+    <introduction>
+        <p>
+            Having learned that so much of a function's behavior can be described by knowing the derivative (and subsequently the second derivative), it is hopefully not too surprising to learn that knowing the derivative alone can be used to characterize almost all of the function.
+        </p>
+        <p>
+            One of the major themes in mathematics is the idea of <term>inverse operations</term>. When we start with a function <m>g(x)</m> and use it to find the derivative <m>g'(x)</m>, this action <m>\frac{d}{dx}[g(x)] = g'(x)</m> is called <term>differentiation</term>. We can <em>almost</em> do the action in reverse. That, is starting with a function <m>f(x)</m>, the action used to find a function <m>F(x)</m> so that our function <m>f(x)</m> is the derivative of <m>F(x)</m> is called <term>antidifferentiation</term> and we say that <m>F(x)</m> is an <term>antiderivative</term> of <m>f(x)</m>.
+        </p>
+        <p>
+            We have two learning outcomes connected to this idea.
+            <ol>
+                <li><p>Given a graph of a derivative <m>g'(x)</m>, sketch a graph of an antiderivative function by using the first and second derivatives tests for monotonicity and concavity.</p></li>
+                <li><p>Given a polynomial <m>p(x)</m>, find the antiderivative formula for a polynomial <m>f(x)</m> so that <m>f'(x)=p(x)</m> and passes through a given initial point.</p></li>
+            </ol>
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_apply_antiderivatives_overview">
+        <title>Overview of Antiderivatives</title>
+        <p>
+            When we learned about inverse functions, we learned that inverse functions <m>f</m> and <m>f^{-1}</m> have the property that the input/output pairing change places:
+            <me>f(x)=y \qquad \Leftrightarrow \qquad f^{-1}(y) = x</me>.
+            If we think of the differentiation operator in a similar way, a function <m>f(x)</m> and its derivative <m>f'(x)</m> can be interpreted as an input/output pair:
+            <me>\frac{d}{dx}[f(x)] = f'(x)</me>.
+            The original function <m>f(x)</m> is the input to the operator and its derivative is the output.
+            An inverse to differentiation should therefore reverse the ordering between these:
+            <me>\frac{d}{dx}^{-1}[f'(x)] = f(x)</me>.
+        </p>
+        <p>
+            Unfortunately, differentiation is not one-to-one and so can not have a true inverse.
+            For example, consider <m>f(x) = x^4 - 3x^2 + 4</m> and <m>g(x)=x^4 - 3x^2 - \pi</m>.
+            Because the formulas involving <m>x</m> are the same and the derivative of every constant is zero, we have both functions creating the same derivatives, <m>f'(x)=g'(x)</m>
+            <md>
+                <mrow>\frac{d}{dx}[x^4-3x^2+4] = 4x^3-6x</mrow>,
+                <mrow>\frac{d}{dx}[x^4-3x^2-\pi] = 4x^3-6x</mrow>.
+            </md>
+            So if we asked to find <em>the</em> antiderivative of <m>4x^3-6x</m>, we know at least two possible answers and quickly realize that there are infinitely many possible answers
+            <me>\frac{d}{dx}^{-1}[4x^3-6x] = x^4-3x^2+C</me>,
+            where <m>C</m> could be <em>any</em> constant you might choose.
+        </p>
+        <p>
+            Maybe there are others as well that are not just adding a different constant. A natural question arises: Are there <em>other</em> functions that <em>also</em> have the same derivative?
+        </p>
+        <p>
+            The Mean Value Theorem comes to our rescue and tells us, no. The only antiderivatives that are possible are those that differ by a constant.
+        </p>
+        <theorem xml:id="thm_antiderivative_differ_by_constant">
+            <statement>
+                <p>
+                    Suppose that <m>f(x)</m> and <m>g(x)</m> have the same derivative, <m>f'(x)=g'(x)</m> on an interval <m>I</m>. Then there must be a constant <m>C</m> so that <m>g(x)-f(x)=C</m>, or equivalently <m>g(x)=f(x)+C</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    Define the function measuring the difference between <m>f(x)</m> and <m>g(x)</m>,
+                    <me>D(x) = g(x)-f(x)</me>.
+                    On the interval <m>I</m>, <m>f</m> and <m>g</m> are differentiable and have the same derivative values, so that we have
+                    <me>D'(x) = \frac{d}{dx}[g(x)-f(x)] = g'(x)-f'(x) = 0</me>.
+                    The <xref ref="thm_first_deriv_monotonicity">first derivative test for monotonicity</xref>, which was an immediate consequence of the Mean Value Theorem, proved that when a function has a derivative equal to zero on an interval, that function must be a constant on that interval, <m>D(x)=C</m> for some constant <m>C</m>. That is <m>g(x)-f(x)=C</m> or <m>g(x)=f(x)+C</m>.
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            If we can find <em>one</em> antiderivative, then all other antiderivatives can be found by adding a constant. Graphically, this means that antiderivatives are vertical translations (shifts) of one another.
+        </p>
+        <p>
+            Later in calculus, we will learn that, at least for continuous functions, antiderivatives can always be computed through a process called <term>integration</term>.
+            This fact is the central pillar of calculus called the <term>Fundamental Theorem of Calculus</term>. For this reason, rather than using a notation like <m>\frac{d}{dx}^{-1}</m> for finding antiderivatives, the notation instead adopts what is called an <term>indefinite integral</term>:
+            <me>\int f(x) \, dx \equiv \frac{d}{dx}^{-1}[f(x)]</me>.
+        </p>
+        <p>
+            One way to think about the integral notation is to remember that a derivative is calculated as a limit of a difference quotient, meaning we find the difference <m>f(x+h)-f(x)</m> and calculate the quotient of this divided by <m>\Delta x = h</m>. In the limit, we think of <m>\frac{\Delta y}{\Delta x} \to \frac{dy}{dx}</m>. The inverse operation must involve something like a limit of a product sum. The integral sign <m>\int</m> is an elongated S representing a sum and the product of <m>f(x)</m> with <m>dx</m> is the product. When integration is formally introduced, you will indeed learn that it is defined by calculating a sum of terms calculated as a product of a function value times <m>\Delta x</m>, with a limit <m>\Delta x \to dx = 0</m>.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec_apply_graph_antiderivative">
+        <title>Graphing an Antiderivative</title>
+        <p>
+            The behavior of a function is characterized by its derivative.
+            Consequently, if we know <m>f'(x)</m>, we can graph <m>y=f(x)</m> without knowing the actual function <m>f(x)</m> itself.
+            <m>f(x)</m> will be an antiderivative of <m>f'(x)</m>, which means that we don't know an initial value of <m>f(x)</m> and that any graph we create could be shifted vertically up or down to get other antiderivatives.
+            In addition, we currently only know where a function is increasing or decreasing, not <em>how much</em> it actual increases or decreases.
+            When we learn about integration, we will learn that we need to calculate areas from the graph of <m>f'(x)</m> to get this information.
+        </p>
+        <p>
+            Here is the process that we will follow:
+            <ul>
+                <li><p>Using the formula or graph of <m>f'(x)</m>, complete sign analysis of <m>f'(x)</m> to determine intervals on which <m>f(x)</m> is increasing or decreasing.</p></li>
+                <li><p>(Future) Using integrals, compute the areas of regions of the graph <m>f'(x)</m> that are positive and negative to determine how much <m>f(x)</m> will increase or decrease on these intervals.</p></li>
+                <li><p>Using the graph of <m>f'(x)</m> or the formula of <m>f''(x)</m>, complete sign analysis of <m>f''(x)</m> to determine intervals on which <m>f(x)</m> is concave up or concave down.</p></li>
+                <li><p>Determine the shape behavior from the sign analysis.</p></li>
+                <li><p>Sketch a continuous graph of <m>f(x)</m>.</p></li>
+            </ul>
+        </p>
+        <p>
+            When we only see a graph of <m>f'(x)</m>, the sign analysis of <m>f'(x)</m> is based on where the graph is above or below the <m>x</m>-axis. Because <m>f''(x)</m> is the derivative of <m>f'(x)</m>, the sign analysis of <m>f''(x)</m> is based on the sign of the <em>slope</em> of the graph of <m>f'(x)</m>. Where <m>f'(x)</m> is increasing, we will find <m>f''(x) \gt 0</m> and where <m>f'(x)</m> is decreasing, we will find <m>f''(x) \lt 0</m>.
+        </p>
+        <example xml:id="ex_graph_function"
+    </subsection>
+</section>
