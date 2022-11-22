@@ -12,7 +12,7 @@
         <p>
             We have two learning outcomes connected to this idea.
             <ol>
-                <li><p>Given a graph of a derivative <m>g'(x)</m>, sketch a graph of an antiderivative function by using the first and second derivatives tests for monotonicity and concavity.</p></li>
+                <li><p>Given a graph of a derivative <m>g'(x)</m>, describe and sketch a graph of an antiderivative function by using the first and second derivatives tests for monotonicity and concavity.</p></li>
                 <li><p>Given a polynomial <m>p(x)</m>, find the antiderivative formula for a polynomial <m>f(x)</m> so that <m>f'(x)=p(x)</m> and passes through a given initial point.</p></li>
             </ol>
         </p>
@@ -96,6 +96,223 @@
         <p>
             When we only see a graph of <m>f'(x)</m>, the sign analysis of <m>f'(x)</m> is based on where the graph is above or below the <m>x</m>-axis. Because <m>f''(x)</m> is the derivative of <m>f'(x)</m>, the sign analysis of <m>f''(x)</m> is based on the sign of the <em>slope</em> of the graph of <m>f'(x)</m>. Where <m>f'(x)</m> is increasing, we will find <m>f''(x) \gt 0</m> and where <m>f'(x)</m> is decreasing, we will find <m>f''(x) \lt 0</m>.
         </p>
-        <example xml:id="ex_graph_function"
+        <example xml:id="ex_graph_function_from_derivative">
+            <title>Learning Outcome A-3</title>
+            <statement>
+                <p>
+                    Suppose that the graph of <m>f'(x)</m> is given below.
+                    Describe and then graph a function <m>f(x)</m> consistent with the graph of <m>f'(x)</m>.
+                </p>
+                <figure xml:id="fig_graph_derivative">
+                    <caption>Graph of <m>f'(x)</m>.</caption>
+                    <image xml:id="graph_derivative_base">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \begin{axis}
+                            [xmin=-6, xmax=6, ymin=-8, ymax=8, grid=both, minor tick num=1]
+                            \addplot[domain=-6.5:6.5, samples=150, color=blue, very thick] {3*x*(x^2-4)*exp(-0.3*x^2)};
+                            \end{axis}
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>
+                    We start by using the information about <m>f'(x)</m> and <m>f''(x)</m> to understand where <m>f(x)</m> is increasing, decreasing, concave up, and concave down.
+                </p>
+                <p>
+                    The signs of <m>f'(x)</m> determine the intervals of monotonicity.
+                    The signs of <m>f'(x)</m> come from intervals where the graph of <m>f'(x)</m> is above or below the <m>x</m>-axis.
+                    We see that <m>f'(x)=0</m> at <m>x=-2</m>, <m>x=0</m>, and <m>x=2</m>.
+                    Further, we see that <m>f'(x) \gt 0</m> on <m>(-2,0)</m> and on <m>(2,\infty)</m>, while <m>f'(x) \lt 0</m> on <m>(-\infty,-2)</m> and <m>(0,2)</m>.
+                    This means that <m>f(x)</m> will be <em>decreasing</em> on <m>(-\infty,-2]</m>, increasing on <m>[-2,0]</m>, decreasing on <m>[0,2]</m>, and increasing on <m>[2,\inty)</m>.
+                    Seeing that <m>f'(x) \to 0</m> as <m>x \to \pm \infty</m>, we realize that <m>f(x)</m> will become more and more horizontal on its ends.
+                </p>
+                <p>
+                    The first derivative also allows us to identify where <m>f(x)</m> has its local minimum and maximum values.
+                    Because <m>f(x)</m> is decreasing on <m>(-\infty,-2]</m> and then increasing on <m>[-2,0]</m>, the graph falls and then rises, meaning that <m>f(x)</m> has a <em>local minimum</em> at <m>x=-2</m>.
+                    By similar reasoning, we conclue that <m>f(x)</m> has a <em>local maximum</em> at <m>x=0</m> and another local minimum at <m>x=2</m>
+                </p>
+                <p>
+                    The signs of <m>f''(x)</m> determine the intervals of concavity.
+                    Because <m>f''(x)</m> measures the rate of change of <m>f'(x)</m>, we will determine the signs of <m>f''(x)</m> by looking at the <em>slope</em> of <m>f'(x)</m>.
+                    We start by finding <m>f''(x)=0</m>, where the tangent line of <m>f'(x)</m> is horizontal, which occurs at <m>x \approx -2.9</m>, <m>x \approx -0.9</m>, <m>x \approx 0.9</m>, and <m>x \approx 2.9</m>.
+                    Because <m>f'(x)</m> is decreasing on <m>(-\infty,-2.9)</m>, we can see that <m>f''(x) \lt 0</m> and so <m>f(x)</m> is concave down on <m>(-\infty, -2.9]</m>.
+                    In a similar way, because <m>f'(x)</m> has positive slope for <m>-2.9 \lt x \lt -0.9</m>, we know <m>f(x)</m> is concave up on <m>[-2.9,-0.9]</m>.
+                    Using the same reasoning on the remaining intervals, we learn that <m>f(x)</m> is concave down on <m>[-0.9,0.9]</m>, concave up on <m>[0.9,2.9]</m>, and concave up on <m>[2.9,\infty)</m>.
+                    The function <m>f(x)</m> has inflection points at <m>x=-2.9</m>, <m>x=-0.9</m>, <m>x=0.9</m>, and <m>x=2.9</m>.
+                </p>
+                <p>
+                    To create the graph of <m>y=f(x)</m>, we use the same ideas as we used in <xref ref="subsec_fcn_shape"/>.
+                    When we learn about definite integrals, we will learn how to compute how <em>much</em> a function increases or decreases based on the area between the graph <m>y=f'(x)</m> and <m>y=0</m>, so here we only focus on matching the monotonicity and concavity we have found.
+                    In this case, the areas above and below the axis exactly match, so our graph has the same horizontal asymptote on the left as on the right.
+                </p>
+                <figure xml:id="fig_graph_function_from_derivative">
+                    <caption>Graph of <m>f'(x)</m>.</caption>
+                    <image xml:id="graph_function_from_derivative">
+                        <latex-image>
+                            \begin{tikzpicture}
+                            \begin{axis}
+                            [xmin=-6, xmax=6, ymin=-8, ymax=8, grid=both, minor tick num=1]
+                            \addplot[domain=-6.5:6.5, samples=150, color=blue, very thick] {(10-15*x^2)/3*exp(-0.3*x^2)+2};
+                            \end{axis}
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_apply_antiderivative_power">
+        <title>Antiderivatives and the Power Rule</title>
+        <p>
+            Given a formula for a function <m>f(x)</m>, can we find a formula for an antiderivative <m>F(x)</m>, a function so that <m>F'(x)=f(x)</m>?
+            Unfortunately, the answer is <em>only sometimes</em>.
+            The rules of differentiation mean that formulas of derivatives need to have patterns that can be created by following these rules.
+            It is actually a challenging task, and often not even possible, to find such a formula.
+        </p>
+        <p>
+            Polynomials, however, have the nice property that the derivative of a polynomial <em>is</em> another polynomial.
+            In this special case, it is quite easy to find a formula of an antiderivative.
+        </p>
+        <p>
+            First, recall the pattern of the power rule for a single power along with the constant multiple rule.
+            We know
+            <me>\frac{d}{dx}[c \cdot x^n] = (n \cdot c) \cdot x^{n-1}</me>.
+            That is, the derivative will have a coefficient where the original coefficient is <em>multiplied</em> by the original power and the power will have been reduced by one. 
+            If we want to find an <em>antiderivative</em>, we just need to invert this process: restore the power by adding one and then divide by that power.
+            <me>\frac{d}{dx}^{-1}[a \cdot x^p] = (\frac{a}{p+1} \cdot x^{p+1}</me>.
+        </p>
+        <example xml:id="ex_antideriv_power">
+            <statement>
+                <p>
+                    Find antiderivatives of the following simple power functions.
+                    <ul>
+                        <li><p><m>2x^3</m></p></li>
+                        <li><p><m>5\sqrt{x}</m></p></li>
+                        <li><p><m>\frac{3}{4x^4}</m></p></li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We will consider each power function at a time.
+                </p>
+                <p>
+                    The first function <m>2x^3</m> has a power <m>p=3</m>.
+                    For this to be the <em>derivative</em> of another function, the original power must have been <m>p+1=4</m>:
+                    <me>\frac{d}{dx}[x^4] = 4x^3</me>.
+                    Dividing by that original power 4, we find
+                    <me>\frac{d}{dx}[{\textstyle \frac{1}{4}} x^4] = {\textstyle \frac{1}{4}} \cdot 4x^3 = x^3</me>.
+                    To get the coefficient of 2, we multiply by 2.
+                    <me>\frac{d}{dx}[2 \cdot {\textstyle \frac{1}{4}} x^4] = 2 x^3</me>.
+                </p>
+                <p>
+                    The second function <m>5 \sqrt{x}</m> does not initially look like a power until we rewrite the square root <m>5 \sqrt{x} = 5 \cdot x^{1/2}</m>.
+                    The power of the derivative is <m>p = \textstyle \frac{1}{2}</m>, so the power of the original function must have been <m>p+1 = \frac{3}{2}</m>:
+                    <me>\frac{d}{dx}[x^{3/2}] = {\textstyle \frac{3}{2}} \cdot x^{1/2}</me>.
+                    Dividing by the original power is the same as multiplying by its reciprocal to find
+                    <me>\frac{d}{dx}[{\textstyle \frac{2}{3}} x^{3/2}] = {\textstyle \frac{2}{3}} \cdot {\textstyle \frac{3}{2}} \cdot x^{1/2} = x^{1/2}</me>.
+                    We finish by multiplying by the coefficient:
+                    <me>\frac{d}{dx}[{\textstyle 5 \cdot \frac{2}{3}} x^{3/2}] = 5 \cdot x^{1/2} = 5 \sqrt{5}</me>.
+                    That is, an antiderivative of <m>5 \sqrt{x}</m> will be <m>\frac{10}{3} x^{3/2} = \frac{10}{3} x \sqrt x</m>.
+                </p>
+                <p>
+                    The third function <m>\frac{3}{4x^4}</m> is also not immediately in the form of a power function.
+                    We can not have division by a power, as we need to have it written as a constant <em>multiplying</em> by a power of <m>x</m>. 
+                    So we rewrite using negative powers, <m>\frac{3}{4x^4} = \frac{3}{4} \cdot x^{-4}</m>.
+                    The power in the derivative is <m>p=-4</m>, so the power in the antiderivative must be <m>p+1=-3</m>. In addition, following the pattern of the previous problems, we will need to <em>divide</em> by this power:
+                    <me>\frac{d}{dx}[\frac{1}{-3} x^{-3}] = \frac{1}{-3} \cdot -3 x^{-4} = x^{-4}</me>.
+                    To get the correct coefficient, we multiply by that constant:
+                    <me>\frac{d}{dx}[\frac{3}{4} \cdot \frac{1}{-3} x^{-3}] = \frac{3}{4} x^{-4}</me>.
+                    The basic antiderivative of <m>\frac{3}{4x^4}</m> would be <m>\frac{3}{4} \cdot \frac{1}{-3} x^{-3} = \frac{-1}{4} x^{-3}</m>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            Because polynomials are just sums of simple power functions given by constants times powers of <m>x</m>, and derivatives have a sum rule, antiderivatives of polynomials and generalized polynomials can be found as a sum of the antiderivatives of each term.
+        </p>
+        <p>
+            In the introduction of this section, we pointed out that an antiderivative also has an unknown constant that can be added.
+            This constant allows us to apply a vertical shift or translation to the function.
+            This allows us to match any single given point for the antiderivative we are seeking.
+        </p>
+        <example xml:id="ex_finding_polynomial_antiderivative">
+            <title>Learning Objective A-4</title>
+            <statement>
+                <p>
+                    For each of the following, find the function <m>f(x)</m> with the given derivative and passing through the given point.
+                    <ul>
+                        <li><p><m>f'(x) = x^3+2x-5</m> with <m>f(2)=5</m></p></li>
+                        <li><p><m>f'(x) = x^2 - x \sqrt{x}</m> with <m>f(4)= 1</m></p></li>
+                    </ul>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    For each problem, we will start by finding an antiderivative formula that is the sum of the basic antiderivatives of each simple power with an unknown added constant.
+                    Then we will <em>evaluate</em> that function at the given point, which will create an equation involving that unknown constant.
+                    Solving the equation, we will find the constant so that we can write down the function desired.
+                </p>
+                <p>
+                    Recall that the notation for finding antiderivatives is with the integral operator <m>\int \ldots \, dx</m>,
+                    so our first function will be
+                    <me>f(x) = \int f'(x) \, \mathrm{d}x = \int [x^3+2x-5] \, \mathrm{d}x</me>.
+                    To use the antiderivative power rule, we need to think of <m>2x = 2x^1</m> and <m>-5 = -5 x^0</m>.
+                    We find
+                    <me>f(x) = {\textstyle \frac{1}{4}} x^4 + 2 \cdot {\textstyle \frac{1}{2}} x^2 - 5 \frac{1}{1} x^1 + C</me>,
+                    where <m>C</m> represents the unknown constant.
+                    Simplifying, we get
+                    <me>f(x) = \textstyle \frac{1}{4}x^4 + x^2-5x+C</me>.
+                    Note that it might be easier to recognize constants as having antiderivatives that are linear with the constant as its slope rather than using the power rule as illustratedabove.
+                </p>
+                <p>
+                    For this first example, we were given that <m>f(2)=5</m>.
+                    Based on the function we just found, we can find a <em>formula</em> for that same value.
+                    <md>
+                        <mrow>f(2) &amp;= \frac{1}{4}(2)^4 + (2)^2-5(2)+C</mrow>
+                        <mrow> &amp;= \frac{1}{4}(16) + 4 - 10 + C</mrow>
+                        <mrow> &amp;= -2 + C</mrow>
+                    </md>
+                    Knowing that <m>f(2)=5</m> and <m>f(2)=-2+C</m>, we create and then solve the equation <m>-2+C=5</m> to discover <m>C=7</m>.
+                    The antiderivative in question was <m>f(x)=\frac{1}{4}x^4+x^2-5x+7</m>.
+                </p>
+                <p>
+                    For the second example, we had <m>f'(x) = x^2 - x \sqrt{x}</m>.
+                    To find the general formula for antiderivatives, we need to rewrite this in the form of a generalized polynomial to get rid of the product and replace it by a single power,
+                    <me>f'(x) = x^2 - x^{3/2}</me>.
+                    The function <m>f(x)</m> will be one of the possible antiderivatives,
+                    <md>
+                        <mrow>f(x) &amp;= \int [x^2 - x^{3/2}] \, \mathrm{d}x </mrow>
+                        <mrow>&amp;= \frac{1}{3}x^3 - \frac{2}{5} x^{5/2} + C</mrow>.
+                    </md>
+                </p>
+                <p>
+                    We were also given <m>f(4)=1</m>, so we evaluate this general formula at <m>x=4</m> to create an equation so that we can find <m>C</m>.
+                    <md>
+                        <mrow>f(4) &amp;= \frac{1}{3} (4)^3 - \frac{2}{5} (4)^{5/2} + C</mrow>
+                        <mrow>&amp;= \frac{1}{3}\cdot 64 - \frac{2}{5} \cdot 32 + C</mrow>
+                        <mrow>&amp;= \frac{64}{3} - \frac{64}{5} + C</mrow>
+                        <mrow>&amp;= \frac{128}{15} + C</mrow>
+                    </md>
+                    This leads to an equation
+                    <me>\frac{128}{15} + C = 1</me>
+                    which we solve to find <m>C = \frac{-113}{15}</m>.
+                    The specific antiderivative in question will be
+                    <me>f(x) = \frac{1}{3}x^3 - \frac{2}{5} x^{5/2} - \frac{113}{15}</me>.
+                </p>
+            </solution>
+        </example>
+        <p>
+            As we wrap up this work, we need to be aware of one power that does not have a simple power function antiderivative.
+            If we think about domain issues and the integration rule
+            <me>\int x^p \, \mathrm{d}x = \frac{1}{p+1} x^{p+1}</me>,
+            we should recognize that division by <m>p+1</m> will have a problem if <m>p=-1</m>.
+            Indeed, the special case of a power function <m>x^{p+1} = x^0</m> is constant and results in a derivative of 0 rather than a separate power.
+        </p>
+        <p>
+            We will need an entirely new function to be the antiderivative of <m>x^{-1}</m>. We will later learn that this function is the natural logarithm, the transcendental function that is the inverse of the exponential function <m>\exp(x) = e^x</m>.
+        </p>
     </subsection>
 </section>

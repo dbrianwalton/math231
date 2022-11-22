@@ -14,4 +14,5 @@
 
   <xi:include href="./sec_apply_foundations.ptx" />
   <xi:include href="./sec_apply_deriv_to_shape.ptx" />
+  <xi:include href="./sec_apply_antiderivatives.ptx" />
 </chapter>
