@@ -105,7 +105,7 @@
                 </p>
                 <figure xml:id="fig_graph_derivative">
                     <caption>Graph of <m>f'(x)</m>.</caption>
-                    <image xml:id="graph_derivative_base">
+                    <image xml:id="graph_derivative_base" width="60%">
                         <latex-image>
                             \begin{tikzpicture}
                             \begin{axis}
@@ -126,7 +126,7 @@
                     The signs of <m>f'(x)</m> come from intervals where the graph of <m>f'(x)</m> is above or below the <m>x</m>-axis.
                     We see that <m>f'(x)=0</m> at <m>x=-2</m>, <m>x=0</m>, and <m>x=2</m>.
                     Further, we see that <m>f'(x) \gt 0</m> on <m>(-2,0)</m> and on <m>(2,\infty)</m>, while <m>f'(x) \lt 0</m> on <m>(-\infty,-2)</m> and <m>(0,2)</m>.
-                    This means that <m>f(x)</m> will be <em>decreasing</em> on <m>(-\infty,-2]</m>, increasing on <m>[-2,0]</m>, decreasing on <m>[0,2]</m>, and increasing on <m>[2,\inty)</m>.
+                    This means that <m>f(x)</m> will be <em>decreasing</em> on <m>(-\infty,-2]</m>, increasing on <m>[-2,0]</m>, decreasing on <m>[0,2]</m>, and increasing on <m>[2,\infty)</m>.
                     Seeing that <m>f'(x) \to 0</m> as <m>x \to \pm \infty</m>, we realize that <m>f(x)</m> will become more and more horizontal on its ends.
                 </p>
                 <p>
@@ -149,13 +149,15 @@
                     In this case, the areas above and below the axis exactly match, so our graph has the same horizontal asymptote on the left as on the right.
                 </p>
                 <figure xml:id="fig_graph_function_from_derivative">
-                    <caption>Graph of <m>f'(x)</m>.</caption>
-                    <image xml:id="graph_function_from_derivative">
+                    <caption>Graph of <m>f(x)</m>, including local extrema and inflection points.</caption>
+                    <image xml:id="graph_function_from_derivative" width="60%">
                         <latex-image>
                             \begin{tikzpicture}
                             \begin{axis}
                             [xmin=-6, xmax=6, ymin=-8, ymax=8, grid=both, minor tick num=1]
                             \addplot[domain=-6.5:6.5, samples=150, color=blue, very thick] {(10-15*x^2)/3*exp(-0.3*x^2)+2};
+                            \addplot[domain=-6.5:6.5, samples at={-2,0,2}, only marks, color=blue, very thick] {(10-15*x^2)/3*exp(-0.3*x^2)+2};
+                            \addplot[domain=-6.5:6.5, samples at={-2.9,-0.9,0.9,2.9}, only marks, color=orange, very thick] {(10-15*x^2)/3*exp(-0.3*x^2)+2};
                             \end{axis}
                             \end{tikzpicture}
                         </latex-image>
@@ -182,7 +184,7 @@
             <me>\frac{d}{dx}[c \cdot x^n] = (n \cdot c) \cdot x^{n-1}</me>.
             That is, the derivative will have a coefficient where the original coefficient is <em>multiplied</em> by the original power and the power will have been reduced by one. 
             If we want to find an <em>antiderivative</em>, we just need to invert this process: restore the power by adding one and then divide by that power.
-            <me>\frac{d}{dx}^{-1}[a \cdot x^p] = (\frac{a}{p+1} \cdot x^{p+1}</me>.
+            <me>\frac{d}{dx}^{-1}[a \cdot x^p] = (\frac{a}{p+1}) \cdot x^{p+1}</me>.
         </p>
         <example xml:id="ex_antideriv_power">
             <statement>
@@ -261,7 +263,7 @@
                     <me>f(x) = \int f'(x) \, \mathrm{d}x = \int [x^3+2x-5] \, \mathrm{d}x</me>.
                     To use the antiderivative power rule, we need to think of <m>2x = 2x^1</m> and <m>-5 = -5 x^0</m>.
                     We find
-                    <me>f(x) = {\textstyle \frac{1}{4}} x^4 + 2 \cdot {\textstyle \frac{1}{2}} x^2 - 5 \frac{1}{1} x^1 + C</me>,
+                    <me>f(x) = {\textstyle \frac{1}{4}} x^4 + 2 \cdot {\textstyle \frac{1}{2}} x^2 - 5 {\textstyle \frac{1}{1}} x^1 + C</me>,
                     where <m>C</m> represents the unknown constant.
                     Simplifying, we get
                     <me>f(x) = \textstyle \frac{1}{4}x^4 + x^2-5x+C</me>.
