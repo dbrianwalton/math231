@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>There are three different quantities being discussed: the average annual wage <span class="process-math">\(w\text{,}\)</span> the number of employees<span class="process-math">\(n\text{,}\)</span> and the total annual wages for the company <span class="process-math">\(T\text{.}\)</span> The question of the problem is to find <span class="process-math">\(\frac{dT}{dt}\text{.}\)</span> We start with values <span class="process-math">\(n=800\)</span> and <span class="process-math">\(w=45000\text{.}\)</span> Because the company's work force is shrinking, we have a <em class="emphasis">negative</em> rate of change <span class="process-math">\(\frac{dn}{dt} = -50\)</span> per year. The annual wage is increasing by a percentage rate, so we need to multiply the current wage rate by 10% to find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dw}{dt} = 0.10 \cdot 45000 = 4500 \, \text{dollars}/\text{year}\text{.}
+\end{equation*}
+</div>
+<p>The relation between these variables is given by the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T = n \cdot w\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The related rates equation is found by differentiating, remembering that each of the variables is actually a function of time <span class="process-math">\(t\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dT}{dt} = \frac{d}{dt}[n \cdot w]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Because the formula has a product, we must use the product rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dT}{dt} = \frac{dn}{dt} \cdot w + n \cdot \frac{dw}{dt}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using the given values, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dT}{dt} &amp;= (-50 / \text{year}) \cdot (45000 \, \text{dollars}) + (800) \cdot (4500 \, \text{dollars}/\text{year})\\
+&amp;= -2250000 \, \text{dollars}/\text{year} + 3600000 \, \text{dollars}/\text{year}\\
+&amp;= 1350000 \, \text{dollars}/\text{year}
+\end{align*}
+</div>
+<p class="continuation">Because the calculated rate of change is positive, the total wage costs for the company are increasing.</p>
+</div></body>
+</html>
