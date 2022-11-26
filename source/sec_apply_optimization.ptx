@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_apply_optimization" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Optimization</title>
+    <introduction>
+        <p>
+            Optimization is the use of mathematics to find how to make a quantity either as large as possible or as small as possible.
+            Economics is often interested in optimization in order to minimize costs or to maximize profit.
+            Physical examples are often interested in minimizing time or minimizing energy.
+            Biological examples might be interested in maximizing growth.
+        </p>
+        <p>
+            Inherent in optimization problems is the need to create a model.
+            The quantity being optimized is typically called the <term>objective</term>.
+            There will also be at least one quantity that is allowed to change that influences the objective.
+            These quantities are called the <term>decision</term> or <term>control</term> variables.
+            Additional values might be involved that do not change, and those will be system or model <term>parameters</term>.
+            Our task will be to express the objective as a function of the control variables and parameters.
+            Using calculus, we then seek to find choices for the control variables that optimize the objective.
+        </p>
+        <p>
+            When there is more than one control variable, we often also include <term>constraints</term>.
+            A constraint is an extra equation involving the control variables that must be maintained.
+            The effect of a constraint is that changing one control variable automatically forces other control variables to change to maintain the constraint.
+            We will use the constraint to make a second control variable a function of the other control variable.
+            This will allow us to think of the objective as a function of only one control variable so that our current knowledge of calculus can be used to find the optimal solution.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec_apply_optimization_theory">
+        <title>Theoretical Foundations for Optimization</title>
+        <p>
+            The foundational principles discussed here were discussed in <xref ref="sec_apply_foundations" />.
+            We summarize them here and discuss how they will be used for our problems.
+        </p>
+        <p>
+            First, we emphasize the difference between <em>local</em> or <em>relative</em> extreme values and <em>global</em> or <em>absolute</em> extreme values.
+            A local extreme is a point where a function is the maximum or minimum in some <em>neighborhood</em> immediately to the left or right of a point.
+            A global extreme is always relative to a restricted subset of the domain and is a point that is the extreme value compared to <em>all</em> values in that set.
+        </p>
+        <p>
+            Optimization is usually concerned with global extremes.
+            However, a global extreme is always either a local extreme or a boundary point.
+            So we will be able to find global extremes by comparing all of the local extremes and boundary points.
+        </p>
+        <p>
+            A local extreme will always occur at a point where either <m>f'(x)=0</m> or <m>f'(x)</m> is undefined. (See <xref ref="thm_fermat" />.)
+            Consequently, we will find all local extremes by calculating the derivative function and then finding where it is zero or undefined.
+            These points are called <term>critical points</term> of the function <m>f(x)</m>.
+            Further, we can use <em>sign analysis</em> in order to see whether each critical point is a minimum or maximum.
+        </p>
+        <p>
+            Alternatively, we could use the second derivative test described below.
+        </p>
+        <theorem xml:id="thm_second_deriv_test_extrema">
+            <title>Second Derivative Test</title>
+            <statement>
+                <p>
+                    Suppose <m>f(x)</m> is a function with <m>f'(a)=0</m>.
+                    If <m>f''(a) \gt 0</m>, then <m>f(x)</m> has a <term>local minimum</term> at <m>x=a</m>.
+                    If <m>f''(a) \lt 0</m>, then <m>f(x)</m> has a <term>local maximum</term> at <m>x=a</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    Using the definition of the derivative and the statement <m>f'(a)=0</m>, we know
+                    <md>
+                        <mrow>f''(a) &amp;= \lim_{x \to a} \frac{f'(x)-f'(a)}{x-a}</mrow>
+                        <mrow> &amp;= \lim_{x \to a} \frac{f'(x)}{x-a}</mrow>
+                    </md>
+                    For <m>x</m> close enough to <m>a</m>, the sign of <m>f''(a)</m> must be the same as the sign of <m>\frac{f'(x)}{x-a}</m>.
+                    Consequently, the sign of <m>f'(x)</m> must match the sign of <m>f''(a) \cdot (x-a)</m>.
+                </p>
+                <p>
+                    In the case that <m>f''(a) \gt 0</m>, we find that <m>f'(x)</m> will be <em>negative</em> on an interval <m>(a-\delta, a)</m> and <m>positive</m> on an interval <m>(a,a+\delta)</m>.
+                    By the first derivative test of monotonicity, this implies <m>f(x)</m> has a local <term>minimum</term> at <m>x=a</m>.
+                    In a similar way, when <m>f''(a) \lt 0</m>, we find that <m>f'(x)</m> will be <em>positive</em> on an interval <m>(a-\delta, a)</m> and <m>negative</m> on an interval <m>(a,a+\delta)</m> so that <m>f(x)</m> has a local <term>minimum</term> at <m>x=a</m>.
+                </p>
+            </proof>
+        </theorem>
+        <p>
+            The Extreme Value Theorem (see <xref ref="thm_extreme_value_theorem"/>) provides a guarantee that a function <m>f(x)</m> <em>will</em> have both a global maximum and a global minimum when <m>f(x)</m> is continuous and the set in question is a closed interval.
+            If the function has a discontinuity or if the end points of an interval are not included, then we must check limits at the discontinuities and end points.
+            If a limit exceeds that of all the attained values, then the function will not have the corresponding local extreme.
+        </p>
+        <example>
+            <statement>
+                <p>
+                    Find the absolute maximum and minimum values of <m>f(x)=x^3-12x</m> on <m>[-3,4)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Our function <m>f(x)</m> is continuous.
+                    Because the interval does not include <m>x=4</m>, we are not guaranteed to find a global maximum and minimum.
+                    Our strategy will be to find any local extremes inside the interval, and then compare the function values at those points with the end point at <m>x=-3</m> (which is included) and the <em>limit</em> of <m>f(x)</m> at <m>x=4</m> (which is not included).
+                </p>
+                <p>
+                    We start by finding the derivative.
+                    <md>
+                        <mrow>f(x) &amp;= x^3-12x </mrow>
+                        <mrow>f'(x) &amp;= 3x^2-12</mrow>
+                    </md>
+                    We find critical points by solving <m>f'(x)=0</m>.
+                    <md>
+                        <mrow>3x^2-12 = 0</mrow>
+                        <mrow>3(x^2-4) = 0</mrow>
+                        <mrow>3(x+2)(x-2) = 0</mrow>
+                    </md>
+                    So we find there are critical points at <m>x=-2</m> and <m>x=2</m>.
+                    Because <m>f''(x)=6x</m>, we can use <m>f''(-2)=-12</m> and <m>f''(2)=12</m> to determine that <m>f(x)</m> has a local maximum at <m>x=-2</m> and a local minimum at <m>x=2</m>.
+                </p>
+                <p>
+                    We will not know if they are global extremes until we compare the value of the function with the end points.
+                    <md>
+                        <mrow>f(-2) &amp;= (-2)^3-12(-2) = -8+24=16</mrow>
+                        <mrow>f(2) &amp;= (2)^3-12(2) = 8-24=-16</mrow>
+                        <mrow>f(-3) &amp;= (-3)^3-12(-3) = -27+36=-1</mrow>
+                        <mrow>\lim_{x \to 4^-} f(x) &amp;= (4)^3-12(4) = 64-48=16</mrow>
+                    </md>
+                    The largest value occured at <m>x=-2</m>, so <m>f(x)</m> has an absolute maximum value of 16 at <m>x=-2</m>.
+                    The absolute minimum value of -16 was attained at <m>x=2</m>.
+                    We used a limit at <m>x=4</m> to emphasize that this value is not attained by the function at <m>x=4</m> since that end point was not included.
+                    If our interval had extended any further to the right and still not included the end point, then the limit at the right end point would have been the largest of all the values and we would have had a function where there was not absolute maximum value.
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    <subsection xml:id="subsec_apply_optimization_constraints">
+        <title>Optimization Problems with Constraints</title>
+        <p>
+            When solving optimization problems representing physical problems,
+            I suggest the following approach.
+            <ul>
+                <li><p>Identify the objective. What is the quantity that we want to be as large or as small as possible?</p></li>
+                <li><p>Identify the control variables. What quantities does the objective depend on that are allowed to have different values?</p></li>
+                <li><p>Write down the objective formula. Create an equation for the objective as a function of the control variables and other possible model parameters.</p></li>
+                <li><p>Identify constraints. What other equations do the control variables need to satisfy to be valid possibilities?</p></li>
+                <li><p>Solve the constraint equations to get all control variables as a function of just one remaining control variable.</p></li>
+                <li><p>Rewrite the objective as a function of the one remaining control variable.</p></li>
+                <li><p>Identify the physical domain for the control variable and solve the resulting global extreme value problem.</p></li>
+                <li><p>Find the values of each of the control variables.</p></li>
+            </ul>
+        </p>
+        <p>
+            Geometric problems are often used to illustrate and practice the ideas of optimization.
+        </p>
+        <example>
+            <statement>
+                <p>
+                    A rectangular box with a square base is to be constructed so that the total volume is <m>2 \, \text{m}^3</m>.
+                    What are the dimensions of the box that makes the surface area as small as possible.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    Notice that no formulas or variables are directly introduced.
+                    Identifying these as appropriate will be part of solving the problem.
+                    <ul>
+                        <li>
+                            <p>Identify the objective.</p>
+                            <p>
+                                We look for a phrase suggesting what needs to be as large or as small as possible.
+                                In this problem, we see <q>makes the surface area as small as possible</q>.
+                                This means our objective is the <em>surface area</em> of the rectangular box.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify the control variables.</p>
+                            <p>
+                                How do we compute surface area?
+                                A rectangular box has six sides.
+                                Because our box has a square base, there will be two dimensional lengths<mdash/>the length of each side of the square base and the height of the box.
+                                We need to state our variables:
+                                <md>
+                                    <mrow>x &amp;= \text{length of a side of the square base}</mrow>
+                                    <mrow>y &amp;= \text{height of the box}</mrow>
+                                </md>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Write a formula for the objective.</p>
+                            <p>
+                                The top and bottom sides are both square with area <m>x^2</m>.
+                                The other four sides are all the same size with base <m>x</m> and height <m>y</m> with area <m>xy</m>.
+                                Our objective will be the total area <m>A</m> calculated by
+                                <me>A = 2x^2 + 4xy</me>.
+                                This is a function of two control variables.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify constraints.</p>
+                            <p>
+                                In this problem, we are told that the box must contain a volume of <m>2 \, \text{m}^3</m>.
+                                This is a constraint.
+                                The formula for volume of our box will be <m>V = x^2 y</m>,
+                                and our constraint equation becomes
+                                <me>x^2 y = 2</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Solve the constraint equation.</p>
+                            <p>
+                                We want to solve the constraint equation so that one control variable is a function of the other.
+                                In this problem, it will be easier to solve for <m>y</m> as a function of <m>x</m>,
+                                <me>y = \frac{2}{x^2} = 2x^{-2}</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Rewrite the objective as a function of one variable.</p>
+                            <p>
+                                We replace <m>y</m> with the formula <m>y=2x^{-2}</m> in our objective formula to get <m>A</m> written as a function of <m>x</m>,
+                                <me>A(x) = 2x^2 + 4x \cdot 2x^{-2} = 2x^2 + 8x^{-1}</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify the domain and solve the corresponding global extreme problem.</p>
+                            <p>
+                                There were no extra constraints about the values of the variables <m>x</m> and <m>y</m>.
+                                There is a physical constraint that the values can not be negative.
+                                Our formula for <m>y</m> has a domain constraint that <m>x \ne 0</m>, so we have a domain <m>(0,\infty)</m>.
+                            </p>
+                            <p>
+                                This domain is not a closed interval, so global extreme values are not guaranteed.
+                                We will need to consider limits <m>x \to 0</m> and <m>x \to \infty</m>.
+                                <md>
+                                    <mrow>\lim_{x \to 0^+} A(x) &amp;= \lim_{x \to 0^+} [2x^2 + 8x^{-1}]</mrow>
+                                    <mrow> &amp;= 0 + \infty = +\infty</mrow>
+                                    <mrow>\lim_{x \to \infty} A(x) &amp;= \lim_{x \to \infty} [2x^2 + 8x^{-1}]</mrow>
+                                    <mrow> &amp;= \infty + 0 = \infty</mrow>
+                                </md>
+                                We can see that there will be no global maximum for the surface area. But we will be able to find a global minimum.
+                            </p>
+                            <p>
+                                We find critical points by solving <m>A'(x) = 0</m>.
+                                <md>
+                                    <mrow>A'(x) &amp;= \frac{d}{dx}[2x^2 + 8x^{-1}]</mrow>
+                                    <mrow>&amp;= 4x - 8x^{-2} = 4x - \frac{8}{x^2}</mrow>
+                                    <mrow>&amp;= \frac{4x^3-8}{x^2}</mrow>
+                                </md>
+                                The critical points will be solutions of <m>4x^3-8 = 0</m> or <m>x^3=2</m>.
+                                The only critical point is at <m>x=\sqrt[3]{2}</m>.
+                                Because <m>A''(x) = 4+16x^{-3}</m> has <m>A''(\sqrt[3]{2}) = 12</m> is positive, we know that <m>A</m> has a local minimum at this point.
+                                Because there are no other critical points and we already eliminated both ends of the interval as being unbounded positive values, the box with minimum surface area will be constructed with <m>x = \sqrt[3]{2}</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Find the values of all control variables.</p>
+                            <p>
+                                We found the value of <m>x=\sqrt[3]{2}</m>.
+                                We also need the value of <m>y</m>.
+                                From the constraint, we found <m>y=2x^{-2}</m> so that we can find
+                                <me>y = \frac{2}{(\sqrt[3]{2})^2} = \frac{2}{2^{2/3}} = 2^{1/3}</me>.
+                                That is, we find <m>y=x=\sqrt[3]{2}</m>,
+                                and our rectangular box is actualy a cube.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+        <p>
+            If we add cost information, a geometric problem becomes an economic problem.
+        </p>
+        <example>
+            <statement>
+                A rectangular box with a square base is to be constructed so that the total volume is <m>2 \, \text{m}^3</m>.
+                The box will have no top.
+                The material used to make the base costs three times as much per unit area as the material used on the four sies.
+                What are the dimensions of the box that will be the least expensive.
+            </statement>
+            <solution>
+                <p>
+                    Many of the steps are identical to the previous example.
+                    <ul>
+                        <li>
+                            <p>Identify the objective.</p>
+                            <p>
+                                This time, the phrase that tips off the objective is the phrase <q>least expensive</q>.
+                                That is, our objective will be the material cost of the box <m>C</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify control variables.</p>
+                            <p>
+                                This is the same as the previous example.
+                                <md>
+                                    <mrow>x &amp;= \text{length of a side of the square base}</mrow>
+                                    <mrow>y &amp;= \text{height of the box}</mrow>
+                                </md>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Write a formula for the objective.</p>
+                            <p>
+                                There will be a model parameter for this problem, the unit cost of material for the sides, which we represent with <m>p</m>.
+                                The cost for the square base will be <m>3p</m> per unit area.
+                                The total cost of materials is then given by
+                                <me>C = 3p \cdot x^2 + p \cdot 4xy</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The constraint equation and solving for <m>y</m> as a function of <m>x</m> will be the same as before.
+                                <md>
+                                    <mrow>x^2 y = 2</mrow>
+                                    <mrow> y = 2x^{-2}</mrow>
+                                </md>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Rewrite the objective as a function of one control variable.</p>
+                            <p>
+                                <md>
+                                    <mrow>C &amp;= 3px^2 + 4pxy</mrow>
+                                    <mrow>C(x) &amp;= 3px^2 + 4px \cdot 2x^{-2}</mrow>
+                                    <mrow> &amp;= 3px^2 + 8p x^{-1}</mrow>
+                                </md>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify the domain and solve the global optimization problem.</p>
+                            <p>
+                                As before, we work with <m>(0,\infty)</m>.
+                                The end point limits <m>x \to 0</m> and <m> \to \infty</m> are calculated first.
+                                <md>
+                                    <mrow>\lim_{x \to 0^+} C(x) &amp;= \lim_{x \to 0^+} [ 3px^2 + 8p x^{-1}]</mrow>
+                                    <mrow> &amp;= 0 + \infty = \infty</mrow>
+                                    <mrow>\lim_{x \to \infty} C(x) &amp;= \lim_{x \to \infty} [ 3px^2 + 8p x^{-1}]</mrow>
+                                    <mrow> &amp;= \infty + 0 = \infty</mrow>
+                                </md>
+                                Just as with surface area, the cost does not have a maximum value.
+                                We do still need to find the minimum.
+                            </p>
+                            <p>
+                                Calculate the derivative
+                                <me>C'(x) = 6px - 8px^{-2} = \frac{6px^3-8p}{x^2}</me>.
+                                Find the critical points of <m>C(x)</m> by solving <m>C'(x)=0</m>.
+                                We need to solve <m>6px^3-8p = 0</m>:
+                                <md>
+                                    <mrow>6px^3-8p = 0</mrow>
+                                    <mrow>2p(3x^3-4) = 0</mrow>
+                                    <mrow>3x^3-4 = 0</mrow>
+                                    <mrow>x^3 = \frac{4}{3}</mrow>
+                                    <mrow>x = \sqrt[3]{\frac{4}{3}} = \left(\frac{4}{3}\right)^{1/3}</mrow>.
+                                </md>
+                                As before, this is the location of a minimum since
+                                <me>C''(x) = 6p+\frac{16p}{x^3}</me>
+                                will be positive at the critical point.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Find the values of all control variables.</p>
+                            <p>
+                                We know <m>y=2x^{-2}</m>.
+                                <md>
+                                    <mrow>x &amp;= \left(\frac{4}{3}\right)^{1/3} \approx 1.101</mrow>
+                                    <mrow>y &amp;= 2 \left(\frac{4}{3}\right)^{-2/3} \approx 1.651</mrow>
+                                </md>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+        <p>
+            In physics, the principle of least time explains how light bends due to a change in the index of refraction.
+            We can recreate the calculation by considering two different media light must travel through. In air, light travels close to the speed of light in a vacuum <m>c</m>. In water, the speed of light is slower <m>c_w</m> such that <m>c_w = \frac{3}{4} c</m>.
+            We will find the path that light follows to minimize time, and this will be the path that light actually follows.
+        </p>
+        <example>
+            <statement>
+                <p>
+                    Light travels from an object submerged 1 m under water to the surface and then travels to an observerer 1.5 m above the surface and displaced horizontally by 2 meters. Find the path that minimizes the total time of travel from the object to the observer.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    It often helps to visualize a problem by drawing a diagram.
+                </p>
+                <image xml:id="img_refraction_model_layout" width="50%">
+                    <latex-image>
+                        \begin{tikzpicture}[x=2cm, y=2cm]
+                        \draw (0,1.5) 
+                            -- (0,0) node [pos=0.5, left] {1.5 m}
+                            -- (2,0) -- (2,-1) node [pos=0.5, right] {1 m} 
+                            -- (1.5,0) -- (0,1.5);
+                        \draw [dashed] (0,0) -- (0,-1);
+                        \draw [&lt;-&gt;] (0,-1) -- (2,-1) node[pos=0.5, above] {2 m};
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+                <p>
+                    We made sure to draw the diagram so that we did <em>not</em> choose a straight line path between the object and the observer in case that isn't the ultimate answer.
+                </p>
+                <p>
+                    Let us set up the optimization problem.
+                    <ul>
+                        <li>
+                            <p>Identify the objective.</p>
+                            <p>
+                                We want to minimize the total time it takes light to travel from the object to the observer.
+                                Consequently, the objective is <m>T</m>, the time of travel.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify the control variables.</p>
+                            <p>
+                                The measurement that has the possibility of varying is the location where the light crosses between the water and the air.
+                                In the diagram, there is a horizontal line representing the water<ndash/>air interface. The distance on the left we will call <m>a</m> and the distance on the right we will call <m>b</m>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Compute the objective in terms of the control variables.</p>
+                            <p>
+                                From the diagram, we see two right triangles, and light will be traveling along the hypotenuses.
+                                The time for each segment of the journey is calculated by the distance traveled divided by the speed of travel.
+                                We therefore find
+                                <md>
+                                    <mrow>T &amp;= \frac{\sqrt{a^2+1.5^2}}{c_w} + \frac{\sqrt{b^2+1^2}}{c}</mrow>
+                                    <mrow> &amp;= \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{b^2+1}}{c}</mrow>
+                                </md>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify constraints and solve in terms of one variable.</p>
+                            <p>
+                                The values <m>a</m> and <m>b</m> can not be chosen arbitrarily.
+                                We have a constraint based on the total horizontal displacement,
+                                <me>a+b = 2</me>.
+                                Solving for <m>b</m> as a function of <m>a</m>, 
+                                we find
+                                <me>b = 2-a</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Rewrite the objective as a function of a single control variable.</p>
+                            <p>
+                                We can rewrite the time of travel
+                                <me>T(a) = \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{(2-a)^2+1}}{c}</me>.
+                                In addition, if we use <m>c_w = \frac{3}{4} c</m>, we can factor out a common constant factor
+                                <me>T(a) = \frac{1}{c} \left(\frac{4}{3}\sqrt{a^2+2.25} + \sqrt{(2-a)^2+1}\right)</me>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Identify the physical domain and solve the optimization.</p>
+                            <p>
+                                In principle, there is no real domain constraint on <m>a</m>.
+                                However, it is clear that <m>a \lt 0</m> or <m>a \gt 2</m> will not lead to minimum time.
+                                So we will use a constrained domain that <m>a</m> is in <m>[0,2]</m>.
+                                Because <m>T(a)</m> is continuous on the closed interval <m>[0,2]</m>, there is guaranteed to be a minimum time path and maximum time path within this domain.
+                                We seek the minimum time path.
+                            </p>
+                            <p>
+                                To find the internal critical points, we need to find <m>T'(a)</m>, which will require the chain rule for each of the square roots.
+                                The constant multiple of <m>\frac{1}{c}</m> will remain in the derivative by the constant multiple rule.
+                                <md>
+                                    <mrow>T'(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} (a^2 + 2.25)^{1/2} + ((2-a)^2+1)^{1/2}\right)\right]</mrow>
+                                    <mrow>&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \frac{d}{da}[(a^2+2.25)^{1/2}] + \frac{d}{da}[((2-a)^2+1)^{1/2}]\right)</mrow>
+                                    <mrow>&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{1}{2}(a^2+2.25)^{-1/2} \cdot (2a) \right.</mrow>
+                                    <mrow>&amp; \qquad \qquad \left. + \frac{1}{2}((2-a)^2+1)^{-1/2} \cdot 2(2-a) \cdot (-1)\right)</mrow>
+                                    <mrow>&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} - \frac{2-a}{\sqrt{(2-a)^2+1}} \right)</mrow>
+                                </md>
+                                A critical point occurs where <m>T'(a)=0</m>, which corresponds to values <m>a</m> satisfying
+                                <me>\frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} = \frac{2-a}{\sqrt{(2-a)^2+1}}</me>.
+                                This equation actually directly leads to the physics law known as Snell's law.
+                                The formula <m>T'(a)</m> is continuous with <m>T'(0)=\frac{1}{c} \cdot \frac{-2}{5} \lt 0</m> and <m>T'(2)=\frac{1}{c} \cdot \frac{4}{3} \cdot \frac{2}{\sqrt{6.25}} \gt 0</m>.
+                                By the Intermediate Value Theorem, there <em>must</em> be a solution at some value <m>a \in (0,2)</m>.
+                                Using Desmos.com, we can find a numerical approximate value at <m>a \approx 0.962</m>.
+                            </p>
+                            <p>
+                                Calculating <m>T''(a)</m>, it will be easier to use the product rule than the quotient rule.
+                                <md>
+                                    <mrow>T''(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} a (a^2+2.25)^{-1/2} - (2-a)((2-a)^2+1)^{-1/2} \right)\right]</mrow>
+                                    <mrow> &amp;= \frac{1}{c}\Big( \frac{4}{3} (1) (a^2+2.25)^{-1/2} </mrow>
+                                    <mrow> &amp; \qquad \qquad + \frac{4}{3} a \cdot {\textstyle \frac{-1}{2}} (a^2+2.25)^{-3/2} \cdot 2a </mrow>                                    <mrow> &amp; \qquad \qquad - (-1)((2-a)^2+1)^{-1/2}</mrow>
+                                    <mrow> &amp; \qquad \qquad - (2-a) \cdot {\textstyle \frac{-1}{2}} ((2-a)^2+1)^{-3/2} \cdot 2(2-a) \cdot (-1)\Big)</mrow>
+                                    <mrow> &amp;= \frac{1}{c}\Big( \frac{4}{3} (a^2+2.25)^{-1/2}</mrow>
+                                    <mrow> &amp;\qquad \qquad - \frac{4}{3} a^2 \cdot(a^2+2.25)^{-3/2}</mrow>
+                                    <mrow> &amp; \qquad \qquad + ((2-a)^2+1)^{-1/2}</mrow>
+                                    <mrow> &amp; \qquad \qquad - (2-a)^2  ((2-a)^2+1)^{-3/2} \Big)</mrow>
+                                    <mrow> &amp;= \frac{1}{c}\Big( \frac{4}{3} \frac{a^2+2.25 - a^2}{(a^2+2.25)^{3/2}}</mrow>
+                                    <mrow> &amp; \qquad \qquad + \frac{(2-a)^2+1 - (2-a)^2}{((2-a)^2+1)^{3/2}} \Big)</mrow>
+                                    <mrow> &amp;= \frac{1}{c}\Big( \frac{4}{3} \frac{2.25}{(a^2+2.25)^{3/2}} + \frac{1}{((2-a)^2+1)^{3/2}} \Big)</mrow>
+                                </md>
+                                Because all of the terms are strictly positive, we know <m>T''(a) \gt 0</m> so that <m>T'(a)</m> is an increasing function.
+                                Consequently, <m>T'(a)</m> goes from negative to positive, implying that <m>T(a)</m> has a minimum at <m>a \approx 0.962</m>, which will be a global minimum.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+</section>

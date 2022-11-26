@@ -7,13 +7,11 @@
     <p>
         In this chapter we will learn about applications of derivatives and the information they provide us about functions.
     </p>
-    <p>
-        Work in progress...
-    </p>
   </introduction>
 
   <xi:include href="./sec_apply_foundations.ptx" />
   <xi:include href="./sec_apply_deriv_to_shape.ptx" />
   <xi:include href="./sec_apply_antiderivatives.ptx" />
   <xi:include href="./sec_apply_related_rates.ptx" />
+  <xi:include href="./sec_apply_optimization.ptx" />
 </chapter>
