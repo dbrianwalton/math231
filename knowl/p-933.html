@@ -12,16 +12,13 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>To find the related rates equation, we need to compute the derivative <em class="emphasis">with respect to time</em>. Because the radius function is raised to a power, the derivative will require the chain rule.</p>
+<p>Now that we have the related rates equation, we use the known values to solve for the unknown value. We know at the instant in question <span class="process-math">\(r=0.8\)</span> mm and <span class="process-math">\(\frac{dr}{dt}=-0.05\)</span> mm/s. We substitute these values into the equation to get</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\frac{dV}{dt} = V'(t) &amp;= \frac{d}{dt}\left[ \frac{4}{3} \pi (r(t))^3 \right]\\
-&amp;= \frac{4}{3} \pi \frac{d}{dr}[r^3] \cdot \frac{d}{dt}[r(t)]\\
-&amp;= \frac{4}{3} \pi \cdot 3 r^2 \cdot \frac{dr}{dt}\\
-&amp;= 4 \pi \cdot r^2 \cdot \frac{dr}{dt}
-\end{align*}
+\begin{equation*}
+\frac{dV}{dt} = 4 \pi (0.8 \, \text{mm})^2 \cdot (-0.05 \, \text{mm/s}) = -0.128 \pi \, \text{mm}^3/\text{s} \approx -0.4021 \, \text{mm}^3/\text{s}\text{.}
+\end{equation*}
 </div>
-<p class="continuation">In the chain rule, the derivative of the outside was <span class="process-math">\(\frac{dV}{dr}\)</span> while the derivative of the inside was <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span></p>
+<p class="continuation">A negative rate of change occurs because the volume is also decreasing as time passes.</p>
 <span class="incontext"><a href="sec_apply_related_rates.html#p-933" class="internal">in-context</a></span>
 </body>
 </html>

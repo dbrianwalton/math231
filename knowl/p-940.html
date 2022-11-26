@@ -12,26 +12,27 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>We find the related rates equation by creating a new equation about the rates of change. With two different sides to the equation for the squared distance, we will calculated the derivative of both sides of the equation and they must be equal to one another. Remember that all of our variables <span class="process-math">\(A, B, C\)</span> are actually functions of time. On the left, we have the derivative of the square of <span class="process-math">\(C\text{,}\)</span> which will require a chain rule (outside <span class="process-math">\(C^2\text{,}\)</span> inside <span class="process-math">\(C(t)\)</span>),</p>
+<p>Once we have this equation, notice that it involves three different variables and three rates of change. Our goal is to find the value of <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span> If we solve for that in the equation, we get</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\frac{d}{dt}[\left(C(t)\right)^2] = \frac{d}{dC}[C^2] \cdot \frac{d}{dt}[C(t)] = 2C \cdot \frac{dC}{dt}\text{.}
+\frac{dC}{dt} = \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">On the right, we have the derivative of the <em class="emphasis">sum</em> of the squares of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> which will again require the chain rule on each square,</p>
+<p class="continuation">We now all of the values required for the numerator, but we were not provided a value for <span class="process-math">\(C\text{.}\)</span> The original equation allows to solve for <span class="process-math">\(C\)</span> based on the values of <span class="process-math">\(A,B\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C = \sqrt{A^2+B^2} = \sqrt{(0.25)^2+(0.5)^2} = \sqrt{0.3125} \approx 0.5590 \, \text{mile}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using the values, we find</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
-\frac{d}{dt}[\left(A(t)\right)^2 + \left(B(t)\right)^2] &amp;= \frac{d}{dt}[\left(A(t)\right)^2] + \frac{d}{dt}[\left(B(t)\right)^2]\\
-&amp;= \frac{d}{dA}[A^2] \cdot \frac{d}{dt}[A(t)] + \frac{d}{dB}[B^2] \cdot \frac{d}{dt}[B(t)]\\
-&amp;= 2A \cdot \frac{dA}{dt} + 2B \cdot \frac{dB}{dt}
+\frac{dC}{dt} &amp;= \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\\
+&amp;= \frac{(0.25 \, \text{mi})(30 \, \text{mi}/\text{hr}) + (0.50 \, \text{mi})(-40 \, \text{mi}/\text{hr})}{0.5590 \, \text{mi}}\\
+&amp;\approx -22.36 \, \text{mi}/\text{hr}
 \end{align*}
 </div>
-<p class="continuation">Consequently, the related rates equation is</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-2C \cdot \frac{dC}{dt} = 2A \cdot \frac{dA}{dt} + 2B \cdot \frac{dB}{dt}\text{.}
-\end{equation*}
-</div>
+<p class="continuation">Notice how the units work out to give a speed in miles per hour. Because the rate of change is negative, we know that the distance between the vehicles is actually decreasing at this instant.</p>
 <span class="incontext"><a href="sec_apply_related_rates.html#p-940" class="internal">in-context</a></span>
 </body>
 </html>

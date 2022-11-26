@@ -12,18 +12,16 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>Once we identify what information is given and what information is desired, we identify equations relating the quantities. From geometry, we start with the equation relating volume <span class="process-math">\(V\)</span> and radius <span class="process-math">\(r\text{,}\)</span></p>
+<p>To find the related rates equation, we need to compute the derivative <em class="emphasis">with respect to time</em>. Because the radius function is raised to a power, the derivative will require the chain rule.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-V = \frac{4}{3} \pi r^3\text{.}
-\end{equation*}
+\begin{align*}
+\frac{dV}{dt} = V'(t) &amp;= \frac{d}{dt}\left[ \frac{4}{3} \pi (r(t))^3 \right]\\
+&amp;= \frac{4}{3} \pi \frac{d}{dr}[r^3] \cdot \frac{d}{dt}[r(t)]\\
+&amp;= \frac{4}{3} \pi \cdot 3 r^2 \cdot \frac{dr}{dt}\\
+&amp;= 4 \pi \cdot r^2 \cdot \frac{dr}{dt}
+\end{align*}
 </div>
-<p class="continuation">In this equation, both <span class="process-math">\(V\)</span> and <span class="process-math">\(r\)</span> need to be considered as <em class="emphasis">functions</em> of time <span class="process-math">\(t\text{,}\)</span> which does not directly appear in the geometric equation. Using function notation, the equation would be rewritten</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-V(t) = \frac{4}{3} \pi (r(t))^3\text{.}
-\end{equation*}
-</div>
+<p class="continuation">In the chain rule, the derivative of the outside was <span class="process-math">\(\frac{dV}{dr}\)</span> while the derivative of the inside was <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span></p>
 <span class="incontext"><a href="sec_apply_related_rates.html#p-932" class="internal">in-context</a></span>
 </body>
 </html>

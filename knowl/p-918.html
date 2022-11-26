@@ -12,25 +12,15 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>Recall that the notation for finding antiderivatives is with the integral operator <span class="process-math">\(\int \ldots \, dx\text{,}\)</span> so our first function will be</p>
+<p>For this first example, we were given that <span class="process-math">\(f(2)=5\text{.}\)</span> Based on the function we just found, we can find a <em class="emphasis">formula</em> for that same value.</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x) = \int f'(x) \, \mathrm{d}x = \int [x^3+2x-5] \, \mathrm{d}x\text{.}
-\end{equation*}
+\begin{align*}
+f(2) &amp;= \frac{1}{4}(2)^4 + (2)^2-5(2)+C\\
+&amp;= \frac{1}{4}(16) + 4 - 10 + C\\
+&amp;= -2 + C
+\end{align*}
 </div>
-<p class="continuation">To use the antiderivative power rule, we need to think of <span class="process-math">\(2x = 2x^1\)</span> and <span class="process-math">\(-5 = -5 x^0\text{.}\)</span> We find</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x) = {\textstyle \frac{1}{4}} x^4 + 2 \cdot {\textstyle \frac{1}{2}} x^2 - 5 {\textstyle \frac{1}{1}} x^1 + C\text{,}
-\end{equation*}
-</div>
-<p class="continuation">where <span class="process-math">\(C\)</span> represents the unknown constant. Simplifying, we get</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f(x) = \textstyle \frac{1}{4}x^4 + x^2-5x+C\text{.}
-\end{equation*}
-</div>
-<p class="continuation">Note that it might be easier to recognize constants as having antiderivatives that are linear with the constant as its slope rather than using the power rule as illustratedabove.</p>
+<p class="continuation">Knowing that <span class="process-math">\(f(2)=5\)</span> and <span class="process-math">\(f(2)=-2+C\text{,}\)</span> we create and then solve the equation <span class="process-math">\(-2+C=5\)</span> to discover <span class="process-math">\(C=7\text{.}\)</span> The antiderivative in question was <span class="process-math">\(f(x)=\frac{1}{4}x^4+x^2-5x+7\text{.}\)</span></p>
 <span class="incontext"><a href="sec_apply_antiderivatives.html#p-918" class="internal">in-context</a></span>
 </body>
 </html>

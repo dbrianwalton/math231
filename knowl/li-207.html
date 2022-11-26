@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="period">.</span>
+</h5>
+<p>Identify the domain and solve the corresponding global extreme problem.</p>
+<p>There were no extra constraints about the values of the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> There is a physical constraint that the values can not be negative. Our formula for <span class="process-math">\(y\)</span> has a domain constraint that <span class="process-math">\(x \ne 0\text{,}\)</span> so we have a domain <span class="process-math">\((0,\infty)\text{.}\)</span></p>
+<p>This domain is not a closed interval, so global extreme values are not guaranteed. We will need to consider limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(x \to \infty\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\lim_{x \to 0^+} A(x) &amp;= \lim_{x \to 0^+} [2x^2 + 8x^{-1}]\\
+&amp;= 0 + \infty = +\infty\\
+\lim_{x \to \infty} A(x) &amp;= \lim_{x \to \infty} [2x^2 + 8x^{-1}]\\
+&amp;= \infty + 0 = \infty
+\end{align*}
+</div>
+<p class="continuation">We can see that there will be no global maximum for the surface area. But we will be able to find a global minimum.</p>
+<p>We find critical points by solving <span class="process-math">\(A'(x) = 0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+A'(x) &amp;= \frac{d}{dx}[2x^2 + 8x^{-1}]\\
+&amp;= 4x - 8x^{-2} = 4x - \frac{8}{x^2}\\
+&amp;= \frac{4x^3-8}{x^2}
+\end{align*}
+</div>
+<p class="continuation">The critical points will be solutions of <span class="process-math">\(4x^3-8 = 0\)</span> or <span class="process-math">\(x^3=2\text{.}\)</span> The only critical point is at <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> Because <span class="process-math">\(A''(x) = 4+16x^{-3}\)</span> has <span class="process-math">\(A''(\sqrt[3]{2}) = 12\)</span> is positive, we know that <span class="process-math">\(A\)</span> has a local minimum at this point. Because there are no other critical points and we already eliminated both ends of the interval as being unbounded positive values, the box with minimum surface area will be constructed with <span class="process-math">\(x = \sqrt[3]{2}\text{.}\)</span></p></article><span class="incontext"><a href="sec_apply_optimization.html#li-207" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.5.5.1</span><span class="period">.</span>
+</h4>
+<p>It often helps to visualize a problem by drawing a diagram.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img_refraction_model_layout.svg" role="img" class="contained"></div>
+<p>We made sure to draw the diagram so that we did <em class="emphasis">not</em> choose a straight line path between the object and the observer in case that isn't the ultimate answer.</p>
+<p>Let us set up the optimization problem.</p>
+<ul class="disc">
+<li>
+<p>Identify the objective.</p>
+<p>We want to minimize the total time it takes light to travel from the object to the observer. Consequently, the objective is <span class="process-math">\(T\text{,}\)</span> the time of travel.</p>
+</li>
+<li>
+<p>Identify the control variables.</p>
+<p>The measurement that has the possibility of varying is the location where the light crosses between the water and the air. In the diagram, there is a horizontal line representing the water–air interface. The distance on the left we will call <span class="process-math">\(a\)</span> and the distance on the right we will call <span class="process-math">\(b\text{.}\)</span></p>
+</li>
+<li>
+<p>Compute the objective in terms of the control variables.</p>
+<p>From the diagram, we see two right triangles, and light will be traveling along the hypotenuses. The time for each segment of the journey is calculated by the distance traveled divided by the speed of travel. We therefore find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T &amp;= \frac{\sqrt{a^2+1.5^2}}{c_w} + \frac{\sqrt{b^2+1^2}}{c}\\
+&amp;= \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{b^2+1}}{c}
+\end{align*}
+</div>
+</li>
+<li>
+<p>Identify constraints and solve in terms of one variable.</p>
+<p>The values <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> can not be chosen arbitrarily. We have a constraint based on the total horizontal displacement,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a+b = 2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Solving for <span class="process-math">\(b\)</span> as a function of <span class="process-math">\(a\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+b = 2-a\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Rewrite the objective as a function of a single control variable.</p>
+<p>We can rewrite the time of travel</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T(a) = \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{(2-a)^2+1}}{c}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In addition, if we use <span class="process-math">\(c_w = \frac{3}{4} c\text{,}\)</span> we can factor out a common constant factor</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T(a) = \frac{1}{c} \left(\frac{4}{3}\sqrt{a^2+2.25} + \sqrt{(2-a)^2+1}\right)\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Identify the physical domain and solve the optimization.</p>
+<p>In principle, there is no real domain constraint on <span class="process-math">\(a\text{.}\)</span> However, it is clear that <span class="process-math">\(a \lt 0\)</span> or <span class="process-math">\(a \gt 2\)</span> will not lead to minimum time. So we will use a constrained domain that <span class="process-math">\(a\)</span> is in <span class="process-math">\([0,2]\text{.}\)</span> Because <span class="process-math">\(T(a)\)</span> is continuous on the closed interval <span class="process-math">\([0,2]\text{,}\)</span> there is guaranteed to be a minimum time path and maximum time path within this domain. We seek the minimum time path.</p>
+<p>To find the internal critical points, we need to find <span class="process-math">\(T'(a)\text{,}\)</span> which will require the chain rule for each of the square roots. The constant multiple of <span class="process-math">\(\frac{1}{c}\)</span> will remain in the derivative by the constant multiple rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T'(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} (a^2 + 2.25)^{1/2} + ((2-a)^2+1)^{1/2}\right)\right]\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \frac{d}{da}[(a^2+2.25)^{1/2}] + \frac{d}{da}[((2-a)^2+1)^{1/2}]\right)\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{1}{2}(a^2+2.25)^{-1/2} \cdot (2a) \right.\\
+&amp; \qquad \qquad \left. + \frac{1}{2}((2-a)^2+1)^{-1/2} \cdot 2(2-a) \cdot (-1)\right)\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} - \frac{2-a}{\sqrt{(2-a)^2+1}} \right)
+\end{align*}
+</div>
+<p class="continuation">A critical point occurs where <span class="process-math">\(T'(a)=0\text{,}\)</span> which corresponds to values <span class="process-math">\(a\)</span> satisfying</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} = \frac{2-a}{\sqrt{(2-a)^2+1}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This equation actually directly leads to the physics law known as Snell's law. The formula <span class="process-math">\(T'(a)\)</span> is continuous with <span class="process-math">\(T'(0)=\frac{1}{c} \cdot \frac{-2}{5} \lt 0\)</span> and <span class="process-math">\(T'(2)=\frac{1}{c} \cdot \frac{4}{3} \cdot \frac{2}{\sqrt{6.25}} \gt 0\text{.}\)</span> By the Intermediate Value Theorem, there <em class="emphasis">must</em> be a solution at some value <span class="process-math">\(a \in (0,2)\text{.}\)</span> Using Desmos.com, we can find a numerical approximate value at <span class="process-math">\(a \approx 0.962\text{.}\)</span></p>
+<p>Calculating <span class="process-math">\(T''(a)\text{,}\)</span> it will be easier to use the product rule than the quotient rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T''(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} a (a^2+2.25)^{-1/2} - (2-a)((2-a)^2+1)^{-1/2} \right)\right]\\
+&amp;= \frac{1}{c}\Big( \frac{4}{3} (1) (a^2+2.25)^{-1/2} \\
+&amp; \qquad \qquad + \frac{4}{3} a \cdot {\textstyle \frac{-1}{2}} (a^2+2.25)^{-3/2} \cdot 2a \\
+&amp; \qquad \qquad - (-1)((2-a)^2+1)^{-1/2}\\
+&amp; \qquad \qquad - (2-a) \cdot {\textstyle \frac{-1}{2}} ((2-a)^2+1)^{-3/2} \cdot 2(2-a) \cdot (-1)\Big)\\
+&amp;= \frac{1}{c}\Big( \frac{4}{3} (a^2+2.25)^{-1/2}\\
+&amp;\qquad \qquad - \frac{4}{3} a^2 \cdot(a^2+2.25)^{-3/2}\\
+&amp; \qquad \qquad + ((2-a)^2+1)^{-1/2}\\
+&amp; \qquad \qquad - (2-a)^2  ((2-a)^2+1)^{-3/2} \Big)\\
+&amp;= \frac{1}{c}\Big( \frac{4}{3} \frac{a^2+2.25 - a^2}{(a^2+2.25)^{3/2}}\\
+&amp; \qquad \qquad + \frac{(2-a)^2+1 - (2-a)^2}{((2-a)^2+1)^{3/2}} \Big)\\
+&amp;= \frac{1}{c}\Big( \frac{4}{3} \frac{2.25}{(a^2+2.25)^{3/2}} + \frac{1}{((2-a)^2+1)^{3/2}} \Big)
+\end{align*}
+</div>
+<p class="continuation">Because all of the terms are strictly positive, we know <span class="process-math">\(T''(a) \gt 0\)</span> so that <span class="process-math">\(T'(a)\)</span> is an increasing function. Consequently, <span class="process-math">\(T'(a)\)</span> goes from negative to positive, implying that <span class="process-math">\(T(a)\)</span> has a minimum at <span class="process-math">\(a \approx 0.962\text{,}\)</span> which will be a global minimum.</p>
+</li>
+</ul>
+</div>
+<span class="incontext"><a href="sec_apply_optimization.html#solution-79" class="internal">in-context</a></span>
+</body>
+</html>

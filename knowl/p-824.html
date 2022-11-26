@@ -12,7 +12,13 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>If <span class="process-math">\(f'(x)\)</span> is <em class="emphasis">zero</em> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is <em class="emphasis">constant</em> on <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p>Suppose we take any two points <span class="process-math">\(x_1,x_2 \in [a,b]\text{,}\)</span> with <span class="process-math">\(x_1 \lt x_2\text{.}\)</span> We know <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([x_1,x_2]\)</span> and differentiable on <span class="process-math">\((x_1,x_2)\)</span> since these intervals are subintervals of <span class="process-math">\([a,b]\text{.}\)</span> By the Mean Value Theorem, we know that there is some $\xi \in (x_1,x_2)$ where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\Delta f}{\Delta x} = \frac{f(x_2)-f(x_1)}{x_2-x_1} = f'(\xi)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(f'(x) &gt; 0\)</span> for all <span class="process-math">\(x \in (a,b)\text{,}\)</span> then <span class="process-math">\(\frac{\Delta f}{\Delta x} \gt 0\)</span> which means <span class="process-math">\(f(x_2) \gt f(x_1)\text{.}\)</span> Since this is true for <em class="emphasis">any</em> choice of <span class="process-math">\(x_1,x_2\text{,}\)</span> this means <span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([a,b]\text{.}\)</span> By the same reasoning, the other conclusions also hold.</p>
 <span class="incontext"><a href="sec_apply_deriv_to_shape.html#p-824" class="internal">in-context</a></span>
 </body>
 </html>
