@@ -263,22 +263,39 @@
             <solution>
                 <p>
                     Notice how we will use the same general steps to find the slope of the secant line joining <m>(x,f(x))</m> and <m>(x+h,f(x+h))</m>, simplify that formula to a continuous version, and then evaluate the limit in order to find the derivative.
-                    <md>
-                        <mrow>f(x) &amp;= \sqrt{4x-1}</mrow>
-                        <mrow>f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}</mrow>
-                        <mrow>\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}</mrow>
-                        <mrow> &amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}</mrow>
-                        <mrow> &amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
-                        <mrow> &amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
-                        <mrow> &amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
-                        <mrow> &amp;= \frac{4\cancel{h}}{\cancel{h}}(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
-                        <mrow> &amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}</mrow>
-                        <mrow>f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}</mrow>
-                        <mrow>&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}</mrow>
-                        <mrow>&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}</mrow>
-                        <mrow>&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}</mrow>
-                        <mrow>&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}</mrow>
-                    </md>
+                </p>
+                <p>
+                    <ul>
+                        <li><p>
+                            Calculate <m>f(x)</m> and <m>f(x+h)</m>.
+                            <md>
+                                <mrow>f(x) &amp;= \sqrt{4x-1}</mrow>
+                                <mrow>f(x+h) &amp;= \sqrt{4(x+h)-1} = \sqrt{4x+4h-1}</mrow>
+                            </md>
+                        </p></li>
+                        <li><p>
+                            Compute the average rate of change and simplify.
+                            <md>
+                                <mrow>\frac{\Delta f}{\Delta x} &amp;= \frac{f(x+h)-f(x)}{h}</mrow>
+                                <mrow> &amp;= \frac{\sqrt{4x+4h-1} - \sqrt{4x-1}}{h}</mrow>
+                                <mrow> &amp;= \frac{(\sqrt{4x+4h-1} - \sqrt{4x-1})(\sqrt{4x+4h-1} + \sqrt{4x-1})}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                                <mrow> &amp;= \frac{(\sqrt{4x+4h-1})^2 - (\sqrt{4x-1})^2}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                                <mrow> &amp;= \frac{(4x+4h-1) - (4x-1)}{h(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                                <mrow> &amp;= \frac{4\cancel{h}}{\cancel{h}(\sqrt{4x+4h-1}+\sqrt{4x-1})}</mrow>
+                                <mrow> &amp;= \frac{4}{\sqrt{4x+4h-1}+\sqrt{4x-1}}</mrow>
+                            </md>
+                        </p></li>
+                        <li><p>
+                            Evaluate the limit to find the derivative.
+                            <md>
+                                <mrow>f'(x) &amp;= \lim_{h \to 0} \frac{\Delta f}{\Delta x}</mrow>
+                                <mrow>&amp;= \lim_{h \to 0} \frac{4}{\sqrt{4x+4h-1} + \sqrt{4x-1}}</mrow>
+                                <mrow>&amp;= \frac{4}{\sqrt{4x+4(0)-1} + \sqrt{4x-1}}</mrow>
+                                <mrow>&amp;= \frac{4}{\sqrt{4x-1} + \sqrt{4x-1}}</mrow>
+                                <mrow>&amp;= \frac{4}{2\sqrt{4x-1}} = \frac{2}{\sqrt{4x-1}}</mrow>
+                            </md>
+                        </p></li>
+                    </ul>
                 </p>
             </solution>
         </example>
