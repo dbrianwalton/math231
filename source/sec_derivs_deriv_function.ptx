@@ -244,9 +244,9 @@
             So the numerator of this new formula we have a <em>difference</em> of squares of square roots, meaning the numerator will no longer have any square roots:
             <md>
                 <mrow>\sqrt{x+1}-\sqrt{x} &amp;= \frac{(\sqrt{x+1}-\sqrt{x})(\sqrt{x+1}+\sqrt{x})}{\sqrt{x+1}+\sqrt{x}}</mrow>
-                <mrow> &amp;= \frac{(\sqrt{x+1})^2-(\sqrt{x})^2}{\sqrt{x+1}+\sqrt{x}</mrow>
-                <mrow> &amp;= \frac{(x+1)-x}{\sqrt{x+1}+\sqrt{x}</mrow>
-                <mrow> &amp;= \frac{1}{\sqrt{x+1}+\sqrt{x}</mrow>
+                <mrow> &amp;= \frac{(\sqrt{x+1})^2-(\sqrt{x})^2}{\sqrt{x+1}+\sqrt{x}}</mrow>
+                <mrow> &amp;= \frac{(x+1)-x}{\sqrt{x+1}+\sqrt{x}}</mrow>
+                <mrow> &amp;= \frac{1}{\sqrt{x+1}+\sqrt{x}}</mrow>
             </md>.
             That is, we have eliminated the <em>difference</em> of square roots in the numerator by introducing a <em>sum</em> of square roots in the denominator.
         </p>
