@@ -12,11 +12,27 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>There are three different quantities being discussed: the average annual wage <span class="process-math">\(w\text{,}\)</span> the number of employees<span class="process-math">\(n\text{,}\)</span> and the total annual wages for the company <span class="process-math">\(T\text{.}\)</span> The question of the problem is to find <span class="process-math">\(\frac{dT}{dt}\text{.}\)</span> We start with values <span class="process-math">\(n=800\)</span> and <span class="process-math">\(w=45000\text{.}\)</span> Because the company's work force is shrinking, we have a <em class="emphasis">negative</em> rate of change <span class="process-math">\(\frac{dn}{dt} = -50\)</span> per year. The annual wage is increasing by a percentage rate, so we need to multiply the current wage rate by 10% to find</p>
+<p>Because <span class="process-math">\(V\)</span> and <span class="process-math">\(h\)</span> are both functions of time, we use the chain rule to find the related rates equation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\frac{dw}{dt} = 0.10 \cdot 45000 = 4500 \, \text{dollars}/\text{year}\text{.}
+\frac{dV}{dt} = \frac{4}{75} \pi \cdot 3h^2 \cdot \frac{dh}{dt}\text{.}
 \end{equation*}
+</div>
+<p class="continuation">Substituting in the known values, we have an equation leaving <span class="process-math">\(\frac{dh}{dt}\)</span> as the only unknown,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+10 \, \text{cm}^3/\text{s} &amp;= \frac{4}{75} \pi \cdot 3(5 \, \text{cm})^2 \cdot \frac{dh}{dt}\\
+&amp;= \frac{4}{75} \pi \cdot 75 \, \text{cm}^2 \cdot \frac{dh}{dt}\\
+&amp;= 4\pi \, \text{cm}^2 \cdot \frac{dh}{dt}
+\end{align*}
+</div>
+<p class="continuation">Solving for the unknown rate, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dh}{dt} &amp;= \frac{10 \, \text{cm}^3/\text{s}}{4 \pi \, \text{cm}^2}\\
+&amp;= \frac{5}{2 \pi} \, \text{cm}/\text{s}\\
+&amp;\approx 0.7958 \, \text{cm}/\text{s}
+\end{align*}
 </div>
 <span class="incontext"><a href="sec_apply_related_rates.html#p-951" class="internal">in-context</a></span>
 </body>

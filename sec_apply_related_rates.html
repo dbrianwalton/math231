@@ -151,9 +151,9 @@ window.MathJax = {
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_apply_related_rates"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.4</span> <span class="title">Related Rates</span>
 </h2>
-<section class="introduction" id="introduction-26"><p id="p-923">The rules of differentiation are not just about finding <em class="emphasis">formulas</em> for derivatives. They also provide a way to relate the rates of change of different quantities that are themselves related.</p>
-<p id="p-924">Many physical quantities are related to one another and equations are used to define these relationships. A sphere has many different measurable attributes, such as the volume, the surface area, the diameter, and the radius. Equations relate the measurements, such as relating volume and radius by <span class="process-math">\(V=\frac{4}{3} \pi r^3\)</span> or relating surface area and radius by <span class="process-math">\(A = 4 \pi r^2\text{.}\)</span></p>
-<p id="p-925">Some quantities are defined by equations in terms of other quantities. A population that occupies area is often understood in terms of its population density, which is calculated as the size of the population divided by the area occupied by that population, represented by an equation</p>
+<section class="introduction" id="introduction-26"><p id="p-927">The rules of differentiation are not just about finding <em class="emphasis">formulas</em> for derivatives. They also provide a way to relate the rates of change of different quantities that are themselves related.</p>
+<p id="p-928">Many physical quantities are related to one another and equations are used to define these relationships. A sphere has many different measurable attributes, such as the volume, the surface area, the diameter, and the radius. Equations relate the measurements, such as relating volume and radius by <span class="process-math">\(V=\frac{4}{3} \pi r^3\)</span> or relating surface area and radius by <span class="process-math">\(A = 4 \pi r^2\text{.}\)</span></p>
+<p id="p-929">Some quantities are defined by equations in terms of other quantities. A population that occupies area is often understood in terms of its population density, which is calculated as the size of the population divided by the area occupied by that population, represented by an equation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 D = \frac{P}{A}\text{.}
@@ -165,19 +165,19 @@ D = \frac{P}{A}\text{.}
 C = P \cdot A\text{.}
 \end{equation*}
 </div>
-<p id="p-926">When quantities change with respect to time, all of the different related quantities become functions of time. They also have their own rates of change with respect to time. For the example of a population, the size of the population, the area it occupies, and the population density will all be functions of time with their own rates of change. In this section, we will apply the rules of differentiation treating the different quantities within the equation as functions of time to create equations relating their rates of change.</p></section><section class="subsection" id="subsec_apply_related_rates_geometry"><h3 class="heading hide-type">
+<p id="p-930">When quantities change with respect to time, all of the different related quantities become functions of time. They also have their own rates of change with respect to time. For the example of a population, the size of the population, the area it occupies, and the population density will all be functions of time with their own rates of change. In this section, we will apply the rules of differentiation treating the different quantities within the equation as functions of time to create equations relating their rates of change.</p></section><section class="subsection" id="subsec_apply_related_rates_geometry"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.1</span> <span class="title">Related Rates from Geometry</span>
 </h3>
-<p id="p-927">Equations from geometry provide many examples for related rates. Instead of finding formulas for the physical quantities, we really only need to know the values of the quantities and their rates of change.</p>
+<p id="p-931">Equations from geometry provide many examples for related rates. Instead of finding formulas for the physical quantities, we really only need to know the values of the quantities and their rates of change.</p>
 <article class="example example-like" id="ex_related_rates_sphere"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
 </h4>
-<p id="p-928">A raindrop in the form of a sphere evaporates as it falls. Suppose that as the raindrop is falling, it has a radius of 0.8 mm that is decreasing at a rate of 0.05 mm/s. Find how fast the raindrop is losing water.</p>
+<p id="p-932">A raindrop in the form of a sphere evaporates as it falls. Suppose that as the raindrop is falling, it has a radius of 0.8 mm that is decreasing at a rate of 0.05 mm/s. Find how fast the raindrop is losing water.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-71" id="solution-71"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-71"><div class="solution solution-like">
-<p id="p-929">For application problems, one of the key challenges is simply interpreting the question. In this problem, we are asked a question about <em class="emphasis">how fast</em>, which should be interpreted as finding a <em class="emphasis">rate of change</em>. Specifically, we want to find how fast the raindrop is <em class="emphasis">losing water</em>. How do we measure how much water is in a raindrop? That will be a <em class="emphasis">volume</em> of water. So we are being asked to find the rate of change of the volume of the raindrop. If we write <span class="process-math">\(V\)</span> for volume and <span class="process-math">\(t\)</span> for time, we need to find <span class="process-math">\(\frac{dV}{dt}\text{,}\)</span> the instantaneous rate of change of volume with respect to time.</p>
-<p id="p-930">A second challenge of application problems is interpreting what information we are given. We are told a value of the radius (in millimeters) and how fast it is changing (in millimeters per second). We need a variable for the radius, say <span class="process-math">\(r\text{.}\)</span> The given information is the value <span class="process-math">\(r=0.8\)</span> mm. When we are given a rate of change, that is a derivative, in this case <span class="process-math">\(\frac{dr}{dt} = -0.05\)</span> mm/s. The value is negative because we know the radius is <em class="emphasis">decreasing</em>.</p>
-<p id="p-931">Once we identify what information is given and what information is desired, we identify equations relating the quantities. From geometry, we start with the equation relating volume <span class="process-math">\(V\)</span> and radius <span class="process-math">\(r\text{,}\)</span></p>
+<p id="p-933">For application problems, one of the key challenges is simply interpreting the question. In this problem, we are asked a question about <em class="emphasis">how fast</em>, which should be interpreted as finding a <em class="emphasis">rate of change</em>. Specifically, we want to find how fast the raindrop is <em class="emphasis">losing water</em>. How do we measure how much water is in a raindrop? That will be a <em class="emphasis">volume</em> of water. So we are being asked to find the rate of change of the volume of the raindrop. If we write <span class="process-math">\(V\)</span> for volume and <span class="process-math">\(t\)</span> for time, we need to find <span class="process-math">\(\frac{dV}{dt}\text{,}\)</span> the instantaneous rate of change of volume with respect to time.</p>
+<p id="p-934">A second challenge of application problems is interpreting what information we are given. We are told a value of the radius (in millimeters) and how fast it is changing (in millimeters per second). We need a variable for the radius, say <span class="process-math">\(r\text{.}\)</span> The given information is the value <span class="process-math">\(r=0.8\)</span> mm. When we are given a rate of change, that is a derivative, in this case <span class="process-math">\(\frac{dr}{dt} = -0.05\)</span> mm/s. The value is negative because we know the radius is <em class="emphasis">decreasing</em>.</p>
+<p id="p-935">Once we identify what information is given and what information is desired, we identify equations relating the quantities. From geometry, we start with the equation relating volume <span class="process-math">\(V\)</span> and radius <span class="process-math">\(r\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \frac{4}{3} \pi r^3\text{.}
@@ -189,8 +189,8 @@ V = \frac{4}{3} \pi r^3\text{.}
 V(t) = \frac{4}{3} \pi (r(t))^3\text{.}
 \end{equation*}
 </div>
-<p id="p-932">To find the related rates equation, we need to compute the derivative <em class="emphasis">with respect to time</em>. Because the radius function is raised to a power, the derivative will require the chain rule.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-121">
+<p id="p-936">To find the related rates equation, we need to compute the derivative <em class="emphasis">with respect to time</em>. Because the radius function is raised to a power, the derivative will require the chain rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-123">
 \begin{align*}
 \frac{dV}{dt} = V'(t) &amp;= \frac{d}{dt}\left[ \frac{4}{3} \pi (r(t))^3 \right]\\
 &amp;= \frac{4}{3} \pi \frac{d}{dr}[r^3] \cdot \frac{d}{dt}[r(t)]\\
@@ -199,7 +199,7 @@ V(t) = \frac{4}{3} \pi (r(t))^3\text{.}
 \end{align*}
 </div>
 <p class="continuation">In the chain rule, the derivative of the outside was <span class="process-math">\(\frac{dV}{dr}\)</span> while the derivative of the inside was <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span></p>
-<p id="p-933">Now that we have the related rates equation, we use the known values to solve for the unknown value. We know at the instant in question <span class="process-math">\(r=0.8\)</span> mm and <span class="process-math">\(\frac{dr}{dt}=-0.05\)</span> mm/s. We substitute these values into the equation to get</p>
+<p id="p-937">Now that we have the related rates equation, we use the known values to solve for the unknown value. We know at the instant in question <span class="process-math">\(r=0.8\)</span> mm and <span class="process-math">\(\frac{dr}{dt}=-0.05\)</span> mm/s. We substitute these values into the equation to get</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dV}{dt} = 4 \pi (0.8 \, \text{mm})^2 \cdot (-0.05 \, \text{mm/s}) = -0.128 \pi \, \text{mm}^3/\text{s} \approx -0.4021 \, \text{mm}^3/\text{s}\text{.}
@@ -210,28 +210,28 @@ V(t) = \frac{4}{3} \pi (r(t))^3\text{.}
 </div></article><article class="example example-like" id="example-79"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
 </h4>
-<p id="p-934">Two vehicles are traveling along separate straight roads that meet at a perpendicular intersection. At a particular instant, the vehicle on one road is 0.25 miles away and approaching the intersection at 30 miles per hour, while the other vehicle on the other road is 0.5 miles from the intersection and traveling toward the intersection at 40 miles per hour. Find the rate of change of the distance between the vehicles and determine if the distance is increasing or decreasing.</p>
+<p id="p-938">Two vehicles are traveling along separate straight roads that meet at a perpendicular intersection. At a particular instant, the vehicle on one road is 0.25 miles away and approaching the intersection at 30 miles per hour, while the other vehicle on the other road is 0.5 miles from the intersection and traveling toward the intersection at 40 miles per hour. Find the rate of change of the distance between the vehicles and determine if the distance is increasing or decreasing.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-72" id="solution-72"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-72"><div class="solution solution-like">
-<p id="p-935">For geometric problems, it is often helpful to draw a picture representing the different quantities involved. In this example, we have two roads that are perpendicular, which will correspond to two perpendicular lines. The locations of the vehicles will be points along the line. The distance between the vehicles will correspond to the length of the line segment directly joining the two points.</p>
-<p id="p-936">We are working with a right triangle. Let <span class="process-math">\(A\)</span> measure the distance the first vehicle is from the intersection (along the vertical road), and let <span class="process-math">\(B\)</span> measure the distance the second vehicle is from the intersection (along the horizontal road), so that the length of the hypotenuse <span class="process-math">\(C\)</span> is the distance between the two vehicles.</p>
+<p id="p-939">For geometric problems, it is often helpful to draw a picture representing the different quantities involved. In this example, we have two roads that are perpendicular, which will correspond to two perpendicular lines. The locations of the vehicles will be points along the line. The distance between the vehicles will correspond to the length of the line segment directly joining the two points.</p>
+<p id="p-940">We are working with a right triangle. Let <span class="process-math">\(A\)</span> measure the distance the first vehicle is from the intersection (along the vertical road), and let <span class="process-math">\(B\)</span> measure the distance the second vehicle is from the intersection (along the horizontal road), so that the length of the hypotenuse <span class="process-math">\(C\)</span> is the distance between the two vehicles.</p>
 <figure class="figure figure-like" id="fig_vehicles_on_perpendicular_roads"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img_vehicles_on_perpendicular_roads.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.4.3<span class="period">.</span></span><span class="space"> </span>Diagram showing the distances <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> between the vehicles and the intersection and the distance <span class="process-math">\(C\)</span> between the vehicles.</figcaption></figure><p id="p-937">From the provided information about the instant in question, we know the distances from the intersection are <span class="process-math">\(A = 0.25\)</span> mile and <span class="process-math">\(B = 0.5\)</span> mile as well as the rates of change <span class="process-math">\(\frac{dA}{dt} = +30\)</span> mph (because this distance is increasing) and <span class="process-math">\(\frac{dB}{dt} = -40\)</span> mph (because this distance is decreasing). We are asked to find <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span></p>
-<p id="p-938">Having identified the quantities we know and what we need to find, we need to find an equation that relates the quantities <span class="process-math">\(A, B, C\text{.}\)</span> Because the triangle is a right triangle, the Pythagorean theorem gives us the equation we need,</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.4.3<span class="period">.</span></span><span class="space"> </span>Diagram showing the distances <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> between the vehicles and the intersection and the distance <span class="process-math">\(C\)</span> between the vehicles.</figcaption></figure><p id="p-941">From the provided information about the instant in question, we know the distances from the intersection are <span class="process-math">\(A = 0.25\)</span> mile and <span class="process-math">\(B = 0.5\)</span> mile as well as the rates of change <span class="process-math">\(\frac{dA}{dt} = +30\)</span> mph (because this distance is increasing) and <span class="process-math">\(\frac{dB}{dt} = -40\)</span> mph (because this distance is decreasing). We are asked to find <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span></p>
+<p id="p-942">Having identified the quantities we know and what we need to find, we need to find an equation that relates the quantities <span class="process-math">\(A, B, C\text{.}\)</span> Because the triangle is a right triangle, the Pythagorean theorem gives us the equation we need,</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 C^2 = A^2+B^2\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Notice that we don't need to <em class="emphasis">solve</em> for <span class="process-math">\(C\text{,}\)</span> if we think of the equation as relating the <em class="emphasis">squared distance</em>.</p>
-<p id="p-939">We find the related rates equation by creating a new equation about the rates of change. With two different sides to the equation for the squared distance, we will calculated the derivative of both sides of the equation and they must be equal to one another. Remember that all of our variables <span class="process-math">\(A, B, C\)</span> are actually functions of time. On the left, we have the derivative of the square of <span class="process-math">\(C\text{,}\)</span> which will require a chain rule (outside <span class="process-math">\(C^2\text{,}\)</span> inside <span class="process-math">\(C(t)\)</span>),</p>
+<p id="p-943">We find the related rates equation by creating a new equation about the rates of change. With two different sides to the equation for the squared distance, we will calculated the derivative of both sides of the equation and they must be equal to one another. Remember that all of our variables <span class="process-math">\(A, B, C\)</span> are actually functions of time. On the left, we have the derivative of the square of <span class="process-math">\(C\text{,}\)</span> which will require a chain rule (outside <span class="process-math">\(C^2\text{,}\)</span> inside <span class="process-math">\(C(t)\)</span>),</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{d}{dt}[\left(C(t)\right)^2] = \frac{d}{dC}[C^2] \cdot \frac{d}{dt}[C(t)] = 2C \cdot \frac{dC}{dt}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">On the right, we have the derivative of the <em class="emphasis">sum</em> of the squares of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> which will again require the chain rule on each square,</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-122">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-124">
 \begin{align*}
 \frac{d}{dt}[\left(A(t)\right)^2 + \left(B(t)\right)^2] &amp;= \frac{d}{dt}[\left(A(t)\right)^2] + \frac{d}{dt}[\left(B(t)\right)^2]\\
 &amp;= \frac{d}{dA}[A^2] \cdot \frac{d}{dt}[A(t)] + \frac{d}{dB}[B^2] \cdot \frac{d}{dt}[B(t)]\\
@@ -244,7 +244,7 @@ C^2 = A^2+B^2\text{.}
 2C \cdot \frac{dC}{dt} = 2A \cdot \frac{dA}{dt} + 2B \cdot \frac{dB}{dt}\text{.}
 \end{equation*}
 </div>
-<p id="p-940">Once we have this equation, notice that it involves three different variables and three rates of change. Our goal is to find the value of <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span> If we solve for that in the equation, we get</p>
+<p id="p-944">Once we have this equation, notice that it involves three different variables and three rates of change. Our goal is to find the value of <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span> If we solve for that in the equation, we get</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dC}{dt} = \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\text{.}
@@ -257,7 +257,7 @@ C = \sqrt{A^2+B^2} = \sqrt{(0.25)^2+(0.5)^2} = \sqrt{0.3125} \approx 0.5590 \, \
 \end{equation*}
 </div>
 <p class="continuation">Using the values, we find</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-123">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-125">
 \begin{align*}
 \frac{dC}{dt} &amp;= \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\\
 &amp;= \frac{(0.25 \, \text{mi})(30 \, \text{mi}/\text{hr}) + (0.50 \, \text{mi})(-40 \, \text{mi}/\text{hr})}{0.5590 \, \text{mi}}\\
@@ -266,7 +266,7 @@ C = \sqrt{A^2+B^2} = \sqrt{(0.25)^2+(0.5)^2} = \sqrt{0.3125} \approx 0.5590 \, \
 </div>
 <p class="continuation">Notice how the units work out to give a speed in miles per hour. Because the rate of change is negative, we know that the distance between the vehicles is actually decreasing at this instant.</p>
 </div></div>
-</div></article><p id="p-941">Well known formulas for area and volume often appear in related rates problems. A rectangle of length <span class="process-math">\(L\)</span> and width <span class="process-math">\(W\)</span> has an area</p>
+</div></article><p id="p-945">Well known formulas for area and volume often appear in related rates problems. A rectangle of length <span class="process-math">\(L\)</span> and width <span class="process-math">\(W\)</span> has an area</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = L \cdot W\text{.}
@@ -296,22 +296,22 @@ SA = 2 LW + 2 LH + 2 WH\text{.}
 V = \frac{1}{3} \pi r^2 h\text{.}
 \end{equation*}
 </div>
-<p id="p-942">Many times different variables are related to one another in terms of <em class="emphasis">similar triangles</em>. This means that there is a similarity ratio or proportionality constant.</p>
+<p id="p-946">Many times different variables are related to one another in terms of <em class="emphasis">similar triangles</em>. This means that there is a similarity ratio or proportionality constant.</p>
 <article class="example example-like" id="example-80"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
 </h4>
-<p id="p-943">Water cups by a water cooler have the shape of a circular cone with a diameter at the top that is 8 cm and that has a total height of 10 cm. If water is being added to the cup at a rate of <span class="process-math">\(10 \, \text{cm}^3/\text{s}\text{,}\)</span> how fast is the height changing when the water is at a height of 5 cm?</p>
+<p id="p-947">Water cups by a water cooler have the shape of a circular cone with a diameter at the top that is 8 cm and that has a total height of 10 cm. If water is being added to the cup at a rate of <span class="process-math">\(10 \, \text{cm}^3/\text{s}\text{,}\)</span> how fast is the height changing when the water is at a height of 5 cm?</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-73" id="solution-73"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-73"><div class="solution solution-like">
-<p id="p-944">What variables are involved? The water filling the cup forms the shape of a circular cone that fits inside of the cup. Consequently, the radii and heights of the cup and the water cone form similar triangles. Let <span class="process-math">\(r\)</span> be the radius of the cone of water at the surface and let <span class="process-math">\(h\)</span> be the height or depth of water in the cup. By similarity, we require the ratios <span class="process-math">\(r/4\)</span> and <span class="process-math">\(h/10\)</span> be equal, which results in an equation</p>
+<p id="p-948">What variables are involved? The water filling the cup forms the shape of a circular cone that fits inside of the cup. Consequently, the radii and heights of the cup and the water cone form similar triangles. Let <span class="process-math">\(r\)</span> be the radius of the cone of water at the surface and let <span class="process-math">\(h\)</span> be the height or depth of water in the cup. By similarity, we require the ratios <span class="process-math">\(r/4\)</span> and <span class="process-math">\(h/10\)</span> be equal, which results in an equation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{r}{4} = \frac{h}{10} \qquad \Leftrightarrow \qquad 10r = 4h\text{.}
 \end{equation*}
 </div>
 <div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="generated/latex-image/conic_cup_similarity.svg" role="img" class="contained"></div>
-<p id="p-945">We next interpret the quantities that are provided. At the instant in question, we are told water is being added at a rate of <span class="process-math">\(10 \, \text{cm}^3/\text{s}\text{.}\)</span> This is a rate of change and so should be interpreted as a derivative of some quantity. The units <span class="process-math">\(\text{cm}^3\)</span> indicates that we are looking at the rate of change of volume, which makes sense because we can measure the amount of water using units of volume. In addition, we know that the height of water is <span class="process-math">\(h=5 \, \text{cm}\text{.}\)</span> Finally, we are asked to find how fast the height is changing, which means our task is to find the derivative <span class="process-math">\(\frac{dh}{dt}\text{.}\)</span></p>
-<p id="p-946">We need to create an equation that relates the height and volume of water in the cup. Using the geometric formula for volume of a circular cone, we start with</p>
+<p id="p-949">We next interpret the quantities that are provided. At the instant in question, we are told water is being added at a rate of <span class="process-math">\(10 \, \text{cm}^3/\text{s}\text{.}\)</span> This is a rate of change and so should be interpreted as a derivative of some quantity. The units <span class="process-math">\(\text{cm}^3\)</span> indicates that we are looking at the rate of change of volume, which makes sense because we can measure the amount of water using units of volume. In addition, we know that the height of water is <span class="process-math">\(h=5 \, \text{cm}\text{.}\)</span> Finally, we are asked to find how fast the height is changing, which means our task is to find the derivative <span class="process-math">\(\frac{dh}{dt}\text{.}\)</span></p>
+<p id="p-950">We need to create an equation that relates the height and volume of water in the cup. Using the geometric formula for volume of a circular cone, we start with</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \frac{1}{3} \pi r^2 h\text{.}
@@ -329,14 +329,14 @@ r = \frac{4h}{10} = \frac{2}{5} h\text{,}
 V = \frac{1}{3} \pi \left(\frac{2}{5} h\right)^2 \cdot h = \frac{4}{75} \pi h^3\text{.}
 \end{equation*}
 </div>
-<p id="p-947">Because <span class="process-math">\(V\)</span> and <span class="process-math">\(h\)</span> are both functions of time, we use the chain rule to find the related rates equation</p>
+<p id="p-951">Because <span class="process-math">\(V\)</span> and <span class="process-math">\(h\)</span> are both functions of time, we use the chain rule to find the related rates equation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dV}{dt} = \frac{4}{75} \pi \cdot 3h^2 \cdot \frac{dh}{dt}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Substituting in the known values, we have an equation leaving <span class="process-math">\(\frac{dh}{dt}\)</span> as the only unknown,</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-124">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-126">
 \begin{align*}
 10 \, \text{cm}^3/\text{s} &amp;= \frac{4}{75} \pi \cdot 3(5 \, \text{cm})^2 \cdot \frac{dh}{dt}\\
 &amp;= \frac{4}{75} \pi \cdot 75 \, \text{cm}^2 \cdot \frac{dh}{dt}\\
@@ -344,15 +344,15 @@ V = \frac{1}{3} \pi \left(\frac{2}{5} h\right)^2 \cdot h = \frac{4}{75} \pi h^3\
 \end{align*}
 </div>
 <p class="continuation">Solving for the unknown rate, we find</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-125">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-127">
 \begin{align*}
 \frac{dh}{dt} &amp;= \frac{10 \, \text{cm}^3/\text{s}}{4 \pi \, \text{cm}^2}\\
 &amp;= \frac{5}{2 \pi} \, \text{cm}/\text{s}\\
 &amp;\approx 0.7958 \, \text{cm}/\text{s}
 \end{align*}
 </div>
-<p id="p-948">A second approach to this problem is to use the original equation involving both <span class="process-math">\(r\)</span> and <span class="process-math">\(h\text{.}\)</span> Differentiation this time requires the product rule and the chain rule to give</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-126">
+<p id="p-952">A second approach to this problem is to use the original equation involving both <span class="process-math">\(r\)</span> and <span class="process-math">\(h\text{.}\)</span> Differentiation this time requires the product rule and the chain rule to give</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-128">
 \begin{align*}
 \frac{dV}{dt} &amp;= \frac{d}{dt}\left[ \frac{1}{3} \pi r^2 h\right]\\
 &amp;= \frac{1}{3} \pi \frac{d}{dt}\left[ r^2 \cdot h\right]\\
@@ -361,7 +361,7 @@ V = \frac{1}{3} \pi \left(\frac{2}{5} h\right)^2 \cdot h = \frac{4}{75} \pi h^3\
 \end{align*}
 </div>
 <p class="continuation">Notice that this approach introduces two additional unknowns, <span class="process-math">\(r\)</span> and <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span> We can find <span class="process-math">\(r\)</span> from the similarity relation as <span class="process-math">\(r = 2\,\text{cm}\text{.}\)</span> The similarity relation also leads to a related rates equation between <span class="process-math">\(r\)</span> and <span class="process-math">\(h\text{:}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-127">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-129">
 \begin{align*}
 10r &amp;= 4h\\
 \frac{d}{dt}[10r] &amp;= \frac{d}{dt}[4h]\\
@@ -374,20 +374,20 @@ V = \frac{1}{3} \pi \left(\frac{2}{5} h\right)^2 \cdot h = \frac{4}{75} \pi h^3\
 </div></article></section><section class="subsection" id="subsec_apply_related_rates_other"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.2</span> <span class="title">Additonal Related Rates Examples</span>
 </h3>
-<p id="p-949">Any quantities related by an equation can result in related rates. They don't need to be geometric.</p>
+<p id="p-953">Any quantities related by an equation can result in related rates. They don't need to be geometric.</p>
 <article class="example example-like" id="example-81"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.5</span><span class="period">.</span>
 </h4>
-<p id="p-950">The total annual wage costs for a company is equal to the number of employees times the average wages for an employee. A company with 800 employees is paying an average annual wage of $45,000. If the company is shrinking it work force at a rate of 50 employees per year while the annual wage is increasing at rate of 10% per year, determine the rate of change of the total annual wage costs.</p>
+<p id="p-954">The total annual wage costs for a company is equal to the number of employees times the average wages for an employee. A company with 800 employees is paying an average annual wage of $45,000. If the company is shrinking it work force at a rate of 50 employees per year while the annual wage is increasing at rate of 10% per year, determine the rate of change of the total annual wage costs.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-74" id="solution-74"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-74"><div class="solution solution-like">
-<p id="p-951">There are three different quantities being discussed: the average annual wage <span class="process-math">\(w\text{,}\)</span> the number of employees<span class="process-math">\(n\text{,}\)</span> and the total annual wages for the company <span class="process-math">\(T\text{.}\)</span> The question of the problem is to find <span class="process-math">\(\frac{dT}{dt}\text{.}\)</span> We start with values <span class="process-math">\(n=800\)</span> and <span class="process-math">\(w=45000\text{.}\)</span> Because the company's work force is shrinking, we have a <em class="emphasis">negative</em> rate of change <span class="process-math">\(\frac{dn}{dt} = -50\)</span> per year. The annual wage is increasing by a percentage rate, so we need to multiply the current wage rate by 10% to find</p>
+<p id="p-955">There are three different quantities being discussed: the average annual wage <span class="process-math">\(w\text{,}\)</span> the number of employees<span class="process-math">\(n\text{,}\)</span> and the total annual wages for the company <span class="process-math">\(T\text{.}\)</span> The question of the problem is to find <span class="process-math">\(\frac{dT}{dt}\text{.}\)</span> We start with values <span class="process-math">\(n=800\)</span> and <span class="process-math">\(w=45000\text{.}\)</span> Because the company's work force is shrinking, we have a <em class="emphasis">negative</em> rate of change <span class="process-math">\(\frac{dn}{dt} = -50\)</span> per year. The annual wage is increasing by a percentage rate, so we need to multiply the current wage rate by 10% to find</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dw}{dt} = 0.10 \cdot 45000 = 4500 \, \text{dollars}/\text{year}\text{.}
 \end{equation*}
 </div>
-<p id="p-952">The relation between these variables is given by the equation</p>
+<p id="p-956">The relation between these variables is given by the equation</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T = n \cdot w\text{.}
@@ -406,7 +406,7 @@ T = n \cdot w\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Using the given values, we find</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-128">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-130">
 \begin{align*}
 \frac{dT}{dt} &amp;= (-50 / \text{year}) \cdot (45000 \, \text{dollars}) + (800) \cdot (4500 \, \text{dollars}/\text{year})\\
 &amp;= -2250000 \, \text{dollars}/\text{year} + 3600000 \, \text{dollars}/\text{year}\\
@@ -418,24 +418,24 @@ T = n \cdot w\text{.}
 </div></article><article class="example example-like" id="example-82"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.6</span><span class="period">.</span>
 </h4>
-<p id="p-953">In 2020, the population in Harrisonburg, Virginia, was 51,675 and was decreasing by 245 people per year. That year, the city budget was $271.3 million, and the annual budget was decreasing at a rate $1.43 million per year. What is the rate of change of the per capita expense of running the city? Is the per person expense increasing or decreasing?</p>
+<p id="p-957">In 2020, the population in Harrisonburg, Virginia, was 51,675 and was decreasing by 245 people per year. That year, the city budget was $271.3 million, and the annual budget was decreasing at a rate $1.43 million per year. What is the rate of change of the per capita expense of running the city? Is the per person expense increasing or decreasing?</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-75" id="solution-75"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-75"><div class="solution solution-like">
-<p id="p-954">The idea of “per capita” is to divide the total amount of something by the size of the population, in order to identify the amount that would be carried per individual as if all individuals were considered equivalent. In this case, the per capita expense <span class="process-math">\(E\)</span> is the total budget <span class="process-math">\(B\)</span> divided by the size of the population <span class="process-math">\(P\text{,}\)</span></p>
+<p id="p-958">The idea of “per capita” is to divide the total amount of something by the size of the population, in order to identify the amount that would be carried per individual as if all individuals were considered equivalent. In this case, the per capita expense <span class="process-math">\(E\)</span> is the total budget <span class="process-math">\(B\)</span> divided by the size of the population <span class="process-math">\(P\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 E = \frac{B}{P}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">The question in this example is to find <span class="process-math">\(\frac{dE}{dt}\text{.}\)</span></p>
-<p id="p-955">Because the equation involves a quotient, we would use the quotient rule to find the related rates equation,</p>
+<p id="p-959">Because the equation involves a quotient, we would use the quotient rule to find the related rates equation,</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dE}{dt} = \frac{P \frac{dB}{dt} - B \frac{dP}{dt}}{P^2}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">From the given information, we find <span class="process-math">\(P=51675\)</span> (people) and <span class="process-math">\(\frac{dP}{dt}=-245\)</span> (people per year) while <span class="process-math">\(B=271.3\)</span> (million dollars) and <span class="process-math">\(\frac{dB}{dt}=-1.43\)</span> (million dollars per year). Substituting these values into the related rates equation, we find</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-129">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-131">
 \begin{align*}
 \frac{dE}{dt} &amp;= \frac{51675 \cdot (-1.43) - 271.3 \cdot (-245)}{(51675)^2}\\
 &amp;= -2.78 \times 10^{-6}

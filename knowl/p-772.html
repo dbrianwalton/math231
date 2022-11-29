@@ -12,43 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>As written, this function is a quotient. We can rewrite it as a composition of a power by rewriting the power in the denominator as multiplication by a negative power.</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-f(x) &amp;= \frac{2}{5(x^2+3x)^6}\\
-&amp;= \frac{2}{5} (x^2+3x)^{-6}
-\end{align*}
-</div>
-<p class="continuation">Our function <span class="process-math">\(y=f(x)\)</span> is now the composition (or chain)</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\begin{cases}
-y = \frac{2}{5} u^{-6} \\
-u = x^2+3x
-\end{cases}
-\end{equation*}
-</div>
-<p class="continuation">We can compute the derivatives of each stage of the composition:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\begin{cases}
-\frac{dy}{du} = \frac{2}{5} \cdot -6 u^{-7} = \frac{-12}{5} u^{-7}\\
-\frac{du}{dx} = 2x+3
-\end{cases}
-\end{equation*}
-</div>
-<p class="continuation">The chain rule says that the derivative of a composition (chain) is the product of the derivatives of each stage:</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f'(x) = \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} = \frac{-12}{5} u^{-7} \cdot (2x+3)
-\end{equation*}
-</div>
-<p class="continuation">We finish by substituting back in the formula for <span class="process-math">\(u\text{:}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-f'(x) = \frac{-12}{5(x^2+3x}^7} \cdot (2x+3) = \frac{-12(2x+3)}{5(x^2+3x)^7}\text{.}
-\end{equation*}
-</div>
+<p>A horizontal tangent corresponds to a slope that is zero. We need to find the derivative function <span class="process-math">\(R'(x)\)</span> and determine values so that <span class="process-math">\(R'(x)=0\text{.}\)</span> The function <span class="process-math">\(R(x)\)</span> is a rational function because it is a <em class="emphasis">quotient</em> of two polynomials.</p>
 <span class="incontext"><a href="sec_derivs_differentiation.html#p-772" class="internal">in-context</a></span>
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>To find the internal critical points, we need to find <span class="process-math">\(T'(a)\text{,}\)</span> which will require the chain rule for each of the square roots. The constant multiple of <span class="process-math">\(\frac{1}{c}\)</span> will remain in the derivative by the constant multiple rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T'(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} (a^2 + 2.25)^{1/2} + ((2-a)^2+1)^{1/2}\right)\right]\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \frac{d}{da}[(a^2+2.25)^{1/2}] + \frac{d}{da}[((2-a)^2+1)^{1/2}]\right)\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{1}{2}(a^2+2.25)^{-1/2} \cdot (2a) \right.\\
+&amp; \qquad \qquad \left. + \frac{1}{2}((2-a)^2+1)^{-1/2} \cdot 2(2-a) \cdot (-1)\right)\\
+&amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} - \frac{2-a}{\sqrt{(2-a)^2+1}} \right)
+\end{align*}
+</div>
+<p class="continuation">A critical point occurs where <span class="process-math">\(T'(a)=0\text{,}\)</span> which corresponds to values <span class="process-math">\(a\)</span> satisfying</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{4}{3} \cdot \frac{a}{\sqrt{a^2+2.25}} = \frac{2-a}{\sqrt{(2-a)^2+1}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This equation actually directly leads to the physics law known as Snell's law. The formula <span class="process-math">\(T'(a)\)</span> is continuous with <span class="process-math">\(T'(0)=\frac{1}{c} \cdot \frac{-2}{5} \lt 0\)</span> and <span class="process-math">\(T'(2)=\frac{1}{c} \cdot \frac{4}{3} \cdot \frac{2}{\sqrt{6.25}} \gt 0\text{.}\)</span> By the Intermediate Value Theorem, there <em class="emphasis">must</em> be a solution at some value <span class="process-math">\(a \in (0,2)\text{.}\)</span> Using Desmos.com, we can find a numerical approximate value at <span class="process-math">\(a \approx 0.962\text{.}\)</span></p>
+<span class="incontext"><a href="sec_apply_optimization.html#p-1039" class="internal">in-context</a></span>
+</body>
+</html>

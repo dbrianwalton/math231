@@ -12,12 +12,27 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>What variables are involved? The water filling the cup forms the shape of a circular cone that fits inside of the cup. Consequently, the radii and heights of the cup and the water cone form similar triangles. Let <span class="process-math">\(r\)</span> be the radius of the cone of water at the surface and let <span class="process-math">\(h\)</span> be the height or depth of water in the cup. By similarity, we require the ratios <span class="process-math">\(r/4\)</span> and <span class="process-math">\(h/10\)</span> be equal, which results in an equation</p>
+<p>Once we have this equation, notice that it involves three different variables and three rates of change. Our goal is to find the value of <span class="process-math">\(\frac{dC}{dt}\text{.}\)</span> If we solve for that in the equation, we get</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\frac{r}{4} = \frac{h}{10} \qquad \Leftrightarrow \qquad 10r = 4h\text{.}
+\frac{dC}{dt} = \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\text{.}
 \end{equation*}
 </div>
+<p class="continuation">We now all of the values required for the numerator, but we were not provided a value for <span class="process-math">\(C\text{.}\)</span> The original equation allows to solve for <span class="process-math">\(C\)</span> based on the values of <span class="process-math">\(A,B\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C = \sqrt{A^2+B^2} = \sqrt{(0.25)^2+(0.5)^2} = \sqrt{0.3125} \approx 0.5590 \, \text{mile}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using the values, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\frac{dC}{dt} &amp;= \frac{A \cdot \frac{dA}{dt} + B \cdot \frac{dB}{dt}}{C}\\
+&amp;= \frac{(0.25 \, \text{mi})(30 \, \text{mi}/\text{hr}) + (0.50 \, \text{mi})(-40 \, \text{mi}/\text{hr})}{0.5590 \, \text{mi}}\\
+&amp;\approx -22.36 \, \text{mi}/\text{hr}
+\end{align*}
+</div>
+<p class="continuation">Notice how the units work out to give a speed in miles per hour. Because the rate of change is negative, we know that the distance between the vehicles is actually decreasing at this instant.</p>
 <span class="incontext"><a href="sec_apply_related_rates.html#p-944" class="internal">in-context</a></span>
 </body>
 </html>

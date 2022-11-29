@@ -12,20 +12,13 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>The next step is to complete sign analysis. We need to find the factorization. Using either factoring by grouping or technology, we find</p>
+<p>Suppose we take any two points <span class="process-math">\(x_1,x_2 \in [a,b]\text{,}\)</span> with <span class="process-math">\(x_1 \lt x_2\text{.}\)</span> We know <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([x_1,x_2]\)</span> and differentiable on <span class="process-math">\((x_1,x_2)\)</span> since these intervals are subintervals of <span class="process-math">\([a,b]\text{.}\)</span> By the Mean Value Theorem, we know that there is some $\xi \in (x_1,x_2)$ where</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-f'(x) = 2(x^2-2)(2x-3)\text{.}
+\frac{\Delta f}{\Delta x} = \frac{f(x_2)-f(x_1)}{x_2-x_1} = f'(\xi)\text{.}
 \end{equation*}
 </div>
-<p class="continuation">The individual factors yield roots at <span class="process-math">\(x=\pm \sqrt{2}\)</span> and <span class="process-math">\(x=\frac{3}{2}\text{.}\)</span> (Don't be distracted by the constant factor 2, since no values of <span class="process-math">\(x\)</span> make <span class="process-math">\(2=0\text{.}\)</span>) We mark these three points on the number line to determine our test intervals <span class="process-math">\((-\infty,-\sqrt{2})\text{,}\)</span> <span class="process-math">\((-\sqrt{2},\sqrt{2}\text{,}\)</span> <span class="process-math">\((\sqrt{2}, \frac{3}{2})\text{,}\)</span> and <span class="process-math">\((\frac{3}{2},\infty)\text{.}\)</span> We need to test the sign of <span class="process-math">\(f'(x)\text{,}\)</span> so we calculate the sign or value of <span class="process-math">\(f'(x)=2(x^2-2)(2x-3)\)</span> at points in each interval.</p>
-<ul class="disc">
-<li><p><span class="process-math">\(f'(-4)=2((-4)^2-2)(2(-4)-3)=2(14)(-11) \lt 0\)</span> (negative)</p></li>
-<li><p><span class="process-math">\(f'(0)=2((0)^2-2)(2(0)-3)=2(-2)(-3) \gt 0\)</span> (positive)</p></li>
-<li><p><span class="process-math">\(f'(1.45)=2((1.45)^2-2)(2(1.45)-3)=2(0.1025)(-0.1) \lt 0\)</span> (negative)</p></li>
-<li><p><span class="process-math">\(f'(2)=2((2)^2-2)(2(2)-3)=2(2)(1) &gt; 0\)</span> (positive)</p></li>
-</ul>
-<p class="continuation">This is shown graphically with a sign analysis summary number line.</p>
+<p class="continuation">If <span class="process-math">\(f'(x) &gt; 0\)</span> for all <span class="process-math">\(x \in (a,b)\text{,}\)</span> then <span class="process-math">\(\frac{\Delta f}{\Delta x} \gt 0\)</span> which means <span class="process-math">\(f(x_2) \gt f(x_1)\text{.}\)</span> Since this is true for <em class="emphasis">any</em> choice of <span class="process-math">\(x_1,x_2\text{,}\)</span> this means <span class="process-math">\(f(x)\)</span> is <em class="emphasis">increasing</em> on <span class="process-math">\([a,b]\text{.}\)</span> By the same reasoning, the other conclusions also hold.</p>
 <span class="incontext"><a href="sec_apply_deriv_to_shape.html#p-828" class="internal">in-context</a></span>
 </body>
 </html>

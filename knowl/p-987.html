@@ -12,6 +12,14 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>Notice that no formulas or variables are directly introduced. Identifying these as appropriate will be part of solving the problem.</p>
+<ul class="disc">
+<li>
+<p>Identify the objective.</p>
+<p>We look for a phrase suggesting what needs to be as large or as small as possible. In this problem, we see “makes the surface area as small as possible”. This means our objective is the <em class="emphasis">surface area</em> of the rectangular box.</p>
+</li>
+<li>
+<p>Identify the control variables.</p>
 <p>How do we compute surface area? A rectangular box has six sides. Because our box has a square base, there will be two dimensional lengths—the length of each side of the square base and the height of the box. We need to state our variables:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{align*}
@@ -19,6 +27,78 @@ x &amp;= \text{length of a side of the square base}\\
 y &amp;= \text{height of the box}
 \end{align*}
 </div>
+</li>
+<li>
+<p>Write a formula for the objective.</p>
+<p>The top and bottom sides are both square with area <span class="process-math">\(x^2\text{.}\)</span> The other four sides are all the same size with base <span class="process-math">\(x\)</span> and height <span class="process-math">\(y\)</span> with area <span class="process-math">\(xy\text{.}\)</span> Our objective will be the total area <span class="process-math">\(A\)</span> calculated by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = 2x^2 + 4xy\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is a function of two control variables.</p>
+</li>
+<li>
+<p>Identify constraints.</p>
+<p>In this problem, we are told that the box must contain a volume of <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> This is a constraint. The formula for volume of our box will be <span class="process-math">\(V = x^2 y\text{,}\)</span> and our constraint equation becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x^2 y = 2\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Solve the constraint equation.</p>
+<p>We want to solve the constraint equation so that one control variable is a function of the other. In this problem, it will be easier to solve for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = \frac{2}{x^2} = 2x^{-2}\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Rewrite the objective as a function of one variable.</p>
+<p>We replace <span class="process-math">\(y\)</span> with the formula <span class="process-math">\(y=2x^{-2}\)</span> in our objective formula to get <span class="process-math">\(A\)</span> written as a function of <span class="process-math">\(x\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A(x) = 2x^2 + 4x \cdot 2x^{-2} = 2x^2 + 8x^{-1}\text{.}
+\end{equation*}
+</div>
+</li>
+<li>
+<p>Identify the domain and solve the corresponding global extreme problem.</p>
+<p>There were no extra constraints about the values of the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> There is a physical constraint that the values can not be negative. Our formula for <span class="process-math">\(y\)</span> has a domain constraint that <span class="process-math">\(x \ne 0\text{,}\)</span> so we have a domain <span class="process-math">\((0,\infty)\text{.}\)</span></p>
+<p>This domain is not a closed interval, so global extreme values are not guaranteed. We will need to consider limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(x \to \infty\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\lim_{x \to 0^+} A(x) &amp;= \lim_{x \to 0^+} [2x^2 + 8x^{-1}]\\
+&amp;= 0 + \infty = +\infty\\
+\lim_{x \to \infty} A(x) &amp;= \lim_{x \to \infty} [2x^2 + 8x^{-1}]\\
+&amp;= \infty + 0 = \infty
+\end{align*}
+</div>
+<p class="continuation">We can see that there will be no global maximum for the surface area. But we will be able to find a global minimum.</p>
+<p>We find critical points by solving <span class="process-math">\(A'(x) = 0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+A'(x) &amp;= \frac{d}{dx}[2x^2 + 8x^{-1}]\\
+&amp;= 4x - 8x^{-2} = 4x - \frac{8}{x^2}\\
+&amp;= \frac{4x^3-8}{x^2}
+\end{align*}
+</div>
+<p class="continuation">The critical points will be solutions of <span class="process-math">\(4x^3-8 = 0\)</span> or <span class="process-math">\(x^3=2\text{.}\)</span> The only critical point is at <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> Because <span class="process-math">\(A''(x) = 4+16x^{-3}\)</span> has <span class="process-math">\(A''(\sqrt[3]{2}) = 12\)</span> is positive, we know that <span class="process-math">\(A\)</span> has a local minimum at this point. Because there are no other critical points and we already eliminated both ends of the interval as being unbounded positive values, the box with minimum surface area will be constructed with <span class="process-math">\(x = \sqrt[3]{2}\text{.}\)</span></p>
+</li>
+<li>
+<p>Find the values of all control variables.</p>
+<p>We found the value of <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> We also need the value of <span class="process-math">\(y\text{.}\)</span> From the constraint, we found <span class="process-math">\(y=2x^{-2}\)</span> so that we can find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y = \frac{2}{(\sqrt[3]{2})^2} = \frac{2}{2^{2/3}} = 2^{1/3}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, we find <span class="process-math">\(y=x=\sqrt[3]{2}\text{,}\)</span> and our rectangular box is actualy a cube.</p>
+</li>
+</ul>
 <span class="incontext"><a href="sec_apply_optimization.html#p-987" class="internal">in-context</a></span>
 </body>
 </html>

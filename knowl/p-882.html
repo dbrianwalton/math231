@@ -11,20 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>Define the function measuring the difference between <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_first_deriv_monotonicity.html">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Unfortunately, differentiation is not one-to-one and so can not have a true inverse. For example, consider <span class="process-math">\(f(x) = x^4 - 3x^2 + 4\)</span> and <span class="process-math">\(g(x)=x^4 - 3x^2 - \pi\text{.}\)</span> Because the formulas involving <span class="process-math">\(x\)</span> are the same and the derivative of every constant is zero, we have both functions creating the same derivatives, <span class="process-math">\(f'(x)=g'(x)\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{gather*}
+\frac{d}{dx}[x^4-3x^2+4] = 4x^3-6x\\
+\frac{d}{dx}[x^4-3x^2-\pi] = 4x^3-6x
+\end{gather*}
+</div>
+<p class="continuation">So if we asked to find <em class="emphasis">the</em> antiderivative of <span class="process-math">\(4x^3-6x\text{,}\)</span> we know at least two possible answers and quickly realize that there are infinitely many possible answers</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-D(x) = g(x)-f(x)\text{.}
+\frac{d}{dx}^{-1}[4x^3-6x] = x^4-3x^2+C\text{,}
 \end{equation*}
 </div>
-<p class="continuation">On the interval <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and have the same derivative values, so that we have</p>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_first_deriv_monotonicity.html">
-\begin{equation*}
-D'(x) = \frac{d}{dx}[g(x)-f(x)] = g'(x)-f'(x) = 0\text{.}
-\end{equation*}
-</div>
-<p class="continuation">The <a href="" class="xref" data-knowl="./knowl/thm_first_deriv_monotonicity.html" title="Theorem 5.2.1: First Derivative Test for Monotonicity">first derivative test for monotonicity 5.2.1</a>, which was an immediate consequence of the Mean Value Theorem, proved that when a function has a derivative equal to zero on an interval, that function must be a constant on that interval, <span class="process-math">\(D(x)=C\)</span> for some constant <span class="process-math">\(C\text{.}\)</span> That is <span class="process-math">\(g(x)-f(x)=C\)</span> or <span class="process-math">\(g(x)=f(x)+C\text{.}\)</span></p>
+<p class="continuation">where <span class="process-math">\(C\)</span> could be <em class="emphasis">any</em> constant you might choose.</p>
 <span class="incontext"><a href="sec_apply_antiderivatives.html#p-882" class="internal">in-context</a></span>
 </body>
 </html>

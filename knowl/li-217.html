@@ -14,7 +14,39 @@
 <article class="li"><h5 class="heading">
 <span class="type">Item</span><span class="period">.</span>
 </h5>
-<p>Identify the control variables.</p>
-<p>The measurement that has the possibility of varying is the location where the light crosses between the water and the air. In the diagram, there is a horizontal line representing the water–air interface. The distance on the left we will call <span class="process-math">\(a\)</span> and the distance on the right we will call <span class="process-math">\(b\text{.}\)</span></p></article><span class="incontext"><a href="sec_apply_optimization.html#li-217" class="internal">in-context</a></span>
+<p>Identify the domain and solve the global optimization problem.</p>
+<p>As before, we work with <span class="process-math">\((0,\infty)\text{.}\)</span> The end point limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(\to \infty\)</span> are calculated first.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\lim_{x \to 0^+} C(x) &amp;= \lim_{x \to 0^+} [ 3px^2 + 8p x^{-1}]\\
+&amp;= 0 + \infty = \infty\\
+\lim_{x \to \infty} C(x) &amp;= \lim_{x \to \infty} [ 3px^2 + 8p x^{-1}]\\
+&amp;= \infty + 0 = \infty
+\end{align*}
+</div>
+<p class="continuation">Just as with surface area, the cost does not have a maximum value. We do still need to find the minimum.</p>
+<p>Calculate the derivative</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C'(x) = 6px - 8px^{-2} = \frac{6px^3-8p}{x^2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Find the critical points of <span class="process-math">\(C(x)\)</span> by solving <span class="process-math">\(C'(x)=0\text{.}\)</span> We need to solve <span class="process-math">\(6px^3-8p = 0\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{gather*}
+6px^3-8p = 0\\
+2p(3x^3-4) = 0\\
+3x^3-4 = 0\\
+x^3 = \frac{4}{3}\\
+x = \sqrt[3]{\frac{4}{3}} = \left(\frac{4}{3}\right)^{1/3}
+\end{gather*}
+</div>
+<p class="continuation">As before, this is the location of a minimum since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C''(x) = 6p+\frac{16p}{x^3}
+\end{equation*}
+</div>
+<p class="continuation">will be positive at the critical point.</p></article><span class="incontext"><a href="sec_apply_optimization.html#li-217" class="internal">in-context</a></span>
 </body>
 </html>

@@ -151,45 +151,45 @@ window.MathJax = {
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_apply_optimization"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.5</span> <span class="title">Optimization</span>
 </h2>
-<section class="introduction" id="introduction-27"><p id="p-956">Optimization is the use of mathematics to find how to make a quantity either as large as possible or as small as possible. Economics is often interested in optimization in order to minimize costs or to maximize profit. Physical examples are often interested in minimizing time or minimizing energy. Biological examples might be interested in maximizing growth.</p>
-<p id="p-957">Inherent in optimization problems is the need to create a model. The quantity being optimized is typically called the <dfn class="terminology">objective</dfn>. There will also be at least one quantity that is allowed to change that influences the objective. These quantities are called the <dfn class="terminology">decision</dfn> or <dfn class="terminology">control</dfn> variables. Additional values might be involved that do not change, and those will be system or model <dfn class="terminology">parameters</dfn>. Our task will be to express the objective as a function of the control variables and parameters. Using calculus, we then seek to find choices for the control variables that optimize the objective.</p>
-<p id="p-958">When there is more than one control variable, we often also include <dfn class="terminology">constraints</dfn>. A constraint is an extra equation involving the control variables that must be maintained. The effect of a constraint is that changing one control variable automatically forces other control variables to change to maintain the constraint. We will use the constraint to make a second control variable a function of the other control variable. This will allow us to think of the objective as a function of only one control variable so that our current knowledge of calculus can be used to find the optimal solution.</p></section><section class="subsection" id="subsec_apply_optimization_theory"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-27"><p id="p-960">Optimization is the use of mathematics to find how to make a quantity either as large as possible or as small as possible. Economics is often interested in optimization in order to minimize costs or to maximize profit. Physical examples are often interested in minimizing time or minimizing energy. Biological examples might be interested in maximizing growth.</p>
+<p id="p-961">Inherent in optimization problems is the need to create a model. The quantity being optimized is typically called the <dfn class="terminology">objective</dfn>. There will also be at least one quantity that is allowed to change that influences the objective. These quantities are called the <dfn class="terminology">decision</dfn> or <dfn class="terminology">control</dfn> variables. Additional values might be involved that do not change, and those will be system or model <dfn class="terminology">parameters</dfn>. Our task will be to express the objective as a function of the control variables and parameters. Using calculus, we then seek to find choices for the control variables that optimize the objective.</p>
+<p id="p-962">When there is more than one control variable, we often also include <dfn class="terminology">constraints</dfn>. A constraint is an extra equation involving the control variables that must be maintained. The effect of a constraint is that changing one control variable automatically forces other control variables to change to maintain the constraint. We will use the constraint to make a second control variable a function of the other control variable. This will allow us to think of the objective as a function of only one control variable so that our current knowledge of calculus can be used to find the optimal solution.</p></section><section class="subsection" id="subsec_apply_optimization_theory"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.5.1</span> <span class="title">Theoretical Foundations for Optimization</span>
 </h3>
-<p id="p-959">The foundational principles discussed here were discussed in <a href="sec_apply_foundations.html" class="internal" title="Section 5.1: Foundational Principles">Section 5.1</a>. We summarize them here and discuss how they will be used for our problems.</p>
-<p id="p-960">First, we emphasize the difference between <em class="emphasis">local</em> or <em class="emphasis">relative</em> extreme values and <em class="emphasis">global</em> or <em class="emphasis">absolute</em> extreme values. A local extreme is a point where a function is the maximum or minimum in some <em class="emphasis">neighborhood</em> immediately to the left or right of a point. A global extreme is always relative to a restricted subset of the domain and is a point that is the extreme value compared to <em class="emphasis">all</em> values in that set.</p>
-<p id="p-961">Optimization is usually concerned with global extremes. However, a global extreme is always either a local extreme or a boundary point. So we will be able to find global extremes by comparing all of the local extremes and boundary points.</p>
-<p id="p-962">A local extreme will always occur at a point where either <span class="process-math">\(f'(x)=0\)</span> or <span class="process-math">\(f'(x)\)</span> is undefined. (See <a href="" class="xref" data-knowl="./knowl/thm_fermat.html" title="Theorem 5.1.6: Fermat's Theorem">Theorem 5.1.6</a>.) Consequently, we will find all local extremes by calculating the derivative function and then finding where it is zero or undefined. These points are called <dfn class="terminology">critical points</dfn> of the function <span class="process-math">\(f(x)\text{.}\)</span> Further, we can use <em class="emphasis">sign analysis</em> in order to see whether each critical point is a minimum or maximum.</p>
-<p id="p-963">Alternatively, we could use the second derivative test described below.</p>
+<p id="p-963">The foundational principles discussed here were discussed in <a href="sec_apply_foundations.html" class="internal" title="Section 5.1: Foundational Principles">Section 5.1</a>. We summarize them here and discuss how they will be used for our problems.</p>
+<p id="p-964">First, we emphasize the difference between <em class="emphasis">local</em> or <em class="emphasis">relative</em> extreme values and <em class="emphasis">global</em> or <em class="emphasis">absolute</em> extreme values. A local extreme is a point where a function is the maximum or minimum in some <em class="emphasis">neighborhood</em> immediately to the left or right of a point. A global extreme is always relative to a restricted subset of the domain and is a point that is the extreme value compared to <em class="emphasis">all</em> values in that set.</p>
+<p id="p-965">Optimization is usually concerned with global extremes. However, a global extreme is always either a local extreme or a boundary point. So we will be able to find global extremes by comparing all of the local extremes and boundary points.</p>
+<p id="p-966">A local extreme will always occur at a point where either <span class="process-math">\(f'(x)=0\)</span> or <span class="process-math">\(f'(x)\)</span> is undefined. (See <a href="" class="xref" data-knowl="./knowl/thm_fermat.html" title="Theorem 5.1.6: Fermat's Theorem">Theorem 5.1.6</a>.) Consequently, we will find all local extremes by calculating the derivative function and then finding where it is zero or undefined. These points are called <dfn class="terminology">critical points</dfn> of the function <span class="process-math">\(f(x)\text{.}\)</span> Further, we can use <em class="emphasis">sign analysis</em> in order to see whether each critical point is a minimum or maximum.</p>
+<p id="p-967">Alternatively, we could use the second derivative test described below.</p>
 <article class="theorem theorem-like" id="thm_second_deriv_test_extrema"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Second Derivative Test.</span>
 </h4>
-<p id="p-964">Suppose <span class="process-math">\(f(x)\)</span> is a function with <span class="process-math">\(f'(a)=0\text{.}\)</span> If <span class="process-math">\(f''(a) \gt 0\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> has a <dfn class="terminology">local minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span> If <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> has a <dfn class="terminology">local maximum</dfn> at <span class="process-math">\(x=a\text{.}\)</span></p></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-965">Using the definition of the derivative and the statement <span class="process-math">\(f'(a)=0\text{,}\)</span> we know</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-130">
+<p id="p-968">Suppose <span class="process-math">\(f(x)\)</span> is a function with <span class="process-math">\(f'(a)=0\text{.}\)</span> If <span class="process-math">\(f''(a) \gt 0\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> has a <dfn class="terminology">local minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span> If <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> has a <dfn class="terminology">local maximum</dfn> at <span class="process-math">\(x=a\text{.}\)</span></p></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-969">Using the definition of the derivative and the statement <span class="process-math">\(f'(a)=0\text{,}\)</span> we know</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-132">
 \begin{align*}
 f''(a) &amp;= \lim_{x \to a} \frac{f'(x)-f'(a)}{x-a}\\
 &amp;= \lim_{x \to a} \frac{f'(x)}{x-a}
 \end{align*}
 </div>
 <p class="continuation">For <span class="process-math">\(x\)</span> close enough to <span class="process-math">\(a\text{,}\)</span> the sign of <span class="process-math">\(f''(a)\)</span> must be the same as the sign of <span class="process-math">\(\frac{f'(x)}{x-a}\text{.}\)</span> Consequently, the sign of <span class="process-math">\(f'(x)\)</span> must match the sign of <span class="process-math">\(f''(a) \cdot (x-a)\text{.}\)</span></p>
-<p id="p-966">In the case that <span class="process-math">\(f''(a) \gt 0\text{,}\)</span> we find that <span class="process-math">\(f'(x)\)</span> will be <em class="emphasis">negative</em> on an interval <span class="process-math">\((a-\delta, a)\)</span> and <span class="process-math">\(positive\)</span> on an interval <span class="process-math">\((a,a+\delta)\text{.}\)</span> By the first derivative test of monotonicity, this implies <span class="process-math">\(f(x)\)</span> has a local <dfn class="terminology">minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span> In a similar way, when <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> we find that <span class="process-math">\(f'(x)\)</span> will be <em class="emphasis">positive</em> on an interval <span class="process-math">\((a-\delta, a)\)</span> and <span class="process-math">\(negative\)</span> on an interval <span class="process-math">\((a,a+\delta)\)</span> so that <span class="process-math">\(f(x)\)</span> has a local <dfn class="terminology">minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span></p></article></div>
-<p id="p-967">The Extreme Value Theorem (see <a href="" class="xref" data-knowl="./knowl/thm_extreme_value_theorem.html" title="Theorem 5.1.4: Extreme Value Theorem">Theorem 5.1.4</a>) provides a guarantee that a function <span class="process-math">\(f(x)\)</span> <em class="emphasis">will</em> have both a global maximum and a global minimum when <span class="process-math">\(f(x)\)</span> is continuous and the set in question is a closed interval. If the function has a discontinuity or if the end points of an interval are not included, then we must check limits at the discontinuities and end points. If a limit exceeds that of all the attained values, then the function will not have the corresponding local extreme.</p>
+<p id="p-970">In the case that <span class="process-math">\(f''(a) \gt 0\text{,}\)</span> we find that <span class="process-math">\(f'(x)\)</span> will be <em class="emphasis">negative</em> on an interval <span class="process-math">\((a-\delta, a)\)</span> and <span class="process-math">\(positive\)</span> on an interval <span class="process-math">\((a,a+\delta)\text{.}\)</span> By the first derivative test of monotonicity, this implies <span class="process-math">\(f(x)\)</span> has a local <dfn class="terminology">minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span> In a similar way, when <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> we find that <span class="process-math">\(f'(x)\)</span> will be <em class="emphasis">positive</em> on an interval <span class="process-math">\((a-\delta, a)\)</span> and <span class="process-math">\(negative\)</span> on an interval <span class="process-math">\((a,a+\delta)\)</span> so that <span class="process-math">\(f(x)\)</span> has a local <dfn class="terminology">minimum</dfn> at <span class="process-math">\(x=a\text{.}\)</span></p></article></div>
+<p id="p-971">The Extreme Value Theorem (see <a href="" class="xref" data-knowl="./knowl/thm_extreme_value_theorem.html" title="Theorem 5.1.4: Extreme Value Theorem">Theorem 5.1.4</a>) provides a guarantee that a function <span class="process-math">\(f(x)\)</span> <em class="emphasis">will</em> have both a global maximum and a global minimum when <span class="process-math">\(f(x)\)</span> is continuous and the set in question is a closed interval. If the function has a discontinuity or if the end points of an interval are not included, then we must check limits at the discontinuities and end points. If a limit exceeds that of all the attained values, then the function will not have the corresponding local extreme.</p>
 <article class="example example-like" id="example-83"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
 </h4>
-<p id="p-968">Find the absolute maximum and minimum values of <span class="process-math">\(f(x)=x^3-12x\)</span> on <span class="process-math">\([-3,4)\text{.}\)</span></p>
+<p id="p-972">Find the absolute maximum and minimum values of <span class="process-math">\(f(x)=x^3-12x\)</span> on <span class="process-math">\([-3,4)\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-76" id="solution-76"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-76"><div class="solution solution-like">
-<p id="p-969">Our function <span class="process-math">\(f(x)\)</span> is continuous. Because the interval does not include <span class="process-math">\(x=4\text{,}\)</span> we are not guaranteed to find a global maximum and minimum. Our strategy will be to find any local extremes inside the interval, and then compare the function values at those points with the end point at <span class="process-math">\(x=-3\)</span> (which is included) and the <em class="emphasis">limit</em> of <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x=4\)</span> (which is not included).</p>
-<p id="p-970">We start by finding the derivative.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-131">
+<p id="p-973">Our function <span class="process-math">\(f(x)\)</span> is continuous. Because the interval does not include <span class="process-math">\(x=4\text{,}\)</span> we are not guaranteed to find a global maximum and minimum. Our strategy will be to find any local extremes inside the interval, and then compare the function values at those points with the end point at <span class="process-math">\(x=-3\)</span> (which is included) and the <em class="emphasis">limit</em> of <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x=4\)</span> (which is not included).</p>
+<p id="p-974">We start by finding the derivative.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-133">
 \begin{align*}
 f(x) &amp;= x^3-12x \\
 f'(x) &amp;= 3x^2-12
 \end{align*}
 </div>
 <p class="continuation">We find critical points by solving <span class="process-math">\(f'(x)=0\text{.}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-132">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-134">
 \begin{gather*}
 3x^2-12 = 0\\
 3(x^2-4) = 0\\
@@ -197,8 +197,8 @@ f'(x) &amp;= 3x^2-12
 \end{gather*}
 </div>
 <p class="continuation">So we find there are critical points at <span class="process-math">\(x=-2\)</span> and <span class="process-math">\(x=2\text{.}\)</span> Because <span class="process-math">\(f''(x)=6x\text{,}\)</span> we can use <span class="process-math">\(f''(-2)=-12\)</span> and <span class="process-math">\(f''(2)=12\)</span> to determine that <span class="process-math">\(f(x)\)</span> has a local maximum at <span class="process-math">\(x=-2\)</span> and a local minimum at <span class="process-math">\(x=2\text{.}\)</span></p>
-<p id="p-971">We will not know if they are global extremes until we compare the value of the function with the end points.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-133">
+<p id="p-975">We will not know if they are global extremes until we compare the value of the function with the end points.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-135">
 \begin{align*}
 f(-2) &amp;= (-2)^3-12(-2) = -8+24=16\\
 f(2) &amp;= (2)^3-12(2) = 8-24=-16\\
@@ -211,43 +211,43 @@ f(-3) &amp;= (-3)^3-12(-3) = -27+36=-1\\
 </div></article></section><section class="subsection" id="subsec_apply_optimization_constraints"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.5.2</span> <span class="title">Optimization Problems with Constraints</span>
 </h3>
-<p id="p-972">When solving optimization problems representing physical problems, I suggest the following approach.</p>
+<p id="p-976">When solving optimization problems representing physical problems, I suggest the following approach.</p>
 <ul class="disc">
-<li id="li-193"><p id="p-973">Identify the objective. What is the quantity that we want to be as large or as small as possible?</p></li>
-<li id="li-194"><p id="p-974">Identify the control variables. What quantities does the objective depend on that are allowed to have different values?</p></li>
-<li id="li-195"><p id="p-975">Write down the objective formula. Create an equation for the objective as a function of the control variables and other possible model parameters.</p></li>
-<li id="li-196"><p id="p-976">Identify constraints. What other equations do the control variables need to satisfy to be valid possibilities?</p></li>
-<li id="li-197"><p id="p-977">Solve the constraint equations to get all control variables as a function of just one remaining control variable.</p></li>
-<li id="li-198"><p id="p-978">Rewrite the objective as a function of the one remaining control variable.</p></li>
-<li id="li-199"><p id="p-979">Identify the physical domain for the control variable and solve the resulting global extreme value problem.</p></li>
-<li id="li-200"><p id="p-980">Find the values of each of the control variables.</p></li>
+<li id="li-196"><p id="p-977">Identify the objective. What is the quantity that we want to be as large or as small as possible?</p></li>
+<li id="li-197"><p id="p-978">Identify the control variables. What quantities does the objective depend on that are allowed to have different values?</p></li>
+<li id="li-198"><p id="p-979">Write down the objective formula. Create an equation for the objective as a function of the control variables and other possible model parameters.</p></li>
+<li id="li-199"><p id="p-980">Identify constraints. What other equations do the control variables need to satisfy to be valid possibilities?</p></li>
+<li id="li-200"><p id="p-981">Solve the constraint equations to get all control variables as a function of just one remaining control variable.</p></li>
+<li id="li-201"><p id="p-982">Rewrite the objective as a function of the one remaining control variable.</p></li>
+<li id="li-202"><p id="p-983">Identify the physical domain for the control variable and solve the resulting global extreme value problem.</p></li>
+<li id="li-203"><p id="p-984">Find the values of each of the control variables.</p></li>
 </ul>
-<p id="p-981">Geometric problems are often used to illustrate and practice the ideas of optimization.</p>
+<p id="p-985">Geometric problems are often used to illustrate and practice the ideas of optimization.</p>
 <article class="example example-like" id="example-84"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span>
 </h4>
-<p id="p-982">A rectangular box with a square base is to be constructed so that the total volume is <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> What are the dimensions of the box that makes the surface area as small as possible.</p>
+<p id="p-986">A rectangular box with a square base is to be constructed so that the total volume is <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> What are the dimensions of the box that makes the surface area as small as possible.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-77" id="solution-77"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-77"><div class="solution solution-like">
-<p id="p-983">Notice that no formulas or variables are directly introduced. Identifying these as appropriate will be part of solving the problem.</p>
+<p id="p-987">Notice that no formulas or variables are directly introduced. Identifying these as appropriate will be part of solving the problem.</p>
 <ul class="disc">
-<li id="li-201">
-<p id="p-984">Identify the objective.</p>
-<p id="p-985">We look for a phrase suggesting what needs to be as large or as small as possible. In this problem, we see “makes the surface area as small as possible”. This means our objective is the <em class="emphasis">surface area</em> of the rectangular box.</p>
+<li id="li-204">
+<p id="p-988">Identify the objective.</p>
+<p id="p-989">We look for a phrase suggesting what needs to be as large or as small as possible. In this problem, we see “makes the surface area as small as possible”. This means our objective is the <em class="emphasis">surface area</em> of the rectangular box.</p>
 </li>
-<li id="li-202">
-<p id="p-986">Identify the control variables.</p>
-<p id="p-987">How do we compute surface area? A rectangular box has six sides. Because our box has a square base, there will be two dimensional lengths—the length of each side of the square base and the height of the box. We need to state our variables:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-134">
+<li id="li-205">
+<p id="p-990">Identify the control variables.</p>
+<p id="p-991">How do we compute surface area? A rectangular box has six sides. Because our box has a square base, there will be two dimensional lengths—the length of each side of the square base and the height of the box. We need to state our variables:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-136">
 \begin{align*}
 x &amp;= \text{length of a side of the square base}\\
 y &amp;= \text{height of the box}
 \end{align*}
 </div>
 </li>
-<li id="li-203">
-<p id="p-988">Write a formula for the objective.</p>
-<p id="p-989">The top and bottom sides are both square with area <span class="process-math">\(x^2\text{.}\)</span> The other four sides are all the same size with base <span class="process-math">\(x\)</span> and height <span class="process-math">\(y\)</span> with area <span class="process-math">\(xy\text{.}\)</span> Our objective will be the total area <span class="process-math">\(A\)</span> calculated by</p>
+<li id="li-206">
+<p id="p-992">Write a formula for the objective.</p>
+<p id="p-993">The top and bottom sides are both square with area <span class="process-math">\(x^2\text{.}\)</span> The other four sides are all the same size with base <span class="process-math">\(x\)</span> and height <span class="process-math">\(y\)</span> with area <span class="process-math">\(xy\text{.}\)</span> Our objective will be the total area <span class="process-math">\(A\)</span> calculated by</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = 2x^2 + 4xy\text{.}
@@ -255,38 +255,38 @@ A = 2x^2 + 4xy\text{.}
 </div>
 <p class="continuation">This is a function of two control variables.</p>
 </li>
-<li id="li-204">
-<p id="p-990">Identify constraints.</p>
-<p id="p-991">In this problem, we are told that the box must contain a volume of <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> This is a constraint. The formula for volume of our box will be <span class="process-math">\(V = x^2 y\text{,}\)</span> and our constraint equation becomes</p>
+<li id="li-207">
+<p id="p-994">Identify constraints.</p>
+<p id="p-995">In this problem, we are told that the box must contain a volume of <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> This is a constraint. The formula for volume of our box will be <span class="process-math">\(V = x^2 y\text{,}\)</span> and our constraint equation becomes</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x^2 y = 2\text{.}
 \end{equation*}
 </div>
 </li>
-<li id="li-205">
-<p id="p-992">Solve the constraint equation.</p>
-<p id="p-993">We want to solve the constraint equation so that one control variable is a function of the other. In this problem, it will be easier to solve for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{,}\)</span></p>
+<li id="li-208">
+<p id="p-996">Solve the constraint equation.</p>
+<p id="p-997">We want to solve the constraint equation so that one control variable is a function of the other. In this problem, it will be easier to solve for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 y = \frac{2}{x^2} = 2x^{-2}\text{.}
 \end{equation*}
 </div>
 </li>
-<li id="li-206">
-<p id="p-994">Rewrite the objective as a function of one variable.</p>
-<p id="p-995">We replace <span class="process-math">\(y\)</span> with the formula <span class="process-math">\(y=2x^{-2}\)</span> in our objective formula to get <span class="process-math">\(A\)</span> written as a function of <span class="process-math">\(x\text{,}\)</span></p>
+<li id="li-209">
+<p id="p-998">Rewrite the objective as a function of one variable.</p>
+<p id="p-999">We replace <span class="process-math">\(y\)</span> with the formula <span class="process-math">\(y=2x^{-2}\)</span> in our objective formula to get <span class="process-math">\(A\)</span> written as a function of <span class="process-math">\(x\text{,}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A(x) = 2x^2 + 4x \cdot 2x^{-2} = 2x^2 + 8x^{-1}\text{.}
 \end{equation*}
 </div>
 </li>
-<li id="li-207">
-<p id="p-996">Identify the domain and solve the corresponding global extreme problem.</p>
-<p id="p-997">There were no extra constraints about the values of the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> There is a physical constraint that the values can not be negative. Our formula for <span class="process-math">\(y\)</span> has a domain constraint that <span class="process-math">\(x \ne 0\text{,}\)</span> so we have a domain <span class="process-math">\((0,\infty)\text{.}\)</span></p>
-<p id="p-998">This domain is not a closed interval, so global extreme values are not guaranteed. We will need to consider limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(x \to \infty\text{.}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-135">
+<li id="li-210">
+<p id="p-1000">Identify the domain and solve the corresponding global extreme problem.</p>
+<p id="p-1001">There were no extra constraints about the values of the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> There is a physical constraint that the values can not be negative. Our formula for <span class="process-math">\(y\)</span> has a domain constraint that <span class="process-math">\(x \ne 0\text{,}\)</span> so we have a domain <span class="process-math">\((0,\infty)\text{.}\)</span></p>
+<p id="p-1002">This domain is not a closed interval, so global extreme values are not guaranteed. We will need to consider limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(x \to \infty\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-137">
 \begin{align*}
 \lim_{x \to 0^+} A(x) &amp;= \lim_{x \to 0^+} [2x^2 + 8x^{-1}]\\
 &amp;= 0 + \infty = +\infty\\
@@ -295,8 +295,8 @@ A(x) = 2x^2 + 4x \cdot 2x^{-2} = 2x^2 + 8x^{-1}\text{.}
 \end{align*}
 </div>
 <p class="continuation">We can see that there will be no global maximum for the surface area. But we will be able to find a global minimum.</p>
-<p id="p-999">We find critical points by solving <span class="process-math">\(A'(x) = 0\text{.}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-136">
+<p id="p-1003">We find critical points by solving <span class="process-math">\(A'(x) = 0\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-138">
 \begin{align*}
 A'(x) &amp;= \frac{d}{dx}[2x^2 + 8x^{-1}]\\
 &amp;= 4x - 8x^{-2} = 4x - \frac{8}{x^2}\\
@@ -305,9 +305,9 @@ A'(x) &amp;= \frac{d}{dx}[2x^2 + 8x^{-1}]\\
 </div>
 <p class="continuation">The critical points will be solutions of <span class="process-math">\(4x^3-8 = 0\)</span> or <span class="process-math">\(x^3=2\text{.}\)</span> The only critical point is at <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> Because <span class="process-math">\(A''(x) = 4+16x^{-3}\)</span> has <span class="process-math">\(A''(\sqrt[3]{2}) = 12\)</span> is positive, we know that <span class="process-math">\(A\)</span> has a local minimum at this point. Because there are no other critical points and we already eliminated both ends of the interval as being unbounded positive values, the box with minimum surface area will be constructed with <span class="process-math">\(x = \sqrt[3]{2}\text{.}\)</span></p>
 </li>
-<li id="li-208">
-<p id="p-1000">Find the values of all control variables.</p>
-<p id="p-1001">We found the value of <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> We also need the value of <span class="process-math">\(y\text{.}\)</span> From the constraint, we found <span class="process-math">\(y=2x^{-2}\)</span> so that we can find</p>
+<li id="li-211">
+<p id="p-1004">Find the values of all control variables.</p>
+<p id="p-1005">We found the value of <span class="process-math">\(x=\sqrt[3]{2}\text{.}\)</span> We also need the value of <span class="process-math">\(y\text{.}\)</span> From the constraint, we found <span class="process-math">\(y=2x^{-2}\)</span> so that we can find</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 y = \frac{2}{(\sqrt[3]{2})^2} = \frac{2}{2^{2/3}} = 2^{1/3}\text{.}
@@ -317,48 +317,48 @@ y = \frac{2}{(\sqrt[3]{2})^2} = \frac{2}{2^{2/3}} = 2^{1/3}\text{.}
 </li>
 </ul>
 </div></div>
-</div></article><p id="p-1002">If we add cost information, a geometric problem becomes an economic problem.</p>
+</div></article><p id="p-1006">If we add cost information, a geometric problem becomes an economic problem.</p>
 <article class="example example-like" id="example-85"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span>
 </h4>A rectangular box with a square base is to be constructed so that the total volume is <span class="process-math">\(2 \, \text{m}^3\text{.}\)</span> The box will have no top. The material used to make the base costs three times as much per unit area as the material used on the four sies. What are the dimensions of the box that will be the least expensive.<div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-78" id="solution-78"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-78"><div class="solution solution-like">
-<p id="p-1003">Many of the steps are identical to the previous example.</p>
+<p id="p-1007">Many of the steps are identical to the previous example.</p>
 <ul class="disc">
-<li id="li-209">
-<p id="p-1004">Identify the objective.</p>
-<p id="p-1005">This time, the phrase that tips off the objective is the phrase “least expensive”. That is, our objective will be the material cost of the box <span class="process-math">\(C\text{.}\)</span></p>
+<li id="li-212">
+<p id="p-1008">Identify the objective.</p>
+<p id="p-1009">This time, the phrase that tips off the objective is the phrase “least expensive”. That is, our objective will be the material cost of the box <span class="process-math">\(C\text{.}\)</span></p>
 </li>
-<li id="li-210">
-<p id="p-1006">Identify control variables.</p>
-<p id="p-1007">This is the same as the previous example.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-137">
+<li id="li-213">
+<p id="p-1010">Identify control variables.</p>
+<p id="p-1011">This is the same as the previous example.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-139">
 \begin{align*}
 x &amp;= \text{length of a side of the square base}\\
 y &amp;= \text{height of the box}
 \end{align*}
 </div>
 </li>
-<li id="li-211">
-<p id="p-1008">Write a formula for the objective.</p>
-<p id="p-1009">There will be a model parameter for this problem, the unit cost of material for the sides, which we represent with <span class="process-math">\(p\text{.}\)</span> The cost for the square base will be <span class="process-math">\(3p\)</span> per unit area. The total cost of materials is then given by</p>
+<li id="li-214">
+<p id="p-1012">Write a formula for the objective.</p>
+<p id="p-1013">There will be a model parameter for this problem, the unit cost of material for the sides, which we represent with <span class="process-math">\(p\text{.}\)</span> The cost for the square base will be <span class="process-math">\(3p\)</span> per unit area. The total cost of materials is then given by</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 C = 3p \cdot x^2 + p \cdot 4xy\text{.}
 \end{equation*}
 </div>
 </li>
-<li id="li-212">
-<p id="p-1010">The constraint equation and solving for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\)</span> will be the same as before.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-138">
+<li id="li-215">
+<p id="p-1014">The constraint equation and solving for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\)</span> will be the same as before.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-140">
 \begin{gather*}
 x^2 y = 2\\
 y = 2x^{-2}
 \end{gather*}
 </div>
 </li>
-<li id="li-213">
-<p id="p-1011">Rewrite the objective as a function of one control variable.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-139">
+<li id="li-216">
+<p id="p-1015">Rewrite the objective as a function of one control variable.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-141">
 \begin{align*}
 C &amp;= 3px^2 + 4pxy\\
 C(x) &amp;= 3px^2 + 4px \cdot 2x^{-2}\\
@@ -366,10 +366,10 @@ C(x) &amp;= 3px^2 + 4px \cdot 2x^{-2}\\
 \end{align*}
 </div>
 </li>
-<li id="li-214">
-<p id="p-1013">Identify the domain and solve the global optimization problem.</p>
-<p id="p-1014">As before, we work with <span class="process-math">\((0,\infty)\text{.}\)</span> The end point limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(\to \infty\)</span> are calculated first.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-140">
+<li id="li-217">
+<p id="p-1017">Identify the domain and solve the global optimization problem.</p>
+<p id="p-1018">As before, we work with <span class="process-math">\((0,\infty)\text{.}\)</span> The end point limits <span class="process-math">\(x \to 0\)</span> and <span class="process-math">\(\to \infty\)</span> are calculated first.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-142">
 \begin{align*}
 \lim_{x \to 0^+} C(x) &amp;= \lim_{x \to 0^+} [ 3px^2 + 8p x^{-1}]\\
 &amp;= 0 + \infty = \infty\\
@@ -378,14 +378,14 @@ C(x) &amp;= 3px^2 + 4px \cdot 2x^{-2}\\
 \end{align*}
 </div>
 <p class="continuation">Just as with surface area, the cost does not have a maximum value. We do still need to find the minimum.</p>
-<p id="p-1015">Calculate the derivative</p>
+<p id="p-1019">Calculate the derivative</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 C'(x) = 6px - 8px^{-2} = \frac{6px^3-8p}{x^2}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Find the critical points of <span class="process-math">\(C(x)\)</span> by solving <span class="process-math">\(C'(x)=0\text{.}\)</span> We need to solve <span class="process-math">\(6px^3-8p = 0\text{:}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-141">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-143">
 \begin{gather*}
 6px^3-8p = 0\\
 2p(3x^3-4) = 0\\
@@ -402,10 +402,10 @@ C''(x) = 6p+\frac{16p}{x^3}
 </div>
 <p class="continuation">will be positive at the critical point.</p>
 </li>
-<li id="li-215">
-<p id="p-1016">Find the values of all control variables.</p>
-<p id="p-1017">We know <span class="process-math">\(y=2x^{-2}\text{.}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-142">
+<li id="li-218">
+<p id="p-1020">Find the values of all control variables.</p>
+<p id="p-1021">We know <span class="process-math">\(y=2x^{-2}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-144">
 \begin{align*}
 x &amp;= \left(\frac{4}{3}\right)^{1/3} \approx 1.101\\
 y &amp;= 2 \left(\frac{4}{3}\right)^{-2/3} \approx 1.651
@@ -414,39 +414,39 @@ y &amp;= 2 \left(\frac{4}{3}\right)^{-2/3} \approx 1.651
 </li>
 </ul>
 </div></div>
-</div></article><p id="p-1018">In physics, the principle of least time explains how light bends due to a change in the index of refraction. We can recreate the calculation by considering two different media light must travel through. In air, light travels close to the speed of light in a vacuum <span class="process-math">\(c\text{.}\)</span> In water, the speed of light is slower <span class="process-math">\(c_w\)</span> such that <span class="process-math">\(c_w = \frac{3}{4} c\text{.}\)</span> We will find the path that light follows to minimize time, and this will be the path that light actually follows.</p>
+</div></article><p id="p-1022">In physics, the principle of least time explains how light bends due to a change in the index of refraction. We can recreate the calculation by considering two different media light must travel through. In air, light travels close to the speed of light in a vacuum <span class="process-math">\(c\text{.}\)</span> In water, the speed of light is slower <span class="process-math">\(c_w\)</span> such that <span class="process-math">\(c_w = \frac{3}{4} c\text{.}\)</span> We will find the path that light follows to minimize time, and this will be the path that light actually follows.</p>
 <article class="example example-like" id="example-86"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.5</span><span class="period">.</span>
 </h4>
-<p id="p-1019">Light travels from an object submerged 1 m under water to the surface and then travels to an observerer 1.5 m above the surface and displaced horizontally by 2 meters. Find the path that minimizes the total time of travel from the object to the observer.</p>
+<p id="p-1023">Light travels from an object submerged 1 m under water to the surface and then travels to an observerer 1.5 m above the surface and displaced horizontally by 2 meters. Find the path that minimizes the total time of travel from the object to the observer.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-79" id="solution-79"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-79"><div class="solution solution-like">
-<p id="p-1020">It often helps to visualize a problem by drawing a diagram.</p>
+<p id="p-1024">It often helps to visualize a problem by drawing a diagram.</p>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img_refraction_model_layout.svg" role="img" class="contained"></div>
-<p id="p-1021">We made sure to draw the diagram so that we did <em class="emphasis">not</em> choose a straight line path between the object and the observer in case that isn't the ultimate answer.</p>
-<p id="p-1022">Let us set up the optimization problem.</p>
+<p id="p-1025">We made sure to draw the diagram so that we did <em class="emphasis">not</em> choose a straight line path between the object and the observer in case that isn't the ultimate answer.</p>
+<p id="p-1026">Let us set up the optimization problem.</p>
 <ul class="disc">
-<li id="li-216">
-<p id="p-1023">Identify the objective.</p>
-<p id="p-1024">We want to minimize the total time it takes light to travel from the object to the observer. Consequently, the objective is <span class="process-math">\(T\text{,}\)</span> the time of travel.</p>
+<li id="li-219">
+<p id="p-1027">Identify the objective.</p>
+<p id="p-1028">We want to minimize the total time it takes light to travel from the object to the observer. Consequently, the objective is <span class="process-math">\(T\text{,}\)</span> the time of travel.</p>
 </li>
-<li id="li-217">
-<p id="p-1025">Identify the control variables.</p>
-<p id="p-1026">The measurement that has the possibility of varying is the location where the light crosses between the water and the air. In the diagram, there is a horizontal line representing the water–air interface. The distance on the left we will call <span class="process-math">\(a\)</span> and the distance on the right we will call <span class="process-math">\(b\text{.}\)</span></p>
+<li id="li-220">
+<p id="p-1029">Identify the control variables.</p>
+<p id="p-1030">The measurement that has the possibility of varying is the location where the light crosses between the water and the air. In the diagram, there is a horizontal line representing the water–air interface. The distance on the left we will call <span class="process-math">\(a\)</span> and the distance on the right we will call <span class="process-math">\(b\text{.}\)</span></p>
 </li>
-<li id="li-218">
-<p id="p-1027">Compute the objective in terms of the control variables.</p>
-<p id="p-1028">From the diagram, we see two right triangles, and light will be traveling along the hypotenuses. The time for each segment of the journey is calculated by the distance traveled divided by the speed of travel. We therefore find</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-143">
+<li id="li-221">
+<p id="p-1031">Compute the objective in terms of the control variables.</p>
+<p id="p-1032">From the diagram, we see two right triangles, and light will be traveling along the hypotenuses. The time for each segment of the journey is calculated by the distance traveled divided by the speed of travel. We therefore find</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-145">
 \begin{align*}
 T &amp;= \frac{\sqrt{a^2+1.5^2}}{c_w} + \frac{\sqrt{b^2+1^2}}{c}\\
 &amp;= \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{b^2+1}}{c}
 \end{align*}
 </div>
 </li>
-<li id="li-219">
-<p id="p-1029">Identify constraints and solve in terms of one variable.</p>
-<p id="p-1030">The values <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> can not be chosen arbitrarily. We have a constraint based on the total horizontal displacement,</p>
+<li id="li-222">
+<p id="p-1033">Identify constraints and solve in terms of one variable.</p>
+<p id="p-1034">The values <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> can not be chosen arbitrarily. We have a constraint based on the total horizontal displacement,</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a+b = 2\text{.}
@@ -459,9 +459,9 @@ b = 2-a\text{.}
 \end{equation*}
 </div>
 </li>
-<li id="li-220">
-<p id="p-1031">Rewrite the objective as a function of a single control variable.</p>
-<p id="p-1032">We can rewrite the time of travel</p>
+<li id="li-223">
+<p id="p-1035">Rewrite the objective as a function of a single control variable.</p>
+<p id="p-1036">We can rewrite the time of travel</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(a) = \frac{\sqrt{a^2+2.25}}{c_w} + \frac{\sqrt{(2-a)^2+1}}{c}\text{.}
@@ -474,11 +474,11 @@ T(a) = \frac{1}{c} \left(\frac{4}{3}\sqrt{a^2+2.25} + \sqrt{(2-a)^2+1}\right)\te
 \end{equation*}
 </div>
 </li>
-<li id="li-221">
-<p id="p-1033">Identify the physical domain and solve the optimization.</p>
-<p id="p-1034">In principle, there is no real domain constraint on <span class="process-math">\(a\text{.}\)</span> However, it is clear that <span class="process-math">\(a \lt 0\)</span> or <span class="process-math">\(a \gt 2\)</span> will not lead to minimum time. So we will use a constrained domain that <span class="process-math">\(a\)</span> is in <span class="process-math">\([0,2]\text{.}\)</span> Because <span class="process-math">\(T(a)\)</span> is continuous on the closed interval <span class="process-math">\([0,2]\text{,}\)</span> there is guaranteed to be a minimum time path and maximum time path within this domain. We seek the minimum time path.</p>
-<p id="p-1035">To find the internal critical points, we need to find <span class="process-math">\(T'(a)\text{,}\)</span> which will require the chain rule for each of the square roots. The constant multiple of <span class="process-math">\(\frac{1}{c}\)</span> will remain in the derivative by the constant multiple rule.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-144">
+<li id="li-224">
+<p id="p-1037">Identify the physical domain and solve the optimization.</p>
+<p id="p-1038">In principle, there is no real domain constraint on <span class="process-math">\(a\text{.}\)</span> However, it is clear that <span class="process-math">\(a \lt 0\)</span> or <span class="process-math">\(a \gt 2\)</span> will not lead to minimum time. So we will use a constrained domain that <span class="process-math">\(a\)</span> is in <span class="process-math">\([0,2]\text{.}\)</span> Because <span class="process-math">\(T(a)\)</span> is continuous on the closed interval <span class="process-math">\([0,2]\text{,}\)</span> there is guaranteed to be a minimum time path and maximum time path within this domain. We seek the minimum time path.</p>
+<p id="p-1039">To find the internal critical points, we need to find <span class="process-math">\(T'(a)\text{,}\)</span> which will require the chain rule for each of the square roots. The constant multiple of <span class="process-math">\(\frac{1}{c}\)</span> will remain in the derivative by the constant multiple rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-146">
 \begin{align*}
 T'(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} (a^2 + 2.25)^{1/2} + ((2-a)^2+1)^{1/2}\right)\right]\\
 &amp;= \frac{1}{c} \cdot \left( \frac{4}{3} \frac{d}{da}[(a^2+2.25)^{1/2}] + \frac{d}{da}[((2-a)^2+1)^{1/2}]\right)\\
@@ -494,8 +494,8 @@ T'(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} (a^2 + 2.25
 \end{equation*}
 </div>
 <p class="continuation">This equation actually directly leads to the physics law known as Snell's law. The formula <span class="process-math">\(T'(a)\)</span> is continuous with <span class="process-math">\(T'(0)=\frac{1}{c} \cdot \frac{-2}{5} \lt 0\)</span> and <span class="process-math">\(T'(2)=\frac{1}{c} \cdot \frac{4}{3} \cdot \frac{2}{\sqrt{6.25}} \gt 0\text{.}\)</span> By the Intermediate Value Theorem, there <em class="emphasis">must</em> be a solution at some value <span class="process-math">\(a \in (0,2)\text{.}\)</span> Using Desmos.com, we can find a numerical approximate value at <span class="process-math">\(a \approx 0.962\text{.}\)</span></p>
-<p id="p-1036">Calculating <span class="process-math">\(T''(a)\text{,}\)</span> it will be easier to use the product rule than the quotient rule.</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-145">
+<p id="p-1040">Calculating <span class="process-math">\(T''(a)\text{,}\)</span> it will be easier to use the product rule than the quotient rule.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-147">
 \begin{align*}
 T''(a) &amp;= \frac{d}{da}\left[ \frac{1}{c} \cdot \left( \frac{4}{3} a (a^2+2.25)^{-1/2} - (2-a)((2-a)^2+1)^{-1/2} \right)\right]\\
 &amp;= \frac{1}{c}\Big( \frac{4}{3} (1) (a^2+2.25)^{-1/2} \\

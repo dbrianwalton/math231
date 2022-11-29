@@ -12,7 +12,19 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p><em class="emphasis">Learning Objective D-11</em>: Using the chain rule to find a derivative for a composition involving a power.</p>
+<p>Suppose that a function is constructed from simpler functions, each of which has a known derivative or differentiation rule. In particular, we will assume that <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> stand for differentiable functions and that <span class="process-math">\(k\)</span> stands for some constant.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+&amp; \frac{d}{dx}\big[f(x) + k\big] = f'(x) &amp; \text{Constant Sum Rule}\\
+&amp; \frac{d}{dx}\big[k \cdot f(x)\big] = k \cdot f'(x) &amp; \text{Constant Multiple Rule}\\
+&amp; \frac{d}{dx}\big[ f(x) + g(x) \big] = f'(x) + g'(x) &amp; \text{Sum Rule}\\
+&amp; \frac{d}{dx}\big[ f(x) - g(x) \big] = f'(x) - g'(x) &amp; \text{Difference Rule}\\
+&amp; \frac{d}{dx}\big[ f(x) \cdot g(x) \big] = f'(x) g(x) + f(x) g'(x) &amp; \text{Prodcut Rule}\\
+&amp; \frac{d}{dx}\left[ \frac{f(x)}{g(x)} \right] = \frac{f'(x) g(x) - f(x) g'(x)}{(g(x))^2} &amp; \text{Quotient Rule}\\
+&amp; \frac{d}{dx}\left[ f \circ g(x) \right] = \frac{d}{dx}\left[ f\big(g(x)\big) \right]
+= f'\big( g(x) \big) \cdot g'(x) &amp; \text{Chain Rule}
+\end{align*}
+</div>
 <span class="incontext"><a href="sec_derivs_differentiation.html#p-765" class="internal">in-context</a></span>
 </body>
 </html>
