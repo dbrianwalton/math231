@@ -376,7 +376,7 @@
                 <p>
                     To find <m>R'(x)</m>, we need to use the <em>quotient rule</em> because <m>R(x)</m> itself is a quotient.
                     <md>
-                        <mrow>R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} </mrow>
+                        <mrow>R'(x) &amp;= \frac{d}{dx}\left[ \frac{x^2+2x}{2x^2+1} \right] </mrow>
                         <mrow> &amp;= \frac{\frac{d}{dx}[x^2+2x] \cdot (2x^2+1) - (x^2+2x) \cdot \frac{d}{dx}[2x^2+1]}{(2x^2+1)^2} </mrow>
                         <mrow> &amp;= \frac{(2x+2)(2x^2+1) - (x^2+2x)(4x)}{(2x^2+1)^2} </mrow>
                         <mrow> &amp;= \frac{(4x^3+4x^2+2x+2) - (4x^3+8x^2)}{(2x^2+1)^2} </mrow>
